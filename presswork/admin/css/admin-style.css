@@ -1,0 +1,91 @@
+#presswork {
+	width: 760px;
+	padding: 20px;
+	border: 1px solid #aeaeae;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	clear: both;
+	float: left;
+	background: #fff;
+	}
+	
+	.pw-logo {
+		width: 260px;
+		margin: auto;
+		display: block;
+		margin-bottom: 20px;
+		}
+
+	.activate,
+	.deactivate {
+		display: block;
+		width: 291px;
+		margin: 20px auto; 	
+		}
+
+.pw-newversion {
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-style:solid;
+	border-width:1px;
+	margin: 10px 0 0;
+	padding: 6px 8px;
+	background-color:#444;
+	border-color:#222;
+	color: #fff;
+	margin: 0;
+	clear: both;
+	margin-top: 10px;
+	float: left;
+	width: 100%;
+	box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
+	}	
+	.pw-newversion a {
+		color: #fff;
+		}
+	
+#ajaxloader {
+	background: url(../images/loader.gif) no-repeat;
+	display: none;
+	float: right;
+	width: 64px;
+	height: 64px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	}	
+	
+.active {
+	width: 291px;
+	height: 50px;
+	display: block;
+	margin: 20px auto;
+	background: url(../images/button_activate.png) no-repeat;
+	}
+	
+	.active.deactivate {
+		background: url(../images/button_deactivate.png) no-repeat;
+		}		
+		
+.pw-twitter {
+	background: url(../images/sprite.png) no-repeat -165px -60px;
+	padding-left: 30px;
+	font-size: 14px;
+	float: left;
+	margin: 30px 0 0;
+	}
+	
+.pw-briefcase {
+	background: url(../images/logo_bc.jpg) no-repeat right;
+	font-size: 14px;
+	height: 56px;
+	line-height: 78px;
+	float: right;
+	padding-right: 165px;
+	width: 190px;
+	margin: 0;
+	}
