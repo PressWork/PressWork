@@ -79,6 +79,31 @@ include(TEMPLATEPATH.'/admin/inc/columns.php');
 include(TEMPLATEPATH.'/admin/inc/widget_twitter.php');
 include(TEMPLATEPATH.'/admin/inc/widget_featured.php');
 
+/**
+ * Load custom-actions.php file if it exists in the uploads folder
+ *
+ * @since PressWork 1.0
+ */
+$upload_dir = wp_upload_dir();
+if(!defined('ACTION_FILE'))
+	define('ACTION_FILE', $upload_dir['basedir'].'/custom-actions.php');
+if(file_exists(ACTION_FILE))
+	include(ACTION_FILE);
+
+/**
+ * Load custom.css file if it exists in the uploads folder
+ *
+ * @since PressWork 1.0
+ */
+define('CSS_FILE', $upload_dir['basedir'].'/custom.css');
+define('CSS_DISPLAY', $upload_dir['baseurl'].'/custom.css');
+if(file_exists(CSS_FILE))
+	add_action("wp_head", "add_custom_css_file");
+
+function add_custom_css_file() {
+	echo '<link rel="stylesheet" href="'.CSS_DISPLAY.'" type="text/css" media="screen" />'."\n";
+}
+	
 /** Tell WordPress to run presswork_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'presswork_setup' );
 
