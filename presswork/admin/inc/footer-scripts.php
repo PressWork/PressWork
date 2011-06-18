@@ -78,7 +78,14 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 			$("#pw_style_preview").append(addstyle);
 		});
 	});
-
+	$(".font-option").click(function() { 
+		$(".font-option").removeClass("active");
+		$("#new-font-style").remove();
+		$(this).addClass("active");
+		var theID = $(this).attr("id");
+		$("input#font_option").val(theID);
+		$("head").append('<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/admin/css/' + theID + '.css" id="new-font-style" media="screen" />');
+	});
 	$(".add-item").click(function(){
 		if($(this).hasClass("disabled")) {
 			// nothing

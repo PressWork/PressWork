@@ -24,20 +24,20 @@ function pw_toolbox() {
                 <select id="layoutselect">
  					<option value="--">--</option>
  					<option value="header">Header</option>
- 					<option value="main">Main Content</option>
+ 					<option value="layout">Main Content</option>
  					<option value="footer">Footer</option>
  				</select>
                 </div>
  				<div class="pw-items">
-	 				<a href="javascript:void(0)" class="add-item header-item<?php $loc = strpos(theme_option('header_option'), 'blogname'); if($loc!==false) echo " disabled"; ?>" key="blogname" rel="headerbanner|header">Blog Name</a>
-					<a href="javascript:void(0)" class="add-item header-item<?php $loc = strpos(theme_option('header_option'), 'description'); if($loc!==false) echo " disabled"; ?>" key="description" rel="headerbanner|header">Description</a>
-					<a href="javascript:void(0)" class="add-item header-item<?php $loc = strpos(theme_option('header_option'), 'nav'); if($loc!==false) echo " disabled"; ?>" key="nav" rel="headerbanner|header">Nav Menu</a>
-					<a href="javascript:void(0)" class="add-item header-item<?php $loc = strpos(theme_option('header_option'), 'subnav'); if($loc!==false) echo " disabled"; ?>" key="subnav" rel="headerbanner|header">Sub Nav Menu</a>
-					<a href="javascript:void(0)" class="add-item header-item<?php $loc = strpos(theme_option('header_option'), 'headerarea'); if($loc!==false) echo " disabled"; ?>" key="headerarea" rel="headerbanner|header">Widgetized Area</a>
-					<a href="javascript:void(0)" class="add-item main-item<?php $loc = strpos(theme_option('layout_option'), 'firstsidebar'); if($loc!==false) echo " disabled"; ?>" key="firstsidebar" rel="main-wrapper|layout">First Sidebar</a>
-					<a href="javascript:void(0)" class="add-item main-item<?php $loc = strpos(theme_option('layout_option'), 'secondsidebar'); if($loc!==false) echo " disabled"; ?>" key="secondsidebar" rel="main-wrapper|layout">Second Sidebar</a>
-					<a href="javascript:void(0)" class="add-item footer-item<?php $loc = strpos(theme_option('footer_option'), 'extendedfooter'); if($loc!==false) echo " disabled"; ?>" key="extendedfooter" rel="footer|footer">Extended Footer</a>
-					<a href="javascript:void(0)" class="add-item footer-item<?php $loc = strpos(theme_option('footer_option'), 'copyright'); if($loc!==false) echo " disabled"; ?>" key="copyright" rel="footer|footer">Copyright</a>
+ 					<?php pw_add_element_option('header', 'blogname', 'Blog Name', 'headerbanner|header'); ?>
+ 					<?php pw_add_element_option('header', 'description', 'Description', 'headerbanner|header'); ?>
+ 					<?php pw_add_element_option('header', 'nav', 'Nav Menu', 'headerbanner|header'); ?>
+ 					<?php pw_add_element_option('header', 'subnav', 'Sub Nav Menu', 'headerbanner|header'); ?>
+ 					<?php pw_add_element_option('header', 'headerarea', 'Widgetized Area', 'headerbanner|header'); ?>
+ 					<?php pw_add_element_option('layout', 'firstsidebar', 'First Sidebar', 'main-wrapper|layout'); ?>
+ 					<?php pw_add_element_option('layout', 'secondsidebar', 'Second Sidebar', 'main-wrapper|layout'); ?>
+ 					<?php pw_add_element_option('footer', 'extendedfooter', 'Extended Footer', 'footer|footer'); ?>
+ 					<?php pw_add_element_option('footer', 'copyright', 'Copyright', 'footer|footer'); ?>
 				</div>
     		</div>
 			
@@ -83,6 +83,12 @@ function pw_toolbox() {
 			
 			<div id="fonts" class="pw_toolbox_content">  
     			<div class="close_toolbox"></div>
+    			<p>Select a font group</p>
+                <a href="javascript:void(0)" class="font-option<?php if(theme_option('font_option')=="font-style-one") echo ' active'; ?>" id="font-style-one"></a>	
+                <a href="javascript:void(0)" class="font-option<?php if(theme_option('font_option')=="font-style-two") echo ' active'; ?>" id="font-style-two"></a>	
+                <a href="javascript:void(0)" class="font-option<?php if(theme_option('font_option')=="font-style-three") echo ' active'; ?>" id="font-style-three"></a>	
+                <a href="javascript:void(0)" class="font-option<?php if(theme_option('font_option')=="font-style-four") echo ' active'; ?>" id="font-style-four"></a>	
+                <a href="javascript:void(0)" class="font-option<?php if(theme_option('font_option')=="font-style-five") echo ' active'; ?>" id="font-style-five"></a>	
  			</div>
 			
 			<div class="open_toolbox options" rel="options"></div>
@@ -90,6 +96,7 @@ function pw_toolbox() {
   			<div class="open_toolbox color" rel="color"></div>
   			<div class="open_toolbox fonts" rel="fonts"></div>
   			<div id="savetheme"></div>
+		<input type="hidden" name="font_option" id="font_option" value="<?php echo theme_option('font_option'); ?>" />
 		<input type="hidden" name="layout_option" id="layout_option" value="<?php echo theme_option('layout_option'); ?>" />
 		<input type="hidden" name="header_option" id="header_option" value="<?php echo theme_option('header_option'); ?>" />
 		<input type="hidden" name="footer_option" id="footer_option" value="<?php echo theme_option('footer_option'); ?>" />

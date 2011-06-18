@@ -9,11 +9,9 @@
 
 <title><?php wp_title('|',true,'right'); ?><?php bloginfo('name'); if(is_home()) { echo ' | '; bloginfo('description'); } if ( $paged > 1 ) { echo (' | Page '); echo $paged; } ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<link href='http://fonts.googleapis.com/css?family=Quattrocento|Metrophobic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Quattrocento|Metrophobic|Special+Elite' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="all" />
-
-<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/custom.css" type="text/css" media="all" />
-
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/admin/css/<?php echo theme_option("font_option"); ?>.css" type="text/css" media="all" />
 <?php pw_header_css(); ?>
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 

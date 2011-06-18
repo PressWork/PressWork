@@ -59,7 +59,8 @@ $pw_default_options = array(
 	"post_title_color" => "#222222",
 	"post_title_color_hover" => "#222222",
 	"post_meta_color" => "#888888",
-	"page_background_color" => "#FFFFFF"
+	"page_background_color" => "#FFFFFF",
+	"font_option" => "font-style-one"
 );
 
 // all the includes
@@ -537,13 +538,6 @@ function pw_handles($name, $id = null, $delete = null, $parent = 'layout') {
 	}
 }
 
-function get_values() {
-	$option = $_POST['option'];
-	echo theme_option($option);
-	die();
-	}
-add_action('wp_ajax_get_values', 'get_values');
-
 if(current_user_can('manage_options') && theme_option('toolbox')=="on") {
 	add_action('pw_body_bottom', 'pw_toolbox');
 	if(!empty($_GET['action']) && $_GET['action']=="pw-activate" && empty($welcome)) 
@@ -606,7 +600,6 @@ function pw_get_element($name) {
 		else :	 
         	actionBlock('pw_index');
     	endif; 
-    	  	
     	?>
     	</li> <!-- end #maincontent -->
     	<?php
@@ -734,6 +727,18 @@ function notin() {
         $notin = '';
     }
 	return $notin;
+}
+
+/**
+ * Displays the toolbox add element button options
+ *
+ * @since PressWork 1.0
+ */
+function pw_add_element_option($name, $id, $text, $rel) {
+	$loc = strpos(theme_option($name.'_option'), $id);
+	echo '<a href="javascript:void(0)" class="add-item '.$name.'-item';
+	if($loc!==false) echo " disabled";
+	echo '" key="'.$id.'" rel="'.$rel.'">'.$text.'</a>';
 }
 
 /**

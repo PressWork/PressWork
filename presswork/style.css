@@ -79,7 +79,7 @@ table {
 	border-spacing: 0;
 }
 a { text-decoration: none; }
-h1, h2, h3, h4, h5, h6, #blogname div.siteheader { font-family: Georgia, "Times New Roman", Times, serif; margin: 12px 0; float: left; width: 100%; line-height: normal; font-weight: normal; }
+h1, h2, h3, h4, h5, h6, #blogname div.siteheader { margin: 12px 0; float: left; width: 100%; line-height: normal; font-weight: normal; }
 p, table { margin: 1em 0; }
 ul, ol { padding: 0 0 0 20px; list-style: disc; }
 ol { list-style: decimal; }
@@ -448,8 +448,7 @@ article {
 	float: left;
 	width: 100%;
 	margin: 0 0 30px;
-	font-family: Arial, Helvetica, sans-serif;
-    }	
+	}	
 	
 	article.side-featured {	
 		border-bottom: 1px dotted #ccc;
@@ -609,7 +608,6 @@ h1.catheader {
 	.columns-title {
 		font-size: 30px;
 		margin-bottom: 30px;
-		font-family: Georgia, "Times New Roman", Times, serif;
 		}
 	
 .columns .post {
@@ -1289,6 +1287,7 @@ div.warning {
 	position: fixed;
 	bottom: 0;
 	left: -700px;
+	font-family: Arial, sans-serif;
 	}
 	
 .pw_toolbox_content {
@@ -1481,12 +1480,36 @@ div.handle {
 	float: right;
 	margin: 3px 5px 0 0;
 	}
+	
+.font-option {
+	background: url(admin/images/font-option.png) no-repeat;
+	display: block;
+	width: 101px;
+	height: 101px;
+	float: left;
+	margin: 10px;
+	opacity: 0.8;
+    transition: opacity 200ms ease-in;
+    -moz-transition: opacity 200ms ease-in;
+    -webkit-transition: opacity 200ms ease-in;
+	}
+	
+	.font-option:hover,
+	.font-option.active {	
+		opacity: 1;
+		}
 
 #pw-preview {
 	position: absolute;
 	bottom: 10px;
 	right: 200px;
 	}
+	
+	#pw-font-preview {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		}
 
 .green-button,
 .add-item {
