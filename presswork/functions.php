@@ -32,7 +32,7 @@ if(is_admin() && isset($_GET['activated']) && $pagenow == "themes.php" ) {
  */	
 $pw_default_options = array(
 	"layout_option" => "maincontent,firstsidebar",
-	"header_option" => "blogname,description,nav",
+	"header_option" => "pw_logo,nav",
 	"footer_option" => "extendedfooter,copyright",
 	"content_width" => "600",
 	"first_sidebar_width" => "300",
@@ -650,10 +650,19 @@ function pw_get_element($name) {
 	   	<li id="blogname" class="mainl">
             <?php echo $handle; ?>
             <?php if(is_home()) $header = "h1"; else $header = "div"; ?>
-            <<?php echo $header; ?> class="siteheader"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></<?php echo $header; ?>>
+            <?php echo "<".$header; ?> class="siteheader"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></<?php echo $header; ?>>
         </li>
 		<?php
 	}
+	if($name=="pw_logo") {
+		$handle = pw_handles('PressWork Logo', 'pw_logo', true, 'header'); 
+	   	?>
+	   	<li id="pw_logo" class="mainl">
+            <?php echo $handle; ?>
+            <div class="siteheader"><a href="<?php echo home_url(); ?>/"><img src="<?php echo get_template_directory_uri(); ?>/admin/images/logo_front.png" alt="PressWork" /></a></div>
+        </li>
+		<?php
+	}	
 	if($name=="description") {
 		$handle = pw_handles('Description', 'description', true, 'header');
 	   	?>

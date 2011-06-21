@@ -236,6 +236,10 @@ header {
 		margin: 0;
 		padding: 0;
 		}
+		
+		#pw_logo .siteheader {
+			margin-bottom: 14px;
+			}
 	
 	#title.aligncenter {
 		margin: 20px auto;
