@@ -60,6 +60,12 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 	$("#layoutselect").change(function() {
 		var value = $(this).val();
 		$(".add-item").show().not("."+value+"-item").hide();
+		if(value=="header") $(".logo-input").show(); else $(".logo-input").hide(); 
+	});
+	
+	$(".logo-input input").change(function() {
+		var thesrc = $(this).val();
+		$("#header_logo img").attr("src", thesrc);
 	});
 	$("#colorselect, #layoutselect").val("--");
 	if($(".colorpicker").val()=="") $(".colorpicker").val("#")
@@ -157,47 +163,6 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 			return false;
 		}
 	});
-	$(".delete_element").live("click", function(){
-		nonce = $("input#bavotasan_nonce").val();
-		var loader = $("#ajaxloader");
-		var main = $("#main-wrapper");
-		loader.show();
-		var el = $(this);
-		var element = $(this).attr("key");
-		var option = $(this).attr("rel");
-		$('.add-item[key="'+element+'"]').removeClass("disabled");
-		var data = {
-			action: 'delete_element',
-			element: element,
-			option: option,
-			nonce: nonce,
-		};
-		$.post('<?php echo admin_url('admin-ajax.php'); ?>', data,
-		function(response){
-			loader.hide();
-			if(option=="layout_option") {
-				var theitem = el.parent().parent().parent();
-				var newfull = theitem.outerWidth();
-				var full = $("#body-wrapper").outerWidth();
-				theitem.remove();
-				$("#body-wrapper").stop().animate({
-					width: full-newfull-30+"px"
-				});
-				var parent = "main-wrapper";
-			}
-			if(option=="header_option") {
-				var theitem = el.parent().parent();
-				theitem.remove();
-				var parent = "headerbanner";
-			}	
-			if(option=="footer_option") {
-				var theitem = el.parent().parent();
-				theitem.remove();
-				var parent = "footer";
-			}
-			$("#"+option).val( $("#"+parent).sortable("toArray") );
-		});
-	});	
 	$(".layout_widths").change(function(){
 		var value = $(this).val();
 		var id = $(this).attr("rel");
@@ -246,6 +211,48 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 			$(".open_toolbox."+it).show();
 		}).removeClass("open");
 	});
+<?php if(theme_option("dragdrop")=="on") { ?>
+	$(".delete_element").live("click", function(){
+		nonce = $("input#bavotasan_nonce").val();
+		var loader = $("#ajaxloader");
+		var main = $("#main-wrapper");
+		loader.show();
+		var el = $(this);
+		var element = $(this).attr("key");
+		var option = $(this).attr("rel");
+		$('.add-item[key="'+element+'"]').removeClass("disabled");
+		var data = {
+			action: 'delete_element',
+			element: element,
+			option: option,
+			nonce: nonce,
+		};
+		$.post('<?php echo admin_url('admin-ajax.php'); ?>', data,
+		function(response){
+			loader.hide();
+			if(option=="layout_option") {
+				var theitem = el.parent().parent().parent();
+				var newfull = theitem.outerWidth();
+				var full = $("#body-wrapper").outerWidth();
+				theitem.remove();
+				$("#body-wrapper").stop().animate({
+					width: full-newfull-30+"px"
+				});
+				var parent = "main-wrapper";
+			}
+			if(option=="header_option") {
+				var theitem = el.parent().parent();
+				theitem.remove();
+				var parent = "headerbanner";
+			}	
+			if(option=="footer_option") {
+				var theitem = el.parent().parent();
+				theitem.remove();
+				var parent = "footer";
+			}
+			$("#"+option).val( $("#"+parent).sortable("toArray") );
+		});
+	});	
 	$("#main-wrapper")
 		.sortable({
 			placeholder: 'placeholder',
@@ -277,6 +284,7 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 			}
 		})
 		.disableSelection();
+<?php } ?>
 })(jQuery);
 /* ]]> */
 </script>

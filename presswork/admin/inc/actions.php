@@ -3,6 +3,7 @@
 // The first sidebar
 //
 function pw_sidebar() {
+	echo pw_function_handle(__FUNCTION__);
 	if(!dynamic_sidebar("first-sidebar")) :	
 		echo '<div class="warning clear fl"><p>Add widgets to the First Sidebar <a href="'.admin_url('widgets.php').'">here</a>.</p></div>';
     endif;
@@ -13,6 +14,7 @@ add_action('pw_sidebar_middle', 'pw_sidebar');
 // The second sidebar
 //
 function pw_second_sidebar() {
+	echo pw_function_handle(__FUNCTION__);
 	if(!dynamic_sidebar("second-sidebar" )) :
 		echo '<div class="warning clear fl"><p>Add widgets to the Second Sidebar <a href="'.admin_url('widgets.php').'">here</a>.</p></div>';
     endif;
@@ -37,6 +39,7 @@ add_action('pw_search_middle', 'pw_loop');
 // Pagination
 //
 function pw_pagination() {
+	echo pw_function_handle(__FUNCTION__);
 	pw_paginate();
 }
 add_action('pw_index_bottom', 'pw_pagination');
@@ -48,7 +51,9 @@ add_action('pw_search_bottom', 'pw_pagination');
 // 
 // This is the 404 page
 //
-function pw_404() { ?>
+function pw_404() {
+	echo pw_function_handle(__FUNCTION__);
+	?>
 	<div id="post-0" class="post error404 not-found">
     	<h1><?php _e("Not found", "presswork"); ?></h1>
         <div class="entry">
@@ -62,8 +67,10 @@ add_action('pw_404_middle', 'pw_404');
 //
 // Archive header
 //
-function pw_archive_title() { ?>
-	<?php if (have_posts()) { ?>
+function pw_archive_title() { 
+	echo pw_function_handle(__FUNCTION__);
+	if (have_posts()) { 
+		?>
     	<h1 class="catheader">
         <?php
         if( is_tag() ) { ?>
@@ -94,8 +101,9 @@ add_action('pw_archive_top', 'pw_archive_title');
 //
 // Category header
 //
-function pw_category_title() { ?>
-	<?php if (have_posts()) { ?>
+function pw_category_title() {
+	echo pw_function_handle(__FUNCTION__);
+	if (have_posts()) { ?>
         <h1 class="catheader"><?php single_cat_title(); ?></h1>
         <?php $catdesc = category_description(); if(stristr($catdesc,'<p>')) echo '<div class="catdesc clear">'.$catdesc.'</div>';
 	} else {
@@ -108,6 +116,7 @@ add_action('pw_category_top', 'pw_category_title');
 // Author header
 //
 function pw_author_title() {
+	echo pw_function_handle(__FUNCTION__);
 	if (have_posts()) {
         pw_authorbox();        
 	} else {
@@ -120,6 +129,7 @@ add_action('pw_author_top', 'pw_author_title');
 // Top of comments section
 //
 function pw_comment_section_title() {
+	echo pw_function_handle(__FUNCTION__);
 	echo '<h3 id="comments-title">';
 	printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), "presswork" ), number_format_i18n( get_comments_number() ), '<em>' . get_the_title() . '</em>' );
 	echo '</h3>';
@@ -129,7 +139,9 @@ add_action('pw_comments_top', 'pw_comment_section_title');
 //
 // Comment middle section
 //
-function pw_comment_section() { ?>
+function pw_comment_section() {
+	echo pw_function_handle(__FUNCTION__);
+	?>
     <ol class="commentlist">
 		<?php wp_list_comments( array( 'callback' => 'pw_comment_template', 'reply_text' => __('Reply', "presswork") ) ); ?>
     </ol>
@@ -141,6 +153,7 @@ add_action('pw_comments_middle', 'pw_comment_section');
 // Comment navigation
 //
 function pw_comment_navigation() {
+	echo pw_function_handle(__FUNCTION__);
     if ( get_comment_pages_count() > 1 ) { ?>
         <div class="navigation">
             <div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', "presswork" ) ); ?></div>
@@ -152,8 +165,9 @@ function pw_comment_navigation() {
 add_action('pw_comments_nav_top', 'pw_comment_navigation');
 add_action('pw_comments_nav_bottom', 'pw_comment_navigation');
 
-function pw_comment_section_nocomment() { ?>
-	<?php if ( !comments_open() ) : ?>
+function pw_comment_section_nocomment() {
+	echo pw_function_handle(__FUNCTION__);
+	if ( !comments_open() ) : ?>
    		<p class="nocomments"><?php _e( 'Comments are closed.', "presswork" ); ?></p>
     <?php endif;
 }
@@ -163,6 +177,7 @@ add_action('pw_comments_bottom', 'pw_comment_section_nocomment');
 // Comment reply section
 //
 function pw_comment_section_reply() {
+	echo pw_function_handle(__FUNCTION__);
 	$args = array(
 		'comment_notes_after' => '',
 		'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>'
@@ -175,10 +190,11 @@ add_action('pw_comments_reply', 'pw_comment_section_reply');
 // Search page title
 //
 function pw_search_title() {
-	$s = $_GET['s'];
-    $mySearch =& new WP_Query("s=$s&showposts=-1");
-    $num = $mySearch->post_count;
-    echo '<h1 class="catheader">'.$num.''.__('search results for', "presswork").' "'; the_search_query(); echo '"</h1>';
+	echo pw_function_handle(__FUNCTION__);
+	global $wp_query;
+	$total_results = $wp_query->found_posts;
+    echo '<h1 class="catheader">'.$total_results.' '.__('search results for', "presswork").' "'; the_search_query(); echo '"</h1>';
+
 }
 add_action('pw_search_top', 'pw_search_title');
 
@@ -186,6 +202,7 @@ add_action('pw_search_top', 'pw_search_title');
 // Featured posts
 // 
 function pw_posts_featured() {
+	echo pw_function_handle(__FUNCTION__);
 	global $pw;
 	if(function_exists('has_post_format') && (has_post_format('aside') || has_post_format('link'))) { // new aside || link post format
 		// do nothing
@@ -256,6 +273,7 @@ add_action('pw_index_featured_post_middle', 'pw_posts_featured');
 // Posts
 //
 function pw_posts() {
+	echo pw_function_handle(__FUNCTION__);
 	if(function_exists('has_post_format') && (has_post_format('aside') || has_post_format('link'))) { // new aside || link post format
 		// do nothing
 	} else {
@@ -330,6 +348,7 @@ add_action('pw_index_post_middle', 'pw_posts');
 // Single post
 //
 function pw_single_post() {
+	echo pw_function_handle(__FUNCTION__);
 	?>
  	<h1 class="posttitle"><?php the_title(); ?></h1>
 	<div class="meta">
@@ -357,6 +376,7 @@ add_action('pw_page_post_middle', 'pw_single_post');
 // Author box
 //
 function pw_authorbox() {
+	echo pw_function_handle(__FUNCTION__);
 	global $author;
 	?>
     <div id="authorbox" class="clear fl">
@@ -455,8 +475,9 @@ add_action('pw_columns_bottom', 'pw_columns_post_readmore', 1, 1);
  * @since PressWork 1.0
  */
 function pw_index_top_slideshow() {
-	//pw_slideshow();
+	echo pw_function_handle(__FUNCTION__);
+	pw_slideshow();
 }
-add_action('pw_index_top', 'pw_index_top_slideshow');
+//add_action('pw_index_top', 'pw_index_top_slideshow');
 
 ?>

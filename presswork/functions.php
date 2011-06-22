@@ -32,7 +32,7 @@ if(is_admin() && isset($_GET['activated']) && $pagenow == "themes.php" ) {
  */	
 $pw_default_options = array(
 	"layout_option" => "maincontent,firstsidebar",
-	"header_option" => "pw_logo,nav",
+	"header_option" => "header_logo,nav",
 	"footer_option" => "extendedfooter,copyright",
 	"content_width" => "600",
 	"first_sidebar_width" => "300",
@@ -42,6 +42,8 @@ $pw_default_options = array(
 	"toolbox" => "on",
 	"dragdrop" => "off",
 	"guides" => "off",
+	"functions" => "off",
+	"header_logo" => get_template_directory_uri()."/admin/images/logo_front.png",
 	"siteheader_color" => "#2B904E",
 	"siteheader_color_hover" => "#444444",
 	"description_color" => "#444444",
@@ -563,6 +565,13 @@ function pw_handles($name, $id = null, $delete = null, $parent = 'layout') {
 	}
 }
 
+function pw_function_handle($function) {
+	if(theme_option('functions')=="on" && current_user_can('manage_options')) 
+		return '<div class="handle clear">'.$function.'</div>';
+	else
+		return;
+}
+
 if(current_user_can('manage_options') && theme_option('toolbox')=="on") {
 	add_action('pw_body_bottom', 'pw_toolbox');
 	if(!empty($_GET['action']) && $_GET['action']=="pw-activate" && empty($welcome)) 
@@ -654,12 +663,12 @@ function pw_get_element($name) {
         </li>
 		<?php
 	}
-	if($name=="pw_logo") {
-		$handle = pw_handles('PressWork Logo', 'pw_logo', true, 'header'); 
+	if($name=="header_logo") {
+		$handle = pw_handles('Header Logo', 'header_logo', true, 'header'); 
 	   	?>
-	   	<li id="pw_logo" class="mainl">
+	   	<li id="header_logo" class="mainl">
             <?php echo $handle; ?>
-            <div class="siteheader"><a href="<?php echo home_url(); ?>/"><img src="<?php echo get_template_directory_uri(); ?>/admin/images/logo_front.png" alt="PressWork" /></a></div>
+            <div class="siteheader"><a href="<?php echo home_url(); ?>/"><img src="<?php echo theme_option("header_logo"); ?>" alt="<?php bloginfo("name"); ?>" /></a></div>
         </li>
 		<?php
 	}	
@@ -783,3 +792,12 @@ function pw_add_element_option($name, $id, $text, $rel) {
 function pw_color_option($name, $id, $text, $rel) {
 	 echo '<tr class="color-item '.$name.'-item"><th>'.$text.'</th><td><input type="text" class="colorpicker" name="'.$id.'" rel="'.$rel.'" size="7" value="'.theme_option($id).'" /></td></tr>';
 }
+
+function search_url_rewrite_rule() {
+	if ( is_search() && !empty($_GET['s'])) {
+		wp_redirect(home_url("/search/") . urlencode(get_query_var('s')));
+		exit();
+	}
+	
+}
+add_action('template_redirect', 'search_url_rewrite_rule');

@@ -140,6 +140,7 @@ br.clear { line-height: 0; }
 	text-shadow: none !important;
 	font-size: 12px !important;
 	_border: 0; /* IE 6 hack */
+	z-index: 50;
 	}	
 		
 	.guide-title {
@@ -287,7 +288,7 @@ nav {
 	margin: 0;
 	width: 100%;
 	position: relative;
-	z-index: 1000;
+	z-index: 500;
 	border-bottom: 1px solid #222;
 	}
 	
@@ -1540,7 +1541,12 @@ div.handle {
 	padding: 0 10px;
 	}
 	
-	.add-item {
+	.save_option.green-button {
+		width: 50px;
+		}
+	
+	.add-item,
+	.logo-input {
 		display: none;
 		}
 

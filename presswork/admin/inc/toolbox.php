@@ -7,11 +7,15 @@ function pw_toolbox() {
     			<div class="close_toolbox"></div>
  				<table class="themeoptions">
     			<tr><th>Drag &amp; Drop Editor </th><td>
-    				<?php $dragdrop = theme_option('dragdrop'); ?>
-    				<?php $guides = theme_option('guides'); ?>
-					<a href="javascript:void(0)" class="save_option green-button<?php if($dragdrop=="on") echo ' active'; ?>" id="dragdrop"><?php if($dragdrop=="on") echo 'OFF'; else echo "ON" ?></a>
+    				<?php 
+					$dragdrop = theme_option('dragdrop');
+    				$guides = theme_option('guides');
+    				$functions = theme_option('functions'); 
+					?>
+					<a href="javascript:void(0)" class="save_option green-button<?php if($dragdrop=="on") echo ' active'; ?>" id="dragdrop"><?php if($dragdrop!="on") echo 'OFF'; else echo "ON" ?></a>
 				</td></tr>
- 				<tr><th>Framework Guides</th><td><a href="javascript:void(0)" class="save_option green-button<?php if($guides=="on") echo ' active'; ?>" id="guides"><?php if($guides=="on") echo 'OFF'; else echo "ON" ?></a></td></tr>
+ 				<tr><th>Framework Guides</th><td><a href="javascript:void(0)" class="save_option green-button<?php if($guides=="on") echo ' active'; ?>" id="guides"><?php if($guides!="on") echo 'OFF'; else echo "ON" ?></a></td></tr>
+ 				<tr><th>Framework Functions</th><td><a href="javascript:void(0)" class="save_option green-button<?php if($functions!="on") echo ' active'; ?>" id="functions"><?php if($functions=="on") echo 'OFF'; else echo "ON" ?></a></td></tr>
  				<tr><th>Reset all options</th><td><a href="javascript:void(0)" class="green-button" id="reset_options">Reset</a></td></tr>
  				</table>
  			</div>
@@ -29,6 +33,7 @@ function pw_toolbox() {
  				</select>
                 </div>
  				<div class="pw-items">
+ 					<?php pw_add_element_option('header', 'header_logo', 'Logo', 'headerbanner|header'); ?>
  					<?php pw_add_element_option('header', 'blogname', 'Blog Name', 'headerbanner|header'); ?>
  					<?php pw_add_element_option('header', 'description', 'Description', 'headerbanner|header'); ?>
  					<?php pw_add_element_option('header', 'nav', 'Nav Menu', 'headerbanner|header'); ?>
@@ -38,7 +43,8 @@ function pw_toolbox() {
  					<?php pw_add_element_option('layout', 'secondsidebar', 'Second Sidebar', 'main-wrapper|layout'); ?>
  					<?php pw_add_element_option('footer', 'extendedfooter', 'Extended Footer', 'footer|footer'); ?>
  					<?php pw_add_element_option('footer', 'copyright', 'Copyright', 'footer|footer'); ?>
-				</div>
+					<div class="logo-input clear"><label for="header_logo">Logo Image URL</label><input size="60" type="text" name="header_logo" id="the_header_logo" class="header-item" value="<?php echo theme_option("header_logo"); ?>" /></div>
+                </div>
     		</div>
 			
 			<div id="color" class="pw_toolbox_content">  
