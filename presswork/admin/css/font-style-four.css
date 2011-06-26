@@ -1,7 +1,0 @@
-@font-face {
-  font-family: 'Metrophobic';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Metrophobic'), url('http://themes.googleusercontent.com/font?kit=0IZPA9DbzKXnGZABsAivT7rIa-7acMAeDBVuclsi6Gc') format('woff');
-}
-body { font-family: 'Metrophobic', arial, serif; }

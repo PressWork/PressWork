@@ -1,5 +1,41 @@
 <?php
 //
+// The Header
+//
+function pw_header_content() {
+	?>
+    <ul id="headerbanner" class="fl clear">
+       	<?php 
+	    $layout = theme_option('header_option');
+	    $layout = explode(",", $layout);
+	    foreach($layout as $elem) {
+	    	pw_get_element($elem);
+	    }
+	    ?>
+    </ul> <!-- end headerbanner -->
+	<?php
+}
+add_action('pw_header_middle', 'pw_header_content');
+
+//
+// The Footer
+//
+function pw_footer_content() {
+	?>
+    <ul id="footer" class="fl clear">
+       	<?php 
+	    $layout = theme_option('footer_option');
+	    $layout = explode(",", $layout);
+	    foreach($layout as $elem) {
+	    	pw_get_element($elem);
+	    }
+	    ?>
+    </ul> <!-- end #footer -->
+	<?php
+}
+add_action('pw_footer_middle', 'pw_footer_content');
+
+//
 // The first sidebar
 //
 function pw_sidebar() {
@@ -476,8 +512,8 @@ add_action('pw_columns_bottom', 'pw_columns_post_readmore', 1, 1);
  */
 function pw_index_top_slideshow() {
 	echo pw_function_handle(__FUNCTION__);
-	//pw_slideshow('type=faderota');
+	pw_slideshow('type=faderota');
 }
-add_action('pw_index_top', 'pw_index_top_slideshow');
+//add_action('pw_index_top', 'pw_index_top_slideshow');
 
 ?>

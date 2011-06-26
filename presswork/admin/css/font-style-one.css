@@ -1,7 +1,0 @@
-@font-face {
-  font-family: 'Quattrocento';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Quattrocento Roman Regular'), local('QuattrocentoRoman'), url('http://themes.googleusercontent.com/font?kit=WZDISdyil4HsmirlOdBRFKRDOzjiPcYnFooOUGCOsRk') format('woff');
-}
-body { font-family: 'Quattrocento', arial, serif; }

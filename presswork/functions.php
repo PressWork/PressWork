@@ -53,7 +53,7 @@ $pw_default_options = array(
 	"nav_color" => "#222222",
 	"nav_color_hover" => "#444444",
 	"nav_background_color" => "#FFFFFF",
-	"nav_background_color_hover" => "#FFFFFF",
+	"nav_background_color_hover" => "#EEEEEE",
 	"subnav_color" => "#222222",
 	"subnav_color_hover" => "#222222",
 	"subnav_background_color" => "#FFFFFF",
@@ -62,7 +62,9 @@ $pw_default_options = array(
 	"post_title_color_hover" => "#222222",
 	"post_meta_color" => "#888888",
 	"page_background_color" => "#FFFFFF",
-	"font_option" => "font-style-one"
+	"body_font" => "Open Sans",
+	"headers_font" => "Quattrocento",
+	"body_font_size" => "12"
 );
 
 // all the includes
@@ -138,6 +140,7 @@ function presswork_setup() {
 	if(function_exists('register_nav_menu')) {
 		register_nav_menu('main', 'Main Navigation Menu');
 		register_nav_menu('sub', 'Sub Navigation Menu');
+		register_nav_menu('footer', 'Footer Navigation Menu');
 	}
 	// The default message if no menu is set in the wp-admin
 	function menu_default() {
@@ -147,6 +150,11 @@ function presswork_setup() {
 	// The default message if no sub-menu is set in the wp-admin
 	function sub_menu_default() {
 		echo '<div class="warning clear fl"><p>Create your sub-navigation menu <a href="'.admin_url('nav-menus.php').'">here</a>.</p></div>';
+	}
+
+	// The default message if no sub-menu is set in the wp-admin
+	function footer_menu_default() {
+		echo '<div class="warning clear fl"><p>Create your footer navigation menu <a href="'.admin_url('nav-menus.php').'">here</a>.</p></div>';
 	}
 	
 	// Make theme available for translation
@@ -699,6 +707,15 @@ function pw_get_element($name) {
 			echo '</li>';
 		}	
 	}
+	if($name=="footernav") {
+		$handle = pw_handles('Footer Nav Menu', 'footernav', true, 'footer'); 
+		if(function_exists('wp_nav_menu')) {
+    		echo '<li id="footernav" class="foot">';
+    		echo $handle;
+			 wp_nav_menu( array( 'theme_location' => 'footer', 'menu_class' => 'sf-menu','sort_column' => 'menu_order', 'container' => 'nav', 'container_class' => 'clear fl sub', 'fallback_cb' => 'footer_menu_default' ) ); 
+			echo '</li>';
+		}	
+	}
 	if($name=="extendedfooter") {
 		$handle = pw_handles('Extended Footer', 'extendedfooter', true, 'footer');
 		echo '<li id="extendedfooter" class="foot">';
@@ -713,9 +730,9 @@ function pw_get_element($name) {
 		echo '<li id="copyright" class="foot">';
     	echo $handle;
 		$link = '<a href="'.home_url().'">'.get_bloginfo('name').'</a>';
-		printf(__('Copyright &copy; %1$d %2$s. All Rights Reserved.', "presswork"), date('Y'), $link);
+		printf(__('&copy; %1$d %2$s. All Rights Reserved.', "presswork"), date('Y'), $link);
 		echo ' ';
-		printf(__('Created using %s.', "presswork"), '<a href="http://presswork.me">'.THEME_NAME.'</a>'); 
+		printf(__('Built using %s.', "presswork"), '<a href="http://presswork.me">'.THEME_NAME.'</a>'); 
 		echo '</li>';
 	}
 }
@@ -791,6 +808,49 @@ function pw_add_element_option($name, $id, $text, $rel) {
  */
 function pw_color_option($name, $id, $text, $rel) {
 	 echo '<tr class="color-item '.$name.'-item"><th>'.$text.'</th><td><input type="text" class="colorpicker" name="'.$id.'" rel="'.$rel.'" size="7" value="'.theme_option($id).'" /><a href="javascript:void(0)" class="colorwheel" rel="'.$name.'"></a></td></tr>';
+}
+
+/**
+ * Displays the toolbox font options
+ *
+ * @since PressWork 1.0
+ */
+function pw_font_option($name, $text, $rel) {
+	 echo '<tr ><th>'.$text.'</th><td>'.font_select($name."_font", $rel).'</td></tr>';
+}
+
+function font_select($valueID, $rel) {
+    $ret = '<div class="styled-select"><select class="fontselect" name="'.$valueID.'" rel="'.$rel.'">';
+		$fonts = array(
+			"Quattrocento",
+			"Droid Sans",
+			"Droid Serif",
+			"Lobster",
+			"PT Sans",
+			"Yanone Kaffeesatz",
+			"Arvo",
+			"Ubuntu",
+			"Open Sans",
+			"Pacifico",
+			"Calligraffitti",
+			"Reenie Beanie",
+			"Crafty Girls",
+			"Tangerine",
+			"Oswald",
+			"Shadows Into Light",
+			"Nobile",
+			"Raleway",
+			"Rock Salt",
+			"Copse"
+		);
+        foreach($fonts as $font) {
+            $ret .= '<option value="'.$font.'"';
+            if(stripslashes(theme_option($valueID)) == $font) $ret .= ' selected="selected"';
+            $ret .= '>'.$font.'</option>'."\n";
+        
+        }
+    $ret .= '</select></div>';
+	return $ret;
 }
 
 function search_url_rewrite_rule() {

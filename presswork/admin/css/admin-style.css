@@ -50,14 +50,18 @@
 		}
 	
 #ajaxloader {
-	background: url(../images/loader.gif) no-repeat;
+	background: url(../images/loader.gif) no-repeat center #fff;
 	display: none;
 	float: right;
-	width: 64px;
-	height: 64px;
+	width: 74px;
+	height: 74px;
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	z-index: 500;
 	}	
 	
 .active {

@@ -59,6 +59,17 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 	$("#layoutselect").change(function() {
 		layoutselect();
 	});
+
+	$(".fontselect").change(function() {
+		$("#"+ name + "_preview").remove();
+		var font = $(this).val();
+		var el = $(this).attr("rel");
+		var name = $(this).attr("name");
+		var addplus = font.replace(" ", "+");
+		$("head").prepend("<link id='" + name + "_preview' href='http://fonts.googleapis.com/css?family=" + addplus + "' rel='stylesheet' type='text/css'>");
+		$(el).css({ fontFamily : font }); 
+
+	});
 	
 	$(".logo-input input").change(function() {
 		var thesrc = $(this).val();
@@ -90,7 +101,7 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 		$(".colorpicker:visible").each(function() {
 			var col = $(this).val();
 			var style = $(this).attr("rel").split('|');
-			var addstyle = style[0] + " { " + style[1] + ": " + col + "; }";
+			var addstyle = style[0] + " { " + style[1] + ": " + col + "; }\n";
 			$("#pw_style_preview").append(addstyle);
 		});
 	});
@@ -106,18 +117,23 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 	$(".colorwheel").click(function() {
 		var el = $(this).attr("rel");
 		$(this).parent().find("input").focus();	 
-		$("#color").stop().animate({ width: 450 }, function() {
+		$("#color").stop(true,true).animate({ width: 450 }, function() {
 			$("#picker, #closepicker").fadeIn();
 		});
 	});
 	
 	$("#closepicker").click(function() {
-		$("#picker, #closepicker").fadeOut(function() {
-			$("#color").stop().animate({ width: 260 });
+		$("#picker, #closepicker").fadeOut('fast', function() {
+			$("#color").stop(true,true).animate({ width: 250 });
 		});
 
 	});
-	
+	$("#body_font_size").change(function() {
+		var size = $(this).val();
+		var addstyle = "body { font-size: " + size + "px; }";
+		$("#pw_style_preview").append(addstyle);
+
+	});
 	$(".add-item").click(function(){
 		if($(this).hasClass("disabled")) {
 			// nothing
@@ -145,7 +161,7 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 						var newfull = last.outerWidth();
 						var full = $("#body-wrapper").outerWidth();
 						$("body").removeClass("fullwidth");
-						$("#body-wrapper").stop().animate({
+						$("#body-wrapper").stop(true,true).animate({
 							width: full+newfull+30+"px"
 						}, function() { last.show(); });	
 					}				
@@ -196,20 +212,20 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 		var full = $("#body-wrapper").outerWidth();
 		var newfull = parseInt(full) - parseInt(current) + parseInt(value);
 		if(value>current) {
-			$("#body-wrapper").stop().animate({
+			$("#body-wrapper").stop(true,true).animate({
 				width: newfull+"px"
 				},
 			function() { 
-				$("#"+id).stop().animate({
+				$("#"+id).stop(true,true).animate({
 					width: value+"px" 
 				});				
 			});
 		} else {
-			$("#"+id).stop().animate({
+			$("#"+id).stop(true,true).animate({
 				width: value+"px" 
 				},
 			function() { 
-				$("#body-wrapper").stop().animate({
+				$("#body-wrapper").stop(true,true).animate({
 					width: newfull+"px"
 				});				
 			});		
@@ -221,11 +237,11 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 		var id = $(this).attr("rel");
 		if(id!="body-wrapper") {
 			var current = $("#"+id).css("margin-right").replace("px", "");
-			var full = $("#body-wrapper").outerWidth();
+			var full = $("#body-wrapper").width();
 			var newfull = parseInt(full) - parseInt(current*2) + parseInt(value);
 			newvalue = "0 " + (value/2);
 			if((value/2)>current) {
-				$("#body-wrapper").stop().animate({
+				$("#body-wrapper").stop(true,true).animate({
 					width: newfull+"px"
 					},
 				function() { 
@@ -236,16 +252,14 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 			} else {
 				$("#"+id).css({
 					margin: newvalue+"px" 
-					},
-				function() { 
-					$("#body-wrapper").stop().animate({
-						width: newfull+"px"
-					});				
+				});
+				$("#body-wrapper").stop(true,true).animate({
+					width: newfull+"px"
 				});				
 			}
 		} else {
 			$("#"+id).css({
-				margin: value+"px"
+				padding: value+"px"
 			});
 		}
 	});
@@ -254,23 +268,23 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 		var it = $(this).attr("rel");
 		var par = $("#"+it);
 		if(button.hasClass("open")) {
-			par.stop().fadeOut();
+			par.stop(true,true).fadeOut('fast');
 			button.removeClass("open");
 			return;
 		}
 		$(".open_toolbox").removeClass("open");
 		button.addClass("open");
 		if($(".pw_toolbox_content").not(par).is(".open")) {
-			$(".pw_toolbox_content.open").fadeOut('slow', function() {
-				if(!par.hasClass("open")) par.stop().fadeIn().addClass("open");
+			$(".pw_toolbox_content.open").fadeOut('fast', function() {
+				if(!par.hasClass("open")) par.stop(true,true).fadeIn().addClass("open");
 			}).removeClass("open");
 		} else {
-			par.stop().fadeIn().addClass("open");
+			par.stop(true,true).fadeIn().addClass("open");
 		}
 	});
 	
 	$(".closewindow").click(function() {
-		$(".pw_toolbox_content").fadeOut();	
+		$(".pw_toolbox_content").fadeOut('fast');	
 		$(".open_toolbox").removeClass("open");
 	});
 <?php if(theme_option("dragdrop")=="on") { ?>
@@ -297,7 +311,7 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 				var newfull = theitem.outerWidth();
 				var full = $("#body-wrapper").outerWidth();
 				theitem.remove();
-				$("#body-wrapper").stop().animate({
+				$("#body-wrapper").stop(true,true).animate({
 					width: full-newfull-30+"px"
 				});
 				var parent = "main-wrapper";
@@ -315,6 +329,7 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 			$("#"+option).val( $("#"+parent).sortable("toArray") );
 		});
 	});	
+<?php } ?>
 	$("#main-wrapper")
 		.sortable({
 			placeholder: 'placeholder',
@@ -346,7 +361,6 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 			}
 		})
 		.disableSelection();
-<?php } ?>
 })(jQuery);
 /* ]]> */
 </script>

@@ -23,8 +23,8 @@ function pw_toolbox() {
 						?>
 						<a href="javascript:void(0)" class="save_option green-button<?php if($dragdrop=="on") echo ' active'; ?>" id="dragdrop"><?php if($dragdrop!="on") echo 'OFF'; else echo "ON" ?></a>
 					</td></tr>
-					<tr><th>Framework Guides</th><td><a href="javascript:void(0)" class="save_option green-button<?php if($guides=="on") echo ' active'; ?>" id="guides"><?php if($guides!="on") echo 'OFF'; else echo "ON" ?></a></td></tr>
-					<tr><th>Framework Functions</th><td><a href="javascript:void(0)" class="save_option green-button<?php if($functions=="on") echo ' active'; ?>" id="functions"><?php if($functions!="on") echo 'OFF'; else echo "ON" ?></a></td></tr>
+					<tr><th>Guides</th><td><a href="javascript:void(0)" class="save_option green-button<?php if($guides=="on") echo ' active'; ?>" id="guides"><?php if($guides!="on") echo 'OFF'; else echo "ON" ?></a></td></tr>
+					<tr><th>Functions</th><td><a href="javascript:void(0)" class="save_option green-button<?php if($functions=="on") echo ' active'; ?>" id="functions"><?php if($functions!="on") echo 'OFF'; else echo "ON" ?></a></td></tr>
 					<tr><th>Reset all options</th><td><a href="javascript:void(0)" class="green-button" id="reset_options">Reset</a></td></tr>
 				</table>
 			</div>
@@ -53,6 +53,7 @@ function pw_toolbox() {
 							<?php pw_add_element_option('header', 'headerarea', 'Widgetized Area', 'headerbanner|header'); ?>
 							<?php pw_add_element_option('layout', 'firstsidebar', 'First Sidebar', 'main-wrapper|layout'); ?>
 							<?php pw_add_element_option('layout', 'secondsidebar', 'Second Sidebar', 'main-wrapper|layout'); ?>
+							<?php pw_add_element_option('footer', 'footernav', 'Footer Nav Menu', 'footer|footer'); ?>
 							<?php pw_add_element_option('footer', 'extendedfooter', 'Extended Footer', 'footer|footer'); ?>
 							<?php pw_add_element_option('footer', 'copyright', 'Copyright', 'footer|footer'); ?>
 						<div class="logo-input clear"><label for="header_logo">Logo Image URL</label><input size="50" type="text" name="header_logo" id="the_header_logo" class="header-item" value="<?php echo theme_option("header_logo"); ?>" /></div>
@@ -87,14 +88,14 @@ function pw_toolbox() {
 						<?php pw_color_option('text', 'main_text_color', 'Color', 'body|color'); ?>
 						<?php pw_color_option('nav', 'nav_color', 'Color', '#nav nav a|color'); ?>
 						<?php pw_color_option('nav', 'nav_color_hover', 'Hover Color', '#nav nav a:hover|color'); ?>
-						<?php pw_color_option('nav', 'nav_background_color', 'BG Color', '#nav nav ul, #nav .sf-menu li li|background-color'); ?>
-						<?php pw_color_option('nav', 'nav_background_color_hover', 'BG Hover Color', '#nav nav a:hover|background-color'); ?>
+						<?php pw_color_option('nav', 'nav_background_color', 'BG Color', '#nav nav ul|background-color'); ?>
+						<?php pw_color_option('nav', 'nav_background_color_hover', 'BG Hover Color', '#nav nav a:hover, #nav .sub-menu li, #nav .sfHover|background-color'); ?>
 						<?php pw_color_option('subnav', 'subnav_color', 'Color', '#subnav nav a|color'); ?>
 						<?php pw_color_option('subnav', 'subnav_color_hover', 'Hover Color', '#subnav nav a:hover|color'); ?>
-						<?php pw_color_option('subnav', 'subnav_background_color', 'BG Color', '#subnav nav ul, #subnav .sf-menu li li|background-color'); ?>
-						<?php pw_color_option('subnav', 'subnav_background_color_hover', 'BG Hover Color', '#subnav nav a:hover|background-color'); ?>
-						<?php pw_color_option('post_title', 'post_title_color', 'Color', '.posttitle, .posttitle a|color'); ?>
-						<?php pw_color_option('post_title', 'post_title_color_hover', 'Hover Color', '.posttitle a:hover|color'); ?>
+						<?php pw_color_option('subnav', 'subnav_background_color', 'BG Color', '#subnav nav ul|background-color'); ?>
+						<?php pw_color_option('subnav', 'subnav_background_color_hover', 'BG Hover Color', '#subnav nav a:hover, #subnav .sub-menu li, #subnav .sfHover|background-color'); ?>
+						<?php pw_color_option('post_title', 'post_title_color', 'Color', 'article .posttitle, article .posttitle a|color'); ?>
+						<?php pw_color_option('post_title', 'post_title_color_hover', 'Hover Color', 'article .posttitle a:hover|color'); ?>
 						<?php pw_color_option('post_meta', 'post_meta_color', 'Color', 'article .meta|color'); ?>
 						<?php pw_color_option('page_background', 'page_background_color', 'BG Color', '#body-wrapper|background-color'); ?>
 					</table>		
@@ -107,14 +108,12 @@ function pw_toolbox() {
 				<div class="pw_toolbox_arrow"></div>
 				<h4>Fonts</h4> 
 				<div class="closewindow">X</div>
-				<div class="lower_box">
-					<p>Select a font group</p>
-		            <a href="javascript:void(0)" class="font-option<?php if(theme_option('font_option')=="font-style-one") echo ' active'; ?>" id="font-style-one"></a>	
-		            <a href="javascript:void(0)" class="font-option<?php if(theme_option('font_option')=="font-style-two") echo ' active'; ?>" id="font-style-two"></a>	
-		            <a href="javascript:void(0)" class="font-option<?php if(theme_option('font_option')=="font-style-three") echo ' active'; ?>" id="font-style-three"></a>	
-		            <a href="javascript:void(0)" class="font-option<?php if(theme_option('font_option')=="font-style-four") echo ' active'; ?>" id="font-style-four"></a>	
-		            <a href="javascript:void(0)" class="font-option<?php if(theme_option('font_option')=="font-style-five") echo ' active'; ?>" id="font-style-five"></a>	
-				</div>
+				<table class="themeoptions">
+					<?php pw_font_option('headers', 'Headers', 'h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a'); ?>
+					<?php pw_font_option('body', 'Body', '#body-wrapper'); ?>
+					<tr><th>Font Size</th><td><input type="text" name="body_font_size" id="body_font_size" value="<?php echo theme_option("body_font_size"); ?>" size="4" /> px</td></tr>
+		        </table>
+		        <p>Fonts by <a href="http://www.google.com/webfonts?subset=latin&sort=pop" target="_blank">Google</a></p>
 			</div>
 	
 			<input type="hidden" name="font_option" id="font_option" value="<?php echo theme_option('font_option'); ?>" />
