@@ -476,7 +476,7 @@ add_action('pw_columns_bottom', 'pw_columns_post_readmore', 1, 1);
  */
 function pw_index_top_slideshow() {
 	echo pw_function_handle(__FUNCTION__);
-	pw_slideshow('type=faderota');
+	//pw_slideshow('type=faderota');
 }
 add_action('pw_index_top', 'pw_index_top_slideshow');
 

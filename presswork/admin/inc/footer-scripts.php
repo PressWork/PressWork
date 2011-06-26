@@ -271,6 +271,7 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 	
 	$(".closewindow").click(function() {
 		$(".pw_toolbox_content").fadeOut();	
+		$(".open_toolbox").removeClass("open");
 	});
 <?php if(theme_option("dragdrop")=="on") { ?>
 	$(".delete_element").live("click", function(){
