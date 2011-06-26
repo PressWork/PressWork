@@ -54,20 +54,30 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 		return false;
 	});	
 	$("#colorselect").change(function() {
-		var value = $(this).val();
-		$(".color-item").show().not("."+value+"-item").hide();
+		colorselect();
 	});
 	$("#layoutselect").change(function() {
-		var value = $(this).val();
-		$(".add-item").show().not("."+value+"-item").hide();
-		if(value=="header") $(".logo-input").show(); else $(".logo-input").hide(); 
+		layoutselect();
 	});
 	
 	$(".logo-input input").change(function() {
 		var thesrc = $(this).val();
 		$("#header_logo img").attr("src", thesrc);
 	});
-	$("#colorselect, #layoutselect").val("--");
+
+	function colorselect() {
+		var value = $("#colorselect").val();
+		$(".color-item").show().not("."+value+"-item").hide();	
+	}
+	colorselect();
+
+	function layoutselect() {
+		var value = $("#layoutselect").val();
+		$(".addoption").show().not("."+value+"-item").hide();	
+		if(value=="header") $(".logo-input").show(); else $(".logo-input").hide(); 
+	}
+	layoutselect();
+	
 	if($(".colorpicker").val()=="") $(".colorpicker").val("#")
 	
 	var f = $.farbtastic('#picker');
@@ -92,6 +102,22 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 		$("input#font_option").val(theID);
 		$("head").append('<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/admin/css/' + theID + '.css" id="new-font-style" media="screen" />');
 	});
+	
+	$(".colorwheel").click(function() {
+		var el = $(this).attr("rel");
+		$(this).parent().find("input").focus();	 
+		$("#color").stop().animate({ width: 450 }, function() {
+			$("#picker, #closepicker").fadeIn();
+		});
+	});
+	
+	$("#closepicker").click(function() {
+		$("#picker, #closepicker").fadeOut(function() {
+			$("#color").stop().animate({ width: 260 });
+		});
+
+	});
+	
 	$(".add-item").click(function(){
 		if($(this).hasClass("disabled")) {
 			// nothing
@@ -166,7 +192,7 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 	$(".layout_widths").change(function(){
 		var value = $(this).val();
 		var id = $(this).attr("rel");
-		var current = $("#"+id).css("width").replace("px","");
+		var current = $("#"+id).width();
 		var full = $("#body-wrapper").outerWidth();
 		var newfull = parseInt(full) - parseInt(current) + parseInt(value);
 		if(value>current) {
@@ -189,27 +215,62 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 			});		
 		}
 	});
+
+	$(".margins").change(function(){
+		var value = $(this).val();
+		var id = $(this).attr("rel");
+		if(id!="body-wrapper") {
+			var current = $("#"+id).css("margin-right").replace("px", "");
+			var full = $("#body-wrapper").outerWidth();
+			var newfull = parseInt(full) - parseInt(current*2) + parseInt(value);
+			newvalue = "0 " + (value/2);
+			if((value/2)>current) {
+				$("#body-wrapper").stop().animate({
+					width: newfull+"px"
+					},
+				function() { 
+					$("#"+id).css({
+						margin: newvalue+"px" 
+					});				
+				});
+			} else {
+				$("#"+id).css({
+					margin: newvalue+"px" 
+					},
+				function() { 
+					$("#body-wrapper").stop().animate({
+						width: newfull+"px"
+					});				
+				});				
+			}
+		} else {
+			$("#"+id).css({
+				margin: value+"px"
+			});
+		}
+	});
 	$(".open_toolbox").click(function() {
 		var button = $(this);
 		var it = $(this).attr("rel");
 		var par = $("#"+it);
+		if(button.hasClass("open")) {
+			par.stop().fadeOut();
+			button.removeClass("open");
+			return;
+		}
+		$(".open_toolbox").removeClass("open");
+		button.addClass("open");
 		if($(".pw_toolbox_content").not(par).is(".open")) {
-			$(".pw_toolbox_content.open").blindToggle('slow', 'swing', function() {
-				var newit = $(this).attr("id");
-				$(".open_toolbox."+newit).show();
-				$(button).hide();
-				if(!par.hasClass("open")) par.stop().blindToggle('slow', 'swing').addClass("open");
+			$(".pw_toolbox_content.open").fadeOut('slow', function() {
+				if(!par.hasClass("open")) par.stop().fadeIn().addClass("open");
 			}).removeClass("open");
 		} else {
-			$(button).hide();
-			par.stop().blindToggle('slow', 'swing').addClass("open");
+			par.stop().fadeIn().addClass("open");
 		}
 	});
-	$(".close_toolbox").click(function() {
-		var it = $(this).parent().attr("id");
-		$(this).parent().blindToggle('slow', 'swing', function() {
-			$(".open_toolbox."+it).show();
-		}).removeClass("open");
+	
+	$(".closewindow").click(function() {
+		$(".pw_toolbox_content").fadeOut();	
 	});
 <?php if(theme_option("dragdrop")=="on") { ?>
 	$(".delete_element").live("click", function(){

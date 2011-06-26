@@ -30,13 +30,11 @@ function pw_header_css() {
 	$loc2 = strpos(theme_option('layout_option'), "secondsidebar");
 	$loc = strpos(theme_option('layout_option'), "firstsidebar");
 	$mainlineheight = round(theme_option('main_size')*1.4);
-	$right_col_width = $pw_content_width - get_option('thumbnail_size_w') - 15;
-	$first_sidebar_right_col_width = $pw_first_sidebar - 70;
-	$second_sidebar_right_col_width = $pw_second_sidebar - 70;
+	$right_col_padding = get_option('thumbnail_size_w') + 15;
 ?>
 <!-- PressWork Theme Option CSS -->
 <style type="text/css"<?php if(theme_option('toolbox')=="on") echo ' id="pw_style_preview"'; ?>>
-#body-wrapper { width: <?php echo $pw_site; ?>px; padding-left: <?php echo $pw_body_margins; ?>px; padding-right: <?php echo $pw_body_margins; ?>px; background-color: <?php echo theme_option('page_background_color'); ?>; }
+#body-wrapper { width: <?php echo $pw_site; ?>px; margin: <?php echo $pw_body_margins; ?>px; background-color: <?php echo theme_option('page_background_color'); ?>; }
 #main-wrapper > li { margin: 0 <?php echo $pw_margins/2; ?>px; }
 #firstsidebar { width: <?php echo $pw_first_sidebar; ?>px; }
 #secondsidebar { width: <?php echo $pw_second_sidebar; ?>px; }
@@ -56,11 +54,9 @@ a:hover { color: <?php echo theme_option('a_color_hover'); ?>; background: <?php
 article .meta { color: <?php echo theme_option('post_meta_color'); ?>; }
 article .posttitle, article .posttitle a { color: <?php echo theme_option('post_title_color'); ?>; }
 article .posttitle a:hover { color: <?php echo theme_option('post_title_color_hover'); ?>; }
-article .content-col { width: <?php echo $right_col_width; ?>px; }
-#firstsidebar article.side-featured .content-col { width: <?php echo $first_sidebar_right_col_width; ?>px; }
-#secondsidebar article.side-featured .content-col { width: <?php echo $second_sidebar_right_col_width; ?>px; }
+article .content-col { padding-left: <?php echo $right_col_padding; ?>px; }
 <?php if(current_user_can('manage_options') && theme_option('toolbox')=="on") { ?>
-body { padding: 0 50px; }
+body { padding: 0 0 0 70px; }
 <?php } ?>
 </style>
 <!-- eof PressWork Theme Option CSS -->

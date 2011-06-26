@@ -37,7 +37,7 @@ $pw_default_options = array(
 	"content_width" => "600",
 	"first_sidebar_width" => "300",
 	"second_sidebar_width" => "180",
-	"body_margins" => "20",
+	"body_margins" => "0",
 	"content_margins" => "30",
 	"toolbox" => "on",
 	"dragdrop" => "off",
@@ -70,7 +70,7 @@ $pw_welcome = theme_option("welcome_screen");
 if(!empty($_GET['action']) && $_GET['action']=="pw-activate" && empty($pw_welcome)) 
 	include(TEMPLATEPATH.'/admin/inc/welcome.php');
 include(TEMPLATEPATH."/admin/inc/stylesheet.php");
-include(TEMPLATEPATH.'/admin/inc/actions.php');
+include(TEMPLATEPATH.'/admin/actions.php');
 include(TEMPLATEPATH.'/admin/inc/toolbox.php');
 include(TEMPLATEPATH.'/admin/inc/footer-scripts.php');
 include(TEMPLATEPATH.'/admin/inc/action-blocks.php');
@@ -779,9 +779,9 @@ function notin() {
  */
 function pw_add_element_option($name, $id, $text, $rel) {
 	$loc = strpos(theme_option($name.'_option'), $id);
-	echo '<a href="javascript:void(0)" class="add-item '.$name.'-item';
+	echo '<div class="addoption '.$name.'-item"><span>'.$text.'</span><a href="javascript:void(0)" class="add-item';
 	if($loc!==false) echo " disabled";
-	echo '" key="'.$id.'" rel="'.$rel.'">'.$text.'</a>';
+	echo '" key="'.$id.'" rel="'.$rel.'">Add</a></div>';
 }
 
 /**
@@ -790,7 +790,7 @@ function pw_add_element_option($name, $id, $text, $rel) {
  * @since PressWork 1.0
  */
 function pw_color_option($name, $id, $text, $rel) {
-	 echo '<tr class="color-item '.$name.'-item"><th>'.$text.'</th><td><input type="text" class="colorpicker" name="'.$id.'" rel="'.$rel.'" size="7" value="'.theme_option($id).'" /></td></tr>';
+	 echo '<tr class="color-item '.$name.'-item"><th>'.$text.'</th><td><input type="text" class="colorpicker" name="'.$id.'" rel="'.$rel.'" size="7" value="'.theme_option($id).'" /><a href="javascript:void(0)" class="colorwheel" rel="'.$name.'"></a></td></tr>';
 }
 
 function search_url_rewrite_rule() {
