@@ -11,7 +11,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link href='http://fonts.googleapis.com/css?family=<?php echo str_replace(" ", "+", theme_option("body_font")); ?>|<?php echo str_replace(" ", "+", theme_option("headers_font")); ?>' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-<?php if(theme_option("toolbox")=="on") echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/admin/css/toolbox-styles.css" type="text/css" media="screen" />'; ?>
+<?php if(theme_option("toolbox")=="on" && current_user_can( "manage_options" )) echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/admin/css/toolbox-styles.css" type="text/css" media="screen" />'; ?>
 <?php pw_header_css(); ?>
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/admin/images/favicon.ico" />	

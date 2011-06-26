@@ -33,7 +33,7 @@ function pw_header_css() {
 	$right_col_padding = get_option('thumbnail_size_w') + 15;
 ?>
 <!-- PressWork Theme Option CSS -->
-<style type="text/css"<?php if(theme_option('toolbox')=="on") echo ' id="pw_style_preview"'; ?>>
+<style type="text/css"<?php if(theme_option('toolbox')=="on" && current_user_can( "manage_options" )) echo ' id="pw_style_preview"'; ?>>
 body { font-family: <?php echo theme_option("body_font"); ?>; font-size: <?php echo theme_option("body_font_size"); ?>px; }
 h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-family: <?php echo theme_option("headers_font"); ?>; }
 #body-wrapper { width: <?php echo $pw_site; ?>px; padding: <?php echo $pw_body_margins; ?>px; background-color: <?php echo theme_option('page_background_color'); ?>; }

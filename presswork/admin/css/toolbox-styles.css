@@ -63,12 +63,12 @@
 				}				
 				
 		#savetheme {
-			background-position: 0 -144px;
+			background-position: 1px -146px;
 			height: 25px;
 			}
 			
 			#savetheme:hover {
-				background-position: -35px -144px;
+				background-position: -34px -146px;
 				}
 
 .lower_box {
@@ -213,8 +213,8 @@
 	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
 	position: fixed;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-	font-size: 16px;
-	line-height: 16px;
+	font-size: 14px;
+	line-height: 14px;
 	color: #fff;
 	bottom: 0;
 	right: 0;

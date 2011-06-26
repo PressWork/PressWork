@@ -347,7 +347,7 @@ if(!function_exists('pw_widgets_init')) :
  * @since PressWork 1.0
  */	
 	function pw_widgets_init() {
-		if(theme_option('toolbox')=="on") 
+		if(theme_option('toolbox')=="on" && current_user_can( "manage_options" )) 
 			wp_register_script('effects_js', THEME_URL.'/admin/js/effects.js', array( 'jquery', 'jquery-ui-sortable' ),'',true);
 		else
 			wp_register_script('effects_js', THEME_URL.'/admin/js/effects.js', array( 'jquery' ),'',true);
