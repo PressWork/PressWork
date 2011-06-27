@@ -1,4 +1,9 @@
 <?php
+/**
+ * Functionality for Featured Post widget
+ *
+ * @since PressWork 1.0
+ */
 class PW_Featured_Posts_Widget extends WP_Widget {
 	function PW_Featured_Posts_Widget() {
 		$widget_ops = array('classname' => 'pw_featured_posts', 'description' => __('Displays featured posts from one category', "presswork") );

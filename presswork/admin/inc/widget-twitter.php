@@ -1,4 +1,9 @@
 <?php
+/**
+ * Functionality for Twitter widget
+ *
+ * @since PressWork 1.0
+ */
 class PW_Twitter_Widget extends WP_Widget {
 	function PW_Twitter_Widget() {
 		$widget_ops = array('classname' => 'pw_twitter_feed', 'description' => __('Displays your tweets', "presswork") );

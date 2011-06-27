@@ -1,5 +1,11 @@
 <?php 
-
+/**
+ * PressWork's welcome screen. Displays the first time PressWork has
+ * been activated. 
+ *
+ * @stored in theme_option("welcome_screen")
+ * @since PressWork 1.0
+ */
 function pw_welcome_screen() {
 	?>
 	<div id="pw_welcome_screen">

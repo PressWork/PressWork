@@ -1,4 +1,9 @@
 <?php
+/**
+ * Functionality for PressWork's toolbox editor
+ *
+ * @since PressWork 1.0
+ */
 function pw_toolbox() {
 	?>
   	<div id="pw_toolbox">

@@ -1,6 +1,10 @@
 <?php
-// Setting up the theme options CSS
-if(theme_option('content_width')) {
+/**
+ * This is where the CSS is set up based on the theme options
+ *
+ * @since PressWork 1.0
+ */
+ if(theme_option('content_width')) {
 	$pw_content_width = theme_option('content_width');
 	$pw_first_sidebar = theme_option('first_sidebar_width');
 	$pw_second_sidebar = theme_option('second_sidebar_width');

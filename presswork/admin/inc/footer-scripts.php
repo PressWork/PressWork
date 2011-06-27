@@ -1,4 +1,10 @@
 <?php
+/**
+ * These are the jQuery scripts needed to run PressWork
+ * so don't mess with this file
+ *
+ * @since PressWork 1.0
+ */
 function footer_scripts() {
 	?>	
 <script type="text/javascript" src="<?php echo admin_url("js/farbtastic.js"); ?>"></script>

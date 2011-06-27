@@ -80,8 +80,9 @@ include(TEMPLATEPATH.'/admin/inc/theme-updater.php');
 include(TEMPLATEPATH.'/admin/inc/slideshows.php');
 include(TEMPLATEPATH.'/admin/inc/fullwidth.php');
 include(TEMPLATEPATH.'/admin/inc/columns.php');
-include(TEMPLATEPATH.'/admin/inc/widget_twitter.php');
-include(TEMPLATEPATH.'/admin/inc/widget_featured.php');
+include(TEMPLATEPATH.'/admin/inc/google-fonts.php');
+include(TEMPLATEPATH.'/admin/inc/widget-twitter.php');
+include(TEMPLATEPATH.'/admin/inc/widget-featured.php');
 
 /**
  * Load custom-actions.php file if it exists in the uploads folder
@@ -820,30 +821,9 @@ function pw_font_option($name, $text, $rel) {
 }
 
 function font_select($valueID, $rel) {
+    global $pw_google_fonts;
     $ret = '<div class="styled-select"><select class="fontselect" name="'.$valueID.'" rel="'.$rel.'">';
-		$fonts = array(
-			"Quattrocento",
-			"Droid Sans",
-			"Droid Serif",
-			"Lobster",
-			"PT Sans",
-			"Yanone Kaffeesatz",
-			"Arvo",
-			"Ubuntu",
-			"Open Sans",
-			"Pacifico",
-			"Calligraffitti",
-			"Reenie Beanie",
-			"Crafty Girls",
-			"Tangerine",
-			"Oswald",
-			"Shadows Into Light",
-			"Nobile",
-			"Raleway",
-			"Rock Salt",
-			"Copse"
-		);
-        foreach($fonts as $font) {
+        foreach($pw_google_fonts as $font) {
             $ret .= '<option value="'.$font.'"';
             if(stripslashes(theme_option($valueID)) == $font) $ret .= ' selected="selected"';
             $ret .= '>'.$font.'</option>'."\n";
