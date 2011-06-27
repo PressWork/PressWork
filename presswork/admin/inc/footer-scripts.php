@@ -124,7 +124,7 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 	
 	$("#closepicker").click(function() {
 		$("#picker, #closepicker").fadeOut('fast', function() {
-			$("#color").stop(true,true).animate({ width: 250 });
+			$("#color").stop().animate({ width: 250 });
 		});
 
 	});
