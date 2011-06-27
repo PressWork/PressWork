@@ -82,7 +82,13 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-a { text-decoration: none; }
+a { 
+	text-decoration: none; 
+	-moz-transition: color .25s ease-in-out;
+	-webkit-transition: color .25s ease-in-out;
+	-o-transition: color .25s ease-in-out;
+	-MS-transition: color .25s ease-in-out;
+}
 h1, h2, h3, h4, h5, h6, #blogname div.siteheader { margin: 12px 0; float: left; width: 100%; line-height: normal; font-weight: normal; }
 p, table { margin: 1em 0; }
 ul, ol { padding: 0 0 0 20px; list-style: disc; }
