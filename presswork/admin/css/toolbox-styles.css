@@ -19,7 +19,8 @@
 	}
 	
 	.open_toolbox,
-	#savetheme {
+	#savetheme,
+	#pw_welcome_screen p span {
 		width: 35px;
 		height: 35px;
 		background: url(../images/sprite.png) no-repeat 0 0;
@@ -30,7 +31,8 @@
 		}	
 		
 		.open_toolbox.options:hover,
-		.open_toolbox.options.open {
+		.open_toolbox.options.open,
+		#pw_welcome_screen p.brain-icon span {
 			background-position: -35px 0; 
 			}
 					
@@ -39,7 +41,8 @@
 			}
 			
 			.open_toolbox.layout:hover,
-			.open_toolbox.layout.open {
+			.open_toolbox.layout.open,
+			#pw_welcome_screen p.layout-icon span {
 				background-position: -35px -34px; 
 				}
 
@@ -49,7 +52,8 @@
 			}
 			
 			.open_toolbox.color:hover,
-			.open_toolbox.color.open {
+			.open_toolbox.color.open,
+			#pw_welcome_screen p.color-icon span {
 				background-position: -35px -70px; 
 				}
 				
@@ -58,7 +62,8 @@
 			}
 			
 			.open_toolbox.fonts:hover,
-			.open_toolbox.fonts.open {
+			.open_toolbox.fonts.open,
+			#pw_welcome_screen p.fonts-icon span {
 				background-position: -35px -110px; 
 				}				
 				
@@ -67,7 +72,8 @@
 			height: 25px;
 			}
 			
-			#savetheme:hover {
+			#savetheme:hover,
+			#pw_welcome_screen p.save-icon span {
 				background-position: -34px -146px;
 				}
 
@@ -485,33 +491,73 @@ div.handle {
 
 #pw_welcome_screen {
 	width: 800px;
-	height: 400px;
+	height: 350px;
 	padding: 20px;
 	border-radius: 12px;
 	-moz-border-radius: 12px;
 	-webkit-border-radius: 12px;
 	position: fixed;
-	top: 150px;
+	top: 20%;
 	left: 50%;
 	margin: 0 0 0 -400px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-	background: #fff;
+	background: #f0f0f0;
 	z-index: 1100;
+	font-family: Quattrocento, Georgia;
+	color: #444444;
 	}
+	
+	#pw_welcome_screen p {
+		width: 48%;
+		float: left;
+		font-size: 16px;
+		line-height: 20px;
+		margin: 10px 0;
+		}
+		
+		#pw_welcome_screen p.clear {
+			margin-right: 4%;
+			}
+			
+		#pw_welcome_screen p span {
+			float: left;
+			margin-right: 10px;
+			}
+			
+		#pw_welcome_screen p.color-icon span {
+			height: 40px;
+			}
 	
 	#close-welcome {
 		position: absolute;
 		bottom: 15px;
 		right: 20px;
-		color: #000;
 		z-index: 500;
+		color: #444;
+		font-size: 14px;
 		}
 		
 		#close-welcome:hover {
 			color: #444;
 			}
+			
+#pw_version {
+	position: absolute;
+	bottom: 15px;
+	left: 20px;
+	color: #888;	
+	}			
+			
+#pw-logo {
+	height: 70px;
+	width: 370px;
+	line-height: 75px;
+	margin: auto;
+	font-size: 30px;
+	background: url(../images/logo_front.png) no-repeat 172px 0;
+	}
 	
 #pw_fadeback {
 	width: 100%;

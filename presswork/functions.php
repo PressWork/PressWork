@@ -76,7 +76,7 @@ include(TEMPLATEPATH.'/admin/actions.php');
 include(TEMPLATEPATH.'/admin/inc/toolbox.php');
 include(TEMPLATEPATH.'/admin/inc/footer-scripts.php');
 include(TEMPLATEPATH.'/admin/inc/action-blocks.php');
-include(TEMPLATEPATH.'/admin/inc/theme-updater.php');
+//include(TEMPLATEPATH.'/admin/inc/theme-updater.php');
 include(TEMPLATEPATH.'/admin/inc/slideshows.php');
 include(TEMPLATEPATH.'/admin/inc/fullwidth.php');
 include(TEMPLATEPATH.'/admin/inc/columns.php');
@@ -248,13 +248,13 @@ if(!function_exists('pw_admin_page')) :
         <p class="pw-briefcase">Want more functionality get</p>
         <p class="pw-twitter">@PressWorkWP</p>
 		<?php
-		$bavotasan_version_check = check_for_update();
+		/*$bavotasan_version_check = check_for_update();
 		if(!empty($bavotasan_version_check)) {
 			set_site_transient('update_themes', null);
 			echo '<p class="pw-newversion">';
 			printf(__('Version %1$s of %2$s is now available. Go to %3$s page.', "presswork"), $bavotasan_version_check, '<strong>'.THEME_NAME.'</strong>', '<a href="'.admin_url('update-core.php').'">Updates</a>');
 			echo '</p>';
-		}
+		}*/
 		echo '</div><!-- end of #wrap -->';	
 	}
 endif;

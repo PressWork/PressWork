@@ -1,6 +1,7 @@
 <?php
 /**
- * Functionality to hook in the WordPress theme updater
+ * Functionality to hook in the WordPress theme updater. Included in 
+ * PressWork but only really needed for child themes.
  *
  * @since PressWork 1.0
  */
