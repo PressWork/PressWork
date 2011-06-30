@@ -12,6 +12,7 @@ function pw_toolbox() {
 			<div class="open_toolbox layout clear fl" rel="layout"></div>
 			<div class="open_toolbox color clear fl" rel="color"></div>
 			<div class="open_toolbox fonts clear fl" rel="fonts"></div>
+			<div class="open_toolbox social clear fl" rel="social"></div>
 			<div id="savetheme" class="clear fl"></div>
 		</div>	
 		<form action="" method="post" name="themeform" id="themeform">
@@ -120,6 +121,17 @@ function pw_toolbox() {
 		        </table>
 		        <p>Fonts by <a href="http://www.google.com/webfonts?subset=latin&sort=pop" target="_blank">Google</a></p>
 			</div>
+			
+			<div id="social" class="pw_toolbox_content">  
+				<div class="pw_toolbox_arrow"></div>
+				<h4>Social</h4> 
+				<div class="closewindow">X</div>
+				<table class="themeoptions">
+					<?php pw_social_option("twitter", "Twitter"); ?>
+					<?php pw_social_option("facebook", "Facebook"); ?>
+					<?php pw_social_option("flickr", "Flickr"); ?>
+		        </table>
+			</div>			
 	
 			<input type="hidden" name="font_option" id="font_option" value="<?php echo theme_option('font_option'); ?>" />
 			<input type="hidden" name="layout_option" id="layout_option" value="<?php echo theme_option('layout_option'); ?>" />

@@ -269,6 +269,20 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 			});
 		}
 	});
+	
+	$("#social .themeoptions input").change(function() { 
+		var value = $(this).val();
+		var el = $(this).attr('name');
+		if(value=='') {
+			$("#social-icons a."+el+"-icon").remove();
+		} else if($("#social-icons a."+el+"-icon").length==0) {
+			var theURL;
+			if(el=="twitter") theURL = "http://twitter.com/"+value;
+			if(el=="facebook") theURL = "http://facebook.com/"+value;
+			if(el=="flickr") theURL = "http://flickr.com/photos/"+value;
+			$("#social-icons").append("<a href='"+theURL+"' class='"+el+"-icon'></a>");
+		}
+	});
 	$(".open_toolbox").click(function() {
 		var button = $(this);
 		var it = $(this).attr("rel");

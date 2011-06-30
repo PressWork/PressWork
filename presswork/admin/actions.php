@@ -18,6 +18,26 @@ function pw_header_content() {
 add_action('pw_header_middle', 'pw_header_content');
 
 //
+// Social Icons
+//
+function pw_social_content() {
+	$twitter = theme_option('twitter');
+	$facebook = theme_option('facebook');
+	$flickr = theme_option('flickr');
+	
+	echo '<div id="social-icons">';
+	if(!empty($twitter))
+		echo '<a href="http://twitter.com/'.$twitter.'" class="twitter-icon"></a>';
+	if(!empty($facebook))
+		echo '<a href="http://facebook.com/'.$facebook.'" class="facebook-icon"></a>';
+	if(!empty($flickr))
+		echo '<a href="http://www.flickr.com/photos/'.$flickr.'" class="flickr-icon"></a>';		
+	echo '</div>';
+}
+add_action('pw_header_top', 'pw_social_content');
+
+
+//
 // The Footer
 //
 function pw_footer_content() {

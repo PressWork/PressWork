@@ -833,11 +833,6 @@ function font_select($valueID, $rel) {
 	return $ret;
 }
 
-function search_url_rewrite_rule() {
-	if ( is_search() && !empty($_GET['s'])) {
-		wp_redirect(home_url("/search/") . urlencode(get_query_var('s')));
-		exit();
-	}
-	
+function pw_social_option($name, $text) {
+	echo '<tr><th>'.$text.'</th><td><input type="text" name="'.$name.'" value="'.theme_option($name).'" /></td></tr>';
 }
-add_action('template_redirect', 'search_url_rewrite_rule');

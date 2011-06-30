@@ -2,7 +2,7 @@
 
 #pw_toolbox {
 	position: fixed;
-	bottom: 60px;
+	bottom: 20px;
 	left: 0;
 	font-family: Arial, sans-serif;
 	}
@@ -46,7 +46,7 @@
 				background-position: -35px -34px; 
 				}
 
-		.open_toolbox.color{
+		.open_toolbox.color {
 			background-position: 0 -70px;
 			height: 39px;
 			}
@@ -57,7 +57,7 @@
 				background-position: -35px -70px; 
 				}
 				
-		.open_toolbox.fonts{
+		.open_toolbox.fonts {
 			background-position: 0 -110px;
 			}
 			
@@ -67,14 +67,25 @@
 				background-position: -35px -110px; 
 				}				
 				
+		.open_toolbox.social {
+			background-position: 0 -146px;
+			height: 25px;
+			}
+			
+			.open_toolbox.social:hover,
+			.open_toolbox.social.open,
+			#pw_welcome_screen p.social-icon span {
+				background-position: -35px -146px;
+				}
+
 		#savetheme {
-			background-position: 1px -146px;
+			background-position: 1px -180px;
 			height: 25px;
 			}
 			
 			#savetheme:hover,
 			#pw_welcome_screen p.save-icon span {
-				background-position: -34px -146px;
+				background-position: -34px -180px;
 				}
 
 .lower_box {
@@ -100,6 +111,19 @@
 	#color .pw_toolbox_arrow {
 		top: 111px;
 		}
+
+	#social .pw_toolbox_arrow {
+		top: 102px;
+		}
+		
+#social {
+	margin-top: 70px;
+	}
+
+#social .themeoptions td input {
+	margin: 2px 0;
+	text-align: left;
+	}
 
 #color {
 	width: 250px;
@@ -609,6 +633,11 @@ div.handle {
 	_border: 0; /* IE 6 hack */
 	z-index: 50;
 	}	
+
+	.guides #social-icons {
+		position: static;
+		float: right;
+		}
 		
 	.guide-title {
 		-moz-border-radius:3px 3px 3px 3px;

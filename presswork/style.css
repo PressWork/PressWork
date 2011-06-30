@@ -146,8 +146,9 @@ textarea { width: 96%; }
 
 header {
 	width: 100%;
-	margin: 20px 0 30px;
+	margin: 0 0 30px;
 	float: left;
+	position: relative;
 	}
 	
 	#headerbanner {
@@ -167,6 +168,48 @@ header {
 			width: 100%;
 			clear: both;
 			}
+			
+	#header_logo {
+		margin-top: 20px;
+		}
+
+#social-icons {
+	position: absolute;
+	top: 23px;
+	right: 0;
+	z-index: 500;
+	display: none;
+	}
+	
+	#blogname #social-icons {
+		top: 0;
+		}
+	
+	#social-icons a {
+		width: 32px;
+		height: 32px;
+		display: block;
+		background: url(admin/images/sprite.png) no-repeat -70px -175px;
+		float: left;
+		margin-right: 3px;
+		opacity: 0.7;
+		-moz-transition: opacity .25s ease-in-out;
+		-webkit-transition: opacity .25s ease-in-out;
+		-o-transition: opacity .25s ease-in-out;
+		-MS-transition: opacity .25s ease-in-out;
+		}
+		
+		#social-icons a:hover {
+			opacity: 1;
+			}
+			
+	#social-icons a.facebook-icon {
+		background-position: -104px -175px;
+		}
+
+	#social-icons a.flickr-icon {
+		background-position: -138px -175px;
+		}
 
 #blogname {
 	margin: 0 0 5px;

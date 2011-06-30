@@ -32,5 +32,10 @@
 				.attr("height", (wrapWidth * aspectRatio));
 		}
 	});
+	
+	if($("#header_logo").length!=0) 
+		$("#social-icons").appendTo("#header_logo").show();
+	else if($("#blogname").length!=0) 
+		$("#social-icons").appendTo("#blogname").show();
 
 })(jQuery);
