@@ -68,24 +68,27 @@
 				}				
 				
 		.open_toolbox.social {
-			background-position: 0 -146px;
-			height: 25px;
+			background-position: 0 -147px;
+			height: 28px;
 			}
 			
 			.open_toolbox.social:hover,
-			.open_toolbox.social.open,
+			.open_toolbox.social.open {
+				background-position: -35px -147px;
+				}
+		
 			#pw_welcome_screen p.social-icon span {
-				background-position: -35px -146px;
+				background-position: -35px -143px;
 				}
 
 		#savetheme {
-			background-position: 1px -180px;
+			background-position: 1px -178px;
 			height: 25px;
 			}
 			
 			#savetheme:hover,
 			#pw_welcome_screen p.save-icon span {
-				background-position: -34px -180px;
+				background-position: -34px -178px;
 				}
 
 .lower_box {
@@ -516,7 +519,7 @@ div.handle {
 #pw_welcome_screen {
 	width: 800px;
 	height: 350px;
-	padding: 20px;
+	padding: 15px;
 	border-radius: 12px;
 	-moz-border-radius: 12px;
 	-webkit-border-radius: 12px;
@@ -575,7 +578,7 @@ div.handle {
 	}			
 			
 #pw-logo {
-	height: 70px;
+	height: 60px;
 	width: 370px;
 	line-height: 75px;
 	margin: auto;
@@ -596,7 +599,7 @@ div.handle {
 	
 	.toolbox-arrow {
 		position: fixed;
-		bottom: 27px;
+		bottom: 0;
 		left: 54px;
 		background: url(../images/welcome.png) no-repeat 0 -85px;
 		width: 180px;

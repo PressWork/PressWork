@@ -100,6 +100,10 @@ function pw_toolbox() {
 						<?php pw_color_option('subnav', 'subnav_color_hover', 'Hover Color', '#subnav nav a:hover|color'); ?>
 						<?php pw_color_option('subnav', 'subnav_background_color', 'BG Color', '#subnav nav ul|background-color'); ?>
 						<?php pw_color_option('subnav', 'subnav_background_color_hover', 'BG Hover Color', '#subnav nav a:hover, #subnav .sub-menu li, #subnav .sfHover|background-color'); ?>
+						<?php pw_color_option('footernav', 'footernav_color', 'Color', '#footernav nav a|color'); ?>
+						<?php pw_color_option('footernav', 'footernav_color_hover', 'Hover Color', '#footernav nav a:hover|color'); ?>
+						<?php pw_color_option('footernav', 'footernav_background_color', 'BG Color', '#footernav nav ul|background-color'); ?>
+						<?php pw_color_option('footernav', 'footernav_background_color_hover', 'BG Hover Color', '#subnav nav a:hover, #footernav .sub-menu li, #subnav .sfHover|background-color'); ?>
 						<?php pw_color_option('post_title', 'post_title_color', 'Color', 'article .posttitle, article .posttitle a|color'); ?>
 						<?php pw_color_option('post_title', 'post_title_color_hover', 'Hover Color', 'article .posttitle a:hover|color'); ?>
 						<?php pw_color_option('post_meta', 'post_meta_color', 'Color', 'article .meta|color'); ?>

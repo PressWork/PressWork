@@ -278,7 +278,7 @@ nav {
 	font-size: 1.3em;
 	}
 
-	nav.sub {	
+	#subnav nav {	
 		border: 0;
 		font-size: 1em;
 		z-index: 400;
@@ -863,7 +863,21 @@ footer {
 
 #copyright {
 	font-size: 0.8em;
+	text-align: center;
+	margin: 10px;
 	}
+	
+#footer nav {
+	border: 0;
+	font-size: 0.9em;
+	position: relative;
+	margin: 10px 0;
+	}
+
+	#footer nav ul {
+		width: auto;
+		text-align: center;
+   		}
 	
 /* SLIDEROTA */
 

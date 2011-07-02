@@ -57,6 +57,9 @@ a:hover { color: <?php echo theme_option('a_color_hover'); ?>; background: <?php
 #subnav nav ul  { background: <?php echo theme_option('subnav_background_color'); ?>; }
 #subnav nav a { color: <?php echo theme_option('subnav_color'); ?> }
 #subnav nav a:hover, #subnav .sub-menu li, #subnav .sfHover { color: <?php echo theme_option('subnav_color_hover'); ?>; background: <?php echo theme_option('subnav_background_color_hover') ; ?>; }
+#footer nav ul  { background: <?php echo theme_option('footernav_background_color'); ?>; }
+#footer nav a { color: <?php echo theme_option('footernav_color'); ?> }
+#footer nav a:hover, #footer .sub-menu li, #footer .sfHover { color: <?php echo theme_option('footernav_color_hover'); ?>; background: <?php echo theme_option('footernav_background_color_hover') ; ?>; }
 article .meta { color: <?php echo theme_option('post_meta_color'); ?>; }
 article .posttitle, article .posttitle a { color: <?php echo theme_option('post_title_color'); ?>; }
 article .posttitle a:hover { color: <?php echo theme_option('post_title_color_hover'); ?>; }
