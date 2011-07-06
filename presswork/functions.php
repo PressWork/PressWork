@@ -308,7 +308,7 @@ function turn_on_toolbox() {
 }
 add_action('wp_ajax_turn_on_toolbox', 'turn_on_toolbox');
 
-if(!function_exists('pw_admin_page')) :
+if(!function_exists('pw_single_save')) :
 	// Save single options function
 	function pw_single_save($option, $value) {
 		$savevalues = get_option(THEME_FILE);
