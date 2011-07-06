@@ -536,4 +536,9 @@ function pw_index_top_slideshow() {
 }
 //add_action('pw_index_top', 'pw_index_top_slideshow');
 
+// Including child theme action file
+if(!defined('CHILD_ACTION_FILE'))
+	define('CHILD_ACTION_FILE', STYLESHEETPATH.'/actions.php');
+if(file_exists(CHILD_ACTION_FILE))
+	include(CHILD_ACTION_FILE);
 ?>

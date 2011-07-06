@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6, #blogname div.siteheader { margin: 12px 0; float: left; 
 p, table { margin: 1em 0; }
 ul, ol { padding: 0 0 0 20px; list-style: disc; }
 ol { list-style: decimal; }
-h1, #blogname div.siteheader { font-size: 2.4em; }
+h1, #blogname .siteheader { font-size: 2.4em; }
 h2 { font-size: 2.0em; }
 h3 { font-size: 1.8em; }
 h4 { font-size: 1.6em; }
@@ -181,10 +181,6 @@ header {
 	display: none;
 	}
 	
-	#blogname #social-icons {
-		top: 0;
-		}
-	
 	#social-icons a {
 		width: 32px;
 		height: 32px;
@@ -215,11 +211,11 @@ header {
 	margin: 0 0 5px;
 	padding: 0;
 	_width: 300px; /* IE hack */
+	position: relative;
 	}
 	
-	#blogname h1.siteheader,
-	#blogname div.siteheader {
-		margin: 0;
+	#blogname .siteheader {
+		margin: 20px 0 0;
 		padding: 0;
 		}
 		
@@ -725,7 +721,6 @@ ul.page-numbers span {
     background: #eee;
     background: -webkit-gradient(linear, left top, left bottom, from(#E4E3E3), to(#FFFFFF));
 	background: -moz-linear-gradient(top,  #E4E3E3,  #FFFFFF);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#E4E3E3', endColorstr='#FFFFFF');
 	padding: 3px 4px 2px 4px; 
 	margin: 2px;
 	text-decoration: none;
@@ -1246,7 +1241,13 @@ div.warning {
 	line-height: normal;
 	width: 100%;
 	color: #000;
+	text-shadow: none;
 	}
+	
+	div.warning a {
+		color: #000;
+		border-bottom: 1px dotted #000;	
+		}
 	
 	div.warning p {
 		padding: 8px 10px;

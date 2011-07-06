@@ -11,8 +11,8 @@ if(!function_exists('pw_init')):
 		define('THEME_FILE', 'presswork');
 		define('THEME_CODE', 'pwk');
 	}
+	pw_init();
 endif;
-pw_init();
 
 /**
  * Redirect to theme page upon theme activation
@@ -20,7 +20,7 @@ pw_init();
  * @since PressWork 1.0
  */	
 if(is_admin() && isset($_GET['activated']) && $pagenow == "themes.php" ) {
-	header( 'Location: '.admin_url().'themes.php?page=presswork' ) ;
+	header( 'Location: '.admin_url().'themes.php?page='.THEME_FILE ) ;
 }
 
 /**
@@ -30,47 +30,48 @@ if(is_admin() && isset($_GET['activated']) && $pagenow == "themes.php" ) {
  *
  * @since PressWork 1.0
  */	
-$pw_default_options = array(
-	"layout_option" => "maincontent,firstsidebar",
-	"header_option" => "header_logo,nav",
-	"footer_option" => "extendedfooter,copyright",
-	"content_width" => "600",
-	"first_sidebar_width" => "300",
-	"second_sidebar_width" => "180",
-	"body_margins" => "0",
-	"content_margins" => "30",
-	"toolbox" => "on",
-	"dragdrop" => "off",
-	"guides" => "off",
-	"functions" => "off",
-	"header_logo" => get_template_directory_uri()."/admin/images/logo_front.png",
-	"siteheader_color" => "#2B904E",
-	"siteheader_color_hover" => "#444444",
-	"description_color" => "#444444",
-	"main_text_color" => "#444444",
-	"a_color" => "#2b904e",
-	"a_color_hover" => "#4fb859",
-	"nav_color" => "#222222",
-	"nav_color_hover" => "#444444",
-	"nav_background_color" => "#FFFFFF",
-	"nav_background_color_hover" => "#EEEEEE",
-	"subnav_color" => "#222222",
-	"subnav_color_hover" => "#222222",
-	"subnav_background_color" => "#FFFFFF",
-	"subnav_background_color_hover" => "#EEEEEE",
-	"footernav_color" => "#222222",
-	"footernav_color_hover" => "#222222",
-	"footernav_background_color" => "#FFFFFF",
-	"footernav_background_color_hover" => "#EEEEEE",
-	"post_title_color" => "#222222",
-	"post_title_color_hover" => "#222222",
-	"post_meta_color" => "#888888",
-	"page_background_color" => "#FFFFFF",
-	"body_font" => "Open Sans",
-	"headers_font" => "Quattrocento",
-	"body_font_size" => "12"
-);
-
+if(empty($pw_default_options)) {
+	$pw_default_options = array(
+		"layout_option" => "maincontent,firstsidebar",
+		"header_option" => "header_logo,nav",
+		"footer_option" => "extendedfooter,copyright",
+		"content_width" => "600",
+		"first_sidebar_width" => "300",
+		"second_sidebar_width" => "180",
+		"body_margins" => "0",
+		"content_margins" => "30",
+		"toolbox" => "on",
+		"dragdrop" => "off",
+		"guides" => "off",
+		"functions" => "off",
+		"header_logo" => get_template_directory_uri()."/admin/images/logo_front.png",
+		"siteheader_color" => "#2B904E",
+		"siteheader_color_hover" => "#444444",
+		"description_color" => "#444444",
+		"main_text_color" => "#444444",
+		"a_color" => "#2b904e",
+		"a_color_hover" => "#4fb859",
+		"nav_color" => "#222222",
+		"nav_color_hover" => "#444444",
+		"nav_background_color" => "#FFFFFF",
+		"nav_background_color_hover" => "#EEEEEE",
+		"subnav_color" => "#222222",
+		"subnav_color_hover" => "#222222",
+		"subnav_background_color" => "#FFFFFF",
+		"subnav_background_color_hover" => "#EEEEEE",
+		"footernav_color" => "#222222",
+		"footernav_color_hover" => "#222222",
+		"footernav_background_color" => "#FFFFFF",
+		"footernav_background_color_hover" => "#EEEEEE",
+		"post_title_color" => "#222222",
+		"post_title_color_hover" => "#222222",
+		"post_meta_color" => "#888888",
+		"page_background_color" => "#FFFFFF",
+		"body_font" => "Open Sans",
+		"headers_font" => "Quattrocento",
+		"body_font_size" => "12"
+	);
+}
 // all the includes
 $pw_welcome = theme_option("welcome_screen");
 if(!empty($_GET['action']) && $_GET['action']=="pw-activate" && empty($pw_welcome)) 
@@ -307,12 +308,14 @@ function turn_on_toolbox() {
 }
 add_action('wp_ajax_turn_on_toolbox', 'turn_on_toolbox');
 
-// Save single options function
-function pw_single_save($option, $value) {
-	$savevalues = get_option(THEME_FILE);
-	$savevalues[$option] = $value;
-	update_option(THEME_FILE, $savevalues);
-}
+if(!function_exists('pw_admin_page')) :
+	// Save single options function
+	function pw_single_save($option, $value) {
+		$savevalues = get_option(THEME_FILE);
+		$savevalues[$option] = $value;
+		update_option(THEME_FILE, $savevalues);
+	}
+endif;
 
 // Ajax save function
 function save_theme_callback() {

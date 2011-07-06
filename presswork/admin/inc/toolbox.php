@@ -51,17 +51,7 @@ function pw_toolbox() {
 						</select>
 		            </div>
 						<div class="pw-items">
-							<?php pw_add_element_option('header', 'header_logo', 'Logo', 'headerbanner|header'); ?>
-							<?php pw_add_element_option('header', 'blogname', 'Blog Name', 'headerbanner|header'); ?>
-							<?php pw_add_element_option('header', 'description', 'Description', 'headerbanner|header'); ?>
-							<?php pw_add_element_option('header', 'nav', 'Nav Menu', 'headerbanner|header'); ?>
-							<?php pw_add_element_option('header', 'subnav', 'Sub Nav Menu', 'headerbanner|header'); ?>
-							<?php pw_add_element_option('header', 'headerarea', 'Widgetized Area', 'headerbanner|header'); ?>
-							<?php pw_add_element_option('layout', 'firstsidebar', 'First Sidebar', 'main-wrapper|layout'); ?>
-							<?php pw_add_element_option('layout', 'secondsidebar', 'Second Sidebar', 'main-wrapper|layout'); ?>
-							<?php pw_add_element_option('footer', 'footernav', 'Footer Nav Menu', 'footer|footer'); ?>
-							<?php pw_add_element_option('footer', 'extendedfooter', 'Extended Footer', 'footer|footer'); ?>
-							<?php pw_add_element_option('footer', 'copyright', 'Copyright', 'footer|footer'); ?>
+							<?php pw_add_all_elements(); ?>
 						<div class="logo-input clear"><label for="header_logo">Logo Image URL</label><input size="50" type="text" name="header_logo" id="the_header_logo" class="header-item" value="<?php echo theme_option("header_logo"); ?>" /></div>
 		            </div>
 				</div>
@@ -86,29 +76,8 @@ function pw_toolbox() {
 						</select>
 		            </div>
 						<table class="themeoptions">
-						<?php pw_color_option('siteheader', 'siteheader_color', 'Color', '.siteheader a|color'); ?>
-						<?php pw_color_option('siteheader', 'siteheader_color_hover', 'Hover Color', '.siteheader a:hover|color'); ?>
-						<?php pw_color_option('description', 'description_color', 'Color', '#description|color'); ?>
-						<?php pw_color_option('links', 'a_color', 'Color', 'a|color'); ?>
-						<?php pw_color_option('links', 'a_color_hover', 'Hover Color', 'a:hover|color'); ?>
-						<?php pw_color_option('text', 'main_text_color', 'Color', 'body|color'); ?>
-						<?php pw_color_option('nav', 'nav_color', 'Color', '#nav nav a|color'); ?>
-						<?php pw_color_option('nav', 'nav_color_hover', 'Hover Color', '#nav nav a:hover|color'); ?>
-						<?php pw_color_option('nav', 'nav_background_color', 'BG Color', '#nav nav ul|background-color'); ?>
-						<?php pw_color_option('nav', 'nav_background_color_hover', 'BG Hover Color', '#nav nav a:hover, #nav .sub-menu li, #nav .sfHover|background-color'); ?>
-						<?php pw_color_option('subnav', 'subnav_color', 'Color', '#subnav nav a|color'); ?>
-						<?php pw_color_option('subnav', 'subnav_color_hover', 'Hover Color', '#subnav nav a:hover|color'); ?>
-						<?php pw_color_option('subnav', 'subnav_background_color', 'BG Color', '#subnav nav ul|background-color'); ?>
-						<?php pw_color_option('subnav', 'subnav_background_color_hover', 'BG Hover Color', '#subnav nav a:hover, #subnav .sub-menu li, #subnav .sfHover|background-color'); ?>
-						<?php pw_color_option('footernav', 'footernav_color', 'Color', '#footernav nav a|color'); ?>
-						<?php pw_color_option('footernav', 'footernav_color_hover', 'Hover Color', '#footernav nav a:hover|color'); ?>
-						<?php pw_color_option('footernav', 'footernav_background_color', 'BG Color', '#footernav nav ul|background-color'); ?>
-						<?php pw_color_option('footernav', 'footernav_background_color_hover', 'BG Hover Color', '#subnav nav a:hover, #footernav .sub-menu li, #subnav .sfHover|background-color'); ?>
-						<?php pw_color_option('post_title', 'post_title_color', 'Color', 'article .posttitle, article .posttitle a|color'); ?>
-						<?php pw_color_option('post_title', 'post_title_color_hover', 'Hover Color', 'article .posttitle a:hover|color'); ?>
-						<?php pw_color_option('post_meta', 'post_meta_color', 'Color', 'article .meta|color'); ?>
-						<?php pw_color_option('page_background', 'page_background_color', 'BG Color', '#body-wrapper|background-color'); ?>
-					</table>		
+						<?php pw_add_all_color_options(); ?>
+						</table>		
 		            <a href="javascript:void(0)" class="green-button" id="pw-preview">Preview</a>	
 					<div id="closepicker">&larr;</div>
 					<div id="picker"></div>
@@ -148,3 +117,50 @@ function pw_toolbox() {
 	<div id="save_message">PressWork Updated</div>
     <?php
 }
+
+if(!function_exists('pw_add_all_color_options')) :
+	function pw_add_all_color_options() {
+		?>
+		<?php pw_color_option('siteheader', 'siteheader_color', 'Color', '.siteheader a|color'); ?>
+		<?php pw_color_option('siteheader', 'siteheader_color_hover', 'Hover Color', '.siteheader a:hover|color'); ?>
+		<?php pw_color_option('description', 'description_color', 'Color', '#description|color'); ?>
+		<?php pw_color_option('links', 'a_color', 'Color', 'a|color'); ?>
+		<?php pw_color_option('links', 'a_color_hover', 'Hover Color', 'a:hover|color'); ?>
+		<?php pw_color_option('text', 'main_text_color', 'Color', 'body|color'); ?>
+		<?php pw_color_option('nav', 'nav_color', 'Color', '#nav nav a|color'); ?>
+		<?php pw_color_option('nav', 'nav_color_hover', 'Hover Color', '#nav nav a:hover|color'); ?>
+		<?php pw_color_option('nav', 'nav_background_color', 'BG Color', '#nav nav ul|background-color'); ?>
+		<?php pw_color_option('nav', 'nav_background_color_hover', 'BG Hover Color', '#nav nav a:hover, #nav .sub-menu li, #nav .sfHover|background-color'); ?>
+		<?php pw_color_option('subnav', 'subnav_color', 'Color', '#subnav nav a|color'); ?>
+		<?php pw_color_option('subnav', 'subnav_color_hover', 'Hover Color', '#subnav nav a:hover|color'); ?>
+		<?php pw_color_option('subnav', 'subnav_background_color', 'BG Color', '#subnav nav ul|background-color'); ?>
+		<?php pw_color_option('subnav', 'subnav_background_color_hover', 'BG Hover Color', '#subnav nav a:hover, #subnav .sub-menu li, #subnav .sfHover|background-color'); ?>
+		<?php pw_color_option('footernav', 'footernav_color', 'Color', '#footernav nav a|color'); ?>
+		<?php pw_color_option('footernav', 'footernav_color_hover', 'Hover Color', '#footernav nav a:hover|color'); ?>
+		<?php pw_color_option('footernav', 'footernav_background_color', 'BG Color', '#footernav nav ul|background-color'); ?>
+		<?php pw_color_option('footernav', 'footernav_background_color_hover', 'BG Hover Color', '#subnav nav a:hover, #footernav .sub-menu li, #subnav .sfHover|background-color'); ?>
+		<?php pw_color_option('post_title', 'post_title_color', 'Color', 'article .posttitle, article .posttitle a|color'); ?>
+		<?php pw_color_option('post_title', 'post_title_color_hover', 'Hover Color', 'article .posttitle a:hover|color'); ?>
+		<?php pw_color_option('post_meta', 'post_meta_color', 'Color', 'article .meta|color'); ?>
+		<?php pw_color_option('page_background', 'page_background_color', 'BG Color', '#body-wrapper|background-color'); ?>
+		<?php
+	}
+endif;
+
+if(!function_exists('pw_add_all_elements')) :
+function pw_add_all_elements() {
+	?>
+	<?php pw_add_element_option('header', 'header_logo', 'Logo', 'headerbanner|header'); ?>
+	<?php pw_add_element_option('header', 'blogname', 'Blog Name', 'headerbanner|header'); ?>
+	<?php pw_add_element_option('header', 'description', 'Description', 'headerbanner|header'); ?>
+	<?php pw_add_element_option('header', 'nav', 'Nav Menu', 'headerbanner|header'); ?>
+	<?php pw_add_element_option('header', 'subnav', 'Sub Nav Menu', 'headerbanner|header'); ?>
+	<?php pw_add_element_option('header', 'headerarea', 'Widgetized Area', 'headerbanner|header'); ?>
+	<?php pw_add_element_option('layout', 'firstsidebar', 'First Sidebar', 'main-wrapper|layout'); ?>
+	<?php pw_add_element_option('layout', 'secondsidebar', 'Second Sidebar', 'main-wrapper|layout'); ?>
+	<?php pw_add_element_option('footer', 'footernav', 'Footer Nav Menu', 'footer|footer'); ?>
+	<?php pw_add_element_option('footer', 'extendedfooter', 'Extended Footer', 'footer|footer'); ?>
+	<?php pw_add_element_option('footer', 'copyright', 'Copyright', 'footer|footer'); ?>
+	<?php
+}
+endif;
