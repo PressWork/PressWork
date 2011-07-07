@@ -160,7 +160,7 @@ function pw_add_all_elements() {
 	<?php pw_add_element_option('header', 'headerarea', __('Widgetized Area', "presswork"), 'headerbanner|header'); ?>
 	<?php pw_add_element_option('layout', 'firstsidebar', __('First Sidebar', "presswork"), 'main-wrapper|layout'); ?>
 	<?php pw_add_element_option('layout', 'secondsidebar', __('Second Sidebar', "presswork"), 'main-wrapper|layout'); ?>
-	<?php pw_add_element_option('footer', 'footernav', __('Footer Nav Menu', "presswork"), 'footer|footer'); ?>
+	<?php //pw_add_element_option('footer', 'footernav', __('Footer Nav Menu', "presswork"), 'footer|footer'); ?>
 	<?php pw_add_element_option('footer', 'extendedfooter', __('Extended Footer', "presswork"), 'footer|footer'); ?>
 	<?php pw_add_element_option('footer', 'copyright', __('Copyright', "presswork"), 'footer|footer'); ?>
 	<?php
