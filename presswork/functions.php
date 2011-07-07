@@ -245,13 +245,15 @@ if(!function_exists('pw_admin_page')) :
         <img src="<?php echo get_template_directory_uri(); ?>/admin/images/logo_pw.jpg" width="260" height="114" alt="" class="pw-logo" />
 	    <?php echo '<div id="message" class="updated fade" style="display: none;"><p><strong>'.THEME_NAME." ".__("Toolbox Deactivated.", "presswork").'</strong></p></div>'."\n"; ?>
 	    <?php
-	    printf(__("<p>If you have any questions or feedback, please check out our %s.</p>", "presswork"), '<a href="http://presswork.me/support/">Support Forum</a>');
+	    printf(__("<p>If you've got mad skills when it comes to WordPress and you want to join the %s community,<br />find us on %s and contribute. Together we can make %s the ultimate WordPress framework.</p><p>Click on the button below to activate/deactivate the %s front-end toolbox.</p>", "presswork"), THEME_NAME, "<a href='https://github.com/digibomb/PressWork' target='_blank'>GitHub</a>", THEME_NAME, THEME_NAME);
 	    $toolbox = theme_option('toolbox'); 
 		if($toolbox=="on") { $class = "deactivate"; } else { $class = ''; }
 		?>
         <a href="javascript:void(0)" class="active <?php echo $class; ?>"></a>
         <input type="hidden" name="frontURL" id="frontURL" value="<?php echo home_url("/"); ?>" />
-        <?php /*
+        <?php 
+       	printf(__("<p>If you have any questions or feedback, please check out our %s.</p>", "presswork"), '<a href="http://presswork.me/support/">Support Forum</a>');
+        /* 
         <p class="pw-briefcase">Want more functionality? Get</p>
          */ ?>
        <p class="pw-twitter"><a href="http://twitter.com/pressworkwp">@PressWorkWP</a></p>
@@ -423,33 +425,46 @@ if(!function_exists('pw_comment_template')) :
  *
  * @since PressWork 1.0
  */
-	function pw_comment_template($comment, $args, $depth) {
-		$GLOBALS['comment'] = $comment; ?>
+	function pw_comment_template($comment, $args, $depth) {	
+		$GLOBALS['comment'] = $comment;
+		switch ( $comment->comment_type ) :
+			case '' :
+		?>
 		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
-		<div id="comment-<?php comment_ID(); ?>">
-			<div class="comment-avatar">
-				<?php echo get_avatar( $comment, 60 ); ?>
-			</div>     
-			<div class="comment-author">
-				<?php echo get_comment_author_link()." "; ?>
+			<div id="comment-<?php comment_ID(); ?>">
+				<div class="comment-avatar">
+					<?php echo get_avatar( $comment, 60 ); ?>
+				</div>     
+				<div class="comment-author">
+					<?php echo get_comment_author_link()." "; ?>
+				</div>
+				<div class="comment-meta">
+					<?php
+					printf(__('%1$s at %2$s', "presswork"), get_comment_date(),get_comment_time()); 
+					edit_comment_link(__('(Edit)', "presswork"),'  ','');
+					?>
+				</div>
+				<div class="comment-text">
+					<?php if ($comment->comment_approved == '0') { _e('<em>Your comment is awaiting moderation.</em>', "presswork"); } ?>
+					<?php comment_text() ?>
+				</div>
+				<?php if($args['max_depth']!=$depth && comments_open() && $comment->comment_type!="pingback") { ?>
+				<div class="reply">
+					<?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+				</div>
+				<?php } ?>
 			</div>
-			<div class="comment-meta">
-				<?php
-				printf(__('%1$s at %2$s', "presswork"), get_comment_date(),get_comment_time()); 
-				edit_comment_link(__('(Edit)', "presswork"),'  ','');
-				?>
-			</div>
-			<div class="comment-text">
-				<?php if ($comment->comment_approved == '0') { _e('<em>Your comment is awaiting moderation.</em>', "presswork"); } ?>
-				<?php comment_text() ?>
-			</div>
-			<?php if($args['max_depth']!=$depth && comments_open() && $comment->comment_type!="pingback") { ?>
-			<div class="reply">
-				<?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-			</div>
-			<?php } ?>
-		</div>
+	
 		<?php
+			break;
+			case 'pingback'  :
+			case 'trackback' :
+		?>
+		<li class="pingback">
+			<p><?php _e( 'Pingback:', "presswork" ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', "presswork" ), ' ' ); ?></p>
+		<?php
+				break;
+		endswitch;
 	}
 endif;
 

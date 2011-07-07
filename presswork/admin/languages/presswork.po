@@ -10,22 +10,28 @@ msgstr ""
 "MIME-Version: 1.0\n"
 
 #. Text in function
+#: presswork/functions.php:440
+msgid "%1$s at %2$s"
+msgstr ""
+
+#. Text in function
 #: presswork/admin/actions.php:215
 msgid "&larr; Older Comments"
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:433
+#: presswork/functions.php:440
+#: presswork/functions.php:462
 msgid "(Edit)"
 msgstr ""
 
 #. Text in echo
-#: presswork/functions.php:439
+#: presswork/functions.php:446
 msgid "<em>Your comment is awaiting moderation.</em>"
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:246
+#: presswork/functions.php:247
 msgid "<p>If you have any questions or feedback, please check out our %s.</p>"
 msgstr ""
 
@@ -42,17 +48,17 @@ msgid "Archive for"
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:132
-#: presswork/admin/inc/toolbox.php:136
-#: presswork/admin/inc/toolbox.php:140
-#: presswork/admin/inc/toolbox.php:145
+#: presswork/admin/inc/toolbox.php:133
+#: presswork/admin/inc/toolbox.php:137
+#: presswork/admin/inc/toolbox.php:141
+#: presswork/admin/inc/toolbox.php:147
 msgid "BG Color"
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:133
-#: presswork/admin/inc/toolbox.php:137
-#: presswork/admin/inc/toolbox.php:141
+#: presswork/admin/inc/toolbox.php:134
+#: presswork/admin/inc/toolbox.php:138
+#: presswork/admin/inc/toolbox.php:142
 msgid "BG Hover Color"
 msgstr ""
 
@@ -63,12 +69,12 @@ msgstr ""
 
 #. Text in echo
 #: presswork/admin/inc/toolbox.php:67
-#: presswork/admin/inc/toolbox.php:154
+#: presswork/admin/inc/toolbox.php:156
 msgid "Blog Name"
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:92
+#: presswork/admin/inc/toolbox.php:93
 msgid "Body"
 msgstr ""
 
@@ -88,6 +94,12 @@ msgid "Category"
 msgstr ""
 
 #. Text in echo
+#: presswork/admin/inc/toolbox.php:73
+#: presswork/admin/inc/toolbox.php:143
+msgid "Category Header"
+msgstr ""
+
+#. Text in echo
 #: presswork/admin/inc/welcome.php:22
 msgid "Close"
 msgstr ""
@@ -98,15 +110,15 @@ msgid "Close the<br />Welcome Screen"
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:124
-#: presswork/admin/inc/toolbox.php:126
+#: presswork/admin/inc/toolbox.php:125
 #: presswork/admin/inc/toolbox.php:127
-#: presswork/admin/inc/toolbox.php:129
+#: presswork/admin/inc/toolbox.php:128
 #: presswork/admin/inc/toolbox.php:130
-#: presswork/admin/inc/toolbox.php:134
-#: presswork/admin/inc/toolbox.php:138
-#: presswork/admin/inc/toolbox.php:142
+#: presswork/admin/inc/toolbox.php:131
+#: presswork/admin/inc/toolbox.php:135
+#: presswork/admin/inc/toolbox.php:139
 #: presswork/admin/inc/toolbox.php:144
+#: presswork/admin/inc/toolbox.php:146
 msgid "Color"
 msgstr ""
 
@@ -127,13 +139,13 @@ msgid "Content Margins"
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:163
+#: presswork/admin/inc/toolbox.php:165
 msgid "Copyright"
 msgstr ""
 
 #. Text in echo
 #: presswork/admin/inc/toolbox.php:68
-#: presswork/admin/inc/toolbox.php:155
+#: presswork/admin/inc/toolbox.php:157
 msgid "Description"
 msgstr ""
 
@@ -158,30 +170,30 @@ msgid "Enter your Twitter, Facebook &amp; Flickr usernames so people can find yo
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:162
-#: presswork/functions.php:701
+#: presswork/admin/inc/toolbox.php:164
+#: presswork/functions.php:718
 msgid "Extended Footer"
 msgstr ""
 
 #. Text in echo
 #: presswork/admin/inc/toolbox.php:43
-#: presswork/admin/inc/toolbox.php:159
-#: presswork/functions.php:701
+#: presswork/admin/inc/toolbox.php:161
+#: presswork/functions.php:718
 msgid "First Sidebar"
 msgstr ""
 
 #. Text in echo
-#: presswork/admin/inc/toolbox.php:93
+#: presswork/admin/inc/toolbox.php:94
 msgid "Font Size"
 msgstr ""
 
 #. Text in echo
-#: presswork/admin/inc/toolbox.php:88
+#: presswork/admin/inc/toolbox.php:89
 msgid "Fonts"
 msgstr ""
 
 #. Text in echo
-#: presswork/admin/inc/toolbox.php:95
+#: presswork/admin/inc/toolbox.php:96
 msgid "Fonts by"
 msgstr ""
 
@@ -191,7 +203,7 @@ msgid "Footer"
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:161
+#: presswork/admin/inc/toolbox.php:163
 msgid "Footer Nav Menu"
 msgstr ""
 
@@ -221,22 +233,22 @@ msgid "Header"
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:701
+#: presswork/functions.php:718
 msgid "Header Area"
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:91
+#: presswork/admin/inc/toolbox.php:92
 msgid "Headers"
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:125
-#: presswork/admin/inc/toolbox.php:128
-#: presswork/admin/inc/toolbox.php:131
-#: presswork/admin/inc/toolbox.php:135
-#: presswork/admin/inc/toolbox.php:139
-#: presswork/admin/inc/toolbox.php:143
+#: presswork/admin/inc/toolbox.php:126
+#: presswork/admin/inc/toolbox.php:129
+#: presswork/admin/inc/toolbox.php:132
+#: presswork/admin/inc/toolbox.php:136
+#: presswork/admin/inc/toolbox.php:140
+#: presswork/admin/inc/toolbox.php:145
 msgid "Hover Color"
 msgstr ""
 
@@ -256,7 +268,7 @@ msgid "Links"
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:153
+#: presswork/admin/inc/toolbox.php:155
 msgid "Logo"
 msgstr ""
 
@@ -277,7 +289,7 @@ msgid "Main Text"
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:156
+#: presswork/admin/inc/toolbox.php:158
 msgid "Nav Menu"
 msgstr ""
 
@@ -342,7 +354,7 @@ msgid "PW - Twitter Feed"
 msgstr ""
 
 #. Text in echo
-#: presswork/admin/inc/toolbox.php:75
+#: presswork/admin/inc/toolbox.php:76
 msgid "Page Background"
 msgstr ""
 
@@ -365,12 +377,17 @@ msgid "Permanent Link to %s"
 msgstr ""
 
 #. Text in echo
-#: presswork/admin/inc/toolbox.php:74
+#: presswork/functions.php:462
+msgid "Pingback:"
+msgstr ""
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:75
 msgid "Post Meta"
 msgstr ""
 
 #. Text in echo
-#: presswork/admin/inc/toolbox.php:73
+#: presswork/admin/inc/toolbox.php:74
 msgid "Post Title"
 msgstr ""
 
@@ -391,7 +408,7 @@ msgid "PressWork comes with the top 20 most popular Google Fonts. You can easily
 msgstr ""
 
 #. Text in echo
-#: presswork/admin/inc/toolbox.php:81
+#: presswork/admin/inc/toolbox.php:82
 msgid "Preview"
 msgstr ""
 
@@ -433,13 +450,13 @@ msgstr ""
 
 #. Text in echo
 #: presswork/admin/inc/toolbox.php:43
-#: presswork/admin/inc/toolbox.php:160
-#: presswork/functions.php:701
+#: presswork/admin/inc/toolbox.php:162
+#: presswork/functions.php:718
 msgid "Second Sidebar"
 msgstr ""
 
 #. Text in echo
-#: presswork/admin/inc/toolbox.php:100
+#: presswork/admin/inc/toolbox.php:101
 msgid "Social"
 msgstr ""
 
@@ -449,7 +466,7 @@ msgid "Social Networking"
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:157
+#: presswork/admin/inc/toolbox.php:159
 msgid "Sub Nav Menu"
 msgstr ""
 
@@ -479,22 +496,22 @@ msgid "The PressWork<br />Toolbar"
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:701
+#: presswork/functions.php:718
 msgid "The extended footer appears at the bottom of your site if it has been placed in the footer."
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:701
+#: presswork/functions.php:718
 msgid "The first sidebar appears on every page of your site, unless you have selected full width for a post or page."
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:701
+#: presswork/functions.php:718
 msgid "The header area appears on every page of your site if it has been placed in the header."
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:701
+#: presswork/functions.php:718
 msgid "The second sidebar appears on every page of your site, unless you have selected full width for a post or page."
 msgstr ""
 
@@ -520,7 +537,7 @@ msgid "Title"
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:245
+#: presswork/functions.php:246
 msgid "Toolbox Deactivated."
 msgstr ""
 
@@ -530,7 +547,7 @@ msgid "Turn on the Drag &amp; Drop Editor, Guides &amp; Functions, or even Reset
 msgstr ""
 
 #. Text in echo
-#: presswork/admin/inc/toolbox.php:117
+#: presswork/admin/inc/toolbox.php:118
 msgid "Updated"
 msgstr ""
 
@@ -540,12 +557,12 @@ msgid "Username"
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:701
+#: presswork/functions.php:718
 msgid "Version %1$s of %2$s is now available. Go to %3$s page."
 msgstr ""
 
 #. Text in function
-#: presswork/admin/inc/toolbox.php:158
+#: presswork/admin/inc/toolbox.php:160
 msgid "Widgetized Area"
 msgstr ""
 
@@ -554,11 +571,6 @@ msgstr ""
 #: presswork/admin/actions.php:498
 #: presswork/admin/actions.php:476
 msgid "by"
-msgstr ""
-
-#. Text in function
-#: presswork/functions.php:433
-msgid "on %1$s at %2$s"
 msgstr ""
 
 #. Text in function
