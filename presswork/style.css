@@ -546,8 +546,8 @@ article {
     overflow:hidden;
 	padding: 10px 0;
 	font-size: 0.9em;
-	background: #eeeeee;
-	border:1px solid #ddd;
+	background: #f6f6f6;
+	border:1px solid #eee;
 	border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;	
@@ -627,29 +627,29 @@ h1.catheader {
 #commentform textarea {
 	clear: both;
 	display: block;
-	border: 1px solid #aaa;
+	border: 1px solid #ddd;
 	padding: 5px;
 	margin: 0;
-	}
-		
-	#commentform input:focus,
-	#commentform textarea:focus {
-		border-color: #666;
-		}	
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	z-index: 500;
+	}	
 		
 	#commentform #submit {
 		padding: 4px 10px;
 		cursor: pointer;
-		border: 1px solid #000;
-		background: #2b904e;
+		border: 1px solid #abd5b9;
+		background: #abd5b9;
 		color: #fff;
 	   -moz-border-radius: 3px;
 	   -khtml-border-radius: 3px;
 	   -webkit-border-radius: 3px;
-		}
+ 		}
 		
 		#commentform #submit:hover {
-			background: #404040;
+			background: #71bf8c;
+			border: 1px solid #71bf8c;
 			}
 		
 	 h3#comments-title, #respond h3 { font:normal 20px georgia,times,serif; margin: 10px 0; clear: left; }
@@ -659,25 +659,36 @@ h1.catheader {
 
 	 ol.commentlist { list-style:none; margin:0; padding:0; float: left; width: 100%;}
 
-	 ol.commentlist li { padding:20px 0 20px; background: url(admin/images/h2line.png) repeat-x bottom; clear: both; float: left; width: 100%; }
-	 ol.commentlist ul.children li { padding:20px; background: #eee; border: 1px solid #ccc; width: 100%; }
+	 ol.commentlist li { padding:20px 0 20px; background: url(admin/images/h2line.png) repeat-x bottom; clear: both; float: left; width: 100%; border-bottom: 1px dotted rgba(0,0,0,0.2); }
+	 ol.commentlist ul.children li { padding:20px; background: #f6f6f6; border: 1px solid #eee; width: 100%; border-radius: 3px; -moz-border-radius: 3px;	-webkit-border-radius: 3px; }
+	 ol.commentlist ul.children li.even { background: #fff; border-color: #fff; }
+	.comment-notes { line-height: 1.2em; }
 
 	.commentlist .avatar {
 		float: left;
-		padding: 8px;
-		box-shadow: 0 0 3px rgba(0,0,0,0.4);
-		-webkit-box-shadow: 0 0 3px rgba(0,0,0,0.4);
-		-moz-box-shadow: 0 0 3px rgba(0,0,0,0.4);
+		padding: 2px;
+		border-radius: 3px;
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
 		background: #fff;
+		border: 1px solid #ddd;
 		}
 	
 	.commentlist .comment-author {
-		font-size: 1em;
-		padding-left: 90px;
+		font-size: 1.2em;
+		line-height: 1.6em;
+		padding-left: 75px;
+		font-weight: bold;
+		width: 100%;
+		}
+		
+	.commentlist .comment-meta {
+		padding-left: 75px;
+		font-size: 0.9em;
 		}
 	
 	.commentlist .comment-text {
-		padding: 0 0 0 90px;
+		padding: 0 0 0 75px;
 		}
 	
 	.commentlist .url {
@@ -685,17 +696,31 @@ h1.catheader {
 		font-style: italic;
 		}
 
-	ol.commentlist li div.reply { 
-		width: 100%;
-		text-align: right;
+	ol.commentlist li div.reply a { 
+		clear: both;
+		float: right;
+		padding: 6px 8px;
+		border-radius: 3px;
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		background: #fff;
+		border: 1px solid #ddd;
+		background: #eee;
+		color: #aaa;
+ 		background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(#DDDDDD));
+		background: -moz-linear-gradient(top,  #EEEEEE,  #DDDDDD);
 		}
+
+		ol.commentlist li div.reply a:hover {
+			color: #888;
+			}
 
 	#cancel-comment-reply-link { 
 		font-size: 1em;
 		float: right;
 		}
 
-	 ol.commentlist li ul.children { margin:16px 0 0; padding: 0 0 0 35px; background: url(admin/images/commentarrow.png) no-repeat left top; list-style: none; clear:both; float: left; width: 86%; }
+	 ol.commentlist li ul.children { margin:16px 0 0; list-style: none; clear:both; float: right; width: 90%; }
 	 		
 /* Pagination */	
 	

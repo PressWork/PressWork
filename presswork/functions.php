@@ -430,8 +430,11 @@ if(!function_exists('pw_comment_template')) :
 				<?php echo get_avatar( $comment, 60 ); ?>
 			</div>     
 			<div class="comment-author">
-				<?php echo get_comment_author_link()." ";
-				printf(__('on %1$s at %2$s', "presswork"), get_comment_date(),get_comment_time()); 
+				<?php echo get_comment_author_link()." "; ?>
+			</div>
+			<div class="comment-meta">
+				<?php
+				printf(__('%1$s at %2$s', "presswork"), get_comment_date(),get_comment_time()); 
 				edit_comment_link(__('(Edit)', "presswork"),'  ','');
 				?>
 			</div>

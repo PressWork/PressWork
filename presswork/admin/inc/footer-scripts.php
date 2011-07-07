@@ -360,7 +360,6 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 			}
 
 		})
-		.disableSelection();
 	$("#headerbanner")
 		.sortable({
 			placeholder: 'placeholder',
@@ -370,7 +369,6 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 				$("#header_option").val( $(this).sortable("toArray") );
 			}
 		})
-		.disableSelection();	
 	$("#footer")
 		.sortable({
 			placeholder: 'placeholder',
@@ -380,7 +378,6 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 				$("#footer_option").val( $(this).sortable("toArray") );
 			}
 		})
-		.disableSelection();
 })(jQuery);
 /* ]]> */
 </script>
