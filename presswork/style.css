@@ -556,11 +556,7 @@ article {
 	.author #authorbox {
 		margin: 0 0 30px;
 		}
-		
-	.authortext {
-		width: auto;
-		}	
-		
+			
     #authorbox h4 {
         font-size: 1.4em;
         margin:0;
@@ -578,6 +574,7 @@ article {
     #authorbox p {
         margin:0;
         padding:0px 10px 10px 15px;
+        line-height: 1.2em;
     	}
 		
  #authorbox h4 > a {
