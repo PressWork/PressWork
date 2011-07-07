@@ -1,4 +1,11 @@
-/* TOOLBOX */		
+/* TOOLBOX */	
+
+@font-face {
+  font-family: 'Indie Flower';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Indie Flower'), local('IndieFlower'), url('http://themes.googleusercontent.com/font?kit=10JVD_humAd5zP2yrFqw6qRDOzjiPcYnFooOUGCOsRk') format('woff');
+}	
 
 #pw_toolbox {
 	position: fixed;
@@ -10,7 +17,7 @@
 #pw_toolbox_controls {
 	padding: 6px;
 	background: #3b3b3b;
-	border: 1px solid #1f1f1f;
+	border: 1px solid rgba(0,0,0,0.2);
 	border-left: 0;
 	border-radius: 0 6px 6px 0;
 	-moz-border-radius: 0 6px 6px 0;
@@ -267,7 +274,7 @@ div.handle {
 	height: 30px;
 	line-height: 30px;
 	background: #444;
-	border: 1px solid #000;
+	border: 1px solid rgba(0,0,0,0.2);
 	display: block;
 	border-radius: 5px 5px 0 0;
 	-moz-border-radius: 5px 5px 0 0;
@@ -379,13 +386,11 @@ div.handle {
 .add-item {
 	background: -webkit-gradient(linear, left top, left bottom, from(#4fb859), to(#2b904e));
 	background: -moz-linear-gradient(top,  #4fb859,  #2b904e);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#4fb859', endColorstr='#2b904e');
     border: 1px solid #016526;
     box-shadow: 0 1px 0 #88ff91 inset;
     -moz-box-shadow: 0 1px 0 #88ff91 inset;
     -webkit-box-shadow: 0 1px 0 #88ff91 inset;
     color: #fff;
-    display: block;
     font: 14px/26px normal;
     height: 27px;
     text-shadow: 0 1px 0 #004017;
@@ -425,7 +430,6 @@ div.handle {
 .add-item:hover {
 	background: -webkit-gradient(linear, left top, left bottom, from(#0b5212), to(#2b904e));
 	background: -moz-linear-gradient(top,  #0b5212,  #2b904e);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0b5212', endColorstr='#2b904e');
     box-shadow: 0 -1px 0 #53bb5b inset;
     -moz-box-shadow: 0 -1px 0 #53bb5b inset;
     -webkit-box-shadow: 0 -1px 0 #53bb5b inset;
@@ -602,8 +606,12 @@ div.handle {
 		bottom: 0;
 		left: 54px;
 		background: url(../images/welcome.png) no-repeat 0 -85px;
-		width: 180px;
-		height: 100px;
+		font: 24px/26px normal;
+		font-family: 'Indie Flower', cursive;
+		color: #fff;
+		text-shadow: 2px 2px 4px #000;
+		letter-spacing: 1px;
+		padding: 0 0 50px 0;
 		}
 		
 	.adminbar-arrow {
@@ -611,8 +619,12 @@ div.handle {
 		top: 30px;
 		display: none;
 		background: url(../images/welcome.png) no-repeat 0 0;
-		width: 200px;
-		height: 82px;
+		font: 24px/26px normal;
+		font-family: 'Indie Flower', cursive;
+		color: #fff;
+		text-shadow: 2px 2px 4px #000;
+		padding: 25px 0 0 47px;
+		letter-spacing: 1px;
 		}		
 		
 	.close-arrow {
@@ -620,8 +632,12 @@ div.handle {
 		bottom: -60px;
 		right: -75px;
 		background: url(../images/welcome.png) no-repeat 0 -186px;
-		width: 210px;
-		height: 82px;
+		font: 24px/26px normal;
+		font-family: 'Indie Flower', cursive;
+		color: #fff;
+		text-shadow: 2px 2px 4px #000;
+		padding: 30px 33px 0 0;
+		letter-spacing: 1px;
 		}	
 		
 .guides {
@@ -653,15 +669,3 @@ div.handle {
 		color: #fff;
 		margin: 0 5px 10px;
 		}
-	
-.functions {
-	position: absolute;
-	text-align: center;
-	min-width: 200px;
-	padding: 8px 0;
-	background: #f4adad;
-	border: 1px solid #dd0000;
-	color: #a30000;
-	opacity: 0.8;
-	filter: alpha(opacity=80);
-	}

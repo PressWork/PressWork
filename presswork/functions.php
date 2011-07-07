@@ -239,19 +239,21 @@ if(!function_exists('pw_admin_page')) :
  */	
 	function pw_admin_page() { 
 		?>
-	<div id="presswork" class="wrap">
+	<div id="presswork">
 	  	<div id="ajaxloader"></div>
         <img src="<?php echo get_template_directory_uri(); ?>/admin/images/logo_pw.jpg" width="260" height="114" alt="" class="pw-logo" />
-	    <?php echo '<div id="message" class="updated fade" style="display: none;"><p><strong>'.__("PressWork Deactivated.", "presswork").'</strong></p></div>'."\n"; ?>
+	    <?php echo '<div id="message" class="updated fade" style="display: none;"><p><strong>'.THEME_NAME." ".__("Toolbox Deactivated.", "presswork").'</strong></p></div>'."\n"; ?>
 	    <?php
-	    printf(__("<p><strong>%s</strong> is an easy to use framework built for WordPress. There are many theme options available to get your site up and running, but to really take advantage of <strong>%s</strong>, you need to start to understand how custom actions work.</p><p> Take a look at the <strong>%s</strong> section in the %s to get you started.</p>", "presswork"), THEME_NAME, THEME_NAME, THEME_NAME, '<a href="http://themes.bavotasan.com/support/categories/presswork-tutorials">Support Forum</a>');
+	    printf(__("<p>If you have any questions or feedback, please check out our %s.</p>", "presswork"), '<a href="http://presswork.me/support/">Support Forum</a>');
 	    $toolbox = theme_option('toolbox'); 
-		if($toolbox=="on") { $class = "deactivate"; }
+		if($toolbox=="on") { $class = "deactivate"; } else { $class = ''; }
 		?>
         <a href="javascript:void(0)" class="active <?php echo $class; ?>"></a>
         <input type="hidden" name="frontURL" id="frontURL" value="<?php echo home_url("/"); ?>" />
-        <p class="pw-briefcase">Want more functionality get</p>
-        <p class="pw-twitter">@PressWorkWP</p>
+        <?php /*
+        <p class="pw-briefcase">Want more functionality? Get</p>
+         */ ?>
+       <p class="pw-twitter"><a href="http://twitter.com/pressworkwp">@PressWorkWP</a></p>
 		<?php
 		/*$bavotasan_version_check = check_for_update();
 		if(!empty($bavotasan_version_check)) {
@@ -273,6 +275,7 @@ function get_index($array, $index) {
 function reset_options() {
 	global $pw_default_options;
 	update_option(THEME_FILE, $pw_default_options);
+	pw_single_save('welcome_screen', true);
 }
 
 // Call theme options
@@ -387,7 +390,7 @@ if(!function_exists('pw_widgets_init')) :
 		register_sidebar(array(
 			'name' => __('Header Area', "presswork"),
 			'id' => 'header-area',
-			'description' => __( "The header area appears above the blogname on every page of your site", "presswork" ),
+			'description' => __( "The header area appears on every page of your site if it has been placed in the header.", "presswork" ),
 			'before_widget' => '<div id="%1$s" class="header-widget %2$s">',
 			'after_widget' => '</div>',
 			'before_title' => '<h3>',
@@ -397,7 +400,7 @@ if(!function_exists('pw_widgets_init')) :
 		register_sidebar(array(
 			'name' => __('Extended Footer', "presswork"),
 			'id' => 'extended-footer',
-			'description' => __( "The extended footer appears at the bottom of your site, above your footer content.", "presswork" ),
+			'description' => __( "The extended footer appears at the bottom of your site if it has been placed in the footer.", "presswork" ),
 			'before_widget' => '<div id="%1$s" class="bottom-widget %2$s">',
 			'after_widget' => '</div>',
 			'before_title' => '<h3>',

@@ -99,9 +99,9 @@ class PW_Featured_Posts_Widget extends WP_Widget {
 		$number = strip_tags($instance['number']);
 		$selectname = $this->get_field_name('category');
 		?>
-		<p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></label></p>
-		<p><label for="<?php echo $this->get_field_id('category'); ?>">Category: <?php wp_dropdown_categories('hide_empty=0&name='.$selectname.'&selected='.$category); ?></label></p>	
-		<p><label for="<?php echo $this->get_field_id('number'); ?>">Number of Posts: <input class="widefat" id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo esc_attr($number); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', "presswork"); ?>: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id('category'); ?>"><?php _e('Category', "presswork"); ?>: <?php wp_dropdown_categories('hide_empty=0&name='.$selectname.'&selected='.$category); ?></label></p>	
+		<p><label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of Posts', "presswork"); ?>: <input class="widefat" id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo esc_attr($number); ?>" /></label></p>
 		<?php
 	}
 

@@ -1,13 +1,9 @@
 #presswork {
 	width: 760px;
-	padding: 20px;
-	border: 1px solid #aeaeae;
-	border-radius: 6px;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
+	padding: 20px 0;
 	clear: both;
-	float: left;
-	background: #fff;
+	margin: auto;
+	text-align: center;
 	}
 	
 	.pw-logo {
@@ -79,10 +75,14 @@
 .pw-twitter {
 	background: url(../images/sprite.png) no-repeat -165px -60px;
 	padding-left: 30px;
-	font-size: 14px;
-	float: left;
-	margin: 30px 0 0;
+	font-size: 12px;
+	margin: 30px auto 0;
+	width :90px;
 	}
+	
+	.pw-twitter a {
+		text-decoration: none;
+		}
 	
 .pw-briefcase {
 	background: url(../images/logo_bc.jpg) no-repeat right;
@@ -91,6 +91,6 @@
 	line-height: 78px;
 	float: right;
 	padding-right: 165px;
-	width: 190px;
+	width: 184px;
 	margin: 0;
 	}
