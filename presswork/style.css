@@ -585,15 +585,13 @@ article {
     	}
 		
 h1.catheader {
-	margin: 0 0 10px 0;
-	font-size: 2.4em;
+	margin: 0 0 20px 0;
+	font-size: 3em;
 	font-variant: small-caps;
-	text-shadow: #fff 0 1px 0;
 	}			
 	
 	.catdesc {
 		margin-bottom: 20px;
-		text-shadow: #fff 0 1px 0;
 		color: #888;
 		}
 
@@ -1304,15 +1302,15 @@ div.warning {
 	
 .format-aside .storycontent .pformat { 
 	background: url(admin/images/quotes.png) no-repeat top left;
-	min-height: 30px;
+	min-height: 40px;
     font-style: italic;
-    padding-left: 60px;
+    padding-left: 50px;
     }
 
 .format-audio .storycontent .pformat {
-	padding-left: 38px;
+	padding-left: 50px;
 	background: url(admin/images/audio.png) no-repeat top left;
-	min-height: 30px;
+	min-height: 40px;
 	display: block;
 	}
 	
@@ -1320,7 +1318,7 @@ div.warning {
 	display: block;
 	background: url(admin/images/link.png) no-repeat top left;
 	font-size: 1.4em;
-	line-height: 1.8em;
+	line-height: 1.4em;
     min-height: 40px;
     padding-left: 50px;	
 	}

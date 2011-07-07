@@ -70,6 +70,7 @@ function pw_toolbox() {
 							<option value="text"><?php _e('Main Text', "presswork"); ?></option>
 							<option value="nav"><?php _e('Navigation Menu', "presswork"); ?></option>
 							<option value="subnav"><?php _e('Sub-Navigation Menu', "presswork"); ?></option>
+							<option value="category_header"><?php _e('Category Header', "presswork"); ?></option>
 							<option value="post_title"><?php _e('Post Title', "presswork"); ?></option>
 							<option value="post_meta"><?php _e('Post Meta', "presswork"); ?></option>
 							<option value="page_background"><?php _e('Page Background', "presswork"); ?></option>
@@ -139,6 +140,7 @@ if(!function_exists('pw_add_all_color_options')) :
 		<?php pw_color_option('footernav', 'footernav_color_hover', __('Hover Color', "presswork"), '#footernav nav a:hover|color'); ?>
 		<?php pw_color_option('footernav', 'footernav_background_color', __('BG Color', "presswork"), '#footernav nav ul|background-color'); ?>
 		<?php pw_color_option('footernav', 'footernav_background_color_hover', __('BG Hover Color', "presswork"), '#subnav nav a:hover, #footernav .sub-menu li, #subnav .sfHover|background-color'); ?>
+		<?php pw_color_option('category_header', 'category_header_color', __('Category Header', "presswork"), 'h1.catheader|color'); ?>
 		<?php pw_color_option('post_title', 'post_title_color', __('Color', "presswork"), 'article .posttitle, article .posttitle a|color'); ?>
 		<?php pw_color_option('post_title', 'post_title_color_hover', __('Hover Color', "presswork"), 'article .posttitle a:hover|color'); ?>
 		<?php pw_color_option('post_meta', 'post_meta_color', __('Color', "presswork"), 'article .meta|color'); ?>

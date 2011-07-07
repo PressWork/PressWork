@@ -63,6 +63,7 @@ if(empty($pw_default_options)) {
 		"footernav_color_hover" => "#222222",
 		"footernav_background_color" => "#FFFFFF",
 		"footernav_background_color_hover" => "#EEEEEE",
+		"category_header_color" => "#222222",
 		"post_title_color" => "#222222",
 		"post_title_color_hover" => "#222222",
 		"post_meta_color" => "#888888",

@@ -60,6 +60,7 @@ if(!function_exists('pw_header_css')):
 	#footer nav ul  { background: <?php echo theme_option('footernav_background_color'); ?>; }
 	#footer nav a { color: <?php echo theme_option('footernav_color'); ?> }
 	#footer nav a:hover, #footer .sub-menu li, #footer .sfHover { color: <?php echo theme_option('footernav_color_hover'); ?>; background: <?php echo theme_option('footernav_background_color_hover') ; ?>; }
+	h1.catheader { color: <?php echo theme_option('category_header_color'); ?>; }
 	article .meta { color: <?php echo theme_option('post_meta_color'); ?>; }
 	article .posttitle, article .posttitle a { color: <?php echo theme_option('post_title_color'); ?>; }
 	article .posttitle a:hover { color: <?php echo theme_option('post_title_color_hover'); ?>; }
