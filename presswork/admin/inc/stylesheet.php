@@ -65,9 +65,6 @@ if(!function_exists('pw_header_css')):
 	article .posttitle, article .posttitle a { color: <?php echo theme_option('post_title_color'); ?>; }
 	article .posttitle a:hover { color: <?php echo theme_option('post_title_color_hover'); ?>; }
 	article .content-col { padding-left: <?php echo $right_col_padding; ?>px; }
-	<?php if(current_user_can('manage_options') && theme_option('toolbox')=="on") { ?>
-	body { padding: 0 0 0 70px; }
-	<?php } ?>
 	</style>
 	<!-- eof PressWork Theme Option CSS -->
 	<?php
