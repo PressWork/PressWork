@@ -16,7 +16,7 @@ function pw_welcome_screen() {
 	        <p class="color-icon clear"><span></span><strong><?php _e('Colors', "presswork"); ?></strong> - <?php _e('This is where you can change the colors for links, main text, menus, post titles, backgrounds &amp; more.', "presswork"); ?></p>
 	        <p class="fonts-icon"><span></span><strong><?php _e('Google Fonts', "presswork"); ?></strong> - <?php _e('PressWork comes with the top 20 most popular Google Fonts. You can easily add more if you like.', "presswork"); ?></p>
 	        <p class="social-icon clear"><span></span><strong><?php _e('Social Networking', "presswork"); ?></strong> - <?php _e('Enter your Twitter, Facebook &amp; Flickr usernames so people can find you.', "presswork"); ?></p>
-	        <p class="save-icon"><span></span><strong><?php _e('Save', "presswork"); ?></strong> - <?php _e('Got everything set up the way you want? Better make sure to click save or you might lose your settings.', "presswork"); ?></p>
+	        <p class="save-icon"><span></span><strong><?php _e('Save', "presswork"); ?></strong> - <?php _e('Got everything set up the way you want? Better make sure to click Save or you might lose your settings.', "presswork"); ?></p>
         </div>
         <div id="pw_version"><?php _e('version', "presswork"); ?> <?php echo THEME_VERSION; ?></div>
 		<a href="javascript:void(0)" id="close-welcome"><?php _e('Close', "presswork"); ?></a>
