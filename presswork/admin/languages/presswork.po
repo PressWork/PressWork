@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 
 #. Text in function
-#: presswork/functions.php:440
+#: presswork/functions.php:442
 msgid "%1$s at %2$s"
 msgstr ""
 
@@ -20,19 +20,24 @@ msgid "&larr; Older Comments"
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:440
-#: presswork/functions.php:462
+#: presswork/functions.php:442
+#: presswork/functions.php:464
 msgid "(Edit)"
 msgstr ""
 
 #. Text in echo
-#: presswork/functions.php:446
+#: presswork/functions.php:448
 msgid "<em>Your comment is awaiting moderation.</em>"
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:247
+#: presswork/functions.php:254
 msgid "<p>If you have any questions or feedback, please check out our %s.</p>"
+msgstr ""
+
+#. Text in function
+#: presswork/functions.php:247
+msgid "<p>If you've got mad skills when it comes to WordPress and you want to join the %s community,<br />find us on %s and contribute. Together we can make %s the ultimate WordPress framework.</p><p>Click on the button below to activate/deactivate the %s front-end toolbox.</p>"
 msgstr ""
 
 #. Text in echo
@@ -171,14 +176,14 @@ msgstr ""
 
 #. Text in function
 #: presswork/admin/inc/toolbox.php:164
-#: presswork/functions.php:718
+#: presswork/functions.php:720
 msgid "Extended Footer"
 msgstr ""
 
 #. Text in echo
 #: presswork/admin/inc/toolbox.php:43
 #: presswork/admin/inc/toolbox.php:161
-#: presswork/functions.php:718
+#: presswork/functions.php:720
 msgid "First Sidebar"
 msgstr ""
 
@@ -233,7 +238,7 @@ msgid "Header"
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:718
+#: presswork/functions.php:720
 msgid "Header Area"
 msgstr ""
 
@@ -377,7 +382,7 @@ msgid "Permanent Link to %s"
 msgstr ""
 
 #. Text in echo
-#: presswork/functions.php:462
+#: presswork/functions.php:464
 msgid "Pingback:"
 msgstr ""
 
@@ -451,7 +456,7 @@ msgstr ""
 #. Text in echo
 #: presswork/admin/inc/toolbox.php:43
 #: presswork/admin/inc/toolbox.php:162
-#: presswork/functions.php:718
+#: presswork/functions.php:720
 msgid "Second Sidebar"
 msgstr ""
 
@@ -496,22 +501,22 @@ msgid "The PressWork<br />Toolbar"
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:718
+#: presswork/functions.php:720
 msgid "The extended footer appears at the bottom of your site if it has been placed in the footer."
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:718
+#: presswork/functions.php:720
 msgid "The first sidebar appears on every page of your site, unless you have selected full width for a post or page."
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:718
+#: presswork/functions.php:720
 msgid "The header area appears on every page of your site if it has been placed in the header."
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:718
+#: presswork/functions.php:720
 msgid "The second sidebar appears on every page of your site, unless you have selected full width for a post or page."
 msgstr ""
 
@@ -557,7 +562,7 @@ msgid "Username"
 msgstr ""
 
 #. Text in function
-#: presswork/functions.php:718
+#: presswork/functions.php:720
 msgid "Version %1$s of %2$s is now available. Go to %3$s page."
 msgstr ""
 
