@@ -272,7 +272,7 @@ function pw_posts_featured() {
 			$rightcon = ' class="content-col"';
 		}
 		?>
-        <div<?php echo $rightcon; ?>">
+        <div<?php echo $rightcon; ?>>
 		<h2 class="posttitle"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
         <div class="meta">
             <?php 

@@ -40,7 +40,7 @@ if(empty($pw_default_options)) {
 		"second_sidebar_width" => "180",
 		"body_margins" => "0",
 		"content_margins" => "30",
-		"toolbox" => "on",
+		"toolbox" => "off",
 		"dragdrop" => "off",
 		"guides" => "off",
 		"functions" => "off",
@@ -279,6 +279,7 @@ function reset_options() {
 	global $pw_default_options;
 	update_option(THEME_FILE, $pw_default_options);
 	pw_single_save('welcome_screen', true);
+	pw_single_save('toolbox', 'on');
 }
 
 // Call theme options
