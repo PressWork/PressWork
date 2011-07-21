@@ -27,11 +27,11 @@ function pw_social_content() {
 	
 	echo '<div id="social-icons">';
 	if(!empty($twitter))
-		echo '<a href="http://twitter.com/'.$twitter.'" class="twitter-icon"></a>';
+		echo '<a href="http://twitter.com/'.$twitter.'" class="twitter-icon" target="_NEW" ></a>';
 	if(!empty($facebook))
-		echo '<a href="http://facebook.com/'.$facebook.'" class="facebook-icon"></a>';
+		echo '<a href="http://facebook.com/'.$facebook.'" class="facebook-icon" target="_NEW" ></a>';
 	if(!empty($flickr))
-		echo '<a href="http://www.flickr.com/photos/'.$flickr.'" class="flickr-icon"></a>';		
+		echo '<a href="http://www.flickr.com/photos/'.$flickr.'" class="flickr-icon" target="_NEW" ></a>';		
 	echo '</div>';
 }
 add_action('pw_header_top', 'pw_social_content');
