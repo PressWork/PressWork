@@ -279,7 +279,7 @@ function pw_posts_featured() {
             _e("by", "presswork"); echo " "; the_author_posts_link(); 
             echo '&nbsp;&bull;&nbsp;';
             the_time(get_option('date_format'));
-            if(comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link('0 Comments','1 Comment','% Comments'); }
+            if(comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link(__('0 Comments',presswork),__('1 Comment',presswork),__('% Comments',presswork)); }
             ?>
         </div>
 		<?php
@@ -344,7 +344,7 @@ function pw_posts() {
 				echo '&nbsp;&bull;&nbsp;';
 				the_category(', ');
 			}
-			if(comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link('0 Comments','1 Comment','% Comments'); }
+			if(comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link( __('0 Comments', "presswork"), __('1 Comment', "presswork"), __('% Comments', "presswork")); }
 			
 			?>
 		</div>
@@ -414,7 +414,7 @@ function pw_single_post() {
 		the_time(get_option('date_format'));
 		echo '&nbsp;&bull;&nbsp;';
 		the_category(', ');
-		if(comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link('0 Comments','1 Comment','% Comments'); }
+		if(comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link( __('0 Comments', "presswork"), __('1 Comment', "presswork"), __('% Comments', "presswork")); }
 		?>
 	</div>
     <div class="storycontent">
@@ -423,7 +423,7 @@ function pw_single_post() {
     <?php
    	the_tags('<p class="tags"><small>'.__('Tags', "presswork").': ', ', ', '</small></p>');
 	wp_link_pages(array('before' => '<p><strong>'.__('Pages', "presswork").':</strong> ', 'after' => '</p>', 'next_or_number' => 'number'));
-	edit_post_link('(edit)', '<p class="clear">', '</p>');
+	edit_post_link(__('(Edit)',presswork), '<p class="clear">', '</p>');
 }
 add_action('pw_single_post_middle', 'pw_single_post');
 add_action('pw_page_post_middle', 'pw_single_post');
