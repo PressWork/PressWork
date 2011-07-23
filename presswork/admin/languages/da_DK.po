@@ -1,0 +1,612 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Tore Dalsgaard <tore@dtore.dk>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+
+#. Text in function
+#: presswork/admin/actions.php:282
+#: presswork/admin/actions.php:347
+#: presswork/admin/actions.php:417
+msgid "0 Comments"
+msgstr "0 kommentarer"
+
+#. Text in function
+#: presswork/admin/actions.php:282
+#: presswork/admin/actions.php:347
+#: presswork/admin/actions.php:417
+msgid "1 Comment"
+msgstr "1 kommentar"
+
+#. Text in function
+#: presswork/admin/actions.php:282
+#: presswork/admin/actions.php:347
+#: presswork/admin/actions.php:417
+msgid "% Comments"
+msgstr "% kommentarer"
+
+#. Text in function
+#: presswork/functions.php:442
+msgid "%1$s at %2$s"
+msgstr "%1$s af %2$s"
+
+#. Text in function
+#: presswork/admin/actions.php:215
+msgid "&larr; Older Comments"
+msgstr "&larr; Ældre kommentarer"
+
+#. Text in function
+#: presswork/actions.php:442
+#: presswork/functions.php:442
+#: presswork/functions.php:464
+msgid "(Edit)"
+msgstr "(rediger)"
+
+#. Text in echo
+#: presswork/functions.php:448
+msgid "<em>Your comment is awaiting moderation.</em>"
+msgstr "<em>Din kommentar afventer moderation.</em>"
+
+#. Text in function
+#: presswork/functions.php:254
+msgid "<p>If you have any questions or feedback, please check out our %s.</p>"
+msgstr "<p>Hvis du har spørgsmål eller feedback, så tjek voresr %s.</p>"
+
+#. Text in function
+#: presswork/functions.php:247
+msgid "<p>If you've got mad skills when it comes to WordPress and you want to join the %s community,<br />find us on %s and contribute. Together we can make %s the ultimate WordPress framework.</p><p>Click on the button below to activate/deactivate the %s front-end toolbox.</p>"
+msgstr "<p>Hvis du har WordPress mad skills, og du vil være en del af %s fællesskabet,<br />find os på %s og bidrag. Sammen kan vi gøre %s det ultimative WordPress framework.</p><p>Tryk på knappen for at aktiverer eller dekativerer %s front-end toolbox.</p>"
+
+#. Text in echo
+#: presswork/admin/actions.php:441
+msgid "About"
+msgstr "om"
+
+#. Text in echo
+#: presswork/admin/actions.php:136
+#: presswork/admin/actions.php:139
+#: presswork/admin/actions.php:142
+msgid "Archive for"
+msgstr "arkiv for"
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:133
+#: presswork/admin/inc/toolbox.php:137
+#: presswork/admin/inc/toolbox.php:141
+#: presswork/admin/inc/toolbox.php:147
+msgid "BG Color"
+msgstr "BG farve"
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:134
+#: presswork/admin/inc/toolbox.php:138
+#: presswork/admin/inc/toolbox.php:142
+msgid "BG Hover Color"
+msgstr "BG hover farve"
+
+#. Text in echo
+#: presswork/admin/actions.php:145
+msgid "Blog Archives"
+msgstr "Blogarkiv"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:67
+#: presswork/admin/inc/toolbox.php:156
+msgid "Blog Name"
+msgstr "Blognavn"
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:93
+msgid "Body"
+msgstr "Body"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:44
+msgid "Body Margins"
+msgstr "Bodymarginer"
+
+#. Text in echo
+#: presswork/admin/actions.php:460
+msgid "By"
+msgstr "af"
+
+#. Text in echo
+#: presswork/admin/inc/widget-featured.php:103
+msgid "Category"
+msgstr "kategori"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:73
+#: presswork/admin/inc/toolbox.php:143
+msgid "Category Header"
+msgstr "kategori Header"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:22
+msgid "Close"
+msgstr "luk"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:23
+msgid "Close the<br />Welcome Screen"
+msgstr "luk<br />velkomstskærmen"
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:125
+#: presswork/admin/inc/toolbox.php:127
+#: presswork/admin/inc/toolbox.php:128
+#: presswork/admin/inc/toolbox.php:130
+#: presswork/admin/inc/toolbox.php:131
+#: presswork/admin/inc/toolbox.php:135
+#: presswork/admin/inc/toolbox.php:139
+#: presswork/admin/inc/toolbox.php:144
+#: presswork/admin/inc/toolbox.php:146
+msgid "Color"
+msgstr "farve"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:16
+#: presswork/admin/inc/toolbox.php:62
+msgid "Colors"
+msgstr "farver"
+
+#. Text in echo
+#: presswork/admin/actions.php:227
+msgid "Comments are closed."
+msgstr "kommentarer er lukket."
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:44
+msgid "Content Margins"
+msgstr "indholdsmarginer"
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:165
+msgid "Copyright"
+msgstr "copyright"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:68
+#: presswork/admin/inc/toolbox.php:157
+msgid "Description"
+msgstr "beskrivelse"
+
+#. Text in function
+#: presswork/admin/inc/widget-featured.php:1
+msgid "Displays featured posts from one category"
+msgstr "viser udvalgte indlæg fra en kategori"
+
+#. Text in function
+#: presswork/admin/inc/widget-twitter.php:1
+msgid "Displays your tweets"
+msgstr "Vis dine tweets"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:24
+msgid "Drag &amp; Drop Editor"
+msgstr "Drag &amp; Drop Editor"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:18
+msgid "Enter your Twitter, Facebook &amp; Flickr usernames so people can find you."
+msgstr "Indtast dit Twitter, Facebook &amp; Flickr brugernavn, så folk kan finde dig."
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:164
+#: presswork/functions.php:720
+msgid "Extended Footer"
+msgstr "udvidet footer"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:43
+#: presswork/admin/inc/toolbox.php:161
+#: presswork/functions.php:720
+msgid "First Sidebar"
+msgstr "første sidebjælke"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:94
+msgid "Font Size"
+msgstr "skriftstørrelse"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:89
+msgid "Fonts"
+msgstr "skrifttyper"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:96
+msgid "Fonts by"
+msgstr "skriftertyper af"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:50
+msgid "Footer"
+msgstr "sidefod"
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:163
+msgid "Footer Nav Menu"
+msgstr "sidefod navmenu"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:33
+msgid "Functions"
+msgstr "funktioner"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:17
+msgid "Google Fonts"
+msgstr "Google skrifttyper"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:19
+msgid "Got everything set up the way you want? Better make sure to click save or you might lose your settings."
+msgstr "Ser det rigtigt ud? Du må hellere trykke gem ellers risikierer du  at miste dine indstillinger..."
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:32
+msgid "Guides"
+msgstr "hjælpelinjer"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:48
+msgid "Header"
+msgstr "header"
+
+#. Text in function
+#: presswork/functions.php:720
+msgid "Header Area"
+msgstr "headerområde"
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:92
+msgid "Headers"
+msgstr "Headers"
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:126
+#: presswork/admin/inc/toolbox.php:129
+#: presswork/admin/inc/toolbox.php:132
+#: presswork/admin/inc/toolbox.php:136
+#: presswork/admin/inc/toolbox.php:140
+#: presswork/admin/inc/toolbox.php:145
+msgid "Hover Color"
+msgstr "Hoverfarve"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:40
+msgid "Layout"
+msgstr "layout"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:15
+msgid "Layouts"
+msgstr "layouts"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:69
+msgid "Links"
+msgstr "links"
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:155
+msgid "Logo"
+msgstr "logo"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:55
+msgid "Logo Image URL"
+msgstr "logobilled URL"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:43
+#: presswork/admin/inc/toolbox.php:49
+msgid "Main Content"
+msgstr "hovedindhold"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:70
+msgid "Main Text"
+msgstr "brødtekst"
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:158
+msgid "Nav Menu"
+msgstr "navmenu"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:71
+msgid "Navigation Menu"
+msgstr "navigationsmenu"
+
+#. Text in function
+#: presswork/admin/actions.php:216
+msgid "Newer Comments &rarr;"
+msgstr "nyere kommentarer"
+
+#. Text in function
+#: presswork/admin/actions.php:468
+#: presswork/admin/actions.php:164
+msgid "No posts found."
+msgstr "ingen indlæg fundet"
+
+#. Text in echo
+#: presswork/admin/actions.php:116
+msgid "No results were found for your request."
+msgstr "ingen resultater fundet for din forespørgsel."
+
+#. Text in echo
+#: presswork/admin/actions.php:114
+msgid "Not found"
+msgstr "ikke fundet"
+
+#. Text in echo
+#: presswork/admin/inc/widget-featured.php:104
+msgid "Number of Posts"
+msgstr "antal indlæg"
+
+#. Text in echo
+#: presswork/admin/inc/widget-twitter.php:63
+msgid "Number of Tweets"
+msgstr "antal tweets"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:30
+#: presswork/admin/inc/toolbox.php:32
+#: presswork/admin/inc/toolbox.php:33
+msgid "OFF"
+msgstr "OFF"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:30
+#: presswork/admin/inc/toolbox.php:32
+#: presswork/admin/inc/toolbox.php:33
+msgid "ON"
+msgstr "ON"
+
+#. Text in function
+#: presswork/admin/inc/widget-featured.php:1
+msgid "PW - Featured Posts"
+msgstr "udvalgte indlæg"
+
+#. Text in function
+#: presswork/admin/inc/widget-twitter.php:1
+msgid "PW - Twitter Feed"
+msgstr "PW - Twitterfeed"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:76
+msgid "Page Background"
+msgstr "Sidebaggrund"
+
+#. Text in function
+#: presswork/admin/actions.php:423
+msgid "Pages"
+msgstr "sider"
+
+#. Text in function
+#: presswork/admin/actions.php:337
+#: presswork/admin/actions.php:492
+#: presswork/admin/inc/widget-featured.php:46
+#: presswork/admin/inc/widget-featured.php:70
+msgid "Permalink to %s"
+msgstr "permalink til %s"
+
+#. Text in function
+#: presswork/admin/actions.php:458
+msgid "Permanent Link to %s"
+msgstr "permanent link til %s"
+
+#. Text in echo
+#: presswork/functions.php:464
+msgid "Pingback:"
+msgstr "pingback:"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:75
+msgid "Post Meta"
+msgstr "skriv meta"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:74
+msgid "Post Title"
+msgstr "skriv titel"
+
+#. Text in function
+#: presswork/admin/actions.php:133
+msgid "Posts Tagged &#8216;%s&#8217;"
+msgstr "skriv taggede &#8216;%s&#8217;"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:14
+#: presswork/admin/inc/toolbox.php:21
+msgid "PressWork Settings"
+msgstr "PressWork indstillinger"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:17
+msgid "PressWork comes with the top 20 most popular Google Fonts. You can easily add more if you like."
+msgstr "Presswork leveres med top 20 mest populære Google Skrifttyper. Du kan nemt tilføje flere, hvis du vil."
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:82
+msgid "Preview"
+msgstr "eksempel"
+
+#. Text in echo
+#: presswork/admin/inc/slideshows.php:63
+msgid "Read more"
+msgstr "læs mere"
+
+#. Text in function
+#: presswork/admin/actions.php:498
+#: presswork/admin/actions.php:519
+msgid "Read more &rarr;"
+msgstr "læs mere &rarr;"
+
+#. Text in function
+#: presswork/admin/actions.php:421
+msgid "Read more <span class=\"meta-nav\">&rarr;</span>"
+msgstr "læs mere <span class=\"meta-nav\">&rarr;</span>"
+
+#. Text in function
+#: presswork/admin/actions.php:202
+msgid "Reply"
+msgstr "besvar"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:34
+msgid "Reset"
+msgstr "nulstil"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:34
+msgid "Reset all options"
+msgstr "nulstil alle indstillinger"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:19
+msgid "Save"
+msgstr "gem"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:43
+#: presswork/admin/inc/toolbox.php:162
+#: presswork/functions.php:720
+msgid "Second Sidebar"
+msgstr "anden Sidebjælke"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:101
+msgid "Social"
+msgstr "Social"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:18
+msgid "Social Networking"
+msgstr "socialenetværk"
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:159
+msgid "Sub Nav Menu"
+msgstr "Subnavmenu"
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:72
+msgid "Sub-Navigation Menu"
+msgstr "Subnavigationsmenu"
+
+#. Text in function
+#: presswork/admin/actions.php:423
+msgid "Tags"
+msgstr "Tags"
+
+#. Text in echo
+#: presswork/admin/inc/widget-twitter.php:64
+msgid "Text Link"
+msgstr "tekst link"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:27
+msgid "The PressWork<br />Admin Page"
+msgstr "PressWork<br />adminside"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:26
+msgid "The PressWork<br />Toolbar"
+msgstr "PressWork<br />toolbar"
+
+#. Text in function
+#: presswork/functions.php:720
+msgid "The extended footer appears at the bottom of your site if it has been placed in the footer."
+msgstr "Den udvidede sidefod vises i bunden af din hjemmeside, hvis den er blevet placeret i sidefoden."
+
+#. Text in function
+#: presswork/functions.php:720
+msgid "The first sidebar appears on every page of your site, unless you have selected full width for a post or page."
+msgstr "Den første sidebjælke vises på hver side af din hjemmeside, medmindre du har valgt fuld bredde for et indlæg eller en side."
+
+#. Text in function
+#: presswork/functions.php:720
+msgid "The header area appears on every page of your site if it has been placed in the header."
+msgstr "Header området vises på hver side af din hjemmeside, hvis den er blevet placeret i headeren."
+
+#. Text in function
+#: presswork/functions.php:720
+msgid "The second sidebar appears on every page of your site, unless you have selected full width for a post or page."
+msgstr "Den anden sidebjælke vises på hver side af din hjemmeside, medmindre du har valgt fuld bredde til et indlæg eller en side."
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:16
+msgid "This is where you can change the colors for links, main text, menus, post titles, backgrounds &amp; more."
+msgstr "Det er her du kan ændre farverne for links, hovedteksten, menuer, skrive titler, baggrunde &amp; mere."
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:15
+msgid "This panel allows you to modify widths and margins. You can also add your own logo, sidebars &amp; more."
+msgstr "Dette panel giver dig mulighed for at ændre bredde og marginer, du kan også tilføje logo, sidebjælker  &amp; og mere."
+
+#. Text in echo
+#: presswork/comments.php:3
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Dette indlæg er beskyttet af kodeord. Indtast kodeord for at se kommentarer."
+
+#. Text in echo
+#: presswork/admin/inc/widget-twitter.php:61
+#: presswork/admin/inc/widget-featured.php:102
+msgid "Title"
+msgstr "titel"
+
+#. Text in function
+#: presswork/functions.php:246
+msgid "Toolbox Deactivated."
+msgstr "Toolbox deaktiveret."
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:14
+msgid "Turn on the Drag &amp; Drop Editor, Guides &amp; Functions, or even Reset all options if you mess up."
+msgstr "Aktiver Drag &amp; Drop editor, hjælpelinjer &amp; funktioner, eller nulstil endda alle indstllingger hvis du roder rundt."
+
+#. Text in echo
+#: presswork/admin/inc/toolbox.php:118
+msgid "Updated"
+msgstr "opdateret"
+
+#. Text in echo
+#: presswork/admin/inc/widget-twitter.php:62
+msgid "Username"
+msgstr "brugernavn"
+
+#. Text in function
+#: presswork/functions.php:720
+msgid "Version %1$s of %2$s is now available. Go to %3$s page."
+msgstr "version %1$s af %2$s er nu tilgængelig. Gå til side %3$s."
+
+#. Text in function
+#: presswork/admin/inc/toolbox.php:160
+msgid "Widgetized Area"
+msgstr "Widgetized område"
+
+#. Text in echo
+#: presswork/admin/actions.php:278
+#: presswork/admin/actions.php:498
+#: presswork/admin/actions.php:476
+msgid "by"
+msgstr "af"
+
+#. Text in function
+#: presswork/admin/actions.php:228
+msgid "search results for"
+msgstr "søgeresultater for"
+
+#. Text in echo
+#: presswork/admin/inc/welcome.php:21
+msgid "version"
+msgstr "version"
+
