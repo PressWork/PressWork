@@ -61,7 +61,7 @@ add_action('pw_footer_middle', 'pw_footer_content');
 function pw_sidebar() {
 	echo pw_function_handle(__FUNCTION__);
 	if(!dynamic_sidebar("first-sidebar")) :	
-		echo '<div class="warning clear fl"><p>Add widgets to the First Sidebar <a href="'.admin_url('widgets.php').'">here</a>.</p></div>';
+		echo '<div class="warning clear fl"><p>'.__("Add widgets to the First Sidebar ", "presswork").'<a href="'.admin_url('widgets.php').'">'.__("here", "presswork").'</a>.</p></div>';
     endif;
 }
 add_action('pw_sidebar_middle', 'pw_sidebar');
@@ -72,7 +72,7 @@ add_action('pw_sidebar_middle', 'pw_sidebar');
 function pw_second_sidebar() {
 	echo pw_function_handle(__FUNCTION__);
 	if(!dynamic_sidebar("second-sidebar" )) :
-		echo '<div class="warning clear fl"><p>Add widgets to the Second Sidebar <a href="'.admin_url('widgets.php').'">here</a>.</p></div>';
+		echo '<div class="warning clear fl"><p>'.__("Add widgets to the Second Sidebar ", "presswork").'<a href="'.admin_url('widgets.php').'">'.__("here", "presswork").'</a>.</p></div>';
     endif;
 }
 add_action('pw_second_sidebar_middle', 'pw_second_sidebar');
@@ -187,7 +187,7 @@ add_action('pw_author_top', 'pw_author_title');
 function pw_comment_section_title() {
 	echo pw_function_handle(__FUNCTION__);
 	echo '<h3 id="comments-title">';
-	printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), "presswork" ), number_format_i18n( get_comments_number() ), '<em>' . get_the_title() . '</em>' );
+	printf( __('One Response to %2$s', "presswork"), __('%1$s Responses to %2$s', "presswork"), get_comments_number(), number_format_i18n( get_comments_number() ), '<em>' . get_the_title() . '</em>' );
 	echo '</h3>';
 }
 add_action('pw_comments_top', 'pw_comment_section_title');
@@ -279,7 +279,7 @@ function pw_posts_featured() {
             _e("by", "presswork"); echo " "; the_author_posts_link(); 
             echo '&nbsp;&bull;&nbsp;';
             the_time(get_option('date_format'));
-            if(comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link(__('0 Comments',presswork),__('1 Comment',presswork),__('% Comments',presswork)); }
+            if(comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link(__('0 Comments',"presswork"),__('1 Comment',"presswork"),__('% Comments',"presswork")); }
             ?>
         </div>
 		<?php
@@ -302,7 +302,7 @@ function pw_posts_featured() {
 				$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
 			?>
 			<a class="gallery-thumb" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
-			<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo</a>.', 'This gallery contains <a %1$s>%2$s photos</a>.', $total_images, "presswork" ),
+			<p class="gallery-text clear fl"><em><?php printf( __('This gallery contains <a %1$s>%2$s photo</a>.', "presswork"), __('This gallery contains <a %1$s>%2$s photos</a>.', "presswork"), $total_images,
 					'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
 					number_format_i18n( $total_images )
 				); ?></em>
@@ -368,7 +368,7 @@ function pw_posts() {
 				$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
 			?>
 			<a class="gallery-thumb" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
-			<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo</a>.', 'This gallery contains <a %1$s>%2$s photos</a>.', $total_images, "presswork" ),
+			<p class="gallery-text clear fl"><em><?php printf( __('This gallery contains <a %1$s>%2$s photo</a>.', "presswork"), __('This gallery contains <a %1$s>%2$s photos</a>.', "presswork"), $total_images,
 					'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
 					number_format_i18n( $total_images )
 				); ?></em>
@@ -489,7 +489,7 @@ function pw_columns_post_content($r) {
 				$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
 			?>
 			<a class="gallery-thumb" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
-			<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo</a>.', 'This gallery contains <a %1$s>%2$s photos</a>.', $total_images, "presswork" ),
+			<p class="gallery-text clear fl"><em><?php printf( __('This gallery contains <a %1$s>%2$s photo</a>.', "presswork"), __('This gallery contains <a %1$s>%2$s photos</a>.', "presswork"), $total_images,
 					'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
 					number_format_i18n( $total_images )
 				); ?></em>

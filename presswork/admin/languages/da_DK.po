@@ -24,6 +24,16 @@ msgid "1 Comment"
 msgstr "1 kommentar"
 
 #. Text in function
+#: presswork/functions.php:764
+msgid "&copy; %1$d %2$s. All Rights Reserved."
+msgstr "&copy; %1$d %2$s. Alle rettigheder forbeholdt."
+
+#. Text in function
+#: presswork/functions.php:766
+msgid "Built using %s."
+msgstr "Opbygget ved hjælp af %s."
+
+#. Text in function
 #: presswork/admin/actions.php:282
 #: presswork/admin/actions.php:347
 #: presswork/admin/actions.php:417
@@ -34,6 +44,11 @@ msgstr "% kommentarer"
 #: presswork/functions.php:442
 msgid "%1$s at %2$s"
 msgstr "%1$s af %2$s"
+
+#. Text in function
+#: presswork/admin/actions.php:190
+msgid "%1$s Responses to %2$s"
+msgstr "%1$s kommentarer til %2$s"
 
 #. Text in function
 #: presswork/admin/actions.php:215
@@ -66,6 +81,26 @@ msgstr "<p>Hvis du har WordPress mad skills, og du vil være en del af %s fælle
 #: presswork/admin/actions.php:441
 msgid "About"
 msgstr "om"
+
+#. Text in echo
+#: presswork/admin/actions.php:64
+msgid "Add widgets to the First Sidebar "
+msgstr "Tilføj widgets til første sidebar "
+
+#. Text in echo
+#: presswork/functions.php:691
+msgid "Add widgets to the Header Area "
+msgstr "Tilføj widgets til headerområde "
+
+#. Text in echo
+#: presswork/functions.php:755
+msgid "Add widgets to the Extended Footer "
+msgstr "Tilføj widgets til den udvidede sidefod "
+
+#. Text in echo
+#: presswork/admin/actions.php:75
+msgid "Add widgets to the Second Sidebar "
+msgstr "Tilføj widgets til anden sidebar "
 
 #. Text in echo
 #: presswork/admin/actions.php:136
@@ -171,6 +206,21 @@ msgid "Copyright"
 msgstr "copyright"
 
 #. Text in echo
+#: presswork/functions.php:154
+msgid "Create your navigation menu "
+msgstr "Opret din navigationsmenu "
+
+#. Text in echo
+#: presswork/functions.php:159
+msgid "Create your sub-navigation menu "
+msgstr "Opret din subnavigationsmenu "
+
+#. Text in echo
+#: presswork/functions.php:164
+msgid "Create your footer navigation menu "
+msgstr "Opret din sidefodsnavigationsmenu "
+
+#. Text in echo
 #: presswork/admin/inc/toolbox.php:68
 #: presswork/admin/inc/toolbox.php:157
 msgid "Description"
@@ -207,7 +257,7 @@ msgstr "udvidet footer"
 #: presswork/admin/inc/toolbox.php:161
 #: presswork/functions.php:720
 msgid "First Sidebar"
-msgstr "første sidebjælke"
+msgstr "Første bjælke"
 
 #. Text in echo
 #: presswork/admin/inc/toolbox.php:94
@@ -268,6 +318,15 @@ msgstr "headerområde"
 #: presswork/admin/inc/toolbox.php:92
 msgid "Headers"
 msgstr "Headers"
+
+#. Text in echo
+#: presswork/admin/actions.php:64
+#: presswork/admin/actions.php:75
+#: presswork/functions.php:154
+#: presswork/functions.php:159
+#: presswork/functions.php:164
+msgid "here"
+msgstr "her"
 
 #. Text in function
 #: presswork/admin/inc/toolbox.php:126
@@ -369,6 +428,11 @@ msgstr "OFF"
 #: presswork/admin/inc/toolbox.php:33
 msgid "ON"
 msgstr "ON"
+
+#. Text in function
+#: presswork/admin/actions.php:190
+msgid "One Response to %2$s"
+msgstr "En kommentar til %2$s"
 
 #. Text in function
 #: presswork/admin/inc/widget-featured.php:1
@@ -480,7 +544,7 @@ msgstr "gem"
 #: presswork/admin/inc/toolbox.php:162
 #: presswork/functions.php:720
 msgid "Second Sidebar"
-msgstr "anden Sidebjælke"
+msgstr "Anden bjælke"
 
 #. Text in echo
 #: presswork/admin/inc/toolbox.php:101
@@ -541,6 +605,16 @@ msgstr "Header området vises på hver side af din hjemmeside, hvis den er bleve
 #: presswork/functions.php:720
 msgid "The second sidebar appears on every page of your site, unless you have selected full width for a post or page."
 msgstr "Den anden sidebjælke vises på hver side af din hjemmeside, medmindre du har valgt fuld bredde til et indlæg eller en side."
+
+#. Text in function
+#: presswork/actions.php:305
+msgid "This gallery contains <a %1$s>%2$s photo</a>."
+msgstr "Dette galleri indeholder <a %1$s>%2$s foto</a>."
+
+#. Text in function
+#: presswork/actions.php:305
+msgid "This gallery contains <a %1$s>%2$s photos</a>."
+msgstr "Dette galleri indeholder <a %1$s>%2$s fotos</a>."
 
 #. Text in echo
 #: presswork/admin/inc/welcome.php:16

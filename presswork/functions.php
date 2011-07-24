@@ -151,17 +151,17 @@ function presswork_setup() {
 	}
 	// The default message if no menu is set in the wp-admin
 	function menu_default() {
-		echo '<div class="warning clear fl"><p>Create your navigation menu <a href="'.admin_url('nav-menus.php').'">here</a>.</p></div>';
+		echo '<div class="warning clear fl"><p>'.__("Create your navigation menu ", "presswork").'<a href="'.admin_url('nav-menus.php').'">'.__("here", "presswork").'</a>.</p></div>';
 	}
 
 	// The default message if no sub-menu is set in the wp-admin
 	function sub_menu_default() {
-		echo '<div class="warning clear fl"><p>Create your sub-navigation menu <a href="'.admin_url('nav-menus.php').'">here</a>.</p></div>';
+		echo '<div class="warning clear fl"><p>'.__("Create your sub-navigation menu ", "presswork").'<a href="'.admin_url('nav-menus.php').'">'.__("here", "presswork").'</a>.</p></div>';
 	}
 
 	// The default message if no sub-menu is set in the wp-admin
 	function footer_menu_default() {
-		echo '<div class="warning clear fl"><p>Create your footer navigation menu <a href="'.admin_url('nav-menus.php').'">here</a>.</p></div>';
+		echo '<div class="warning clear fl"><p>'.__("Create your footer navigation menu ", "presswork").'<a href="'.admin_url('nav-menus.php').'">'.__("here", "presswork").'</a>.</p></div>';
 	}
 	
 	// Make theme available for translation
@@ -688,7 +688,7 @@ function pw_get_element($name) {
 		$handle = pw_handles('Widgetized Area', 'headerarea', true, 'header');
 		echo $handle;
 	   	if(!dynamic_sidebar("header-area")) :
-			echo '<div class="warning clear fl"><p>Add widgets to the Header Area <a href="'.admin_url('widgets.php').'">here</a>.</p></div>';
+			echo '<div class="warning clear fl"><p>'.__("Add widgets to the Header Area ", "presswork").'<a href="'.admin_url('widgets.php').'">'.__("here", "presswork").'</a>.</p></div>';
     	endif;
 		echo '</li>'."\n"; 
 	}
@@ -752,7 +752,7 @@ function pw_get_element($name) {
 		echo '<li id="extendedfooter" class="foot">';
     	echo $handle;
 		if(!dynamic_sidebar("extended-footer")) :
-			echo '<div class="warning clear fl"><p>Add widgets to the Extended Footer <a href="'.admin_url('widgets.php').'">here</a>.</p></div>';
+			echo '<div class="warning clear fl"><p>'.__("Add widgets to the Extended Footer ", "presswork").'<a href="'.admin_url('widgets.php').'">'.__("here", "presswork").'</a>.</p></div>';
     	endif;
 		echo '</li>';
 	}
