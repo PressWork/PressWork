@@ -1,9 +1,30 @@
+<?php
+/**
+ * The loop that displays posts.
+ *
+ * The loop displays the posts and the post content.  See
+ * http://codex.wordpress.org/The_Loop to understand it and
+ * http://codex.wordpress.org/Template_Tags to understand
+ * the tags used in it.
+ *
+ * This can be overridden in child themes with loop.php or
+ * loop-template.php, where 'template' is the loop context
+ * requested by a template. For example, loop-index.php would
+ * be used if it exists and we ask for the loop with:
+ * <code>get_template_part( 'loop', 'index' );</code>
+ *
+ * Includes all the action blocks for archives, pages and posts.
+ *
+ * @since PressWork 1.0
+ */
+?>
+
 <?php 
 global $paged, $pw;
 $pw = 1;
 if(is_home()) {
 	$sticky = get_option( 'sticky_posts' );
-	$notin = notin();
+	$notin = pw_notin();
 	if(!empty($sticky)) {
 		if(!empty($notin)) $notin = array_merge($notin, $sticky); else $notin = $sticky;
 		if($paged < 2) {
@@ -15,7 +36,7 @@ if(is_home()) {
 			while ( $the_query->have_posts() ) : $the_query->the_post();
 			?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class("pw pw".$pw); ?>>
-				<?php actionBlock('pw_index_sticky_post'); ?>
+				<?php pw_actionBlock('pw_index_sticky_post'); ?>
 			</article>
 			<?php
 			$pw++;	
@@ -33,7 +54,7 @@ if(is_home()) {
 			$notin[] = $post->ID;
 			?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class("pw pw".$pw); ?>>
-				<?php actionBlock('pw_index_featured_post'); ?>
+				<?php pw_actionBlock('pw_index_featured_post'); ?>
 			</article>
 			<?php
 			$pw++;	
@@ -51,19 +72,19 @@ if(is_home()) {
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php  
 		if(is_category()) :
-			actionBlock('pw_category_post');
+			pw_actionBlock('pw_category_post');
 		elseif(is_author()) :
-			actionBlock('pw_author_post');
+			pw_actionBlock('pw_author_post');
 		elseif(is_archive()) :
-			actionBlock('pw_archive_post');
+			pw_actionBlock('pw_archive_post');
 		elseif(is_search()) :
-			actionBlock('pw_search_post');
+			pw_actionBlock('pw_search_post');
 		elseif(is_page()) :
-			actionBlock('pw_page_post');
+			pw_actionBlock('pw_page_post');
 		elseif(is_single()) :
-			actionBlock('pw_single_post');
+			pw_actionBlock('pw_single_post');
 		else :	 
-			actionBlock('pw_index_post');
+			pw_actionBlock('pw_index_post');
 		endif; 
 		?>
     </article>

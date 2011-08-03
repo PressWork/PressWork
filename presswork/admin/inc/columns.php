@@ -34,7 +34,7 @@ if(!function_exists('pw_columns')) :
 		$r = wp_parse_args( $args, $defaults );
 		extract( $r, EXTR_SKIP );
 	
-		$featuredcat = theme_option('fp_featured');
+		$featuredcat = pw_theme_option('fp_featured');
 		$posts = array(
 			"posts_per_page"=>$r['posts'],
 		);
@@ -70,7 +70,7 @@ if(!function_exists('pw_columns')) :
 			<?php if($x!=1 && $r['columns']>1)  $final_width = $col_width.' margin-left: '.$colmargin.'px;"'; else $final_width = $col_width.'"'; ?>
 			<?php if($x==$r['columns']) $x=0; ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class($clear); echo $final_width; ?>>
-				<?php actionBlock('pw_columns', $r); ?>
+				<?php pw_actionBlock('pw_columns', $r); ?>
 			</div>
 		<?php $x++; endwhile; ?>
 		</div>

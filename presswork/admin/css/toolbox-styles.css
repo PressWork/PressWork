@@ -9,9 +9,10 @@
 
 #pw_toolbox {
 	position: fixed;
-	bottom: 20px;
+	bottom: 40px;
 	left: 0;
 	font-family: Arial, sans-serif;
+	z-index: 999;
 	}
 	
 #pw_toolbox_controls {
@@ -100,7 +101,7 @@
 
 .lower_box {
 	clear: both;
-	margin: 10px 20px;
+	margin: 0 20px;
 	float: left;
 	}
 
@@ -115,7 +116,7 @@
 	}
 	
 	#layout .pw_toolbox_arrow {
-		top: 110px;
+		top: 180px;
 		}
 
 	#color .pw_toolbox_arrow {
@@ -123,13 +124,9 @@
 		}
 
 	#social .pw_toolbox_arrow {
-		top: 102px;
+		top: 170px;
 		}
 		
-#social {
-	margin-top: 70px;
-	}
-
 #social .themeoptions td input {
 	margin: 2px 0;
 	text-align: left;
@@ -148,7 +145,7 @@
 
 #layout { 
 	width: 540px;
-	margin-top: -60px;
+	margin-top: -130px;
 	}
 
 	#fonts .pw_toolbox_arrow {
@@ -163,8 +160,13 @@
 
 		#fonts p a {
 			border-bottom: 1px dotted;
+			color: #2b904e;
 			}
 
+			#fonts p a:hover {
+				color: #4fb859;
+				}
+				
 .colorwheel {
 	width: 19px;
 	height: 19px;
@@ -195,12 +197,13 @@
 	font-size: 12px;
 	line-height: 16px;
 	margin: 6px 0 0 80px;
-	position: fixed;
+	position: absolute;
 	border: 1px solid #aaa;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px; 
 	display: none;
+	padding-bottom: 10px;
 	}
 	
 	.pw_toolbox_content h4 {	
@@ -210,7 +213,7 @@
 		box-shadow: 0 1px 0 rgba(255,255,255,0.5);
 		-moz-box-shadow: 0 1px 0 rgba(250,250,250,0.5);
 		-webkit-box-shadow: 0 1px 0 rgba(250,250,250,0.5);
-		margin: 0;
+		margin: 0 0 10px;
 		padding: 10px 20px;
 		border-radius: 3px 3px 0 0;
 		-moz-border-radius: 3px 3px 0 0;
@@ -239,8 +242,10 @@
 		text-align: center;
 		}
 		
-		input#the_header_logo {
+		input#the_header_logo,
+		input#favicon {
 			text-align: left;
+			width: 380px;
 			}
 			
 #save_message {
@@ -262,6 +267,7 @@
 	border-radius: 5px 0 0 0;
 	-moz-border-radius: 5px 0 0 0;
 	-webkit-border-radius: 5px 0 0 0;
+	font-size: 12px;
 	}
 		
 li.placeholder {
@@ -369,19 +375,6 @@ div.handle {
 		opacity: 1;
 		}
 
-#pw-preview {
-	position: absolute;
-	bottom: 10px;
-	left: 10px;
-	margin: 0;
-	}
-	
-	#pw-font-preview {
-		position: absolute;
-		bottom: 10px;
-		right: 10px;
-		}
-
 .green-button,
 .add-item {
 	background: -webkit-gradient(linear, left top, left bottom, from(#4fb859), to(#2b904e));
@@ -414,16 +407,27 @@ div.handle {
 		
 		.addoption span {
 			float: left;
-			width: 120px;
+			width: 130px;
 			}
 	
 	.save_option.green-button {
 		width: 50px;
 		}
 	
-	.logo-input {
+	.header-inputs {
 		display: none;
+		clear: both;
+		margin-bottom: 0;
 		}
+		
+		.header-inputs td {
+			border: none;
+			padding: 0;
+			}
+			
+			.header-inputs td label {
+				margin-left: 0;
+				}
 
 .green-button:hover,
 .green-button.active,
@@ -439,7 +443,7 @@ div.handle {
 
 
 .themeoptions {
-	margin: 10px 20px;
+	margin: 0 20px;
 	}
 	
 	#color .themeoptions {
@@ -471,6 +475,14 @@ div.handle {
 		
 .themeoptions input {
 	margin: 1px 0;
+	}
+
+#options {
+	width: 250px;
+	}
+	
+#fonts {
+	width: 280px;
 	}
 
 #picker {
@@ -538,6 +550,7 @@ div.handle {
 	z-index: 1100;
 	font-family: Quattrocento, Georgia;
 	color: #444444;
+	text-shadow: none;
 	}
 	
 	#pw_welcome_screen p {
@@ -640,7 +653,7 @@ div.handle {
 		letter-spacing: 1px;
 		}	
 		
-.guides {
+.hooks {
 	width: 100%;
 	padding: 8px 0;
 	background: #f2f2f2;
@@ -653,12 +666,12 @@ div.handle {
 	z-index: 50;
 	}	
 
-	.guides #social-icons {
+	.hooks #social-icons {
 		position: static;
 		float: right;
 		}
 		
-	.guide-title {
+	.hooks-title {
 		-moz-border-radius:3px 3px 3px 3px;
 		border-style:solid;
 		border-width:1px;

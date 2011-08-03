@@ -31,22 +31,26 @@ class PW_Featured_Posts_Widget extends WP_Widget {
 	    <?php while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 	    <article id="post-<?php the_ID(); ?>" <?php post_class('side-featured'); ?>>
 			<?php
-			if(function_exists('has_post_format') && (has_post_format('aside') || has_post_format('link'))) { // new aside || link post format
+			if(function_exists('has_post_format') && (has_post_format('aside') || has_post_format('link') || has_post_format('gallery'))) { // new aside || link post format
 				// do nothing
 			} else {
-				$rightcon = '';
-				if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
-					echo '<a href="'.get_permalink().'">';
-					the_post_thumbnail('fifty', array('class'=>'alignleft'));
-					echo '</a>';
-					$rightcon = ' class="content-col"';
+				if(function_exists('has_post_format') && !has_post_format('image')) {
+					$rightcon = '';
+					if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
+						echo '<a href="'.get_permalink().'">';
+						the_post_thumbnail('fifty', array('class'=>'alignleft'));
+						echo '</a>';
+						$rightcon = ' class="content-col"';
+					}
 				}
 				?>
 				<div<?php echo $rightcon; ?>>
-				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-				<div class="meta">
-					<?php the_time(get_option('date_format')); ?>
-				</div>
+				<header>
+					<h1 class="posttitle"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+					<div class="meta">
+						<?php the_time(get_option('date_format')); ?>
+					</div>
+				</header>
 				<?php
 			}
 			?>
@@ -56,7 +60,17 @@ class PW_Featured_Posts_Widget extends WP_Widget {
 					(has_post_format('aside') || has_post_format('link') || has_post_format('video') || has_post_format('image') || has_post_format('audio'))) { 
 					// new aside || link || audio || video || image post format
 					echo '<div class="pformat clear">';
-					the_content('');
+					if(function_exists('has_post_format') && has_post_format('image')) {
+						if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
+							echo '<a href="'.get_permalink().'">';
+							the_post_thumbnail('medium', array('class'=>'alignleft'));
+							echo '</a>';
+						} else {
+							the_content('');
+						}
+					} else {
+						the_content('');						
+					}
 					echo '</div>';
 				} elseif(function_exists('has_post_format') && has_post_format('gallery')) { // new gallery post format
 					global $post;
@@ -67,7 +81,7 @@ class PW_Featured_Posts_Widget extends WP_Widget {
 						$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
 					?>
 					<a class="gallery-thumb" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
-					<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo</a>.', 'This gallery contains <a %1$s>%2$s photos</a>.', $total_images, "presswork" ),
+					<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo &rarr;</a>.', 'This gallery contains <a %1$s>%2$s photos &rarr;</a>.', $total_images, "presswork" ),
 							'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
 							number_format_i18n( $total_images )
 						); ?></em>
@@ -75,12 +89,12 @@ class PW_Featured_Posts_Widget extends WP_Widget {
 					<?php endif; ?>
 					<?php 
 				} else {
-					theme_excerpt(15);
+					pw_excerpt(15);
 					?>
 				<?php } ?>
 			</div> 
 			<?php
-			if(function_exists('has_post_format') && (has_post_format('aside') || has_post_format('link'))) { // new aside || link post format
+			if(function_exists('has_post_format') && (has_post_format('aside') || has_post_format('link') || has_post_format('gallery'))) { // new aside || link post format
 				// do nothing
 			} else {
 				echo '</div>';

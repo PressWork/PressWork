@@ -5,9 +5,9 @@
 		} else {
 			var value = "on";
 		}
-		var theURL = $("input#frontURL").val()+"?action=pw-activate";
+		var theURL = presswork.front_url;
 		var el = $(this);
-		var loader = $("#ajaxloader");
+		var loader = $("#active-button img");
 		var message = $("#message");
 		loader.show();
 		var data = {

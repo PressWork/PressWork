@@ -5,19 +5,15 @@
  *
  * @since PressWork 1.0
  */
-function footer_scripts() {
+function pw_footer_scripts() {
 	?>	
 <script type="text/javascript" src="<?php echo admin_url("js/farbtastic.js"); ?>"></script>
 <script type="text/javascript">
 /* <![CDATA[ */
-jQuery.fn.blindToggle = function(speed, easing, callback) {
-  return this.animate({left: parseInt(this.css('left')) <0 ? 0 : -700}, speed, easing, callback);
-};
-
 (function($) {
-<?php global $pw_welcome; if($_GET['action']=="pw-activate" && empty($pw_welcome)) { ?>
+<?php global $pw_welcome; if(!empty($_GET['action']) && $_GET['action']=="pw-activate" && empty($pw_welcome)) { ?>
 	$("#close-welcome").click(function() {
-		nonce = $("input#bavotasan_nonce").val();
+		var nonce = $("input#presswork_nonce").val();
 		var data = {
 			nonce: nonce,
 			action: 'remove_welcome_screen'
@@ -38,10 +34,11 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 <?php } ?>
 	$("#savetheme").click(function() {
 		$("#themeform").trigger("submit");
+		$(this).removeClass("remember");
 		return false;
 	});
 	$("#themeform").submit(function() {
-		nonce = $("input#bavotasan_nonce").val();
+		var nonce = $("input#presswork_nonce").val();
 		var loader = $("#ajaxloader");
 		var message = $("#save_message");
 		message.hide();
@@ -91,7 +88,7 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 	function layoutselect() {
 		var value = $("#layoutselect").val();
 		$(".addoption").show().not("."+value+"-item").hide();	
-		if(value=="header") $(".logo-input").show(); else $(".logo-input").hide(); 
+		if(value=="header") $(".header-inputs").show(); else $(".header-inputs").hide(); 
 	}
 	layoutselect();
 	
@@ -101,23 +98,29 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
     $('.colorpicker')
     	.each(function() { f.linkTo(this); })
       	.focus(function() { f.linkTo(this);	})
-		.change(function() { if($(this).val()=="") $(this).val("#"); });
-		
-	$("#pw-preview").click(function() {
+		.change(function() { if($(this).val()=="") $(this).val("#"); change_styles(); });
+	
+	$(".farbtastic").mouseup(function() {
+		change_styles();
+		$("#savetheme").addClass("remember");
+	});
+
+	function change_styles() {
 		$(".colorpicker:visible").each(function() {
 			var col = $(this).val();
 			var style = $(this).attr("rel").split('|');
 			var addstyle = style[0] + " { " + style[1] + ": " + col + "; }\n";
 			$("#pw_style_preview").append(addstyle);
-		});
-	});
+		});	
+	}
+
 	$(".font-option").click(function() { 
 		$(".font-option").removeClass("active");
 		$("#new-font-style").remove();
 		$(this).addClass("active");
 		var theID = $(this).attr("id");
 		$("input#font_option").val(theID);
-		$("head").append('<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/admin/css/' + theID + '.css" id="new-font-style" media="screen" />');
+		$("head").append('<link rel="stylesheet" type="text/css" href="<?php echo PW_THEME_URL; ?>/admin/css/' + theID + '.css" id="new-font-style" media="screen" />');
 	});
 	
 	$(".colorwheel").click(function() {
@@ -144,7 +147,7 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 		if($(this).hasClass("disabled")) {
 			// nothing
 		} else {
-			nonce = $("input#bavotasan_nonce").val();
+			var nonce = $("input#presswork_nonce").val();
 			$(this).addClass("disabled");
 			var loader = $("#ajaxloader");
 			var wrap = $(this).attr("rel").split("|");
@@ -172,10 +175,12 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 						}, function() { last.show(); });	
 					}				
 					$("#"+wrap[1]+"_option").val( main.sortable("toArray") );
+					$("#savetheme").addClass("remember");
 				}
 			});
 		}
 	});
+		
 	$(".save_option").click(function() {
 		if($(this).hasClass("active")) {
 			var value = "off";
@@ -280,6 +285,9 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 			if(el=="twitter") theURL = "http://twitter.com/"+value;
 			if(el=="facebook") theURL = "http://facebook.com/"+value;
 			if(el=="flickr") theURL = "http://flickr.com/photos/"+value;
+			if(el=="linkedin") theURL = "http://www.linkedin.com/in/"+value;
+			if(el=="stumbleupon") theURL = "http://www.stumbleupon.com/stumbler/"+value;
+			if(el=="googleplus") theURL = "https://plus.google.com/"+value;
 			$("#social-icons").append("<a href='"+theURL+"' class='"+el+"-icon'></a>");
 		}
 	});
@@ -307,9 +315,9 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 		$(".pw_toolbox_content").fadeOut('fast');	
 		$(".open_toolbox").removeClass("open");
 	});
-<?php if(theme_option("dragdrop")=="on") { ?>
+<?php if(pw_theme_option("dragdrop")=="on") { ?>
 	$(".delete_element").live("click", function(){
-		nonce = $("input#bavotasan_nonce").val();
+		var nonce = $("input#presswork_nonce").val();
 		var loader = $("#ajaxloader");
 		var main = $("#main-wrapper");
 		loader.show();
@@ -327,7 +335,7 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 		function(response){
 			loader.hide();
 			if(option=="layout_option") {
-				var theitem = el.parent().parent().parent();
+				var theitem = el.parent().parent();
 				var newfull = theitem.outerWidth();
 				var full = $("#body-wrapper").outerWidth();
 				theitem.remove();
@@ -347,6 +355,7 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 				var parent = "footer";
 			}
 			$("#"+option).val( $("#"+parent).sortable("toArray") );
+			$("#savetheme").addClass("remember");
 		});
 	});	
 <?php } ?>
@@ -378,6 +387,17 @@ jQuery.fn.blindToggle = function(speed, easing, callback) {
 				$("#footer_option").val( $(this).sortable("toArray") );
 			}
 		})
+		
+	$("#themeform input, #themeform #fonts select").change(function() {
+		$("#savetheme").addClass("remember");
+	});
+	
+	// ask the user to confirm the window closing
+	window.onbeforeunload = function() {
+		if($('#savetheme').hasClass("remember")) {
+			return "<?php _e("If you leave this page you will lose your changes.", "presswork"); ?>";
+		}
+	}
 })(jQuery);
 /* ]]> */
 </script>

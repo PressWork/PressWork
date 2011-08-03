@@ -1,10 +1,33 @@
+/* ADMIN STYLES */
+
+#wrap {
+	width: 800px;
+	float: left;
+	}
+
 #presswork {
-	width: 760px;
+	width: 800px;
 	padding: 20px 0;
 	clear: both;
-	margin: auto;
 	text-align: center;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	margin: 20px 0 15px;
+	background: #f6f6f6;
+	box-shadow: inset -1px -1px 0 #fff;
+	-moz-box-shadow: inset -1px -1px 0 #fff;
+	-webkit-box-shadow: inset -1px -1px 0 #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F6F6F6), to(#EEEEEE));
+	background: -moz-linear-gradient(top,  #F6F6F6,  #EEEEEE);
+	float: left;
 	}
+	
+	#presswork p {
+		max-width: 600px;
+		margin: 1em auto;
+		}
 	
 	.pw-logo {
 		width: 557px;
@@ -22,21 +45,17 @@
 		}
 
 .pw-newversion {
-	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
 	border-style:solid;
 	border-width:1px;
-	margin: 10px 0 0;
+	margin-top: 20px !important;
 	padding: 6px 8px;
 	background-color:#444;
 	border-color:#222;
 	color: #fff;
-	margin: 0;
 	clear: both;
-	margin-top: 10px;
-	float: left;
-	width: 100%;
 	box-sizing: border-box; 
 	-moz-box-sizing: border-box; 
 	-webkit-box-sizing: border-box;
@@ -45,20 +64,18 @@
 		color: #fff;
 		}
 	
-#ajaxloader {
-	background: url(../images/loader.gif) no-repeat center #fff;
-	display: none;
-	float: right;
-	width: 74px;
-	height: 74px;
-	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	border-radius: 8px;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	z-index: 500;
+#active-button {
+	position: relative;
+	margin: auto;
+	width: 291px;
 	}	
+
+#active-button img {
+	position: absolute;
+	right: -30px;
+	top: 20px;
+	display: none;
+	}
 	
 .active {
 	width: 291px;
@@ -76,21 +93,30 @@
 	background: url(../images/sprite.png) no-repeat -165px -60px;
 	padding-left: 30px;
 	font-size: 12px;
-	margin: 20px auto 0;
+	margin: 0;
 	width :90px;
+	clear: both;
+	float: left;
 	}
 	
 	.pw-twitter a {
 		text-decoration: none;
 		}
-	
+
 .pw-briefcase {
-	background: url(../images/logo_bc.jpg) no-repeat right;
-	font-size: 14px;
-	height: 56px;
-	line-height: 78px;
 	float: right;
-	padding-right: 165px;
-	width: 184px;
+	font-size: 14px;
 	margin: 0;
+	line-height: 66px;
+	}
+	
+.pw-briefcase a {
+	background: url(../images/logo_bc.jpg) no-repeat right;
+	height: 56px;
+	float: right;
+	width: 168px;
+	}
+	
+#contextual-help-wrap h3 {
+	margin-top: 5px;
 	}

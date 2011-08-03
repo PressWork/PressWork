@@ -4,12 +4,12 @@
  *
  * @since PressWork 1.0
  */
-function actionBlock($id, $r = null) {
+function pw_actionBlock($id, $r = null) {
 	$blocks = array('_top', '_middle', '_bottom');
 	foreach($blocks as $block) {
-		if(theme_option('guides')=="on" && current_user_can('manage_options')) echo '<div class="guides clear fl"><p class="guide-title">'.$id.$block.'</p>';
+		if(pw_theme_option('toolbox')=="on" && pw_theme_option('hooks')=="on" && current_user_can('edit_theme_options')) echo '<div class="hooks clear fl"><p class="hooks-title">'.$id.$block.'</p>';
 		do_action($id.$block, $r);
-		if(theme_option('guides')=="on" && current_user_can('manage_options')) echo  '</div>';
+		if(pw_theme_option('toolbox')=="on" && pw_theme_option('hooks')=="on" && current_user_can('edit_theme_options')) echo  '</div>';
 	}
 }
 
@@ -18,8 +18,8 @@ function actionBlock($id, $r = null) {
  *
  * @since PressWork 1.0
  */
- function actionCall($id) {
-	if(theme_option('guides')=="on" && current_user_can('manage_options')) echo '<div class="guides clear fl"><p class="guide-title">'.$id.'</p>';
+ function pw_actionCall($id) {
+	if(pw_theme_option('toolbox')=="on" && pw_theme_option('hooks')=="on" && current_user_can('edit_theme_options')) echo '<div class="hooks clear fl"><p class="hooks-title">'.$id.'</p>';
 	do_action($id);
-	if(theme_option('guides')=="on" && current_user_can('manage_options')) echo  '</div>';
+	if(pw_theme_option('toolbox')=="on" && pw_theme_option('hooks')=="on" && current_user_can('edit_theme_options')) echo  '</div>';
 }

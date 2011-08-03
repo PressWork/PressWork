@@ -13,16 +13,16 @@ if(!function_exists('pw_slideshow')) :
 			'type' => 'scrollerota',
 			'cat' => '',
 			'postnum' => 4,
-			'width' => theme_option('content_width'),
+			'width' => pw_theme_option('content_width'),
 			'height' => 260,
 			'excerpt' => 35
 		);
 		$r = wp_parse_args( $args, $defaults );
 		extract( $r, EXTR_SKIP );
 		$name = $r['type'];
-		
-		$wp_scripts->in_footer[] = $name.'_js';
-		
+
+		$wp_scripts->in_footer[] = 'pw_'.$name.'_js';
+
 		if(!empty($r['cat'])) {
 			$featuredcat = $r['cat'];
 			$posts = array(
@@ -39,7 +39,7 @@ if(!function_exists('pw_slideshow')) :
 		$featured = new WP_Query();
 		$featured->query($posts);
 	?>
-	<div id="<?php echo $r['type']; ?>" style="height: <?php echo $r['height']; ?>px;">
+	<div id="<?php echo $r['type']; ?>" class="pw-slideshow" style="height: <?php echo $r['height']; ?>px;">
 		<ul class="images">
 		<?php while ($featured->have_posts()) : $featured->the_post(); ?> 
 			<li>
@@ -58,9 +58,12 @@ if(!function_exists('pw_slideshow')) :
 			<li>
 			<?php 
 			if($r['type']=="faderota") {
-				echo '<a href="'.get_permalink().'">'.get_the_title().'</a>';
+				echo '<header><h4><a href="'.get_permalink().'">'.esc_attr(get_the_title()).'</a></h4></header>';
 			} else {
-				echo pw_excerpt($r['excerpt']); ?><a href="<?php the_permalink(); ?>" class="readmore"><?php _e('Read more', "presswork"); ?></a>
+				echo '<header><h4><a href="'.get_permalink().'">'.esc_attr(get_the_title()).'</a></h4></header>';
+				echo pw_excerpt($r['excerpt']); 
+				?>
+				<footer><a href="<?php the_permalink(); ?>" class="readmore"><?php _e('Read more', "presswork"); ?></a></footer>
 			<?php } ?>
 			</li>
 		<?php endwhile; ?>
