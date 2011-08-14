@@ -67,7 +67,10 @@ if(is_home()) {
 	query_posts( array( 'post__not_in' => $notin, "paged" => $paged  ) );
 	echo '<div id="indexposts">';
 }
+global $current_class;
+$current_class = 'odd';
 ?>
+
 <?php while(have_posts()) : the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php  

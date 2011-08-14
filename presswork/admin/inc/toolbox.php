@@ -13,6 +13,7 @@ function pw_toolbox() {
 			<div class="open_toolbox color clear fl" rel="color"></div>
 			<div class="open_toolbox fonts clear fl" rel="fonts"></div>
 			<div class="open_toolbox social clear fl" rel="social"></div>
+			<?php do_action('pw_add_toolbox_icon'); ?>
 			<div id="savetheme" class="clear fl"></div>
 		</div>	
 		<form method="post" name="themeform" id="themeform">
@@ -118,6 +119,7 @@ function pw_toolbox() {
 			<input type="hidden" name="header_option" id="header_option" value="<?php echo pw_theme_option('header_option'); ?>" />
 			<input type="hidden" name="footer_option" id="footer_option" value="<?php echo pw_theme_option('footer_option'); ?>" />
 	    	<?php if(function_exists('wp_nonce_field')) wp_nonce_field('presswork_nonce', 'presswork_nonce'); ?>
+	    	<?php do_action('pw_add_toolbox_item'); ?>
    	</form>
 	</div>  	
    	<div id="ajaxloader"></div>
@@ -133,7 +135,7 @@ if(!function_exists('pw_add_all_color_options')) :
 		<?php pw_color_option('description', 'description_color', __('Color', "presswork"), '#description|color'); ?>
 		<?php pw_color_option('links', 'a_color', __('Color', "presswork"), 'a|color'); ?>
 		<?php pw_color_option('links', 'a_color_hover', __('Hover Color', "presswork"), 'a:hover|color'); ?>
-		<?php pw_color_option('text', 'main_text_color', __('Color', "presswork"), 'body|color'); ?>
+		<?php pw_color_option('text', 'main_text_color', __('Color', "presswork"), '#body-wrapper|color'); ?>
 		<?php pw_color_option('nav', 'nav_color', __('Color', "presswork"), '#nav nav a|color'); ?>
 		<?php pw_color_option('nav', 'nav_color_hover', __('Hover Color', "presswork"), '#nav nav a:hover|color'); ?>
 		<?php pw_color_option('nav', 'nav_background_color', __('BG Color', "presswork"), '#nav nav ul|background-color'); ?>

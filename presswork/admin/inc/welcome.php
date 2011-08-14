@@ -23,7 +23,7 @@ function pw_welcome_screen() {
 		<div class="close-arrow"><?php _e('Close the<br />Welcome Screen', "presswork"); ?></div>
 	</div>
 	<div id="pw_fadeback">
-		<div class="toolbox-arrow"><?php _e('The PressWork<br />Toolbar', "presswork"); ?></div>
+		<div class="toolbox-arrow"><?php _e('The PressWork<br />Toolbox', "presswork"); ?></div>
 		<div class="adminbar-arrow"><?php _e('The PressWork<br />Admin Page', "presswork"); ?></div>
 	</div>
 	<?php

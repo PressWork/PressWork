@@ -47,12 +47,11 @@ function pw_social_content() {
 		echo '<a href="https://plus.google.com/'.$googleplus.'" class="googleplus-icon"></a>';	
 	if(!empty($linkedin))
 		echo '<a href="http://www.linkedin.com/in/'.$linkedin.'" class="linkedin-icon"></a>';	
-	if(!empty($linkedin))
+	if(!empty($stumbleupon))
 		echo '<a href="http://www.stumbleupon.com/stumbler/'.$stumbleupon.'" class="stumbleupon-icon"></a>';	
 	echo '</div>';
 }
 add_action('pw_header_top', 'pw_social_content');
-
 
 /*
  * The Footer
@@ -77,10 +76,31 @@ add_action('pw_footer_middle', 'pw_footer_content');
  */
 function pw_sidebar() {
 	echo pw_function_handle(__FUNCTION__);
-	if(!dynamic_sidebar("first-sidebar") && current_user_can('edit_theme_options')) :	
-		echo '<div class="warning clear fl"><p>';
-		printf(__("Add widgets to the First Sidebar %shere%s", "presswork"), '<a href="'.admin_url('widgets.php').'">', '</a>');
-		echo '</p></div>';
+	if(!dynamic_sidebar("first-sidebar")) :	
+		echo '<div class="side-widget default">';
+		get_search_form();
+		echo '</div>';
+
+		$args = array(
+			'before_widget' => '<aside class="side-widget default">',
+			'after_widget' => "</aside>",
+			'before_title' => '<header><h3>',
+			'after_title' => '</h3></header>',
+		);
+
+		$featured = new PW_Featured_Posts_Widget;
+		$instance = array( 'title' => 'Featured Posts', 'category' => '0', 'number' => '2' );
+		$featured->widget($args, $instance);
+
+		$tweet = new PW_Twitter_Widget;
+		$instance = array( 'title' => 'Latest Tweets', 'username' => '', 'link' => 'Follow Us', 'number' => '3' );
+		$tweet->widget($args, $instance);
+
+		if(current_user_can('edit_theme_options')) {
+			echo '<div class="warning clear fl"><p>';
+			printf(__("Add your own widgets to the First Sidebar %shere%s", "presswork"), '<a href="'.admin_url('widgets.php').'">', '</a>');
+			echo '</p></div>';
+		}
     endif;
 }
 add_action('pw_sidebar_middle', 'pw_sidebar');
@@ -293,7 +313,7 @@ function pw_posts_featured() {
 	echo pw_function_handle(__FUNCTION__);
 	global $pw;
 	$rightcon = '';
-	if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
+	if(function_exists('has_post_thumbnail') && has_post_thumbnail() && (function_exists('has_post_format') && !has_post_format('gallery') && !has_post_format('video'))) { 
 		echo '<a href="'.get_permalink().'">';
 		if($pw==1) { $thumb = 'sticky'; $class = 'alignnone'; } else { $thumb = 'thumbnail'; $class = 'alignleft'; }
 		the_post_thumbnail($thumb, array('class'=>$class));

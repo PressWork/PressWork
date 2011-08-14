@@ -1,4 +1,5 @@
 <?php
+
 // Set up PressWork Framework information
 if(!function_exists('pw_init')):
 	function pw_init() {
@@ -32,7 +33,9 @@ endif;
  * @since PressWork 1.0
  */	
 if(is_admin() && isset($_GET['activated']) && $pagenow == "themes.php" ) {
-	pw_single_save("welcome_screen", false);
+	global $pw_welcome;
+	//delete_option(PW_THEME_FILE); die;
+	$pw_welcome = false;
 	header( 'Location: '.home_url("/")."?action=pw-activate");
 }
 
@@ -88,8 +91,16 @@ if(empty($pw_default_options)) {
 	);
 }
 
+// Call theme options
+function pw_theme_option($var) {
+	global $pw_default_options, $pw_welcome;
+	$pw_values = get_option(PW_THEME_FILE);
+	if(empty($pw_values)) { pw_reset_options(); $pw_values = $pw_default_options; $pw_welcome = false; }
+	$val = pw_get_index($pw_values, $var);
+	return $val;
+}
+
 // all the includes
-$pw_welcome = pw_theme_option("welcome_screen");
 if(!empty($_GET['action']) && $_GET['action']=="pw-activate" && empty($pw_welcome)) 
 	include(TEMPLATEPATH.'/admin/inc/welcome.php');
 include(TEMPLATEPATH."/admin/inc/stylesheet.php");
@@ -162,21 +173,27 @@ function presswork_setup() {
 		
 	// This theme uses wp_nav_menu()
 	if(function_exists('register_nav_menu')) {
-		register_nav_menu('main', __('Primary Nav Menu', "presswork"));
-		register_nav_menu('sub', __('Secondary Nav Menu', "presswork"));
+		register_nav_menu('primary', __('Primary Nav Menu', "presswork"));
+		register_nav_menu('secondary', __('Secondary Nav Menu', "presswork"));
 		register_nav_menu('footer', __('Footer Nav Menu', "presswork"));
 	}
 	// The default message if no primary menu is set in the wp-admin
-	function menu_default() {
+	function pw_menu_default() {
+		?>
+			<ul id="menu-main" class="menu">
+				<li><a href="<?php echo home_url("/"); ?>">Home</a></li>
+				<?php wp_list_categories('title_li=&depth=1&number=5'); ?>
+			</ul>
+		<?php
 		if(current_user_can('edit_theme_options')) {
-			echo '<div class="warning clear fl"><p>';
-			printf(__("Create your Primary nav menu %shere%s", "presswork"), '<a href="'.admin_url('nav-menus.php').'">', '</a>');
+			echo '<div class="warning clear fl" style="margin-bottom: 5px;"><p>';
+			printf(__("Customize your Primary nav menu %shere%s", "presswork"), '<a href="'.admin_url('nav-menus.php').'">', '</a>');
 			echo '</p></div>';
 		}
 	}
 
 	// The default message if no secondary menu is set in the wp-admin
-	function sub_menu_default() {
+	function pw_sub_menu_default() {
 		if(current_user_can('edit_theme_options')) {
 			echo '<div class="warning clear fl"><p>';
 			printf(__("Create your Secondary nav menu %shere%s", "presswork"), '<a href="'.admin_url('nav-menus.php').'">', '</a>');
@@ -185,7 +202,7 @@ function presswork_setup() {
 	}
 
 	// The default message if no footer menu is set in the wp-admin
-	function footer_menu_default() {
+	function pw_footer_menu_default() {
 		if(current_user_can('edit_theme_options')) {
 			echo '<div class="warning clear fl"><p>';
 			printf(__("Create your Footer nav menu %shere%s", "presswork"), '<a href="'.admin_url('nav-menus.php').'">', '</a>');
@@ -223,7 +240,7 @@ function presswork_setup() {
 		
 		//Add functionality for post formats
 		add_theme_support( 'post-formats', array( 'aside', 'audio', 'gallery', 'image', 'link', 'video' ) );
-	}		
+	}
 }
 endif;
 
@@ -314,7 +331,7 @@ if(!function_exists('pw_help')) :
 /**
  * Adds content to the help panel.
  *
- * @since PressWork 1.0
+ * @since PressWork 1.0.1
  */	
 	function pw_help($contextual_help, $screen_id, $screen) {
 		global $pw_themelayout;
@@ -340,18 +357,9 @@ function pw_get_index($array, $index) {
 
 // Reset theme option function
 function pw_reset_options() {
-	global $pw_default_options;
+	global $pw_default_options, $pw_welcome;
 	update_option(PW_THEME_FILE, $pw_default_options);
-	pw_single_save('welcome_screen', true);
-	pw_single_save('toolbox', 'on');
-}
-
-// Call theme options
-function pw_theme_option($var) {
-	$pw_values = get_option(PW_THEME_FILE);
-	if(!$pw_values) pw_reset_options();
-	$val = pw_get_index($pw_values, $var);
-	return $val;
+	$pw_welcome = true;
 }
 
 // Reset theme ajax function
@@ -374,7 +382,6 @@ add_action('wp_ajax_save_option', 'pw_save_option');
 function pw_turn_on_toolbox() {
 	$option = $_POST['option'];
 	pw_single_save('toolbox', $option);
-	//pw_single_save('welcome_screen', false);
 	die();
 }
 add_action('wp_ajax_turn_on_toolbox', 'pw_turn_on_toolbox');
@@ -399,14 +406,15 @@ function pw_save_theme_callback() {
 add_action('wp_ajax_save_theme_options', 'pw_save_theme_callback');
 
 // Remove welcome screen function
-function remove_welcome_screen() {
+function pw_remove_welcome_screen() {
+	global $pw_welcome;
 	if (!wp_verify_nonce($_POST['nonce'], 'presswork_nonce'))
 		return;
 
-	pw_single_save("welcome_screen", true);
+	$pw_welcome = true;
 	die();
 }
-add_action('wp_ajax_remove_welcome_screen', 'remove_welcome_screen');
+add_action('wp_ajax_remove_welcome_screen', 'pw_remove_welcome_screen');
 
 if(!function_exists('pw_widgets_init')) :
 /**
@@ -431,8 +439,8 @@ if(!function_exists('pw_widgets_init')) :
 			'description' => __( "The area above the main content on the index page. Perfect spot for a slideshow.", "presswork" ),
 			'before_widget' => '<aside id="%1$s" class="content-widget %2$s">',
 			'after_widget' => "</aside>",
-			'before_title' => '<h1 class="catheader">',
-			'after_title' => '</h1>',
+			'before_title' => '<header><h1 class="catheader">',
+			'after_title' => '</h1></header>',
 		));
 
 		register_sidebar(array(
@@ -441,8 +449,8 @@ if(!function_exists('pw_widgets_init')) :
 			'description' => __( "The header area appears on every page of your site if it has been placed in the header.", "presswork" ),
 			'before_widget' => '<aside id="%1$s" class="header-widget %2$s">',
 			'after_widget' => "</aside>",
-			'before_title' => '<h3>',
-			'after_title' => '</h3>',
+			'before_title' => '<header><h3>',
+			'after_title' => '</h3></header>',
 		));
 		
 		register_sidebar(array(
@@ -451,8 +459,8 @@ if(!function_exists('pw_widgets_init')) :
 			'description' => __( "The first sidebar appears on every page of your site, unless you have selected full width for a post or page.", "presswork" ),
 			'before_widget' => '<aside id="%1$s" class="side-widget %2$s">',
 			'after_widget' => "</aside>",
-			'before_title' => '<h3>',
-			'after_title' => '</h3>',
+			'before_title' => '<header><h3>',
+			'after_title' => '</h3></header>',
 		));
 		
 		register_sidebar(array(
@@ -461,8 +469,8 @@ if(!function_exists('pw_widgets_init')) :
 			'description' => __( "The second sidebar appears on every page of your site, unless you have selected full width for a post or page.", "presswork" ),
 			'before_widget' => '<aside id="%1$s" class="side-widget %2$s">',
 			'after_widget' => "</aside>",
-			'before_title' => '<h3>',
-			'after_title' => '</h3>',
+			'before_title' => '<header><h3>',
+			'after_title' => '</h3></header>',
 		));
 
 		register_sidebar(array(
@@ -471,39 +479,46 @@ if(!function_exists('pw_widgets_init')) :
 			'description' => __( "The extended footer appears at the bottom of your site if it has been placed in the footer.", "presswork" ),
 			'before_widget' => '<aside id="%1$s" class="bottom-widget %2$s">',
 			'after_widget' => "</aside>",
-			'before_title' => '<h3>',
-			'after_title' => '</h3>',
+			'before_title' => '<header><h3>',
+			'after_title' => '</h3></header>',
 		));
 	}
 endif;
 add_action( 'init', 'pw_widgets_init' );
 
-function widget_first_last_classes($params) {
-	global $my_widget_num;
-	$this_id = $params[0]['id'];
-	if($this_id == 'extended-footer') {
-		$arr_registered_widgets = wp_get_sidebars_widgets();
-	
-		if(!$my_widget_num)
-			$my_widget_num = array();
-	
-		if(!isset($arr_registered_widgets[$this_id]) || !is_array($arr_registered_widgets[$this_id])) 
-			return $params;
-	
-		if(isset($my_widget_num[$this_id]))
-			$my_widget_num[$this_id] ++;
-		else
-			$my_widget_num[$this_id] = 1;
+if(!function_exists('pw_widget_first_last_classes')) :
+/**
+ * Adds a unique ordered class to widgets
+ *
+ * @since PressWork 1.0
+ */
+ 	function pw_widget_first_last_classes($params) {
+		global $my_widget_num;
+		$this_id = $params[0]['id'];
+		if($this_id == 'extended-footer') {
+			$arr_registered_widgets = wp_get_sidebars_widgets();
 		
-		if($my_widget_num[$this_id]==4)
-			$my_widget_num[$this_id] = 1;
-	
-		$class = 'class="widget' . $my_widget_num[$this_id] . ' ';
-		$params[0]['before_widget'] = preg_replace('/class=\"/', "$class", $params[0]['before_widget'], 1);
+			if(!$my_widget_num)
+				$my_widget_num = array();
+		
+			if(!isset($arr_registered_widgets[$this_id]) || !is_array($arr_registered_widgets[$this_id])) 
+				return $params;
+		
+			if(isset($my_widget_num[$this_id]))
+				$my_widget_num[$this_id] ++;
+			else
+				$my_widget_num[$this_id] = 1;
+			
+			if($my_widget_num[$this_id]==4)
+				$my_widget_num[$this_id] = 1;
+		
+			$class = 'class="widget' . $my_widget_num[$this_id] . ' ';
+			$params[0]['before_widget'] = preg_replace('/class=\"/', "$class", $params[0]['before_widget'], 1);
+		}
+		return $params;
 	}
-	return $params;
-}
-add_filter('dynamic_sidebar_params','widget_first_last_classes');
+endif;
+add_filter('dynamic_sidebar_params','pw_widget_first_last_classes');
 
 if(!function_exists('pw_comment_template')) :
 /**
@@ -697,8 +712,9 @@ function pw_add_menu_admin_bar() {
 }
 add_action( 'admin_bar_menu', 'pw_add_menu_admin_bar', 1000 );
 
-function pw_get_sidebar($id, $name, $action) {
-	echo '<li id="'.$id.'" role="complementary"> <!-- begin '.$id.' -->'."\n"; 
+function pw_get_sidebar($id, $name, $action, $class = null) {
+	if(!empty($class)) $class = ' class="'.$class.'"';
+	echo '<li id="'.$id.'" role="complementary"'.$class.'> <!-- begin '.$id.' -->'."\n"; 
 	$handle = pw_handles($name);
 	if(!empty($handle)) echo pw_handles($name,$id,true);
 	pw_actionBlock($action); // calling the Sidebar
@@ -759,10 +775,10 @@ function pw_delete_element() {
 }
 add_action('wp_ajax_delete_element', 'pw_delete_element');
 
-function pw_get_element($name) {
+function pw_get_element($name, $class = null) {
 	if($name=="maincontent") {
 		$handle = pw_handles('Main Content'); ?>
-	    <li id="maincontent" role="main"> <!-- begin maincontent -->
+	    <li id="maincontent" role="main"<?php if(!empty($class)) echo ' class="'.$class.'"'; ?>> <!-- begin maincontent -->
     	<?php 
     	echo $handle; 
     	if(!have_posts()) : 
@@ -789,16 +805,16 @@ function pw_get_element($name) {
     	<?php
 	}
 	if($name=="firstsidebar") {
-		pw_get_sidebar('firstsidebar', 'First Sidebar', 'pw_sidebar');
+		pw_get_sidebar('firstsidebar', 'First Sidebar', 'pw_sidebar', $class);
 	}
 	if($name=="secondsidebar") {
-    	pw_get_sidebar('secondsidebar', 'Second Sidebar', 'pw_second_sidebar');
+    	pw_get_sidebar('secondsidebar', 'Second Sidebar', 'pw_second_sidebar', $class);
 	}
 	if($name=="headerarea") {
     	echo '<li id="headerarea" class="mainl" role="complementary">'."\n"; 
 		$handle = pw_handles('Widgetized Area', 'headerarea', true, 'header');
 		echo $handle;
-	   	if(!dynamic_sidebar("header-area")) :
+	   	if(!dynamic_sidebar("header-area") && current_user_can('edit_theme_options')) :
 			echo '<div class="warning clear fl"><p>';
 			printf(__("Add widgets to the Header Area %shere%s", "presswork"), '<a href="'.admin_url('widgets.php').'">', '</a>');
 			echo '</p></div>';
@@ -848,7 +864,7 @@ function pw_get_element($name) {
     		echo $handle;
     		echo '<nav class="clear fl" role="navigation">';
     		echo '<h3 class="assistive-text">Main menu</h3>';
-			 wp_nav_menu( array( 'theme_location' => 'main', 'sort_column' => 'menu_order', 'container' => '', 'fallback_cb' => 'menu_default' ) ); 
+			 wp_nav_menu( array( 'theme_location' => 'primary', 'sort_column' => 'menu_order', 'container' => '', 'fallback_cb' => 'pw_menu_default' ) ); 
 			echo '</nav>';
 			echo '</li>';
 		}	
@@ -860,7 +876,7 @@ function pw_get_element($name) {
     		echo $handle;
      		echo '<nav class="clear fl" role="navigation">';
    		echo '<h3 class="assistive-text">Sub menu</h3>';
-			 wp_nav_menu( array( 'theme_location' => 'sub', 'sort_column' => 'menu_order', 'container' => '', 'fallback_cb' => 'sub_menu_default' ) ); 
+			 wp_nav_menu( array( 'theme_location' => 'secondary', 'sort_column' => 'menu_order', 'container' => '', 'fallback_cb' => 'pw_sub_menu_default' ) ); 
 			echo '</nav>';
 			echo '</li>';
 		}	
@@ -872,7 +888,7 @@ function pw_get_element($name) {
     		echo $handle;
      		echo '<nav class="clear fl" role="navigation">';
    		echo '<h3 class="assistive-text">Footer menu</h3>';
-			wp_nav_menu( array( 'theme_location' => 'footer', 'sort_column' => 'menu_order', 'container' => '', 'fallback_cb' => 'footer_menu_default' ) ); 
+			wp_nav_menu( array( 'theme_location' => 'footer', 'sort_column' => 'menu_order', 'container' => '', 'fallback_cb' => 'pw_footer_menu_default' ) ); 
 			echo '</nav>';
 			echo '</li>';
 		}	
@@ -881,7 +897,7 @@ function pw_get_element($name) {
 		$handle = pw_handles('Extended Footer', 'extendedfooter', true, 'footer');
 		echo '<li id="extendedfooter" class="foot" role="complementary">';
     	echo $handle;
-		if(!dynamic_sidebar("extended-footer")) :
+		if(!dynamic_sidebar("extended-footer") && current_user_can('edit_theme_options')) :
 			echo '<div class="warning clear fl"><p>';
 			printf(__("Add widgets to the Extended Footer %shere%s", "presswork"), '<a href="'.admin_url('widgets.php').'">', '</a>');
 			echo '</p></div>';
@@ -984,7 +1000,7 @@ function pw_social_option($name, $text, $placeholder) {
  */
 function pw_html5_search_form( $form ) {
     $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-    <label class="assistive-text" for="s">' . __('Search for:') . '</label>
+    <label class="assistive-text" for="s">' . __('Search for:', "presswork") . '</label>
     <input type="search" placeholder="'.__("Search...", "presswork").'" value="' . get_search_query() . '" name="s" id="s" />
     </form>';
 
@@ -1020,3 +1036,24 @@ function pw_html5_video($atts, $content = null) {
 	return '<video src="'.$src.'" width="'.$width.'" height="'.$height.'" controls autobuffer>';
 }
 add_shortcode('video5', 'pw_html5_video');
+
+
+/**
+ * Adds "odd" class to all odd posts.
+ *
+ * @since PressWork 1.0.1
+ */
+global $current_class;
+$current_class = 'odd';
+
+function pw_my_post_class ( $classes ) { 
+   if(!is_singular()) {
+	   global $current_class;
+	   $classes[] = $current_class;
+	
+	   $current_class = ($current_class == 'odd') ? 'even' : 'odd';
+	
+   }
+   return $classes;
+}
+add_filter ( 'post_class' , 'pw_my_post_class' );

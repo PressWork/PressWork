@@ -41,6 +41,7 @@ body { font-family: <?php echo pw_theme_option("body_font"); ?>; font-size: <?ph
 h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-family: <?php echo pw_theme_option("headers_font"); ?>; }
 #body-wrapper { color: <?php echo pw_theme_option('main_text_color'); ?>; width: <?php echo $pw_site; ?>px; padding: <?php echo $pw_body_margins; ?>px; background-color: <?php echo pw_theme_option('page_background_color'); ?>; }
 #main-wrapper > li { margin: 0 <?php echo $pw_margins/2; ?>px; }
+#main-wrapper .el3 { *margin-left: <?php echo $pw_margins; ?>px; }
 #firstsidebar { width: <?php echo $pw_first_sidebar; ?>px; }
 #secondsidebar { width: <?php echo $pw_second_sidebar; ?>px; }
 #maincontent { width: <?php echo $pw_content_width; ?>px; }

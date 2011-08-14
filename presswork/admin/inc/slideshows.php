@@ -40,34 +40,36 @@ if(!function_exists('pw_slideshow')) :
 		$featured->query($posts);
 	?>
 	<div id="<?php echo $r['type']; ?>" class="pw-slideshow" style="height: <?php echo $r['height']; ?>px;">
-		<ul class="images">
-		<?php while ($featured->have_posts()) : $featured->the_post(); ?> 
-			<li>
-			<?php
-			if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
-				echo '<a href="'.get_permalink().'">';
-				the_post_thumbnail(array($r['width'], $r['height']));
-				echo '</a>';
-			}	
-			?>
-			</li>
-		<?php endwhile; ?>
-		</ul>
-		<ul class="text">
-		<?php while ($featured->have_posts()) : $featured->the_post(); ?> 
-			<li>
-			<?php 
-			if($r['type']=="faderota") {
-				echo '<header><h4><a href="'.get_permalink().'">'.esc_attr(get_the_title()).'</a></h4></header>';
-			} else {
-				echo '<header><h4><a href="'.get_permalink().'">'.esc_attr(get_the_title()).'</a></h4></header>';
-				echo pw_excerpt($r['excerpt']); 
+		<div class="slideshow-content" style="height: <?php echo $r['height']; ?>px;">
+			<ul class="images">
+			<?php while ($featured->have_posts()) : $featured->the_post(); ?> 
+				<li>
+				<?php
+				if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
+					echo '<a href="'.get_permalink().'">';
+					the_post_thumbnail(array($r['width'], $r['height']));
+					echo '</a>';
+				}	
 				?>
-				<footer><a href="<?php the_permalink(); ?>" class="readmore"><?php _e('Read more', "presswork"); ?></a></footer>
-			<?php } ?>
-			</li>
-		<?php endwhile; ?>
-		</ul>
+				</li>
+			<?php endwhile; ?>
+			</ul>
+			<ul class="text">
+			<?php while ($featured->have_posts()) : $featured->the_post(); ?> 
+				<li>
+				<?php 
+				if($r['type']=="faderota") {
+					echo '<header><h4><a href="'.get_permalink().'">'.esc_attr(get_the_title()).'</a></h4></header>';
+				} else {
+					echo '<header><h4><a href="'.get_permalink().'">'.esc_attr(get_the_title()).'</a></h4></header>';
+					echo pw_excerpt($r['excerpt']); 
+					?>
+					<footer><a href="<?php the_permalink(); ?>" class="readmore"><?php _e('Read more', "presswork"); ?></a></footer>
+				<?php } ?>
+				</li>
+			<?php endwhile; ?>
+			</ul>
+		</div><!-- end .slideshow-content -->
 	</div><!-- end #slideshow -->
 	<?php
 	}	

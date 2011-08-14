@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pw\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-01 10:01-0500\n"
-"PO-Revision-Date: 2011-08-01 10:01-0500\n"
+"POT-Creation-Date: 2011-08-11 10:59-0500\n"
+"PO-Revision-Date: 2011-08-11 10:59-0500\n"
 "Last-Translator: c.bavota <c@bavotasan.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,299 +13,304 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: /users/cbavota/presswork/pressworkdev/pressworkdev\n"
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/comments.php:3
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/comments.php:10
 msgid "This post is password protected. Enter the password to view any comments."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:165
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:74
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:162
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:176
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:75
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:167
 msgid "Primary Nav Menu"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:166
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:75
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:163
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:177
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:76
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:168
 msgid "Secondary Nav Menu"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:167
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:76
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:167
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:178
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:77
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:172
 msgid "Footer Nav Menu"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:173
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:190
 #, php-format
-msgid "Create your Primary nav menu %shere%s"
+msgid "Customize your Primary nav menu %shere%s"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:182
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:199
 #, php-format
 msgid "Create your Secondary nav menu %shere%s"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:191
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:208
 #, php-format
 msgid "Create your Footer nav menu %shere%s"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:277
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:294
 msgid "Toolbox Deactivated."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:280
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:297
 #, php-format
 msgid "If you've got mad skills when it comes to WordPress and you want to join the %s community, find us on %s and contribute. Together we can make %s the ultimate WordPress framework."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:282
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:299
 #, php-format
 msgid "Click on the button below to activate/deactivate the %s front-end toolbox."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:290
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:310
 #, php-format
 msgid "If you have any questions or feedback, please check out our %s."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:318
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:317
+#, php-format
+msgid "Version %1$s of %2$s is now available. Go to %3$s page."
+msgstr ""
+
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:340
 msgid "Resources"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:320
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:342
 msgid "Support Forum"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:321
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:343
 msgid "PressWork on Github"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:322
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:344
 msgid "Find us on Twitter"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:424
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:437
 msgid "Top Main Content on Index"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:426
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:439
 msgid "The area above the main content on the index page. Perfect spot for a slideshow."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:434
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:447
 msgid "Header Area"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:436
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:449
 msgid "The header area appears on every page of your site if it has been placed in the header."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:444
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:43
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:165
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:457
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:44
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:170
 msgid "First Sidebar"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:446
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:459
 msgid "The first sidebar appears on every page of your site, unless you have selected full width for a post or page."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:454
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:43
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:166
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:467
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:44
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:171
 msgid "Second Sidebar"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:456
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:469
 msgid "The second sidebar appears on every page of your site, unless you have selected full width for a post or page."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:464
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:168
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:477
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:173
 msgid "Extended Footer"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:466
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:479
 msgid "The extended footer appears at the bottom of your site if it has been placed in the footer."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:531
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:551
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:532
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:553
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:453
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:552
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:573
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:492
 msgid "(edit)"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:536
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:556
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:553
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:573
 msgid "Pingback:"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:566
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:586
 msgid "Your name"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:567
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:587
 msgid "Your email"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:568
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:588
 msgid "Your website"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:797
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:819
 #, php-format
 msgid "Add widgets to the Header Area %shere%s"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:871
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:902
 #, php-format
 msgid "Add widgets to the Extended Footer %shere%s"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:881
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:912
 #, php-format
 msgid "&copy; %1$d %2$s. All Rights Reserved."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:883
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:914
 #, php-format
 msgid "Created using %s."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:972
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:1003
 msgid "Search for:"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:973
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/functions.php:1004
 msgid "Search..."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:68
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:106
 #, php-format
-msgid "Add widgets to the First Sidebar %shere%s"
+msgid "Add your own widgets to the First Sidebar %shere%s"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:81
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:120
 #, php-format
 msgid "Add widgets to the Second Sidebar %shere%s"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:133
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:172
 msgid "Not found"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:136
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:175
 msgid "No results were found for your request."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:154
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:193
 #, php-format
 msgid "Posts Tagged &#8216;%s&#8217;"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:157
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:160
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:163
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:196
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:199
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:202
 msgid "Archive for"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:166
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:205
 msgid "Blog Archives"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:174
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:191
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:204
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:213
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:230
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:243
 msgid "No posts found."
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:227
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:266
 msgid "Reply"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:240
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:279
 msgid "Comment navigation"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:241
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:280
 msgid "&larr; Older Comments"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:242
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:281
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:257
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:296
 msgid "Your comment"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:270
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:309
 msgid "search results for"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:296
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:351
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:435
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:335
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:390
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:474
 msgid "by"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:299
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:358
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:440
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:338
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:397
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:479
 msgid "0 Comments"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:299
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:358
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:440
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:338
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:397
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:479
 msgid "1 Comment"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:299
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:358
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:440
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:338
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:397
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:479
 msgid "% Comments"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:330
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:410
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:447
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:538
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:560
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:369
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:449
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:486
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:577
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:599
 msgid "Read more &rarr;"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:451
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:490
 msgid "Tags"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:452
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:491
 msgid "Pages"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:472
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:511
 msgid "About"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:492
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:531
 #, php-format
 msgid "Permanent Link to %s"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:494
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/actions.php:533
 msgid "By"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/footer-scripts.php:396
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/footer-scripts.php:398
 msgid "If you leave this page you will lose your changes."
 msgstr ""
 
@@ -319,7 +324,7 @@ msgstr ""
 
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/fullwidth.php:30
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/fullwidth.php:31
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:40
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:41
 msgid "Layout"
 msgstr ""
 
@@ -327,194 +332,202 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:21
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:22
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/welcome.php:14
 msgid "PressWork Settings"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:24
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:25
 msgid "Drag &amp; Drop Editor"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:30
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:32
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:31
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:33
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:34
 msgid "OFF"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:30
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:32
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:31
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:33
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:34
 msgid "ON"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:32
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:33
 msgid "Hooks"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:33
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:34
 msgid "Functions"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:34
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:35
 msgid "Reset all options"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:34
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:35
 msgid "Reset"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:43
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:49
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:44
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:50
 msgid "Main Content"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:44
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:45
 msgid "Body Margins"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:44
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:45
 msgid "Content Margins"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:48
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:49
 msgid "Header"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:50
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:51
 msgid "Footer"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:56
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:57
 msgid "Logo Image URL"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:57
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:58
 msgid "Favicon URL"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:65
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:66
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/welcome.php:16
 msgid "Colors"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:70
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:160
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:71
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:165
 msgid "Blog Name"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:71
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:161
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:72
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:166
 msgid "Description"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:72
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:73
 msgid "Links"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:73
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:74
 msgid "Main Text"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:77
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:147
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:78
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:151
 msgid "Category Header"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:78
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:79
 msgid "Post Title"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:79
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:80
 msgid "Post Meta"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:80
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:81
 msgid "Page Background"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:92
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:93
 msgid "Fonts"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:95
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:96
 msgid "Headers"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:96
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:97
 msgid "Body"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:97
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:98
 msgid "Font Size"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:99
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:100
 msgid "Fonts by"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:104
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:105
 msgid "Social"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:107
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:108
 msgid "Username (without @)"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:108
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:110
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:109
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:112
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:113
 msgid "Username"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:109
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:110
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:111
 msgid "User ID"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:122
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:126
 msgid "Updated"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:129
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:131
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:132
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:134
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:133
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:135
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:136
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:138
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:139
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:143
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:148
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:150
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:147
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:152
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:154
 msgid "Color"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:130
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:133
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:136
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:134
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:137
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:140
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:144
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:149
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:148
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:153
 msgid "Hover Color"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:137
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:141
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:145
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:151
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:149
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:155
 msgid "BG Color"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:138
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:142
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:146
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:150
 msgid "BG Hover Color"
 msgstr ""
 
-#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:159
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:163
 msgid "Logo"
 msgstr ""
 
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:164
-msgid "Widgetized Area"
+msgid "Header Image"
 msgstr ""
 
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:169
+msgid "Widgetized Area"
+msgstr ""
+
+#: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/toolbox.php:174
 msgid "Copyright"
 msgstr ""
 
@@ -571,7 +584,7 @@ msgid "Close the<br />Welcome Screen"
 msgstr ""
 
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/welcome.php:26
-msgid "The PressWork<br />Toolbar"
+msgid "The PressWork<br />Toolbox"
 msgstr ""
 
 #: /users/cbavota/presswork/pressworkdev/pressworkdev/admin/inc/welcome.php:27
