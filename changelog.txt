@@ -1,0 +1,24 @@
+PressWork Changelog
+
+Version 1.0.2 08/11/2011
+- Updated code for child theme requirements
+- Fixed missing textdomain on text elements
+- Updated language files
+- Updated sprite.png for new slideshow icons
+- Updated slideshow code and CSS
+- Removed default Flickr widget as per WP.org requirements
+- Prefixed all functions with "pw_"
+
+Version 1.0.1 08/08/2011
+- Small CSS fixes for IE9
+- Added odd/even class to front page posts for CSS
+- Added resource links to contextual help menu in admin
+- Updated the PW admin page styles and content
+- Updated language files
+- Added PHP comments to all page templates
+- Added Google+, LinkedIn and StumbleUpon to social icons
+- Added default menu and sidebar widgets for WP.org preview
+- Updated welcome screen
+
+Version 1.0 08/02/2011
+Official Release
