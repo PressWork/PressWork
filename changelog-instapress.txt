@@ -1,0 +1,4 @@
+InstaPress Changelog
+
+Version 1.0 08/14/2011
+Official Release
