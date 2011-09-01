@@ -34,8 +34,8 @@ class PW_Featured_Posts_Widget extends WP_Widget {
 			if(function_exists('has_post_format') && (has_post_format('aside') || has_post_format('link') || has_post_format('gallery'))) { // new aside || link post format
 				// do nothing
 			} else {
+				$rightcon = '';
 				if(function_exists('has_post_format') && !has_post_format('image')) {
-					$rightcon = '';
 					if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
 						echo '<a href="'.get_permalink().'">';
 						the_post_thumbnail('fifty', array('class'=>'alignleft'));

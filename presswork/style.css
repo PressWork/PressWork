@@ -2,7 +2,7 @@
 Theme Name: PressWork
 Theme URI:  http://presswork.me/about/
 Description: PressWork is a free, open source theme framework built for WordPress 3.2 using HTML5 and CSS3. Created by <a href="http://bavotasan.com/">c.bavota</a> and <a href="http://digibombinc.com">Brendan Sera-Shriar</a>.
-Version: 1.0.2
+Version: 1.0.3
 Author: c.bavota, Brendan Sera-Shriar
 Author URI: http://presswork.me/
 Tags: right-sidebar, left-sidebar, flexible-width, three-columns, two-columns, one-column, white, green, custom-header, custom-background, custom-colors, custom-menu, featured-images, full-width-template, post-formats, sticky-post, threaded-comments, translation-ready, theme-options
@@ -96,6 +96,7 @@ p, table { margin: 1em 0; }
 ul, ol { padding: 0 0 0 20px; }
 article ul li { list-style: disc; }
 article ol li { list-style: decimal; }
+article li { clear: left; }
 h1, #blogname .siteheader { font-size: 2.4em; }
 h2 { font-size: 2.0em; }
 h3 { font-size: 1.8em; }
@@ -377,12 +378,14 @@ nav {
 		}
 
 	#main-wrapper .el1 {
-		*margin-left: 0 !important;
+		*margin-left: 0 !important; /* for IE */
+		margin-left: 0\0/ !important; /* for IE */
 		} 
 		
 	#main-wrapper .el2,
 	#main-wrapper .el3 {
-		*margin-right: 0 !important;
+		*margin-right: 0 !important; /* for IE */
+		margin-right: 0\0/ !important; /* for IE */
 		}
 		
 	#main-wrapper > li:nth-child(1) {
@@ -398,6 +401,11 @@ nav {
 		float: left;
 		width: 100%;
 		}
+		
+		#maincontent .content-widget.pw_columns {
+			width: auto;
+			clear: none;
+			}
 	
 article {
 	float: left;
@@ -442,7 +450,7 @@ article {
 			
 	article .meta {
 		font-size: 0.9em;
-		line-height: 1em;
+		line-height: 1.5em;
 		float: left;
 		width :100%;
 		font-style: italic;
@@ -869,6 +877,7 @@ nav#page-numbers span.current {
 		
 		#extendedfooter .widget2 {
 			margin: 0 5% 20px;
+			*margin: 0 4.5% 20px; /* for IE 7 */
 			}
 	
 	#extendedfooter .rsswidget img {
@@ -932,6 +941,7 @@ footer#footer-main {
 	margin: 0 0 20px;
 	visibility: hidden;
 	width: 100%;
+	clear: both;
 	}
 	
 	.pw-slideshow .slideshow-content {
@@ -1311,7 +1321,8 @@ p.error {
 	margin: 12px 0;
 	}	
 	
-div.warning {
+div.warning,
+aside.warning {
 	-moz-border-radius: 3px;
 	-khtml-border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -1326,19 +1337,21 @@ div.warning {
 	font-family: Arial, sans-serif;
 	}
 	
-	div.warning a {
+	div.warning a,
+	aside.warning a {
 		color: #000 !important;
 		border-bottom: 1px dotted #000;	
 		background: none !important;
 		}
 	
-	div.warning p {
+	div.warning p,
+	aside.warning p {
 		padding: 8px 10px;
 		margin: 0;
 		}
 
-	#firstsidebar div.warning,
-	#secondsidebar div.warning {
+	#firstsidebar aside.warning,
+	#secondsidebar aside.warning {
 		margin-bottom: 20px;
 		}
 	

@@ -309,6 +309,14 @@ if(!function_exists('pw_admin_page')) :
  	    echo '<p>';
       	printf(__("If you have any questions or feedback, please check out our %s.", "presswork"), '<a href="http://support.presswork.me/">Support Forum</a>');
 		echo '</p>';
+		?>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		<input type="hidden" name="cmd" value="_s-xclick">
+		<input type="hidden" name="hosted_button_id" value="QJ36XLEYC4J2S">
+		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+		</form>
+		<?php
 		if(function_exists('pw_check_for_update')) {
 			$presswork_version_check = pw_check_for_update();
 			if(!empty($presswork_version_check)) {
@@ -320,7 +328,7 @@ if(!function_exists('pw_admin_page')) :
 		}
 		?>
 		</div> <!-- end of #presswork -->	
-       <p class="pw-twitter"><a href="http://twitter.com/pressworkwp">@PressWorkWP</a></p>
+		<p class="pw-twitter"><a href="http://twitter.com/pressworkwp">@PressWorkWP</a></p>
         <p class="pw-briefcase">Want more functionality? Get <a href="http://presswork.me/briefcase/"></a></p>
 	</div> <!-- end of #wrap -->
 	<?php
@@ -342,6 +350,7 @@ if(!function_exists('pw_help')) :
 			$contextual_help .= '<li><a href="http://support.presswork.me" target="_blank">'.__("Support Forum", "presswork").'</a></li>';
 			$contextual_help .= '<li><a href="https://github.com/digibomb/PressWork" target="_blank">'.__("PressWork on Github", "presswork").'</a></li>';
 			$contextual_help .= '<li><a href="http://twitter.com/pressworkwp" target="_blank">'.__("Find us on Twitter", "presswork").'</a></li>';
+			$contextual_help .= '<li><a href="http://presswork.me/category/themes/" target="_blank">'.__("Browse Our Themes", "presswork").'</a></li>';
 			$contextual_help .= '</ul>';
 		}
 		return $contextual_help;
@@ -708,7 +717,10 @@ function pw_add_menu_admin_bar() {
         return;
 
     /* Add the main siteadmin menu item */
-    $wp_admin_bar->add_menu( array( 'id' => 'presswork-options', 'title' => "PressWork", 'href' => admin_url('themes.php')."?page=PressWork" ) );
+    $wp_admin_bar->add_menu( array( 'id' => 'presswork-menu', 'title' => "PressWork", 'href' => admin_url('themes.php')."?page=PressWork" ) );
+    $wp_admin_bar->add_menu( array( 'parent' => 'presswork-menu', 'id' => 'presswork-admin', 'title' => __("PW Admin", "presswork"), 'href' => admin_url('themes.php')."?page=PressWork" ) );
+    $wp_admin_bar->add_menu( array( 'parent' => 'presswork-menu', 'id' => 'presswork-themes', 'title' => __("Browse Our Themes", "presswork"), 'href' => 'http://presswork.me/category/themes/' ) );
+
 }
 add_action( 'admin_bar_menu', 'pw_add_menu_admin_bar', 1000 );
 
@@ -826,7 +838,7 @@ function pw_get_element($name, $class = null) {
 	   	?>
 	   	<li id="blogname" class="mainl">
             <?php echo $handle; ?>
-            <h1 id"site-title" class="siteheader"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></h1>
+            <h1 id="site-title" class="siteheader"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></h1>
         </li>
 		<?php
 	}

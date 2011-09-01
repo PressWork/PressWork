@@ -17,8 +17,10 @@
 get_header(); ?>
 	<?php 
     $layout = pw_theme_option('layout_option');
-	$fullwidth = get_post_meta($post->ID, 'pw_single_layout', true);
-    if($fullwidth==2) $layout = "maincontent";
+	if(is_singular()) {
+		$fullwidth = get_post_meta($post->ID, 'pw_single_layout', true);
+    	if($fullwidth==2) $layout = "maincontent";
+    }
     $layout = explode(",", $layout);
     $i = 1;
     foreach($layout as $elem) {

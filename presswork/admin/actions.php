@@ -77,9 +77,9 @@ add_action('pw_footer_middle', 'pw_footer_content');
 function pw_sidebar() {
 	echo pw_function_handle(__FUNCTION__);
 	if(!dynamic_sidebar("first-sidebar")) :	
-		echo '<div class="side-widget default">';
+		echo '<aside class="side-widget default">';
 		get_search_form();
-		echo '</div>';
+		echo '</aside>';
 
 		$args = array(
 			'before_widget' => '<aside class="side-widget default">',
@@ -97,9 +97,9 @@ function pw_sidebar() {
 		$tweet->widget($args, $instance);
 
 		if(current_user_can('edit_theme_options')) {
-			echo '<div class="warning clear fl"><p>';
+			echo '<aside class="warning clear fl"><p>';
 			printf(__("Add your own widgets to the First Sidebar %shere%s", "presswork"), '<a href="'.admin_url('widgets.php').'">', '</a>');
-			echo '</p></div>';
+			echo '</p></aside>';
 		}
     endif;
 }
@@ -111,9 +111,9 @@ add_action('pw_sidebar_middle', 'pw_sidebar');
 function pw_second_sidebar() {
 	echo pw_function_handle(__FUNCTION__);
 	if(!dynamic_sidebar("second-sidebar" ) && current_user_can('edit_theme_options')) :
-		echo '<div class="warning clear fl"><p>';
+		echo '<aside class="warning clear fl"><p>';
 		printf(__("Add widgets to the Second Sidebar %shere%s", "presswork"), '<a href="'.admin_url('widgets.php').'">', '</a>');
-		echo '</p></div>';    endif;
+		echo '</p></aside>';    endif;
 }
 add_action('pw_second_sidebar_middle', 'pw_second_sidebar');
 
@@ -162,14 +162,14 @@ add_action('pw_search_bottom', 'pw_pagination');
 function pw_404() {
 	echo pw_function_handle(__FUNCTION__);
 	?>
-	<div id="post-0" class="post error404 not-found">
+	<article id="post-0" class="post error404 not-found">
     	<header>
     	   	<h1 class="posttitle"><?php _e("Not found", "presswork"); ?></h1>
         </header>
         <div class="entry">
             <p><?php _e("No results were found for your request.", "presswork"); ?></p>
         </div>
-    </div>
+    </article>
 	<?php
 }
 add_action('pw_404_middle', 'pw_404');
@@ -307,6 +307,59 @@ function pw_search_title() {
 add_action('pw_search_top', 'pw_search_title');
 
 /*
+ * Home page featured query
+ *
+ * @since PressWork 1.0.3
+ */
+function pw_home_page_featured_query() {
+	global $post, $notin, $paged, $pw;
+	$pw = 1;
+	$sticky = get_option( 'sticky_posts' );
+	$notin = pw_notin();
+	if(!empty($sticky)) {
+		if(!empty($notin)) $notin = array_merge($notin, $sticky); else $notin = $sticky;
+		if($paged < 2) {
+			$args = array(
+				'post__in'  => $sticky,
+				'ignore_sticky_posts' => 1
+			);
+			$the_query = new WP_Query( $args );
+			while ( $the_query->have_posts() ) : $the_query->the_post();
+			?>
+			<article id="post-<?php the_ID(); ?>" <?php post_class("pw pw".$pw); ?>>
+				<?php pw_actionBlock('pw_index_sticky_post'); ?>
+			</article>
+			<?php
+			$pw++;	
+			endwhile;
+			wp_reset_query();
+		}
+	} else {
+		$args = array(
+			'post__not_in'  => $notin,
+			'posts_per_page' => 2
+		);
+		$the_query = new WP_Query( $args );
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+		if($paged < 2) {
+			$notin[] = $post->ID;
+			?>
+			<article id="post-<?php the_ID(); ?>" <?php post_class("pw pw".$pw); ?>>
+				<?php pw_actionBlock('pw_index_featured_post'); ?>
+			</article>
+			<?php
+			$pw++;	
+		} else {
+			$notin[] = $post->ID;
+		}
+		endwhile;
+		wp_reset_query();
+	}
+	query_posts( array( 'post__not_in' => $notin, "paged" => $paged  ) );
+}
+add_action('pw_home_page', 'pw_home_page_featured_query');
+
+/*
  * Featured posts
  */
 function pw_posts_featured() {
@@ -352,7 +405,7 @@ function pw_posts_featured() {
 					$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
 				?>
 				<a class="gallery-thumb" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
-				<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo &rarr;</a>.', 'This gallery contains <a %1$s>%2$s photos &rarr;</a>.', $total_images, "presswork" ),
+				<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo &rarr;</a>', 'This gallery contains <a %1$s>%2$s photos &rarr;</a>', $total_images, "presswork" ),
 						'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
 						number_format_i18n( $total_images )
 					); ?></em>
@@ -422,7 +475,7 @@ function pw_posts() {
 				$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
 			?>
 			<a class="gallery-thumb" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
-			<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo &rarr;</a>.', 'This gallery contains <a %1$s>%2$s photos &rarr;</a>.', $total_images, "presswork" ),
+			<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo &rarr;</a>', 'This gallery contains <a %1$s>%2$s photos &rarr;</a>', $total_images, "presswork" ),
 					'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
 					number_format_i18n( $total_images )
 				); ?></em>
@@ -525,13 +578,11 @@ function pw_columns_post_title($r) {
 		<hgroup>
 			<h1 class="posttitle"><a href="<?php the_permalink() ?>" title="<?php printf(__("Permanent Link to %s", "presswork"), the_title_attribute('echo=0')); ?>"><?php the_title(); ?></a></h1>
 	        <h2 class="meta">
-	            <?php if(isset($r['authors'])) { echo '<div class="theauthor">'; _e("By", "presswork"); echo " "; the_author_posts_link(); echo '</div>'; } ?> 
-	            <?php if(isset($r['comments']) && comments_open()) { ?>
-	                <div class="commentbox"><div class="commentbox-l"></div>
-	                    <?php comments_popup_link('0','1','%','ind-comments'); ?>
-	                </div>
-	            <?php } ?>
-	            <?php if(isset($r['dates'])) { echo '<div class="thedate">'; the_time(get_option('date_format')); echo '</div>'; } ?>
+	        	<?php
+	        	if(isset($r['authors'])) { _e("by", "presswork"); echo " "; the_author_posts_link(); } 
+	            if(isset($r['dates'])) { echo '&nbsp;&bull;&nbsp;'; the_time(get_option('date_format')); }
+	            if(isset($r['comments']) && comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link(__('0 Comments', "presswork"),__('1 Comment', "presswork"),__('% Comments', "presswork")); }
+	        	?>
 	        </h2>
         </hgroup>
     </header>
@@ -559,7 +610,7 @@ function pw_columns_post_content($r) {
 				$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
 			?>
 			<a class="gallery-thumb" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
-			<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo</a>.', 'This gallery contains <a %1$s>%2$s photos</a>.', $total_images, "presswork" ),
+			<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo &rarr;</a>', 'This gallery contains <a %1$s>%2$s photos &rarr;</a>', $total_images, "presswork" ),
 					'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
 					number_format_i18n( $total_images )
 				); ?></em>
@@ -577,11 +628,12 @@ function pw_columns_post_content($r) {
 				if($r['images']==1) { 
 					if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
 						echo '<a href="'.get_permalink().'">';
-						the_post_thumbnail(array($r['img_w'], $r['img_h']), array('class'=>'alignright'));
+						the_post_thumbnail(array($r['img_w'], $r['img_h']), array('class'=>$r['img_float']));
 						echo '</a>';
 					}
 				}
 				the_excerpt();
+ 			    if($r['readmore']==1) echo '<a href="'.get_permalink().'" class="more-link">'.__( 'Read more &rarr;', "presswork" ).'</a>';
 			}	
 		}
         ?>
@@ -589,11 +641,6 @@ function pw_columns_post_content($r) {
 	<?php
 }
 add_action('pw_columns_middle', 'pw_columns_post_content', 1, 1);
-
-function pw_columns_post_readmore($r) {
-    if($r['readmore']==1) echo '<a href="'.get_permalink().'" class="more-link">'.__( 'Read more &rarr;', "presswork" ).'</a>';
-}
-add_action('pw_columns_bottom', 'pw_columns_post_readmore', 1, 1);
 
 // Including child theme action file
 if(!defined('CHILD_ACTION_FILE'))

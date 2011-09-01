@@ -165,7 +165,7 @@ function pw_footer_scripts() {
 				loader.hide();
 				if(response) {
 					main.append(response);
-					var last = main.find("li:last");
+					var last = main.find("li#"+item);
 					if(wrap[1]=="layout") {
 						var newfull = last.outerWidth();
 						var full = $("#body-wrapper").outerWidth();

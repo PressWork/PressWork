@@ -1,5 +1,16 @@
 PressWork Changelog
 
+Version 1.0.3 09/01/2011
+- Fix for webkit list issue
+- Improved columns function
+- Fixed syntax bug in site header
+- Fixed width issue when adding sidebar
+- Added home page action for featured/sticky query
+- Changed slideshow image to full size
+- Updated toolbox function for child theme support
+- Added donate button to admin page
+- Updated language files
+
 Version 1.0.2 08/11/2011
 - Updated code for child theme requirements
 - Fixed missing textdomain on text elements

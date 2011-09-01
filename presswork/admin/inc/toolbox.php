@@ -67,18 +67,8 @@ function pw_toolbox() {
 				<div class="closewindow">X</div>
 				<div class="lower_box">
 		            <div class="styled-select">
-		            <select id="colorselect">
-							<option value="siteheader"><?php _e('Blog Name', "presswork"); ?></option>
-							<option value="description"><?php _e('Description', "presswork"); ?></option>
-							<option value="links"><?php _e('Links', "presswork"); ?></option>
-							<option value="text"><?php _e('Main Text', "presswork"); ?></option>
-							<option value="nav"><?php _e('Primary Nav Menu', "presswork"); ?></option>
-							<option value="subnav"><?php _e('Secondary Nav Menu', "presswork"); ?></option>
-							<option value="footernav"><?php _e('Footer Nav Menu', "presswork"); ?></option>
-							<option value="category_header"><?php _e('Category Header', "presswork"); ?></option>
-							<option value="post_title"><?php _e('Post Title', "presswork"); ?></option>
-							<option value="post_meta"><?php _e('Post Meta', "presswork"); ?></option>
-							<option value="page_background"><?php _e('Page Background', "presswork"); ?></option>
+			            <select id="colorselect">
+							<?php pw_color_select_options(); ?>
 						</select>
 		            </div>
 						<table class="themeoptions">
@@ -155,6 +145,24 @@ if(!function_exists('pw_add_all_color_options')) :
 		<?php pw_color_option('page_background', 'page_background_color', __('BG Color', "presswork"), '#body-wrapper|background-color'); ?>
 		<?php
 	}
+endif;
+
+if(!function_exists('pw_color_select_options')) :
+function pw_color_select_options() {
+	?>
+	<option value="siteheader"><?php _e('Blog Name', "presswork"); ?></option>
+	<option value="description"><?php _e('Description', "presswork"); ?></option>
+	<option value="links"><?php _e('Links', "presswork"); ?></option>
+	<option value="text"><?php _e('Main Text', "presswork"); ?></option>
+	<option value="nav"><?php _e('Primary Nav Menu', "presswork"); ?></option>
+	<option value="subnav"><?php _e('Secondary Nav Menu', "presswork"); ?></option>
+	<option value="footernav"><?php _e('Footer Nav Menu', "presswork"); ?></option>
+	<option value="category_header"><?php _e('Category Header', "presswork"); ?></option>
+	<option value="post_title"><?php _e('Post Title', "presswork"); ?></option>
+	<option value="post_meta"><?php _e('Post Meta', "presswork"); ?></option>
+	<option value="page_background"><?php _e('Page Background', "presswork"); ?></option>
+	<?php
+}
 endif;
 
 if(!function_exists('pw_add_all_elements')) :

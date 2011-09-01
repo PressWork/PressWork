@@ -581,6 +581,7 @@ div.handle {
 		z-index: 500;
 		color: #444;
 		font-size: 14px;
+		background: #f0f0f0;
 		}
 		
 		#close-welcome:hover {

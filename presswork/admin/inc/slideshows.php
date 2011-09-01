@@ -36,6 +36,7 @@ if(!function_exists('pw_slideshow')) :
 				"ignore_sticky_posts" => 1	
 			);
 		}
+
 		$featured = new WP_Query();
 		$featured->query($posts);
 	?>
@@ -47,7 +48,7 @@ if(!function_exists('pw_slideshow')) :
 				<?php
 				if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
 					echo '<a href="'.get_permalink().'">';
-					the_post_thumbnail(array($r['width'], $r['height']));
+					the_post_thumbnail('full');
 					echo '</a>';
 				}	
 				?>
