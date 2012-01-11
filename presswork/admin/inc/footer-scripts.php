@@ -109,8 +109,9 @@ function pw_footer_scripts() {
 		$(".colorpicker:visible").each(function() {
 			var col = $(this).val();
 			var style = $(this).attr("rel").split('|');
-			var addstyle = style[0] + " { " + style[1] + ": " + col + "; }\n";
-			$("#pw_style_preview").append(addstyle);
+			//var addstyle = style[0] + " { " + style[1] + ": " + col + "; }\n";
+			//$("#pw_style_preview").append(addstyle);
+			$(style[0]).css(style[1],col);
 		});	
 	}
 
@@ -139,8 +140,9 @@ function pw_footer_scripts() {
 	});
 	$("#body_font_size").change(function() {
 		var size = $(this).val();
-		var addstyle = "body { font-size: " + size + "px; }";
-		$("#pw_style_preview").append(addstyle);
+		//var addstyle = "body { font-size: " + size + "px; }";
+		//$("#pw_style_preview").append(addstyle);
+		$('body').css("font-size", size+"px");
 
 	});
 	$(".add-item").click(function(){
