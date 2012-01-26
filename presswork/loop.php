@@ -25,7 +25,7 @@ if(is_home()) do_action('pw_home_page');
 global $current_class;
 $current_class = 'odd';
 
-if(is_home()) echo '<div id="indexposts">';
+if(is_home()) echo '<div id="indexposts" class="clear fl">';
 ?>
 
 <?php while(have_posts()) : the_post(); ?>

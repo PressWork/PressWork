@@ -5,6 +5,7 @@
  * @since PressWork 1.0
  */
  ?>
+<?php if(comments_open()) { ?>
 <div id="comments"> <!-- beging comments -->
 	<?php if ( post_password_required() ) : ?>
 		<div class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', "presswork" ); ?></div>
@@ -23,3 +24,4 @@
 	pw_actionCall('pw_comments_reply');
 	?>
 </div> <!-- end comments -->
+<?php } ?>

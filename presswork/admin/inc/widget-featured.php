@@ -12,7 +12,7 @@ class PW_Featured_Posts_Widget extends WP_Widget {
 
 	function widget($args, $instance) {
 		extract($args, EXTR_SKIP);
-		$title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);	
+		$title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']);	
 		$sticky = get_option( 'sticky_posts' );
 	
 		$par = array(
@@ -31,75 +31,23 @@ class PW_Featured_Posts_Widget extends WP_Widget {
 	    <?php while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 	    <article id="post-<?php the_ID(); ?>" <?php post_class('side-featured'); ?>>
 			<?php
-			if(function_exists('has_post_format') && (has_post_format('aside') || has_post_format('link') || has_post_format('gallery'))) { // new aside || link post format
-				// do nothing
-			} else {
-				$rightcon = '';
-				if(function_exists('has_post_format') && !has_post_format('image')) {
-					if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
-						echo '<a href="'.get_permalink().'">';
-						the_post_thumbnail('fifty', array('class'=>'alignleft'));
-						echo '</a>';
-						$rightcon = ' class="content-col"';
-					}
-				}
-				?>
-				<div<?php echo $rightcon; ?>>
+			$rightcon = '';
+			if(function_exists('has_post_thumbnail') && has_post_thumbnail() && (function_exists('has_post_format') && !has_post_format('gallery') && !has_post_format('video'))) { 
+				echo '<a href="'.get_permalink().'">';
+				the_post_thumbnail('fifty', array( 'class' => 'alignleft' ));
+				echo '</a>';
+				$rightcon = ' class="content-col"';
+			}
+			?>
+		    <div<?php echo $rightcon; ?>>
 				<header>
 					<h1 class="posttitle"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 					<div class="meta">
 						<?php the_time(get_option('date_format')); ?>
 					</div>
 				</header>
-				<?php
-			}
-			?>
-			<div class="storycontent">
-				<?php 
-				if(function_exists('has_post_format') && 
-					(has_post_format('aside') || has_post_format('link') || has_post_format('video') || has_post_format('image') || has_post_format('audio'))) { 
-					// new aside || link || audio || video || image post format
-					echo '<div class="pformat clear">';
-					if(function_exists('has_post_format') && has_post_format('image')) {
-						if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
-							echo '<a href="'.get_permalink().'">';
-							the_post_thumbnail('medium', array('class'=>'alignleft'));
-							echo '</a>';
-						} else {
-							the_content('');
-						}
-					} else {
-						the_content('');						
-					}
-					echo '</div>';
-				} elseif(function_exists('has_post_format') && has_post_format('gallery')) { // new gallery post format
-					global $post;
-					$images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
-					if ( $images ) :
-						$total_images = count( $images );
-						$image = array_shift( $images );
-						$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
-					?>
-					<a class="gallery-thumb" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
-					<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo &rarr;</a>.', 'This gallery contains <a %1$s>%2$s photos &rarr;</a>.', $total_images, "presswork" ),
-							'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
-							number_format_i18n( $total_images )
-						); ?></em>
-					</p>
-					<?php endif; ?>
-					<?php 
-				} else {
-					pw_excerpt(15);
-					?>
-				<?php } ?>
+				<?php pw_post_content(true, 15, true, true); ?>
 			</div> 
-			<?php
-			if(function_exists('has_post_format') && (has_post_format('aside') || has_post_format('link') || has_post_format('gallery'))) { // new aside || link post format
-				// do nothing
-			} else {
-				echo '</div>';
-			}
-			?>
 		</article>
 	    <?php
 		endwhile; 

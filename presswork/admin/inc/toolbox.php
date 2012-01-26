@@ -8,15 +8,15 @@ function pw_toolbox() {
 	?>
   	<div id="pw_toolbox">
 		<div id="pw_toolbox_controls">
-			<div class="open_toolbox options clear fl" rel="options"></div>
-			<div class="open_toolbox layout clear fl" rel="layout"></div>
-			<div class="open_toolbox color clear fl" rel="color"></div>
-			<div class="open_toolbox fonts clear fl" rel="fonts"></div>
-			<div class="open_toolbox social clear fl" rel="social"></div>
+			<div class="open_toolbox options clear fl" data-pw-toolbox-name="options" title="PressWork Options"></div>
+			<div class="open_toolbox layout clear fl" data-pw-toolbox-name="layout" title="Layout Options"></div>
+			<div class="open_toolbox color clear fl" data-pw-toolbox-name="color" title="Color Options"></div>
+			<div class="open_toolbox fonts clear fl" data-pw-toolbox-name="fonts" title="Font Options"></div>
+			<div class="open_toolbox social clear fl" data-pw-toolbox-name="social" title="Social Options"></div>
 			<?php do_action('pw_add_toolbox_icon'); ?>
-			<div id="savetheme" class="clear fl"></div>
+			<div id="savetheme" class="clear fl" title="Save Button"></div>
 		</div>	
-		<form method="post" name="themeform" id="themeform">
+		<form method="post" name="themeform" id="themeform" autocomplete="off">
 			<div id="options" class="pw_toolbox_content"> 
 				<div class="pw_toolbox_arrow"></div>
 				<h4><?php _e('PressWork Settings', "presswork"); ?></h4> 
@@ -33,6 +33,7 @@ function pw_toolbox() {
 					<tr><th><?php _e('Hooks', "presswork");?></th><td><a href="javascript:void(0)" class="save_option green-button<?php if($hooks=="on") echo ' active'; ?>" id="hooks"><?php if($hooks!="on") _e('OFF', "presswork"); else _e('ON', "presswork"); ?></a></td></tr>
 					<tr><th><?php _e('Functions', "presswork"); ?></th><td><a href="javascript:void(0)" class="save_option green-button<?php if($functions=="on") echo ' active'; ?>" id="functions"><?php if($functions!="on") _e('OFF', "presswork"); else _e('ON', "presswork"); ?></a></td></tr>
 					<tr><th><?php _e('Reset all options', "presswork"); ?></th><td><a href="javascript:void(0)" class="green-button" id="reset_options"><?php _e('Reset', "presswork"); ?></a></td></tr>
+					<?php do_action('pw_presswork_options'); ?>
 				</table>
 			</div>
 			
@@ -41,22 +42,14 @@ function pw_toolbox() {
 				<h4><?php _e('Layout', "presswork"); ?></h4> 
 				<div class="closewindow">X</div>
 				<div class="lower_box">
-					<label><?php _e('Main Content', "presswork"); ?></label><input type="text" class="layout_widths" rel="maincontent" name="content_width" size="4" id="content_width" value="<?php echo pw_theme_option('content_width'); ?>" />&nbsp;&nbsp;<label><?php _e('First Sidebar', "presswork"); ?></label><input type="text" class="layout_widths" rel="firstsidebar" name="first_sidebar_width" size="4" id="first_sidebar_width" value="<?php echo pw_theme_option('first_sidebar_width'); ?>" />&nbsp;&nbsp;<label><?php _e('Second Sidebar', "presswork"); ?></label><input type="text" class="layout_widths" name="second_sidebar_width" size="4" id="second_sidebar_width" rel="secondsidebar" value="<?php echo pw_theme_option('second_sidebar_width'); ?>" /><br />
-					<label><?php _e('Body Margins', "presswork"); ?></label><input type="text" class="margins" rel="body-wrapper" name="body_margins" size="4" id="body_margins" value="<?php echo pw_theme_option('body_margins'); ?>" />&nbsp;&nbsp;<label><?php _e('Content Margins', "presswork"); ?></label><input type="text" class="margins" rel="main-wrapper > li" name="content_margins" size="4" id="content_margins" value="<?php echo pw_theme_option('content_margins'); ?>" />
-					<br class="clear" />
-					<div class="styled-select">
+					<?php pw_layout_widths(); ?>
+					<div class="styled-select clearfix">
 		           		<select id="layoutselect">
-							<option value="header"><?php _e('Header', "presswork"); ?></option>
-							<option value="layout"><?php _e('Main Content', "presswork"); ?></option>
-							<option value="footer"><?php _e('Footer', "presswork"); ?></option>
+							<?php pw_layout_options(); ?>
 						</select>
 		            </div>
-						<div class="pw-items">
-							<?php pw_add_all_elements(); ?>
-							<table class="header-inputs">
-								<tr><td><label for="the_header_logo"><?php _e('Logo Image URL', "presswork"); ?></label></td><td><input type="text" name="header_logo" id="the_header_logo" class="header-item" value="<?php echo pw_theme_option("header_logo"); ?>" /></td></tr>
-								<tr><td><label for="favicon"><?php _e('Favicon URL', "presswork"); ?></label></td><td><input type="text" name="favicon" id="favicon" value="<?php echo pw_theme_option("favicon"); ?>" /></td></tr>
-							</table>
+					<div class="pw-items">
+						<?php pw_add_all_elements(); ?>
 		            </div>
 				</div>
 			</div>
@@ -74,7 +67,6 @@ function pw_toolbox() {
 						<table class="themeoptions">
 						<?php pw_add_all_color_options(); ?>
 						</table>		
-					<div id="closepicker">&larr;</div>
 					<div id="picker"></div>
 				</div>
 			</div>			
@@ -104,7 +96,6 @@ function pw_toolbox() {
 		        </table>
 			</div>			
 	
-			<input type="hidden" name="font_option" id="font_option" value="<?php echo pw_theme_option('font_option'); ?>" />
 			<input type="hidden" name="layout_option" id="layout_option" value="<?php echo pw_theme_option('layout_option'); ?>" />
 			<input type="hidden" name="header_option" id="header_option" value="<?php echo pw_theme_option('header_option'); ?>" />
 			<input type="hidden" name="footer_option" id="footer_option" value="<?php echo pw_theme_option('footer_option'); ?>" />
@@ -116,6 +107,29 @@ function pw_toolbox() {
 	<div id="save_message"><?php echo PW_THEME_NAME; echo ' '; _e('Updated', "presswork"); ?></div>
     <?php
 }
+
+if(!function_exists('pw_layout_widths')) :
+	function pw_layout_widths() {
+		?>
+		<label><?php _e('Main Content', "presswork"); ?></label><input type="text" class="layout_widths" data-pw-ids="maincontent" name="content_width" size="4" id="content_width" value="<?php echo pw_theme_option('content_width'); ?>" />&nbsp;&nbsp;
+		<label><?php _e('First Sidebar', "presswork"); ?></label><input type="text" class="layout_widths" data-pw-ids="firstsidebar" name="first_sidebar_width" size="4" id="first_sidebar_width" value="<?php echo pw_theme_option('first_sidebar_width'); ?>" />&nbsp;&nbsp;
+		<label><?php _e('Second Sidebar', "presswork"); ?></label><input type="text" class="layout_widths" name="second_sidebar_width" size="4" id="second_sidebar_width" data-pw-ids="secondsidebar" value="<?php echo pw_theme_option('second_sidebar_width'); ?>" />
+		<br />
+		<label><?php _e('Body Margins', "presswork"); ?></label><input type="text" class="margins" data-pw-ids="body-wrapper" name="body_margins" size="4" id="body_margins" value="<?php echo pw_theme_option('body_margins'); ?>" />&nbsp;&nbsp;
+		<label><?php _e('Content Margins', "presswork"); ?></label><input type="text" class="margins" data-pw-ids="main-wrapper > li" name="content_margins" size="4" id="content_margins" value="<?php echo pw_theme_option('content_margins'); ?>" />
+		<?php
+	}
+endif;
+
+if(!function_exists('pw_layout_options')) :
+	function pw_layout_options() {
+		?>
+		<option value="header"><?php _e('Header', "presswork"); ?></option>
+		<option value="layout"><?php _e('Main Content', "presswork"); ?></option>
+		<option value="footer"><?php _e('Footer', "presswork"); ?></option>
+		<?php
+	}
+endif;
 
 if(!function_exists('pw_add_all_color_options')) :
 	function pw_add_all_color_options() {
@@ -154,9 +168,9 @@ function pw_color_select_options() {
 	<option value="description"><?php _e('Description', "presswork"); ?></option>
 	<option value="links"><?php _e('Links', "presswork"); ?></option>
 	<option value="text"><?php _e('Main Text', "presswork"); ?></option>
-	<option value="nav"><?php _e('Primary Nav Menu', "presswork"); ?></option>
-	<option value="subnav"><?php _e('Secondary Nav Menu', "presswork"); ?></option>
-	<option value="footernav"><?php _e('Footer Nav Menu', "presswork"); ?></option>
+	<option value="nav"><?php _e('Primary Menu', "presswork"); ?></option>
+	<option value="subnav"><?php _e('Secondary Menu', "presswork"); ?></option>
+	<option value="footernav"><?php _e('Footer Menu', "presswork"); ?></option>
 	<option value="category_header"><?php _e('Category Header', "presswork"); ?></option>
 	<option value="post_title"><?php _e('Post Title', "presswork"); ?></option>
 	<option value="post_meta"><?php _e('Post Meta', "presswork"); ?></option>
@@ -172,14 +186,18 @@ function pw_add_all_elements() {
 	<?php pw_add_element_option('header', 'header_image', __('Header Image', "presswork"), 'headerbanner|header'); ?>
 	<?php pw_add_element_option('header', 'blogname', __('Blog Name', "presswork"), 'headerbanner|header'); ?>
 	<?php pw_add_element_option('header', 'description', __('Description', "presswork"), 'headerbanner|header'); ?>
-	<?php pw_add_element_option('header', 'nav', __('Primary Nav Menu', "presswork"), 'headerbanner|header'); ?>
-	<?php pw_add_element_option('header', 'subnav', __('Secondary Nav Menu', "presswork"), 'headerbanner|header'); ?>
+	<?php pw_add_element_option('header', 'nav', __('Primary Menu', "presswork"), 'headerbanner|header'); ?>
+	<?php pw_add_element_option('header', 'subnav', __('Secondary Menu', "presswork"), 'headerbanner|header'); ?>
 	<?php pw_add_element_option('header', 'headerarea', __('Widgetized Area', "presswork"), 'headerbanner|header'); ?>
 	<?php pw_add_element_option('layout', 'firstsidebar', __('First Sidebar', "presswork"), 'main-wrapper|layout'); ?>
 	<?php pw_add_element_option('layout', 'secondsidebar', __('Second Sidebar', "presswork"), 'main-wrapper|layout'); ?>
-	<?php pw_add_element_option('footer', 'footernav', __('Footer Nav Menu', "presswork"), 'footer|footer'); ?>
+	<?php pw_add_element_option('footer', 'footernav', __('Footer Menu', "presswork"), 'footer|footer'); ?>
 	<?php pw_add_element_option('footer', 'extendedfooter', __('Extended Footer', "presswork"), 'footer|footer'); ?>
 	<?php pw_add_element_option('footer', 'copyright', __('Copyright', "presswork"), 'footer|footer'); ?>
+	<table class="pw-inputs header-inputs">
+		<tr><td><label for="the_header_logo"><?php _e('Logo Image URL', "presswork"); ?></label></td><td><input type="text" name="header_logo" id="the_header_logo" class="header-item" value="<?php echo pw_theme_option("header_logo"); ?>" /></td></tr>
+		<tr><td><label for="favicon"><?php _e('Favicon URL', "presswork"); ?></label></td><td><input type="text" name="favicon" id="favicon" value="<?php echo pw_theme_option("favicon"); ?>" /></td></tr>
+	</table>
 	<?php
 }
 endif;

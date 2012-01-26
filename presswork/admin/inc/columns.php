@@ -16,6 +16,7 @@ if(!function_exists('pw_columns')) :
 			'columns' => 1,
 			'posts' => 1,
 			'text' => 'excerpt',
+			'excerpt_length' => 55,
 			'readmore' => 1,
 			'category' => 0,
 			'dates' => 1,
@@ -30,11 +31,14 @@ if(!function_exists('pw_columns')) :
 			'title' => '',
 			'id' => '',
 			'padding' => 0,
-			'colmargin' => 30
+			'colmargin' => 30,
+			'container_width' => ''
 		);
 	
 		$r = wp_parse_args( $args, $defaults );
 		extract( $r, EXTR_SKIP );
+
+		$content_width = empty($r['container_width']) ? $pw_content_width : $r['container_width'];
 	
 		$featuredcat = pw_theme_option('fp_featured');
 		$post_query = array(
@@ -51,12 +55,17 @@ if(!function_exists('pw_columns')) :
 		if($r['width']=="full") { 
 			$width = ' style="width:100%;';
 			if(!empty($r['margin_right'])) $width .= ' margin-right:'.$r['margin_right'].'px;"'; else $width .= '"';
-			if($r['columns']!=1) $col_width = ($pw_content_width - ($colmargin*($columns-1))) / $r['columns']; else $col_width = $pw_content_width;
+			if($r['columns']!=1) { 
+				$col_width = ($content_width - ($colmargin*($columns-1))) / $r['columns']; 
+				$col_width = ' style="width: '.$col_width.'px;';
+			} else { 
+				$col_width = ' style="width: 100%';
+			}
 		} else { 
 			$width = ' style="width:'.$r['width'].'px; margin-right:'.$r['margin_right'].'px;"'; 
 			if($r['columns']!=1) $col_width = ($r['width'] - ($colmargin*($columns-1))) / $r['columns']; else $col_width = $r['width'];
+			$col_width = ' style="width: '.$col_width.'px;';
 		}
-		$col_width = ' style="width: '.$col_width.'px;';
 		if(!empty($padding)) $col_width .= ' padding: '.$padding.'px;';
 
 		$x=1;

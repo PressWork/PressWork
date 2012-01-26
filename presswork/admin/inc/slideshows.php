@@ -22,6 +22,8 @@ if(!function_exists('pw_slideshow')) :
 		$name = $r['type'];
 
 		$wp_scripts->in_footer[] = 'pw_'.$name.'_js';
+		$wp_scripts->queue[] = 'pw_'.$name.'_js';
+		$wp_scripts->groups['pw_'.$name.'_js'] = 1;
 
 		if(!empty($r['cat'])) {
 			$featuredcat = $r['cat'];

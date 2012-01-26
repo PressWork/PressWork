@@ -1,5 +1,34 @@
 PressWork Changelog
 
+Version 1.0.4 01/26/2012
+- Updated for WordPress 3.3
+- Removed title attribute from header logo
+- Fixed layout toolbox arrow location
+- Fixed issue with included images being 100% wide
+- Added autocomplete to form
+- Updated stylesheet
+- Remove font-option code
+- Added new font preview and selector (Michal Bluma)
+- Added save validation
+- Added pw_option action to toolbox
+- Removed header tags from extended footer widgets
+- Fixed hard coded content margin in footer scripts
+- Moved load theme textdomain function
+- Improved code for child themes with full width header & footer
+- Changed hooks border to a box shadow
+- Added excerpt length to columns function
+- Rewrote post actions, created pw_post_header(), pw_post_content(), pw_post_footer()
+- Rewrote columns function with new post loop
+- Removed comment section if comments closed
+- Fixed drop down issue
+- Removed effects.js and all references
+- Cleaned up jQuery
+- Fixed social icon layout positioning
+- Added background size to header image in media queries
+- Fixed content and margin header/footer resize issue (Michael Riethmuller)
+- Fixed second sidebar width issue (Michael Riethmuller)
+- Added closing slash to link tags in header
+
 Version 1.0.3 09/01/2011
 - Fix for webkit list issue
 - Improved columns function

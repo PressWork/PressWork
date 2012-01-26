@@ -1,8 +1,8 @@
 /*
 Theme Name: PressWork
 Theme URI:  http://presswork.me/about/
-Description: PressWork is a free, open source theme framework built for WordPress 3.2 using HTML5 and CSS3. Created by <a href="http://bavotasan.com/">c.bavota</a> and <a href="http://digibombinc.com">Brendan Sera-Shriar</a>.
-Version: 1.0.3
+Description: PressWork is a free, open source WordPress theme framework built for modern browsers using HTML5 and CSS3. Features include a drag & drop front-end editor for easy customization, the top 20 most popular Google Fonts and aresponsive design using media queries so your site will look good on the iPad, iPhone and other handheld devices. Created by <a href="http://bavotasan.com/">c.bavota</a> and <a href="http://digibombinc.com">Brendan Sera-Shriar</a>.
+Version: 1.0.4
 Author: c.bavota, Brendan Sera-Shriar
 Author URI: http://presswork.me/
 Tags: right-sidebar, left-sidebar, flexible-width, three-columns, two-columns, one-column, white, green, custom-header, custom-background, custom-colors, custom-menu, featured-images, full-width-template, post-formats, sticky-post, threaded-comments, translation-ready, theme-options
@@ -31,6 +31,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 	background: transparent;
 	}
+
 * {
 	box-sizing: border-box; 
 	-moz-box-sizing: border-box; 
@@ -38,25 +39,32 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	word-wrap: break-word;
 	}
 
+html { -webkit-font-smoothing: antialiased; }
+
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 	}
+
 body {
 	line-height: 1;
 	}
+
 #body-wrapper {
 	margin: auto;
 	position: relative;
 	box-sizing: content-box; 
 	-moz-box-sizing: content-box; 
 	-webkit-box-sizing: content-box;
-		}
+	}
+
 ol, ul, li {
 	list-style: none;
 	}
+
 blockquote, q {
 	quotes: none;
 	}
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
@@ -72,6 +80,7 @@ q:before, q:after {
 ins {
 	text-decoration: none;
 	}
+
 del {
 	text-decoration: line-through;
 	}
@@ -81,16 +90,17 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	}
+
 a { 
 	text-decoration: none; 
 	}
 	
 	#body-wrapper a {
-	-moz-transition: all .25s ease-in-out;
-	-webkit-transition: all .25s ease-in-out;
-	-o-transition: all .25s ease-in-out;
-	transition: all .25s ease-in-out;
-	}
+		-moz-transition: all .25s ease-in-out;
+		-webkit-transition: all .25s ease-in-out;
+		transition: all .25s ease-in-out;
+		}
+
 h1, h2, h3, h4, h5, h6, #blogname div.siteheader { margin: 12px 0; float: left; width: 100%; line-height: normal; font-weight: normal; }
 p, table { margin: 1em 0; }
 ul, ol { padding: 0 0 0 20px; }
@@ -115,6 +125,10 @@ img {
 	img {
 		height: auto;
 		}
+		
+	.ie7 img { 
+		-ms-interpolation-mode: bicubic; 
+		}		
 
 blockquote {
 	margin: 1em 2em;
@@ -148,7 +162,7 @@ br.clear { line-height: 0; }
 	position: absolute !important;
 	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
 	clip: rect(1px, 1px, 1px, 1px);
-}
+	}
 
 textarea { width: 96%; }
 	
@@ -162,9 +176,8 @@ header#header-main {
 	}
 	
 	#headerbanner {
-		width: 100%;
 		padding: 0;
-		margin: 0;
+		margin: 0 auto;
 		list-style: none;
 		}
 	
@@ -181,14 +194,19 @@ header#header-main {
 			
 	#header_logo {
 		margin-top: 20px;
+		z-index: 500;
+		}
+		
+	#header_image {
+		margin-bottom: 20px;
+		background-repeat: no-repeat !important;
 		}
 
 #social-icons {
 	position: absolute;
-	top: 23px;
 	right: 0;
 	z-index: 500;
-	display: none;
+	top: 5px;
 	}
 	
 	#social-icons a {
@@ -223,14 +241,44 @@ header#header-main {
 		
 	#social-icons a.stumbleupon-icon {
 		background-position: -70px -59px;
-		}		
+		}	
+
+	/* NEW SMALL SOCIAL ICONS */	
+	#social-icons.small a {
+		width: 16px;
+		height: 16px;
+		background-position: -69px -190px;
+		}
+
+	#social-icons.small a.facebook-icon {
+		background-position: -87px -190px;
+		}
+
+	#social-icons.small a.flickr-icon {
+		background-position: -104px -190px;
+		}
+
+	#social-icons.small a.linkedin-icon {
+		background-position: -121px -190px;
+		}
+
+	#social-icons.small a.googleplus-icon {
+		background-position: -155px -190px;
+		}
+		
+	#social-icons.small a.stumbleupon-icon {
+		background-position: -138px -190px;
+		}			
 
 #blogname {
 	margin: 0 0 5px;
 	padding: 0;
-	_width: 300px; /* IE hack */
 	position: relative;
 	}
+
+	.ie7 #blogname {
+		width: 300px;
+		}
 	
 	#blogname .siteheader {
 		margin: 20px 0 0;
@@ -261,8 +309,11 @@ header#header-main {
 #description {
 	margin: 0 0 20px;
 	padding: 0;
-	*width: 300px; /* IE hack */
-	}	
+	}
+	
+	.ie7 #description {
+		width: 300px;
+		}		
 
 	#description.fl {
 		clear: left;
@@ -314,11 +365,9 @@ nav {
 		position: relative;
 		-moz-transition: color .25s ease-in-out;
 		-webkit-transition: color .25s ease-in-out;
-		-o-transition: color .25s ease-in-out;
 		transition: color .25s ease-in-out;
 		-moz-transition: background-color .25s ease-in-out;
 		-webkit-transition: background-color .25s ease-in-out;
-		-o-transition: background-color .25s ease-in-out;
 		transition: background-color .25s ease-in-out;
 		}
 
@@ -332,7 +381,7 @@ nav {
 		opacity: 0;
 		margin: 0;
 		position: absolute;
-		top: 2em;
+		top: 1.9em;
 		left: -9999px;
 		width: 188px;
 		z-index: 99999;
@@ -341,7 +390,6 @@ nav {
 		-webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
 		-moz-transition: opacity .25s ease-in-out;
 		-webkit-transition: opacity .25s ease-in-out;
-		-o-transition: opacity .25s ease-in-out;
 		transition: opacity .25s ease-in-out;
 		}
 
@@ -355,7 +403,7 @@ nav {
 		left: 0;
 		}
 
-	nav ul ul ul {
+	nav ul ul li:hover ul {
 		left: 100% !important;
 		top: 0;
 		}
@@ -364,8 +412,11 @@ nav {
 
 #maincontent {
 	position: relative;
-	*overflow: hidden; /* for IE */
 	}
+	
+	.ie7 #maincontent {
+		overflow: hidden;
+		}
 
 #main-wrapper {
 	padding: 0;
@@ -377,15 +428,16 @@ nav {
 		float: left;
 		}
 
-	#main-wrapper .el1 {
-		*margin-left: 0 !important; /* for IE */
-		margin-left: 0\0/ !important; /* for IE */
+	.ie7 #main-wrapper .el1,
+	.ie8 #main-wrapper .el1 {
+		margin-left: 0 !important;
 		} 
 		
-	#main-wrapper .el2,
-	#main-wrapper .el3 {
-		*margin-right: 0 !important; /* for IE */
-		margin-right: 0\0/ !important; /* for IE */
+	.ie7 #main-wrapper .el2,
+	.ie8 #main-wrapper .el2,
+	.ie7 #main-wrapper .el3,
+	.ie8 #main-wrapper .el3 {
+		margin-right: 0 !important;
 		}
 		
 	#main-wrapper > li:nth-child(1) {
@@ -396,17 +448,6 @@ nav {
 		margin-right: 0 !important;
 		}		
 		
-	#maincontent .content-widget {
-		clear: both;
-		float: left;
-		width: 100%;
-		}
-		
-		#maincontent .content-widget.pw_columns {
-			width: auto;
-			clear: none;
-			}
-	
 article {
 	float: left;
 	width: 100%;
@@ -419,7 +460,6 @@ article {
 		opacity: 1;
 		-moz-transition: opacity .25s ease-in-out;
 		-webkit-transition: opacity .25s ease-in-out;
-		-o-transition: opacity .25s ease-in-out;
 		transition: opacity .25s ease-in-out;		
 		}
 		
@@ -477,7 +517,7 @@ article {
 			width: 100% !important;
 			}
 			
-		article.pw1 img {
+		article.pw1 img.wp-post-image {
 			width: 100%;
 			height: auto;
 			}
@@ -503,6 +543,10 @@ article {
 			article.side-featured .storycontent p {	
 				margin: 0;
 				}
+				
+	article footer {
+		width: 100%;
+		}
 			
 	.tags {
 		line-height: 12px;
@@ -513,10 +557,8 @@ article {
 	.post-edit-link {
 		font-size: 0.8em;
 		}
-		
+
 #indexposts {
-	clear: both;
-	float: left;
 	width: 100%;
 	}		
 		
@@ -614,6 +656,7 @@ h1.catheader {
 	}
 
 /* Comment Elements */
+.comment-notes { clear: both; }
 
 #comments {
 	clear: both;
@@ -636,14 +679,15 @@ h1.catheader {
 	font-family: Arial;
 	-moz-transition: all .25s ease-in-out;
 	-webkit-transition: all .25s ease-in-out;
-	-o-transition: all .25s ease-in-out;
 	transition: all .25s ease-in-out;
 	}	
 		
 	#commentform #submit,
 	.commentlist li .reply a {
+		font-size: 12px;
+		line-height: 14px;
 		clear: both;
-		padding: 6px 8px;
+		padding: 6px 10px;
 		border-radius: 3px;
 		-moz-border-radius: 3px;
 		-webkit-border-radius: 3px;
@@ -654,7 +698,8 @@ h1.catheader {
 		background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(#F6F6F6));
 		background: -moz-linear-gradient(top,  #EEEEEE,  #F6F6F6);
 		display: block;
-	}	
+		cursor: pointer;
+		}	
 	
 	.commentlist li .reply a {	
 		float: right;
@@ -666,7 +711,7 @@ h1.catheader {
 		color: #666;
 		}
 	
-	 h3#comments-title, #respond h3 { font:normal 20px; margin: 10px 0; clear: left; }
+	 h3#comments-title, #respond h3 { font-weight: normal; font-size: 20px; margin: 10px 0; clear: left; }
 	 h3#comments-title { margin-bottom: 0; }
 	
 	 #respond { margin-top: 15px; clear: both; float: left; width: 100%; line-height: 1.5em; }
@@ -682,7 +727,7 @@ h1.catheader {
 
 	 .commentlist li.comment, .commentlist li.pingback { padding:20px 0 20px; clear: both; float: left; width: 100%; border-bottom: 1px dotted rgba(0,0,0,0.2); line-height: 1.5em; }
 	 .commentlist ul.children li { padding:20px; background: #f6f6f6; border: 1px solid #eee; width: 100%; border-radius: 3px; -moz-border-radius: 3px;	-webkit-border-radius: 3px; }
-	 .commentlist ul.children li.odd { background: #fff; border-color: #fff; }
+	.commentlist ul.children li.odd { background: #fff; border-color: #fff; }
 	.comment-notes { line-height: 1.2em; }
 
 	.commentlist li.comment .avatar {
@@ -738,7 +783,8 @@ nav#page-numbers {
     }	
     
 nav#page-numbers a,
-nav#page-numbers span {
+nav#page-numbers span,
+nav#page-numbers .total-pages {
    	float: left;
     border-radius: 3px;
     -moz-border-radius: 3px;
@@ -816,7 +862,6 @@ nav#page-numbers span.current {
 		border: 1px solid #ccc;
 		-moz-transition: all .25s ease-in-out;
 		-webkit-transition: all .25s ease-in-out;
-		-o-transition: all .25s ease-in-out;
 		transition: all .25s ease-in-out;
 		}
 		
@@ -848,7 +893,7 @@ nav#page-numbers span.current {
 /* Extended Footer */
 
 #extendedfooter {
-	margin: 0 0 25px;
+	margin: 0;
 	padding: 0;
 	line-height: normal;
 	width: 100%;
@@ -877,8 +922,11 @@ nav#page-numbers span.current {
 		
 		#extendedfooter .widget2 {
 			margin: 0 5% 20px;
-			*margin: 0 4.5% 20px; /* for IE 7 */
 			}
+	
+			.ie7 #extendedfooter .widget2 { 
+				margin: 0 4.5% 20px;
+				}
 	
 	#extendedfooter .rsswidget img {
 		display: none;
@@ -887,26 +935,24 @@ nav#page-numbers span.current {
 /* Footer */	
 	
 footer#footer-main {
-	padding: 20px 0;
-	margin: auto;
-	position: relative;
-	border-top: 1px solid #aaa;
 	width: 100%;
 	}
 
-	#footer {
+footer#footer-main #footer {
+	padding: 20px 0;
+	position: relative;
+	border-top: 1px solid #aaa;
+	margin: 20px auto 0;
+	}
+	
+	#footer > li {
 		width: 100%;
-		padding: 0;
+		float: left;
+		clear: left;
 		}
-		
-		#footer > li {
-			width: 100%;
-			float: left;
-			clear: left;
-			}
 
 #copyright {
-	font-size: 0.8em;
+	font-size: 0.85em;
 	text-align: center;
 	margin: 10px 0;
 	}
@@ -1191,7 +1237,6 @@ footer#footer-main {
 #scrollerota a {
 	-moz-transition: none;
 	-webkit-transition: none;
-	-o-transition: none;
 	transition: none;	
 	}
 
@@ -1328,7 +1373,6 @@ aside.warning {
 	-webkit-border-radius: 3px;
 	background-color:#FFFFE0;
 	border: 1px solid #E6DB55;
-	*border: 0; /* IE hack */
 	font-size: 12px;
 	line-height: normal;
 	width: 100%;
@@ -1336,6 +1380,11 @@ aside.warning {
 	text-shadow: none;
 	font-family: Arial, sans-serif;
 	}
+
+	.ie7 div.warning,
+	.ie7 aside.warning {
+		border: 0;
+		}
 	
 	div.warning a,
 	aside.warning a {
@@ -1375,14 +1424,20 @@ aside.warning {
 .gallery-thumb img,
 #maincontent .pformat img {
 	max-width: 100%;
-	width: auto\9; /* IE 8 Hack */
 	}
+	
+	.ie8 .gallery-thumb img,
+	.ie8 #maincontent .pformat img {
+		width: auto;
+		}
 	
 .format-aside .storycontent .pformat { 
 	background: url(admin/images/quotes.png) no-repeat top left;
 	min-height: 40px;
     font-style: italic;
     padding-left: 50px;
+    font-size: 20px;
+    line-height: 26px;
     }
     
     .format-aside h1,
@@ -1410,4 +1465,9 @@ aside.warning {
 	
 	.format-link .storycontent .pformat p { 
 		margin-top: 8px;
-		}	
+		}
+		
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }

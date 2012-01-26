@@ -117,6 +117,12 @@ include(TEMPLATEPATH.'/admin/inc/widget-featured.php');
 include(TEMPLATEPATH.'/admin/inc/widget-slideshows.php');
 include(TEMPLATEPATH.'/admin/inc/widget-flickr.php');
 
+// Includes the pro folder if it exists
+if(!defined('PRO_FOLDER'))
+	define('PRO_FOLDER', TEMPLATEPATH.'/admin/pro/pro-functions.php');
+if(file_exists(PRO_FOLDER))
+	include(PRO_FOLDER);
+	
 /**
  * Load custom-actions.php file if it exists in the uploads folder
  *
@@ -142,6 +148,20 @@ function pw_add_custom_css_file() {
 	wp_register_style('pw_custom_css', CSS_DISPLAY);
     wp_enqueue_style( 'pw_custom_css');
 }
+	
+// Setup the language file
+add_action( 'after_setup_theme', 'pw_language' );
+
+function pw_language() {
+	// Make theme available for translation
+	// Translations can be filed in the /languages/ directory
+	load_theme_textdomain(PW_THEME_FILE, TEMPLATEPATH . '/admin/languages');
+	
+	$locale = get_locale();
+	$locale_file = TEMPLATEPATH . "/admin/languages/$locale.php";
+	if ( is_readable( $locale_file ) )
+		require_once( $locale_file );	
+}	
 	
 /** Tell WordPress to run presswork_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'presswork_setup' );
@@ -210,15 +230,6 @@ function presswork_setup() {
 		}
 	}
 	
-	// Make theme available for translation
-	// Translations can be filed in the /languages/ directory
-	load_theme_textdomain(PW_THEME_FILE, TEMPLATEPATH . '/admin/languages');
-	
-	$locale = get_locale();
-	$locale_file = TEMPLATEPATH . "/admin/languages/$locale.php";
-	if ( is_readable( $locale_file ) )
-		require_once( $locale_file );
-
 	// Add a way for the custom header to be styled in the admin panel that controls
 	// custom headers. See pw_admin_header_style(), below.
 	add_custom_image_header('pw_header_style', 'pw_admin_header_style');
@@ -233,6 +244,7 @@ function presswork_setup() {
 		// Add functionality for post thumbnails/featured image
 		add_theme_support( 'post-thumbnails' );
 		add_image_size( 'fifty', 50, 50, true );
+		add_image_size( 'small', 80, 80, true );
 		add_image_size( 'sticky', pw_theme_option('content_width'), 240, true );
 		
 		//Add default posts and comments RSS feed links to head
@@ -269,6 +281,7 @@ if(!function_exists('pw_add_admin')) :
 		
 		$pw_themelayout = add_theme_page("presswork", "PressWork", 'edit_theme_options', "PressWork", 'pw_admin_page');
 		add_action( "admin_print_scripts-$pw_themelayout", 'pw_admin_css' );
+		add_action("load-$pw_themelayout", 'pw_help');
 	}
 endif;
 
@@ -294,8 +307,6 @@ if(!function_exists('pw_admin_page')) :
 	    <?php echo '<div id="message" class="updated fade" style="display: none;"><p><strong>PressWork '.__("Toolbox Deactivated.", "presswork").'</strong></p></div>'."\n"; ?>
 	    <?php
 	    echo '<p>';
-	    printf(__("If you've got mad skills when it comes to WordPress and you want to join the %s community, find us on %s and contribute. Together we can make %s the ultimate WordPress framework.", "presswork"), "<strong>PressWork</strong>", "<a href='https://github.com/digibomb/PressWork' target='_blank'>GitHub</a>", "<strong>PressWork</strong>");
-	    echo '</p><p>';
 	    printf(__("Click on the button below to activate/deactivate the %s front-end toolbox.", "presswork"), "<strong>PressWork</strong>");
 		echo '</p>';
 	    $toolbox = pw_theme_option('toolbox'); 
@@ -303,7 +314,7 @@ if(!function_exists('pw_admin_page')) :
 		?>
   	  	<div id="active-button">
   	  		<img src="<?php echo admin_url('/images/wpspin_light.gif'); ?>" alt='' />
-        	<a href="javascript:void(0)" class="active <?php echo $class; ?>"></a>
+        	<a href="javascript:void(0)" class="pw-active <?php echo $class; ?>"></a>
         </div>
         <?php 
  	    echo '<p>';
@@ -316,6 +327,8 @@ if(!function_exists('pw_admin_page')) :
 		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 		</form>
+		<p><strong><?php _e("Created by", "presswork"); ?>: </strong><a href="http://bavotasan.com/">c.bavota</a>, <a href="http://dropthedigibomb.com/">Brendan Sera-Shriar</a><br />
+		<strong><?php _e("Contributors", "presswork"); ?>: </strong><a href="http://isotrope.net/">Michal Bluma</a>, <a href="#">Michael Riethmuller</a></p>
 		<?php
 		if(function_exists('pw_check_for_update')) {
 			$presswork_version_check = pw_check_for_update();
@@ -341,22 +354,51 @@ if(!function_exists('pw_help')) :
  *
  * @since PressWork 1.0.1
  */	
-	function pw_help($contextual_help, $screen_id, $screen) {
+	function pw_help() {
 		global $pw_themelayout;
-		if ($screen_id == $pw_themelayout) {
-			$contextual_help = '';
-			$contextual_help .= '<h3>'.__("Resources", "presswork").'</h3><ul>';
-			$contextual_help .= '<li><a href="http://presswork.me" target="_blank">PressWork.me</a></li>';
-			$contextual_help .= '<li><a href="http://support.presswork.me" target="_blank">'.__("Support Forum", "presswork").'</a></li>';
-			$contextual_help .= '<li><a href="https://github.com/digibomb/PressWork" target="_blank">'.__("PressWork on Github", "presswork").'</a></li>';
-			$contextual_help .= '<li><a href="http://twitter.com/pressworkwp" target="_blank">'.__("Find us on Twitter", "presswork").'</a></li>';
-			$contextual_help .= '<li><a href="http://presswork.me/category/themes/" target="_blank">'.__("Browse Our Themes", "presswork").'</a></li>';
-			$contextual_help .= '</ul>';
-		}
-		return $contextual_help;
+		$screen = get_current_screen();
+		if($screen->id != $pw_themelayout)
+			return;
+		
+		// added in PW 1.0.4 for WP 3.3
+		$screen->add_help_tab( array(
+			'id'      => 'pw-new',
+			'title'   => __('New in v1.0.4', "presswork"),
+			'content' => '<p>'.__('PressWork v1.0.4 has been optimized to work with WordPress 3.3. Many new featured have been added to WP and the latest version of PressWork takes advantage of many of them, including this cool new help section. ', "presswork") . 
+				'<p>' . __('Check out the <a href="https://raw.github.com/digibomb/PressWork/master/changelog.txt">changelog</a> to see what we\'ve been up to.', "presswork") . '</p>'
+		));
+
+		$screen->add_help_tab( array(
+			'id'      => 'pw-toolbox',
+			'title'   => __('The PressWork Toolbox', "presswork"),
+			'content' => '<p>'.__('One of the most amazing things about PressWork is the ability to customize your site without leaving the front end. This would not be possible if it weren\'t for the PressWork Toolbox. That\'s what we call the collection of tools that appear in the lower left of your screen when you are logged in as an admin.', "presswork") . '<br /><a href="http://presswork.me/2011/the-presswork-toolbox/">' . __('Read more', "presswork") . '</a></p>'
+		));
+
+		$screen->add_help_tab( array(
+			'id'      => 'pw-resources',
+			'title'   => __('Customizing PressWork', "presswork"),
+			'content' => '<p><strong>' . __('Custom CSS', "presswork") . '</strong><p>' .
+				'<p>'.__('PressWork has many theme options that allow you to customize how your site is styled. But what if you wanted to really delve into the design by adding some custom CSS. All you need to do is create a file called <code>custom.css</code> and upload it to your site\'s <code>/uploads</code> directory.', "presswork") . '<br /><a href="http://presswork.me/2011/custom-css-and-custom-actions/">' . __('Read more', "presswork") . '</a></p>' .
+				'<p><strong>' . __('Custom Actions', "presswork") . '</strong><p>' .
+				'<p>' . __('PressWork has been built so that all the customization happens through a file called actions.php. In order to customize or remove these actions, you need to create a <code>custom-actions.php</code> file and upload it to your site\'s <code>/uploads</code> directory.', "presswork") . '<br /><a href="http://presswork.me/2011/custom-css-and-custom-actions/">' . __('Read more', "presswork") . '</a></p>'
+		));
+
+		$screen->add_help_tab( array(
+			'id'      => 'pw-github',
+			'title'   => __('Contribute on GitHub', "presswork"),
+			'content' => '<p><strong>' . __("Be a part of the PressWork Community", "presswork") . '</strong></p>' .
+				'<p>' . __("If you've got mad skills when it comes to WordPress and you want to join the PressWork community, find us on <a href='https://github.com/digibomb/PressWork' target='_blank'>GitHub</a> and contribute. Together we can make PressWork the ultimate WordPress framework.", "presswork") . '</p>'
+		));
+
+		$screen->set_help_sidebar(
+			'<p><strong>' . __('For more information:', "presswork") . '</strong></p>' .
+			'<p>' . __('<a href="http://presswork.me/category/documentation/" target="_blank">Documentation</a>', "presswork") . '</p>' .
+			'<p>' . __('<a href="http://support.presswork.me" target="_blank">Support Forum</a>', "presswork") . '</p>' .
+			'<p>' . __('<a href="http://presswork.me" target="_blank">PressWork.me</a>', "presswork") . '</p>'
+		);
 	}
 endif;
-add_filter('contextual_help', 'pw_help', 10, 3);
+//add_filter('contextual_help', 'pw_help', 10, 3);
 
 
 // The pw_get_index function
@@ -407,7 +449,11 @@ function pw_save_theme_callback() {
 		$key_value = explode("=",$value);
 		$key = urldecode($key_value[0]);
 		$value = esc_attr(urldecode($key_value[1]));
-		$savevalues[$key] = $value; 
+		if($key=="_wp_http_referer" || $key=="presswork_nonce") {
+			// do nothing
+		} else {
+			$savevalues[$key] = $value; 
+		}
 	}
 	update_option(PW_THEME_FILE, $savevalues);
 	die();
@@ -433,10 +479,6 @@ if(!function_exists('pw_widgets_init')) :
  * @since PressWork 1.0
  */	
 	function pw_widgets_init() {
-		if(pw_theme_option('toolbox')=="on" && current_user_can( "edit_theme_options" )) 
-			wp_register_script('pw_effects_js', PW_THEME_URL.'/admin/js/effects.js', array( 'jquery', 'jquery-ui-sortable' ),'',true);
-		else
-			wp_register_script('pw_effects_js', PW_THEME_URL.'/admin/js/effects.js', array( 'jquery' ),'',true);
 		wp_register_script('pw_sliderota_js', PW_THEME_URL.'/admin/js/sliderota.js', array( 'jquery' ),'',true);
 		wp_register_script('pw_scrollerota_js', PW_THEME_URL.'/admin/js/scrollerota.js', array( 'jquery' ),'',true);
 		wp_register_script('pw_faderota_js', PW_THEME_URL.'/admin/js/faderota.js', array( 'jquery' ),'',true);
@@ -449,7 +491,7 @@ if(!function_exists('pw_widgets_init')) :
 			'before_widget' => '<aside id="%1$s" class="content-widget %2$s">',
 			'after_widget' => "</aside>",
 			'before_title' => '<header><h1 class="catheader">',
-			'after_title' => '</h1></header>',
+			'after_title' => '</h1></header>'
 		));
 
 		register_sidebar(array(
@@ -459,7 +501,7 @@ if(!function_exists('pw_widgets_init')) :
 			'before_widget' => '<aside id="%1$s" class="header-widget %2$s">',
 			'after_widget' => "</aside>",
 			'before_title' => '<header><h3>',
-			'after_title' => '</h3></header>',
+			'after_title' => '</h3></header>'
 		));
 		
 		register_sidebar(array(
@@ -469,7 +511,7 @@ if(!function_exists('pw_widgets_init')) :
 			'before_widget' => '<aside id="%1$s" class="side-widget %2$s">',
 			'after_widget' => "</aside>",
 			'before_title' => '<header><h3>',
-			'after_title' => '</h3></header>',
+			'after_title' => '</h3></header>'
 		));
 		
 		register_sidebar(array(
@@ -479,7 +521,7 @@ if(!function_exists('pw_widgets_init')) :
 			'before_widget' => '<aside id="%1$s" class="side-widget %2$s">',
 			'after_widget' => "</aside>",
 			'before_title' => '<header><h3>',
-			'after_title' => '</h3></header>',
+			'after_title' => '</h3></header>'
 		));
 
 		register_sidebar(array(
@@ -488,8 +530,8 @@ if(!function_exists('pw_widgets_init')) :
 			'description' => __( "The extended footer appears at the bottom of your site if it has been placed in the footer.", "presswork" ),
 			'before_widget' => '<aside id="%1$s" class="bottom-widget %2$s">',
 			'after_widget' => "</aside>",
-			'before_title' => '<header><h3>',
-			'after_title' => '</h3></header>',
+			'before_title' => '<h3>',
+			'after_title' => '</h3>'
 		));
 	}
 endif;
@@ -625,11 +667,16 @@ if(!function_exists('pw_paginate')) :
 		
 		if( !empty($wp_query->query_vars['s']) )
 			$pagination['add_args'] = array( 's' => get_query_var( 's' ) );
+	
+		$pagination_return = paginate_links( $pagination );
 		
-		echo '<nav id="page-numbers">';
-		echo '<h3 class="assistive-text">Page navigation</h3>';
-		echo paginate_links( $pagination );
-		echo '</nav>';
+		if(!empty($pagination_return)) {
+			echo '<nav id="page-numbers">';
+			echo '<h3 class="assistive-text">Page navigation</h3>';
+			echo '<div class="total-pages">Page ', $current, ' of ', $wp_query->max_num_pages, '</div>';
+			echo $pagination_return;
+			echo '</nav>';
+		}
 	}
 endif;
 
@@ -687,21 +734,16 @@ if(!function_exists('pw_excerpt')) :
  *
  * @since PressWork 1.0
  */
-	function pw_excerpt($limit = 55, $readmore = false) {
-		if($readmore) {
-			$link = '<br /><a href="'.get_permalink().'" class="more-link">Read More &rarr;</a>';
-		} else {
-			$link = "";
-		}
-		$excerpt = explode(' ', get_the_excerpt(), $limit);
-		if (count($excerpt)>=$limit) {
+	function pw_excerpt($excerpt_length = 55) {
+		$excerpt = explode(' ', get_the_excerpt(), $excerpt_length);
+		if (count($excerpt)>=$excerpt_length) {
 			array_pop($excerpt);
-			$excerpt = implode(" ",$excerpt).'...'.$link;
+			$excerpt = implode(" ",$excerpt).'...';
 		} else {
-			$excerpt = implode(" ",$excerpt).$link;
+			$excerpt = implode(" ",$excerpt);
 		}	
 		$excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
-		echo '<p class="excerpt">'.$excerpt.'</p>';
+		echo '<p class="excerpt">', $excerpt, '</p>';
 	}
 endif;
 
@@ -724,11 +766,11 @@ function pw_add_menu_admin_bar() {
 }
 add_action( 'admin_bar_menu', 'pw_add_menu_admin_bar', 1000 );
 
-function pw_get_sidebar($id, $name, $action, $class = null) {
+function pw_get_sidebar($id, $name, $action, $class = null, $parent = 'layout') {
 	if(!empty($class)) $class = ' class="'.$class.'"';
 	echo '<li id="'.$id.'" role="complementary"'.$class.'> <!-- begin '.$id.' -->'."\n"; 
-	$handle = pw_handles($name);
-	if(!empty($handle)) echo pw_handles($name,$id,true);
+	$handle = pw_handles($name, $id, true, $parent);
+	if(!empty($handle)) echo pw_handles($name, $id, true, $parent);
 	pw_actionBlock($action); // calling the Sidebar
 	echo '</li> <!-- end '.$id.' -->'."\n"; 
 }
@@ -736,8 +778,8 @@ function pw_get_sidebar($id, $name, $action, $class = null) {
 function pw_handles($name, $id = null, $delete = null, $parent = 'layout') {
 	$handle_on = pw_theme_option('dragdrop');
 	if(current_user_can('edit_theme_options') && $handle_on=="on" && pw_theme_option('toolbox')=="on") {
-		if(!empty($delete)) $anchor = '<a href="javascript:void(0)" class="delete_element" key="'.$id.'" rel="'.$parent.'_option"></a>'; else $anchor = '';
-		if($handle_on=="on") $handle = '<div class="handle"><span></span>'.$name.$anchor.'</div>'; else $handle = '';
+		if(!empty($delete)) $anchor = '<a href="javascript:void(0)" class="delete_element" data-pw-ids="'.$id.'" data-pw-selectors="'.$parent.'_option"></a>'; else $anchor = '';
+		if($handle_on=="on") $handle = '<div class="handle hand"><span></span>'.$name.$anchor.'</div>'; else $handle = '';
 		return $handle;
 	}
 }
@@ -753,7 +795,7 @@ if(current_user_can('edit_theme_options') && pw_theme_option('toolbox')=="on") {
 	add_action('pw_body_bottom', 'pw_toolbox');
 	if(!empty($_GET['action']) && $_GET['action']=="pw-activate" && empty($pw_welcome)) 
 		add_action('wp_footer', 'pw_welcome_screen', 1);
-	add_action('wp_footer', 'pw_footer_scripts');
+	add_action('wp_footer', 'pw_footer_scripts',99);
 
 }
 
@@ -787,10 +829,10 @@ function pw_delete_element() {
 }
 add_action('wp_ajax_delete_element', 'pw_delete_element');
 
-function pw_get_element($name, $class = null) {
-	if($name=="maincontent") {
+function pw_get_element($pw_add_name, $pw_add_class = null) {
+	if($pw_add_name=="maincontent") {
 		$handle = pw_handles('Main Content'); ?>
-	    <li id="maincontent" role="main"<?php if(!empty($class)) echo ' class="'.$class.'"'; ?>> <!-- begin maincontent -->
+	    <li id="maincontent" role="main"<?php if(!empty($class)) echo ' class="'.$pw_add_class.'"'; ?>> <!-- begin maincontent -->
     	<?php 
     	echo $handle; 
     	if(!have_posts()) : 
@@ -816,13 +858,13 @@ function pw_get_element($name, $class = null) {
     	</li> <!-- end #maincontent -->
     	<?php
 	}
-	if($name=="firstsidebar") {
-		pw_get_sidebar('firstsidebar', 'First Sidebar', 'pw_sidebar', $class);
+	if($pw_add_name=="firstsidebar") {
+		pw_get_sidebar('firstsidebar', 'First Sidebar', 'pw_sidebar', $pw_add_class);
 	}
-	if($name=="secondsidebar") {
-    	pw_get_sidebar('secondsidebar', 'Second Sidebar', 'pw_second_sidebar', $class);
+	if($pw_add_name=="secondsidebar") {
+    	pw_get_sidebar('secondsidebar', 'Second Sidebar', 'pw_second_sidebar', $pw_add_class);
 	}
-	if($name=="headerarea") {
+	if($pw_add_name=="headerarea") {
     	echo '<li id="headerarea" class="mainl" role="complementary">'."\n"; 
 		$handle = pw_handles('Widgetized Area', 'headerarea', true, 'header');
 		echo $handle;
@@ -833,7 +875,7 @@ function pw_get_element($name, $class = null) {
 		endif;
 		echo '</li>'."\n"; 
 	}
-	if($name=="blogname") {
+	if($pw_add_name=="blogname") {
 		$handle = pw_handles('Blog Name', 'blogname', true, 'header'); 
 	   	?>
 	   	<li id="blogname" class="mainl">
@@ -842,25 +884,25 @@ function pw_get_element($name, $class = null) {
         </li>
 		<?php
 	}
-	if($name=="header_logo") {
+	if($pw_add_name=="header_logo") {
 		$handle = pw_handles('Header Logo', 'header_logo', true, 'header'); 
 	   	$logo = pw_theme_option("header_logo");
 	   	if(!empty($logo)) {
 	   	?>
 	   	<li id="header_logo" class="mainl">
             <?php echo $handle; ?>
-            <div id="site-logo" class="siteheader"><h1><?php bloginfo('name'); ?></h1><a href="<?php echo home_url(); ?>/"><img src="<?php echo $logo; ?>" alt="<?php bloginfo("name"); ?>" title="<?php bloginfo("name"); ?>" /></a></div>
+            <div id="site-logo" class="siteheader"><h1><?php bloginfo('name'); ?></h1><a href="<?php echo home_url(); ?>/"><img src="<?php echo $logo; ?>" alt="<?php bloginfo("name"); ?>" /></a></div>
         </li>
 		<?php
 		}
 	}
-	if($name=="header_image") {
+	if($pw_add_name=="header_image") {
 		$handle = pw_handles('Header Image', 'header_image', true, 'header'); 
 	   	?>
 	   	<li id="header_image" class="mainl"><?php echo $handle; ?></li>
 		<?php
 	}		
-	if($name=="description") {
+	if($pw_add_name=="description") {
 		$handle = pw_handles('Description', 'description', true, 'header');
 	   	?>
 	   	<li id="description" class="mainl">
@@ -869,7 +911,7 @@ function pw_get_element($name, $class = null) {
     	</li>
 		<?php
 	}
-	if($name=="nav") {
+	if($pw_add_name=="nav") {
 		$handle = pw_handles('Primary Nav Menu', 'nav', true, 'header'); 
 		if(function_exists('wp_nav_menu')) {
     		echo '<li id="nav" class="mainl">';
@@ -881,7 +923,7 @@ function pw_get_element($name, $class = null) {
 			echo '</li>';
 		}	
 	}
-	if($name=="subnav") {
+	if($pw_add_name=="subnav") {
 		$handle = pw_handles('Secondary Nav Menu', 'subnav', true, 'header'); 
 		if(function_exists('wp_nav_menu')) {
     		echo '<li id="subnav" class="mainl">';
@@ -893,7 +935,7 @@ function pw_get_element($name, $class = null) {
 			echo '</li>';
 		}	
 	}
-	if($name=="footernav") {
+	if($pw_add_name=="footernav") {
 		$handle = pw_handles('Footer Nav Menu', 'footernav', true, 'footer'); 
 		if(function_exists('wp_nav_menu')) {
     		echo '<li id="footernav" class="foot">';
@@ -905,7 +947,7 @@ function pw_get_element($name, $class = null) {
 			echo '</li>';
 		}	
 	}
-	if($name=="extendedfooter") {
+	if($pw_add_name=="extendedfooter") {
 		$handle = pw_handles('Extended Footer', 'extendedfooter', true, 'footer');
 		echo '<li id="extendedfooter" class="foot" role="complementary">';
     	echo $handle;
@@ -916,7 +958,7 @@ function pw_get_element($name, $class = null) {
 		endif;
 		echo '</li>';
 	}
-	if($name=="copyright") {
+	if($pw_add_name=="copyright") {
 		$handle = pw_handles('Copyright', 'copyright', true, 'footer');
 		echo '<li id="copyright" class="foot">';
     	echo $handle;
@@ -926,6 +968,7 @@ function pw_get_element($name, $class = null) {
 		printf(__('Created using %s.', "presswork"), '<a href="http://presswork.me">PressWork</a>'); 
 		echo '</li>';
 	}
+	do_action('add_pw_get_element', $pw_add_name, $pw_add_class);
 }
 
 /**
@@ -967,7 +1010,7 @@ function pw_add_element_option($name, $id, $text, $rel) {
 	$loc = strpos(pw_theme_option($name.'_option'), $id);
 	echo '<div class="addoption '.$name.'-item"><span>'.$text.'</span><a href="javascript:void(0)" class="add-item';
 	if($loc!==false) echo " disabled";
-	echo '" key="'.$id.'" rel="'.$rel.'">Add</a></div>';
+	echo '" data-pw-ids="'.$id.'" data-pw-selectors="'.$rel.'">Add</a></div>';
 }
 
 /**
@@ -976,7 +1019,7 @@ function pw_add_element_option($name, $id, $text, $rel) {
  * @since PressWork 1.0
  */
 function pw_color_option($name, $id, $text, $rel) {
-	 echo '<tr class="color-item '.$name.'-item"><th>'.$text.'</th><td><input type="text" class="colorpicker" name="'.$id.'" rel="'.$rel.'" size="7" maxlength="7" value="'.pw_theme_option($id).'" /><a href="javascript:void(0)" class="colorwheel" rel="'.$name.'"></a></td></tr>';
+	 echo '<tr class="color-item '.$name.'-item"><th>'.$text.'</th><td><input type="text" class="colorpicker" name="'.$id.'" data-pw-selectors="'.$rel.'" size="7" maxlength="7" value="'.pw_theme_option($id).'" /></td></tr>';
 }
 
 /**
@@ -989,15 +1032,18 @@ function pw_font_option($name, $text, $rel) {
 }
 
 function pw_font_select($valueID, $rel) {
-    global $pw_google_fonts;
-    $ret = '<div class="styled-select"><select class="fontselect" name="'.$valueID.'" rel="'.$rel.'">';
-        foreach($pw_google_fonts as $font) {
-            $ret .= '<option value="'.$font.'"';
-            $ret .= selected(pw_theme_option($valueID), $font, false);
-            $ret .= '>'.$font.'</option>'."\n";
-        
-        }
-    $ret .= '</select></div>';
+	global $pw_google_fonts;
+	$ret = '
+		<div class="font-select"><input type="hidden" name="'.$valueID.'" value="'.pw_theme_option($valueID).'" />
+	    	<a href="javascript:void(0)" class="styled-select current" data-pw-selectors="'.$rel.'" style="font-family: '.pw_theme_option($valueID).';">'.pw_theme_option($valueID).'</a>
+	    <div class="font-preview">
+	';
+    foreach($pw_google_fonts as $font) {
+        $ret .= '<a href="javascript:void(0)"';
+        if($font == pw_theme_option($valueID)) {$ret .=  ' class="selected"';}
+        $ret .= ' style="font-family: '.$font.';">'.$font.'</a>'."\n";
+    }
+	$ret .= '</div></div>';
 	return $ret;
 }
 
@@ -1005,19 +1051,21 @@ function pw_social_option($name, $text, $placeholder) {
 	echo '<tr><th>'.$text.'</th><td><input type="text" placeholder="'.$placeholder.'" name="'.$name.'" value="'.pw_theme_option($name).'" /></td></tr>';
 }
 
+if(!function_exists('pw_html5_search_form')) :
 /**
  * Replacing the default search form with an HTML5 version
  *
  * @since PressWork 1.0
  */
-function pw_html5_search_form( $form ) {
-    $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-    <label class="assistive-text" for="s">' . __('Search for:', "presswork") . '</label>
-    <input type="search" placeholder="'.__("Search...", "presswork").'" value="' . get_search_query() . '" name="s" id="s" />
-    </form>';
-
-    return $form;
-}
+	function pw_html5_search_form( $form ) {
+	    $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
+	    <label class="assistive-text" for="s">' . __('Search for:', "presswork") . '</label>
+	    <input type="search" placeholder="'.__("Search...", "presswork").'" value="' . get_search_query() . '" name="s" id="s" />
+	    </form>';
+	
+	    return $form;
+	}
+endif;
 
 add_filter( 'get_search_form', 'pw_html5_search_form' );
 

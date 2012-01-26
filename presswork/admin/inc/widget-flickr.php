@@ -12,7 +12,7 @@ class PW_Flickr_Widget extends WP_Widget {
 
 	function widget($args, $instance) {
 		extract($args, EXTR_SKIP);
-		$title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);	
+		$title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']);	
 		$UserID = $instance['UserID'];
 		$NumPics = $instance['NumPics'];
 		$link = $instance['link'];

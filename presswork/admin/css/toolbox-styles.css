@@ -116,7 +116,7 @@
 	}
 	
 	#layout .pw_toolbox_arrow {
-		top: 180px;
+		top: 160px;
 		}
 
 	#color .pw_toolbox_arrow {
@@ -133,7 +133,7 @@
 	}
 
 #color {
-	width: 250px;
+	width: 450px;
 	min-height: 255px;
 	overflow: visible !important;
 	margin-top: -20px;
@@ -144,48 +144,10 @@
 		}
 
 #layout { 
-	width: 540px;
-	margin-top: -130px;
+	width: 640px;
+	margin-top: -110px;
 	}
-
-	#fonts .pw_toolbox_arrow {
-		top: 128px;
-		} 
-	
-	#fonts p {
-		margin: 0 20px 20px;
-		text-align: right;
-		font-size: 11px;
-		}
-
-		#fonts p a {
-			border-bottom: 1px dotted;
-			color: #2b904e;
-			}
-
-			#fonts p a:hover {
-				color: #4fb859;
-				}
-				
-.colorwheel {
-	width: 19px;
-	height: 19px;
-	display: block;
-	background: url(../images/sprite.png) -70px -149px;
-	float: right;
-	margin: 4px 0 4px 2px;
-	}
-	
-	#closepicker {
-		display: none;
-		position: absolute;
-		bottom: 5px;
-		left: 415px;
-		font-size: 24px;
-		z-index: 500;
-		cursor: pointer;
-		}
-
+					
 .pw_toolbox_content {
 	background: #b5b5b5;
 	z-index: 500;
@@ -290,8 +252,11 @@ div.handle {
 	font-family: Arial, sans-serif;
 	font-size: 12px;
 	text-align: center;
-	cursor: move;
 	}	
+
+	div.handle.hand {
+		cursor: move;
+		}
 
 			
 	div.handle span {
@@ -407,25 +372,25 @@ div.handle {
 		
 		.addoption span {
 			float: left;
-			width: 130px;
+			width: 110px;
 			}
 	
 	.save_option.green-button {
 		width: 50px;
 		}
 	
-	.header-inputs {
+	.pw-inputs {
 		display: none;
 		clear: both;
 		margin-bottom: 0;
 		}
 		
-		.header-inputs td {
+		.pw-inputs td {
 			border: none;
 			padding: 0;
 			}
 			
-			.header-inputs td label {
+			.pw-inputs td label {
 				margin-left: 0;
 				}
 
@@ -481,15 +446,78 @@ div.handle {
 	width: 250px;
 	}
 	
-#fonts {
-	width: 280px;
+/* FONTS */
+
+#fonts { 
+	bottom: 0; 
+	width: 280px; 
 	}
+
+	#fonts .pw_toolbox_arrow {
+		bottom: 70px;
+		top: auto;
+		} 
+	
+	#fonts p {
+		margin: 0 20px 20px;
+		text-align: right;
+		font-size: 11px;
+		}
+
+		#fonts p a {
+			border-bottom: 1px dotted;
+			color: #2b904e;
+			}
+
+			#fonts p a:hover {
+				color: #4fb859;
+				}
+
+	.font-preview { 
+		max-height: 225px; 
+		display: none; 
+		overflow-y: scroll !important; 
+		text-shadow: none; 
+		background: #fff; 
+		width: 160px; 
+		}
+
+	.font-select {	
+		margin-bottom: 5px;
+		}
+
+	#fonts a.current { 
+		color: #fff; 
+		display: block; 
+		font-size: 12px;  
+		line-height: 25px; 
+		height: 28px; 
+		overflow: hidden; 
+		padding: 0 32px 0 8px; 
+		white-space: nowrap; 
+		text-shadow: none; 
+		margin-bottom: 0;
+		}
+		
+	.font-preview a { 
+		color: #000; 
+		display: block; 
+		font-size: 16px; 
+		width: 100%; 
+		line-height: 18px; 
+		padding: 5px; 
+		}
+		
+	.font-preview a:hover,
+	.font-preview a.selected { 
+		color: #000; 
+		background-color: #eee; 
+		}	
 
 #picker {
 	position: absolute;
 	top: 50px;
-	left: 240px;
-	display: none;
+	left: 230px;
 	}
 	
 .styled-select select {
@@ -658,12 +686,13 @@ div.handle {
 	width: 100%;
 	padding: 8px 0;
 	background: #f2f2f2;
-	border: 1px solid #bbb;
+	box-shadow: 0 0 1px #444;
+	-moz-box-shadow: 0 0 1px #444;
+	-webkit-box-shadow: 0 0 1px #444;
 	margin-bottom: 5px;
 	position: relative;
 	text-shadow: none !important;
 	font-size: 12px !important;
-	_border: 0; /* IE 6 hack */
 	z-index: 50;
 	}	
 
@@ -683,3 +712,62 @@ div.handle {
 		color: #fff;
 		margin: 0 5px 10px;
 		}
+			
+/* TOOLTIPS 
+
+.open_toolbox:after,
+#savetheme:after {
+	font: 12px/1.4 Arial,Georgia,sans-serif;
+	content: attr(alt);
+	display: none;
+	position: absolute;
+	padding: 5px 10px;
+	top: -20px;
+	margin: 1em 0 3em;
+	color: #fff;
+	background: #4fb859;
+	left: 60px;
+ 
+	-moz-border-radius: 0 4px 4px 0;
+	-webkit-border-radius: 0 4px 4px 0;
+	border-radius: 0 4px 4px 0;
+ 
+	-moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+	}
+
+.open_toolbox:before,
+#savetheme:before {
+	z-index: 13;
+	position: absolute;
+	content: "\00a0";
+	display: none;
+	width: 0;
+	height: 0;
+	border-style: solid;
+ 
+	top: 6px;
+	left: 46px;
+	border-width: 12px;
+	border-color: transparent #4fb859 transparent transparent;
+}
+
+.open_toolbox:hover::before,
+#savetheme:hover::before {
+	display:block;
+}
+ 
+.open_toolbox:hover,
+#savetheme:hover {
+	z-index:10;
+	position:relative;
+}
+ 
+.open_toolbox:hover::after,
+#savetheme:hover::after {
+	width: 120px;
+	display: block;
+	margin: 25px 0 0 10px;
+}
+*/

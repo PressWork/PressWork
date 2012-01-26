@@ -1,5 +1,5 @@
 (function($) {
-	$(".active").click(function() {
+	$(".pw-active").click(function() {
 		if($(this).hasClass("deactivate")) {
 			var value = "off";
 		} else {

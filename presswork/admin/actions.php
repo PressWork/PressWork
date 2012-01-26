@@ -5,14 +5,14 @@
  *
  * @since PressWork 1.0
  */
- ?>
-<?php
+
 /*
  * The Header
  */
 function pw_header_content() {
+	echo pw_function_handle(__FUNCTION__);
 	?>
-    <ul id="headerbanner" class="fl clear">
+    <ul id="headerbanner" class="clearfix">
        	<?php 
 	    $layout = pw_theme_option('header_option');
 	    $layout = explode(",", $layout);
@@ -36,7 +36,7 @@ function pw_social_content() {
 	$googleplus = pw_theme_option('googleplus');
 	$stumbleupon = pw_theme_option('stumbleupon');
 	
-	echo '<div id="social-icons">';
+	echo '<div id="social-icons" class="small">';
 	if(!empty($twitter))
 		echo '<a href="http://twitter.com/'.$twitter.'" class="twitter-icon"></a>';
 	if(!empty($facebook))
@@ -51,14 +51,15 @@ function pw_social_content() {
 		echo '<a href="http://www.stumbleupon.com/stumbler/'.$stumbleupon.'" class="stumbleupon-icon"></a>';	
 	echo '</div>';
 }
-add_action('pw_header_top', 'pw_social_content');
+add_action('pw_header_middle', 'pw_social_content');
 
 /*
  * The Footer
  */
 function pw_footer_content() {
+	echo pw_function_handle(__FUNCTION__);
 	?>
-    <ul id="footer" class="fl clear">
+    <ul id="footer" class="clearfix">
        	<?php 
 	    $layout = pw_theme_option('footer_option');
 	    $layout = explode(",", $layout);
@@ -77,12 +78,12 @@ add_action('pw_footer_middle', 'pw_footer_content');
 function pw_sidebar() {
 	echo pw_function_handle(__FUNCTION__);
 	if(!dynamic_sidebar("first-sidebar")) :	
-		echo '<aside class="side-widget default">';
+		echo '<aside class="side-widget widget_search">';
 		get_search_form();
 		echo '</aside>';
 
 		$args = array(
-			'before_widget' => '<aside class="side-widget default">',
+			'before_widget' => '<aside class="side-widget pw_featured_posts">',
 			'after_widget' => "</aside>",
 			'before_title' => '<header><h3>',
 			'after_title' => '</h3></header>',
@@ -92,12 +93,13 @@ function pw_sidebar() {
 		$instance = array( 'title' => 'Featured Posts', 'category' => '0', 'number' => '2' );
 		$featured->widget($args, $instance);
 
+		$args['before_widget'] = '<aside class="side-widget pw_twitter_feed">';
 		$tweet = new PW_Twitter_Widget;
 		$instance = array( 'title' => 'Latest Tweets', 'username' => '', 'link' => 'Follow Us', 'number' => '3' );
 		$tweet->widget($args, $instance);
 
 		if(current_user_can('edit_theme_options')) {
-			echo '<aside class="warning clear fl"><p>';
+			echo '<aside class="warning clearfix fl"><p>';
 			printf(__("Add your own widgets to the First Sidebar %shere%s", "presswork"), '<a href="'.admin_url('widgets.php').'">', '</a>');
 			echo '</p></aside>';
 		}
@@ -111,7 +113,7 @@ add_action('pw_sidebar_middle', 'pw_sidebar');
 function pw_second_sidebar() {
 	echo pw_function_handle(__FUNCTION__);
 	if(!dynamic_sidebar("second-sidebar" ) && current_user_can('edit_theme_options')) :
-		echo '<aside class="warning clear fl"><p>';
+		echo '<aside class="warning clearfix fl"><p>';
 		printf(__("Add widgets to the Second Sidebar %shere%s", "presswork"), '<a href="'.admin_url('widgets.php').'">', '</a>');
 		echo '</p></aside>';    endif;
 }
@@ -215,10 +217,10 @@ add_action('pw_archive_top', 'pw_archive_title');
  */
 function pw_category_title() {
 	echo pw_function_handle(__FUNCTION__);
-	if (have_posts()) { ?>
+	if(have_posts()) { ?>
         <header>
         <h1 class="catheader"><?php single_cat_title(); ?></h1>
-        <?php $catdesc = category_description(); if(stristr($catdesc,'<p>')) echo '<div class="catdesc clear">'.$catdesc.'</div>'; ?>
+        <?php $catdesc = category_description(); if(stristr($catdesc,'<p>')) echo '<div class="catdesc clearfix">'.$catdesc.'</div>'; ?>
         </header>
         <?php
 	} else {
@@ -366,58 +368,20 @@ function pw_posts_featured() {
 	echo pw_function_handle(__FUNCTION__);
 	global $pw;
 	$rightcon = '';
-	if(function_exists('has_post_thumbnail') && has_post_thumbnail() && (function_exists('has_post_format') && !has_post_format('gallery') && !has_post_format('video'))) { 
-		echo '<a href="'.get_permalink().'">';
+	$bool = true;
+	if(function_exists('has_post_thumbnail') && has_post_thumbnail() && (function_exists('has_post_format') && !has_post_format('gallery') && !has_post_format('video') && !has_post_format('image'))) { 
+		echo '<a href="'.get_permalink().'" class="image-anchor">';
 		if($pw==1) { $thumb = 'sticky'; $class = 'alignnone'; } else { $thumb = 'thumbnail'; $class = 'alignleft'; }
 		the_post_thumbnail($thumb, array('class'=>$class));
 		echo '</a>';
 		$rightcon = ' class="content-col"';
+	} else {
+		if(has_post_format("image")) $bool = false;
 	}
 	?>
     <div<?php echo $rightcon; ?>>
-		<header>
-			<hgroup>
-			<h1 class="posttitle"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-	        <h2 class="meta">
-	            <?php 
-	            _e("by", "presswork"); echo " "; the_author_posts_link(); 
-	            echo '&nbsp;&bull;&nbsp;';
-	            the_time(get_option('date_format'));
-	            if(comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link(__('0 Comments', "presswork"),__('1 Comment', "presswork"),__('% Comments', "presswork")); }
-	            ?>
-	        </h2>
-	        </hgroup>
-		</header>
-	    <div class="storycontent">
-	        <?php 
-			if(function_exists('has_post_format') && 
-				(has_post_format('aside') || has_post_format('link') || has_post_format('video') || has_post_format('image') || has_post_format('audio'))) { 
-				// new aside || link || audio || video || image post format
-	           	echo '<div class="pformat clear">';
-				the_content('');
-				echo '</div>';
-			} elseif(function_exists('has_post_format') && has_post_format('gallery')) { // new gallery post format
-				global $post;
-				$images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
-				if ( $images ) :
-					$total_images = count( $images );
-					$image = array_shift( $images );
-					$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
-				?>
-				<a class="gallery-thumb" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
-				<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo &rarr;</a>', 'This gallery contains <a %1$s>%2$s photos &rarr;</a>', $total_images, "presswork" ),
-						'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
-						number_format_i18n( $total_images )
-					); ?></em>
-				</p>
-				<?php endif; ?>
-				<?php 
-			} else {
-				the_excerpt();
-				echo '<a href="'.get_permalink().'" class="more-link">'.__("Read more &rarr;", "presswork").'</a>';
-				?>
-			<?php } ?>
-	    </div> 
+		<?php pw_post_header(); ?>
+		<?php pw_post_content($bool); ?>
 	</div> 
 <?php
 }
@@ -425,14 +389,15 @@ add_action('pw_index_sticky_post_middle', 'pw_posts_featured');
 add_action('pw_index_featured_post_middle', 'pw_posts_featured');
 
 /*
- * Posts
+ * Post header
  */
-function pw_posts() {
+function pw_post_header() {
 	echo pw_function_handle(__FUNCTION__);
 	?>
 	<header>
 		<hgroup>
 			<h1 class="posttitle"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+			<?php if(!is_page()) { ?>
 			<h2 class="meta">
 				<?php 
 				_e("by", "presswork"); echo " "; the_author_posts_link(); 
@@ -443,107 +408,102 @@ function pw_posts() {
 					the_category(', ');
 				}
 				if(comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link(__('0 Comments', "presswork"),__('1 Comment', "presswork"),__('% Comments', "presswork")); }
-				
 				?>
 			</h2>
+			<?php } ?>
 		</hgroup>
 	</header>
+	<?php
+}
+add_action('pw_archive_post_middle', 'pw_post_header', 10);
+add_action('pw_author_post_middle', 'pw_post_header', 10);
+add_action('pw_category_post_middle', 'pw_post_header', 10);
+add_action('pw_search_post_middle', 'pw_post_header', 10);
+add_action('pw_index_post_middle', 'pw_post_header', 10);
+add_action('pw_single_post_middle', 'pw_post_header', 10);
+add_action('pw_page_post_middle', 'pw_post_header', 10);
+
+/*
+ * Post content
+ */
+function pw_post_content($ignore_image = false, $excerpt_length = 55, $hide_readmore = false, $display_excerpt = false) {
+	echo pw_function_handle(__FUNCTION__);
+	?>
     <div class="storycontent">
         <?php 
-		if(function_exists('has_post_format') && 
-			(has_post_format('aside') || has_post_format('link') || has_post_format('video') || has_post_format('image') || has_post_format('audio'))) { 
-			// new aside || link || audio || video || image post format
-           	echo '<div class="pformat clear">';
-			if(function_exists('has_post_format') && has_post_format('image')) {
-				if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
-					echo '<a href="'.get_permalink().'">';
-					the_post_thumbnail('medium', array('class'=>'alignleft'));
-					echo '</a>';
+		if(function_exists('has_post_format') && !is_singular()) {
+			$format = get_post_format();
+			if(empty($format) || has_post_format('image')) {
+				if(has_post_format('image')) $size = 'full'; elseif(empty($ignore_image)) $size = 'small'; else $size = 'thumbnail';
+				if(function_exists('has_post_thumbnail') && has_post_thumbnail()) {
+					if(empty($ignore_image) || has_post_format('image')) {
+						echo '<a href="'.get_permalink().'" class="image-anchor">';
+						the_post_thumbnail($size, array( 'class' => 'alignleft' ));
+						echo '</a>';
+					}
 				} else {
-					the_content('');
+					if(has_post_format('image'))
+						the_content();
 				}
+				if(empty($format)) {
+					pw_excerpt($excerpt_length);
+					if(empty($hide_readmore)) echo '<a href="'.get_permalink().'" class="more-link">'.__('Read more &rarr;', "presswork").'</a>';
+				}	
+			} elseif(has_post_format('gallery')) { // new gallery post format
+				global $post;
+				$images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
+				if ( $images ) :
+					$total_images = count( $images );
+					$image = array_shift( $images );
+					$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
+				?>
+				<a class="gallery-thumb  img-shadow alignnone" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
+				<p class="gallery-text clearfix fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo &rarr;</a>', 'This gallery contains <a %1$s>%2$s photos &rarr;</a>', $total_images, "presswork" ), 'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
+						number_format_i18n( $total_images )
+					); ?></em>
+				</p>
+				<?php endif; ?>
+				<?php 
 			} else {
-				the_content('');						
+				// new aside || link || audio || video || image post format
+	           	echo '<div class="pformat clearfix">';
+				the_content('');
+				echo '</div>';
 			}
-			echo '</div>';
-		} elseif(function_exists('has_post_format') && has_post_format('gallery')) { // new gallery post format
-			global $post;
-			$images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
-			if ( $images ) :
-				$total_images = count( $images );
-				$image = array_shift( $images );
-				$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
-			?>
-			<a class="gallery-thumb" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
-			<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo &rarr;</a>', 'This gallery contains <a %1$s>%2$s photos &rarr;</a>', $total_images, "presswork" ),
-					'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
-					number_format_i18n( $total_images )
-				); ?></em>
-			</p>
-			<?php endif; ?>
-			<?php 
 		} else {
-			if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
-				echo '<a href="'.get_permalink().'">';
-				if(is_home()) $thumb = 'fifty'; else $thumb = 'thumbnail';
-				the_post_thumbnail($thumb, array('class'=>'alignleft'));
-				echo '</a>';
-			}
-			the_excerpt();
-		}
-		if(function_exists('has_post_format') && (has_post_format('aside') || has_post_format('link') || has_post_format('gallery'))) { // new aside || link post format
-			// do nothing
-		} else {
-			echo '<a href="'.get_permalink().'" class="more-link">'.__("Read more &rarr;", "presswork").'</a>';
+			if(!empty($display_excerpt))
+				pw_excerpt($excerpt_length);
+			else
+				the_content( __( 'Read more &rarr;', "presswork" ) );	
 		}
 		?>
     </div> 
 	<?php
 }
-add_action('pw_archive_post_middle', 'pw_posts');
-add_action('pw_author_post_middle', 'pw_posts');
-add_action('pw_category_post_middle', 'pw_posts');
-add_action('pw_search_post_middle', 'pw_posts');
-add_action('pw_index_post_middle', 'pw_posts');
-
+add_action('pw_archive_post_middle', 'pw_post_content', 11);
+add_action('pw_author_post_middle', 'pw_post_content', 11);
+add_action('pw_category_post_middle', 'pw_post_content', 11);
+add_action('pw_search_post_middle', 'pw_post_content', 11);
+add_action('pw_index_post_middle', 'pw_post_content', 11);
+add_action('pw_single_post_middle', 'pw_post_content', 11);
+add_action('pw_page_post_middle', 'pw_post_content', 11);
 
 /*
- * Single post
+ * Post footer
  */
-function pw_single_post() {
-	echo pw_function_handle(__FUNCTION__);
+function pw_post_footer() {
 	?>
- 	<header>
-		<?php if(is_single()) echo '<hgroup>'; ?>
-	 		<h1 class="posttitle"><?php the_title(); ?></h1>
-			<?php if(is_single()) { ?>
-			<h2 class="meta">
-				<?php 
-				_e("by", "presswork"); echo " "; the_author_posts_link(); 
-				echo '&nbsp;&bull;&nbsp;';
-				the_time(get_option('date_format'));
-				echo '&nbsp;&bull;&nbsp;';
-				the_category(', ');
-				if(comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link(__('0 Comments', "presswork"),__('1 Comment', "presswork"),__('% Comments', "presswork")); }
-				?>
-			</h2>
-			<?php } ?>
-		<?php if(is_single()) echo '</hgroup>'; ?>
-    </header>
-    <div class="storycontent">
-        <?php the_content( __( 'Read more &rarr;', "presswork" ) ); ?>
-    </div>
-    <footer>
+     <footer class="clearfix fl">
 	    <?php
 	   	the_tags('<p class="tags"><small>'.__('Tags', "presswork").': ', ', ', '</small></p>');
 		wp_link_pages(array('before' => '<p><strong>'.__('Pages', "presswork").':</strong> ', 'after' => '</p>', 'next_or_number' => 'number'));
-		edit_post_link(__('(edit)', "presswork"), '<p class="clear">', '</p>');
+		edit_post_link(__('(edit)', "presswork"), '<p class="clearfix">', '</p>');
 		?>
-	</footer>
+	</footer> 
 	<?php
 }
-add_action('pw_single_post_middle', 'pw_single_post');
-add_action('pw_page_post_middle', 'pw_single_post');
+add_action('pw_single_post_middle', 'pw_post_footer', 12);
+add_action('pw_page_post_middle', 'pw_post_footer', 12);
 
 /*
  * Author box
@@ -552,7 +512,7 @@ function pw_authorbox() {
 	echo pw_function_handle(__FUNCTION__);
 	global $author;
 	?>
-    <div id="authorbox" class="clear fl">
+    <div id="authorbox" class="clearfix fl">
         <?php if (function_exists('get_avatar')) { echo get_avatar( get_the_author_meta('email', $author), '80' ); }?>
         <div class="authortext">
            <header>
@@ -579,9 +539,9 @@ function pw_columns_post_title($r) {
 			<h1 class="posttitle"><a href="<?php the_permalink() ?>" title="<?php printf(__("Permanent Link to %s", "presswork"), the_title_attribute('echo=0')); ?>"><?php the_title(); ?></a></h1>
 	        <h2 class="meta">
 	        	<?php
-	        	if(isset($r['authors'])) { _e("by", "presswork"); echo " "; the_author_posts_link(); } 
-	            if(isset($r['dates'])) { echo '&nbsp;&bull;&nbsp;'; the_time(get_option('date_format')); }
-	            if(isset($r['comments']) && comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link(__('0 Comments', "presswork"),__('1 Comment', "presswork"),__('% Comments', "presswork")); }
+	        	if(!empty($r['authors'])) { _e("by", "presswork"); echo " "; the_author_posts_link(); } 
+	            if(!empty($r['dates'])) { echo '&nbsp;&bull;&nbsp;'; the_time(get_option('date_format')); }
+	            if(!empty($r['comments']) && comments_open()) { echo '&nbsp;&bull;&nbsp;'; comments_popup_link(__('0 Comments', "presswork"),__('1 Comment', "presswork"),__('% Comments', "presswork")); }
 	        	?>
 	        </h2>
         </hgroup>
@@ -595,52 +555,90 @@ function pw_columns_post_content($r) {
 	?>
     <div class="storycontent">
 		<?php 
-        if(function_exists('has_post_format') && 
-			(has_post_format('aside') || has_post_format('link') || has_post_format('video') || has_post_format('image') || has_post_format('audio'))) { 
-			// new aside || link || audio || video || image post format
-           	echo '<div class="pformat clear">';
-			the_content('');
-			echo '</div>';
-		} elseif(function_exists('has_post_format') && has_post_format('gallery')) { // new gallery post format
-			global $post;
-			$images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
-			if ( $images ) :
-				$total_images = count( $images );
-				$image = array_shift( $images );
-				$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
-			?>
-			<a class="gallery-thumb" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
-			<p class="gallery-text clear fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo &rarr;</a>', 'This gallery contains <a %1$s>%2$s photos &rarr;</a>', $total_images, "presswork" ),
-					'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
-					number_format_i18n( $total_images )
-				); ?></em>
-			</p>
-			<?php endif; ?>
-			<?php 
-		} else {
-			if($r['text']=="content") { 
+		if(function_exists('has_post_format') && !is_singular()) {
+			$format = get_post_format();
+			if(empty($format) || has_post_format('image')) {
+				if(has_post_format('image')) $size = 'full'; else $size = array($r['img_w'], $r['img_h']);
+				if(function_exists('has_post_thumbnail') && has_post_thumbnail() && $r['images']==1) {
+					echo '<a href="'.get_permalink().'" class="image-anchor">';
+					the_post_thumbnail($size, array( 'class' => $r['img_float'] ));
+					echo '</a>';
+				} else {
+					if(has_post_format('image'))
+						the_content();
+				}
+				if(empty($format)) {
+					if($r['text']=="content") { 
+						if($r['readmore']==1) {
+							the_content( __( 'Read more &rarr;', "presswork" ) );
+						} else {
+							the_content('');
+						}		
+					} else {
+						pw_excerpt($r['excerpt_length']);
+						if($r['readmore']==1) echo '<a href="'.get_permalink().'" class="more-link">'.__('Read more &rarr;', "presswork").'</a>';
+					}
+				}	
+			} elseif(has_post_format('gallery')) { // new gallery post format
+				global $post;
+				$images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
+				if ( $images ) :
+					$total_images = count( $images );
+					$image = array_shift( $images );
+					$image_img_tag = wp_get_attachment_image( $image->ID, 'full' );
+				?>
+				<a class="gallery-thumb  img-shadow alignnone" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
+				<p class="gallery-text clearfix fl"><em><?php printf( _n( 'This gallery contains <a %1$s>%2$s photo &rarr;</a>', 'This gallery contains <a %1$s>%2$s photos &rarr;</a>', $total_images, "presswork" ), 'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', "presswork" ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
+						number_format_i18n( $total_images )
+					); ?></em>
+				</p>
+				<?php endif; ?>
+				<?php 
+			} else {
+				// new aside || link || audio || video || image post format
+	           	echo '<div class="pformat clearfix">';
 				if($r['readmore']==1) {
-					the_content(__( 'Read more &rarr;', "presswork" ));
+					the_content( __( 'Read more &rarr;', "presswork" ) );
 				} else {
 					the_content('');
 				}
-			} else {
-				if($r['images']==1) { 
-					if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
-						echo '<a href="'.get_permalink().'">';
-						the_post_thumbnail(array($r['img_w'], $r['img_h']), array('class'=>$r['img_float']));
-						echo '</a>';
-					}
-				}
-				the_excerpt();
- 			    if($r['readmore']==1) echo '<a href="'.get_permalink().'" class="more-link">'.__( 'Read more &rarr;', "presswork" ).'</a>';
-			}	
+				echo '</div>';
+			}
 		}
         ?>
     </div>
 	<?php
 }
 add_action('pw_columns_middle', 'pw_columns_post_content', 1, 1);
+
+/*
+ * The Media Queries
+ */
+function pw_add_media_queries() {
+	global $pw_content_width, $pw_first_sidebar, $pw_second_sidebar, $pw_site;
+	$ipad = 720 / $pw_site;
+	?>
+@media only screen and (max-device-width: 768px), only screen and (max-width: 768px) {
+	#body-wrapper { width: 720px !important; padding: 0 10px; }
+	body.fullwidth #maincontent, #headerbanner, #footer { width: 720px !important; }
+	#header_image { background-size: 720px !important; height: <?php echo 720/$pw_site*HEADER_IMAGE_HEIGHT; ?>px !important; }
+	#maincontent { width: <?php echo ($pw_content_width * $ipad) - 10; ?>px !important; }
+	#firstsidebar { width: <?php echo $pw_first_sidebar * $ipad; ?>px !important; }
+	#secondsidebar { width: <?php echo ($pw_second_sidebar * $ipad) - 15; ?>px !important; }
+}
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+	#body-wrapper { width: 420px !important; padding: 0 10px; }
+	body.fullwidth #maincontent, #headerbanner, #footer { width: 420px !important; }
+	#maincontent { width: 420px !important; }
+	#header_image { background-size: 420px !important; height: <?php echo 420/$pw_site*HEADER_IMAGE_HEIGHT; ?>px !important; }
+	.home article { width: 100%; }
+	#firstsidebar, #secondsidebar { float: none; width: 100% !important; }
+	#main-wrapper > li { margin: 0 !important; }
+	#extendedfooter .bottom-widget { width: 100%; margin: 0 0 20px; }
+}
+	<?php	
+}
+add_action('pw_media_queries', 'pw_add_media_queries');
 
 // Including child theme action file
 if(!defined('CHILD_ACTION_FILE'))
