@@ -1,5 +1,11 @@
 PressWork Changelog
 
+Version 1.0.4.1 01/26/2012
+- Updated to comply with WP.org requests
+- Enqueued styles in header
+- Enqueued Farbtastic script in footer
+- Replaced TEMPLATEPATH with get_template_directory()
+
 Version 1.0.4 01/26/2012
 - Updated for WordPress 3.3
 - Removed title attribute from header logo

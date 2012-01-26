@@ -1,9 +1,8 @@
 <?php
-
 // Set up PressWork Framework information
 if(!function_exists('pw_init')):
 	function pw_init() {
-		$presswork_theme_data = get_theme_data(TEMPLATEPATH.'/style.css');
+		$presswork_theme_data = get_theme_data(get_template_directory().'/style.css');
 		define('PW_THEME_NAME', $presswork_theme_data['Name']);
 		define('PW_THEME_HOMEPAGE', $presswork_theme_data['URI']);
 		define('PW_THEME_VERSION', trim($presswork_theme_data['Version']));
@@ -102,24 +101,24 @@ function pw_theme_option($var) {
 
 // all the includes
 if(!empty($_GET['action']) && $_GET['action']=="pw-activate" && empty($pw_welcome)) 
-	include(TEMPLATEPATH.'/admin/inc/welcome.php');
-include(TEMPLATEPATH."/admin/inc/stylesheet.php");
-include(TEMPLATEPATH.'/admin/actions.php');
-include(TEMPLATEPATH.'/admin/inc/toolbox.php');
-include(TEMPLATEPATH.'/admin/inc/footer-scripts.php');
-include(TEMPLATEPATH.'/admin/inc/action-blocks.php');
-include(TEMPLATEPATH.'/admin/inc/slideshows.php');
-include(TEMPLATEPATH.'/admin/inc/fullwidth.php');
-include(TEMPLATEPATH.'/admin/inc/columns.php');
-include(TEMPLATEPATH.'/admin/inc/google-fonts.php');
-include(TEMPLATEPATH.'/admin/inc/widget-twitter.php');
-include(TEMPLATEPATH.'/admin/inc/widget-featured.php');
-include(TEMPLATEPATH.'/admin/inc/widget-slideshows.php');
-include(TEMPLATEPATH.'/admin/inc/widget-flickr.php');
+	include(get_template_directory().'/admin/inc/welcome.php');
+include(get_template_directory()."/admin/inc/stylesheet.php");
+include(get_template_directory().'/admin/actions.php');
+include(get_template_directory().'/admin/inc/toolbox.php');
+include(get_template_directory().'/admin/inc/footer-scripts.php');
+include(get_template_directory().'/admin/inc/action-blocks.php');
+include(get_template_directory().'/admin/inc/slideshows.php');
+include(get_template_directory().'/admin/inc/fullwidth.php');
+include(get_template_directory().'/admin/inc/columns.php');
+include(get_template_directory().'/admin/inc/google-fonts.php');
+include(get_template_directory().'/admin/inc/widget-twitter.php');
+include(get_template_directory().'/admin/inc/widget-featured.php');
+include(get_template_directory().'/admin/inc/widget-slideshows.php');
+include(get_template_directory().'/admin/inc/widget-flickr.php');
 
 // Includes the pro folder if it exists
 if(!defined('PRO_FOLDER'))
-	define('PRO_FOLDER', TEMPLATEPATH.'/admin/pro/pro-functions.php');
+	define('PRO_FOLDER', get_template_directory().'/admin/pro/pro-functions.php');
 if(file_exists(PRO_FOLDER))
 	include(PRO_FOLDER);
 	
@@ -142,23 +141,43 @@ if(file_exists(ACTION_FILE))
 define('CSS_FILE', $upload_dir['basedir'].'/custom.css');
 define('CSS_DISPLAY', $upload_dir['baseurl'].'/custom.css');
 if(file_exists(CSS_FILE))
-	add_action("wp_print_styles", "pw_add_custom_css_file");
+	add_action("wp_print_styles", "pw_add_custom_css_file", 99);
 
 function pw_add_custom_css_file() {
 	wp_register_style('pw_custom_css', CSS_DISPLAY);
     wp_enqueue_style( 'pw_custom_css');
 }
-	
+
+/**
+ * Load all CSS to header
+ *
+ * @since PressWork 1.0.4.1
+ */
+add_action("wp_print_styles", "pw_add_css");
+
+function pw_add_css() {
+	global $pw_google_fonts; 
+	if(pw_theme_option("toolbox")=="on" && current_user_can( "edit_theme_options" )) {
+		wp_register_style('pw_google_font', 'http://fonts.googleapis.com/css?family='.str_replace(" ", "+", implode("|", $pw_google_fonts)));
+		wp_register_style('pw_toolbox', PW_THEME_URL.'/admin/css/toolbox-styles.css');
+	    wp_enqueue_style( 'pw_toolbox');
+	    wp_enqueue_style( 'farbtastic' );
+    } else {
+		wp_register_style('pw_google_font', 'http://fonts.googleapis.com/css?family='.str_replace(" ", "+", pw_theme_option("body_font"))."|".str_replace(" ", "+", pw_theme_option("headers_font")));
+    }
+    wp_enqueue_style( 'pw_google_font');
+}
+
 // Setup the language file
 add_action( 'after_setup_theme', 'pw_language' );
 
 function pw_language() {
 	// Make theme available for translation
 	// Translations can be filed in the /languages/ directory
-	load_theme_textdomain(PW_THEME_FILE, TEMPLATEPATH . '/admin/languages');
+	load_theme_textdomain(PW_THEME_FILE, get_template_directory() . '/admin/languages');
 	
 	$locale = get_locale();
-	$locale_file = TEMPLATEPATH . "/admin/languages/$locale.php";
+	$locale_file = get_template_directory() . "/admin/languages/$locale.php";
 	if ( is_readable( $locale_file ) )
 		require_once( $locale_file );	
 }	
@@ -482,6 +501,8 @@ if(!function_exists('pw_widgets_init')) :
 		wp_register_script('pw_sliderota_js', PW_THEME_URL.'/admin/js/sliderota.js', array( 'jquery' ),'',true);
 		wp_register_script('pw_scrollerota_js', PW_THEME_URL.'/admin/js/scrollerota.js', array( 'jquery' ),'',true);
 		wp_register_script('pw_faderota_js', PW_THEME_URL.'/admin/js/faderota.js', array( 'jquery' ),'',true);
+		wp_deregister_script('farbtastic');
+		wp_register_script('farbtastic', admin_url("js/farbtastic.js"), array( 'jquery' ),'1.3u',true);
 		
 		// Initiating the sidebars
 		register_sidebar(array(

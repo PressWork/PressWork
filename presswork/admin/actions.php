@@ -619,24 +619,23 @@ function pw_add_media_queries() {
 	$ipad = 720 / $pw_site;
 	?>
 @media only screen and (max-device-width: 768px), only screen and (max-width: 768px) {
-	#body-wrapper { width: 720px !important; padding: 0 10px; }
-	body.fullwidth #maincontent, #headerbanner, #footer { width: 720px !important; }
-	#header_image { background-size: 720px !important; height: <?php echo 720/$pw_site*HEADER_IMAGE_HEIGHT; ?>px !important; }
-	#maincontent { width: <?php echo ($pw_content_width * $ipad) - 10; ?>px !important; }
-	#firstsidebar { width: <?php echo $pw_first_sidebar * $ipad; ?>px !important; }
-	#secondsidebar { width: <?php echo ($pw_second_sidebar * $ipad) - 15; ?>px !important; }
-}
-@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
-	#body-wrapper { width: 420px !important; padding: 0 10px; }
-	body.fullwidth #maincontent, #headerbanner, #footer { width: 420px !important; }
-	#maincontent { width: 420px !important; }
-	#header_image { background-size: 420px !important; height: <?php echo 420/$pw_site*HEADER_IMAGE_HEIGHT; ?>px !important; }
-	.home article { width: 100%; }
-	#firstsidebar, #secondsidebar { float: none; width: 100% !important; }
-	#main-wrapper > li { margin: 0 !important; }
-	#extendedfooter .bottom-widget { width: 100%; margin: 0 0 20px; }
-}
-	<?php	
+		#body-wrapper { width: 720px !important; padding: 0 10px; }
+		body.fullwidth #maincontent, #headerbanner, #footer { width: 720px !important; }
+		#header_image { background-size: 720px !important; height: <?php echo 720/$pw_site*HEADER_IMAGE_HEIGHT; ?>px !important; }
+		#maincontent { width: <?php echo ($pw_content_width * $ipad) - 10; ?>px !important; }
+		#firstsidebar { width: <?php echo $pw_first_sidebar * $ipad; ?>px !important; }
+		#secondsidebar { width: <?php echo ($pw_second_sidebar * $ipad) - 15; ?>px !important; }
+	}
+	@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+		#body-wrapper { width: 420px !important; padding: 0 10px; }
+		body.fullwidth #maincontent, #headerbanner, #footer { width: 420px !important; }
+		#maincontent { width: 420px !important; }
+		#header_image { background-size: 420px !important; height: <?php echo 420/$pw_site*HEADER_IMAGE_HEIGHT; ?>px !important; }
+		.home article { width: 100%; }
+		#firstsidebar, #secondsidebar { float: none; width: 100% !important; }
+		#main-wrapper > li { margin: 0 !important; }
+		#extendedfooter .bottom-widget { width: 100%; margin: 0 0 20px; }
+	}<?php	
 }
 add_action('pw_media_queries', 'pw_add_media_queries');
 

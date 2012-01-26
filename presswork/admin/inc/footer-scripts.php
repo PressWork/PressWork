@@ -8,7 +8,6 @@
 if(!function_exists('pw_footer_scripts')) :
 	function pw_footer_scripts() {
 		?>	
-	<script type="text/javascript" src="<?php echo admin_url("js/farbtastic.js"); ?>"></script>
 	<script type="text/javascript">
 	/* <![CDATA[ */
 	(function($) {

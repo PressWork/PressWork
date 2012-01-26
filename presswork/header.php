@@ -18,15 +18,7 @@
 
 <title><?php wp_title('|',true,'right'); ?><?php bloginfo('name'); if(is_front_page()) { echo ' | '; bloginfo('description'); } if ( $paged > 1 ) { echo (' | Page '); echo $paged; } ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<?php 
-global $pw_google_fonts; 
-if(pw_theme_option("toolbox")=="on" && current_user_can( "edit_theme_options" )) { ?>
-<link href="http://fonts.googleapis.com/css?family=<?php echo str_replace(" ", "+", implode("|", $pw_google_fonts)); ?>" rel="stylesheet" type="text/css" /> 
-<?php } else { ?>
-<link href='http://fonts.googleapis.com/css?family=<?php echo str_replace(" ", "+", pw_theme_option("body_font")); ?>|<?php echo str_replace(" ", "+", pw_theme_option("headers_font")); ?>' rel='stylesheet' type='text/css' />
-<?php } ?>
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-<?php if(pw_theme_option("toolbox")=="on" && current_user_can( "edit_theme_options" )) echo '<link rel="stylesheet" href="'.PW_THEME_URL.'/admin/css/toolbox-styles.css" type="text/css" media="screen" />'; ?>
 <?php pw_header_css(); ?>
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php $favicon = pw_theme_option('favicon'); if(!empty($favicon)) echo '<link rel="shortcut icon" type="image/x-icon" href="'.$favicon.'" />'."\n"; ?>
@@ -36,8 +28,13 @@ if(pw_theme_option("toolbox")=="on" && current_user_can( "edit_theme_options" ))
 
 <?php if(is_singular() && get_option('thread_comments')) wp_enqueue_script('comment-reply'); ?>
 <?php wp_enqueue_script( 'jquery' ); ?>
-<?php if(pw_theme_option('toolbox')=="on" && current_user_can( "edit_theme_options" )) wp_enqueue_script( 'jquery-ui-sortable' ); ?>
-<?php if(current_user_can('edit_theme_options')) wp_enqueue_style( 'farbtastic' ); ?>
+<?php 
+if(pw_theme_option('toolbox')=="on" && current_user_can( "edit_theme_options" )) { 
+	wp_enqueue_script( 'jquery-ui-sortable' ); 
+	wp_enqueue_script( 'farbtastic' ); 
+	
+}
+?>
 <?php wp_head(); ?>
 </head>
 
