@@ -25,16 +25,6 @@
 <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width" />
-
-<?php if(is_singular() && get_option('thread_comments')) wp_enqueue_script('comment-reply'); ?>
-<?php wp_enqueue_script( 'jquery' ); ?>
-<?php 
-if(pw_theme_option('toolbox')=="on" && current_user_can( "edit_theme_options" )) { 
-	wp_enqueue_script( 'jquery-ui-sortable' ); 
-	wp_enqueue_script( 'farbtastic' ); 
-	
-}
-?>
 <?php wp_head(); ?>
 </head>
 

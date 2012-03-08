@@ -149,23 +149,35 @@ function pw_add_custom_css_file() {
 }
 
 /**
- * Load all CSS to header
+ * Load all CSS and JavaScript to header
  *
- * @since PressWork 1.0.4.1
+ * @since PressWork 1.0.4.2
  */
-add_action("wp_print_styles", "pw_add_css");
+add_action("wp_enqueue_scripts", "pw_add_css_js");
 
-function pw_add_css() {
-	global $pw_google_fonts; 
-	if(pw_theme_option("toolbox")=="on" && current_user_can( "edit_theme_options" )) {
-		wp_register_style('pw_google_font', 'http://fonts.googleapis.com/css?family='.str_replace(" ", "+", implode("|", $pw_google_fonts)));
-		wp_register_style('pw_toolbox', PW_THEME_URL.'/admin/css/toolbox-styles.css');
-	    wp_enqueue_style( 'pw_toolbox');
-	    wp_enqueue_style( 'farbtastic' );
-    } else {
-		wp_register_style('pw_google_font', 'http://fonts.googleapis.com/css?family='.str_replace(" ", "+", pw_theme_option("body_font"))."|".str_replace(" ", "+", pw_theme_option("headers_font")));
-    }
-    wp_enqueue_style( 'pw_google_font');
+function pw_add_css_js() {
+	if(!is_admin()) {
+		global $pw_google_fonts;
+	    
+	    // add css
+		if(pw_theme_option("toolbox")=="on" && current_user_can( "edit_theme_options" )) {
+			wp_register_style('pw_google_font', 'http://fonts.googleapis.com/css?family='.str_replace(" ", "+", implode("|", $pw_google_fonts)));
+			wp_register_style('pw_toolbox', PW_THEME_URL.'/admin/css/toolbox-styles.css');
+		    wp_enqueue_style( 'pw_toolbox');
+		    wp_enqueue_style( 'farbtastic' );
+	    } else {
+			wp_register_style('pw_google_font', 'http://fonts.googleapis.com/css?family='.str_replace(" ", "+", pw_theme_option("body_font"))."|".str_replace(" ", "+", pw_theme_option("headers_font")));
+	    }
+	    wp_enqueue_style( 'pw_google_font');
+	    
+	    // add js
+		if(is_singular() && get_option('thread_comments')) wp_enqueue_script('comment-reply');
+		wp_enqueue_script( 'jquery' );
+		if(pw_theme_option('toolbox')=="on" && current_user_can( "edit_theme_options" )) { 
+			wp_enqueue_script( 'jquery-ui-sortable' ); 
+			wp_enqueue_script( 'farbtastic', admin_url("/js/farbtastic.js"), array( 'jquery' ),'',true ); 
+		}
+	}
 }
 
 // Setup the language file
@@ -295,7 +307,7 @@ if(!function_exists('pw_add_admin')) :
  */
 	function pw_add_admin() {
 		global $pw_themelayout;
-		wp_register_script('pw_admin_effects_js', PW_THEME_URL.'/admin/js/admin-effects.js', array( 'jquery' ),'',true);
+		wp_register_script('pw_admin_effects_js', PW_THEME_URL.'/admin/js/admin-effects.js', array( 'jquery' ), PW_THEME_VERSION, true);
 		wp_localize_script( 'pw_admin_effects_js', 'presswork', array( 'front_url' => home_url("/") ) );
 		
 		$pw_themelayout = add_theme_page("presswork", "PressWork", 'edit_theme_options', "PressWork", 'pw_admin_page');
@@ -498,12 +510,10 @@ if(!function_exists('pw_widgets_init')) :
  * @since PressWork 1.0
  */	
 	function pw_widgets_init() {
-		wp_register_script('pw_sliderota_js', PW_THEME_URL.'/admin/js/sliderota.js', array( 'jquery' ),'',true);
-		wp_register_script('pw_scrollerota_js', PW_THEME_URL.'/admin/js/scrollerota.js', array( 'jquery' ),'',true);
-		wp_register_script('pw_faderota_js', PW_THEME_URL.'/admin/js/faderota.js', array( 'jquery' ),'',true);
-		wp_deregister_script('farbtastic');
-		wp_register_script('farbtastic', admin_url("js/farbtastic.js"), array( 'jquery' ),'1.3u',true);
-		
+		wp_register_script('pw_sliderota_js', PW_THEME_URL.'/admin/js/sliderota.js', array( 'jquery' ), PW_THEME_VERSION, true);
+		wp_register_script('pw_scrollerota_js', PW_THEME_URL.'/admin/js/scrollerota.js', array( 'jquery' ), PW_THEME_VERSION, true);
+		wp_register_script('pw_faderota_js', PW_THEME_URL.'/admin/js/faderota.js', array( 'jquery' ), PW_THEME_VERSION, true);
+
 		// Initiating the sidebars
 		register_sidebar(array(
 			'name' => __('Top Main Content on Index', "presswork"),
@@ -1122,7 +1132,7 @@ add_shortcode('video5', 'pw_html5_video');
 /**
  * Adds "odd" class to all odd posts.
  *
- * @since PressWork 1.0.1
+ * @since PressWork 1.0.4.2
  */
 global $current_class;
 $current_class = 'odd';
@@ -1138,3 +1148,32 @@ function pw_my_post_class ( $classes ) {
    return $classes;
 }
 add_filter ( 'post_class' , 'pw_my_post_class' );
+
+/**
+ * Enqueues the Video Resizer script into the footer.
+ *
+ * @since PressWork 1.0.1
+ */
+function pw_video_resizer_footer_script() { 
+	echo "\n<!-- PressWork Video Resizer Script -->\n";
+	?>
+<script type="text/javascript">
+/* <![CDATA[ */
+(function($) {
+	$("object, embed, .format-video iframe").each(function() {
+		var origVideo = $(this),
+			aspectRatio = origVideo.attr("height") / origVideo.attr("width"),
+			wrapWidth = origVideo.parents().find("p:last").width();
+		if(origVideo.attr("width") > wrapWidth) {
+			origVideo
+				.attr("width", wrapWidth)
+				.attr("height", (wrapWidth * aspectRatio));
+		}
+	});
+})(jQuery);
+/* ]]> */
+</script>
+<!-- eof PressWork Video Resizer Script -->	
+	<?php
+}
+add_action( 'wp_footer', 'pw_video_resizer_footer_script', 99 );
