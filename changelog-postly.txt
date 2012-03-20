@@ -1,0 +1,10 @@
+Postly Changelog
+
+Version 1.0.1 11/14/2011
+- Updated for WordPress 3.3 and PressWork 1.0.4
+- Added attachment.php template
+- Added small social icons
+- Fixed CSS issues
+
+Version 1.0 08/22/2011
+Official Release
