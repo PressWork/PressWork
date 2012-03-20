@@ -1,4 +1,15 @@
 InstaPress Changelog
 
+Version 1.0.2 03/20/2012
+- Updated for WordPress 3.3 and PressWork 1.0.4
+- Added attachment.php template
+- Rewrite loop
+- Added small social icons
+- Fixed CSS issues
+
+Version 1.0.1 11/14/2011
+- Updated media queries
+- Fixes small bugs
+
 Version 1.0 08/14/2011
 Official Release
