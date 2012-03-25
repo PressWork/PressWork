@@ -1,0 +1,857 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Cherrot Luo <admin@cherrot.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:595
+#: pressworkdev/admin/actions.php:540
+msgid "% Comments"
+msgstr "% 评论"
+
+#. Text in function
+#: pressworkdev/functions.php:601
+msgid "%1$s at %2$s"
+msgstr "%1$s 在 %2$s"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:275
+msgid "&larr; Older Comments"
+msgstr "&larr; 更早的评论"
+
+#. Text in function
+#: pressworkdev/functions.php:601
+#: pressworkdev/functions.php:624
+#: pressworkdev/admin/actions.php:496
+msgid "(edit)"
+msgstr "(编辑)"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:595
+#: pressworkdev/admin/actions.php:540
+msgid "0 Comments"
+msgstr "没有评论"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:595
+#: pressworkdev/admin/actions.php:540
+msgid "1 Comment"
+msgstr "1条评论"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "<a href=\"http://presswork.me\" target=\"_blank\">PressWork.me</a>"
+msgstr "<a href=\"http://presswork.me\" target=\"_blank\">PressWork.me</a>"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "<a href=\"http://presswork.me/category/documentation/\" target=\"_blank\">Documentation</a>"
+msgstr "<a href=\"http://presswork.me/category/documentation/\" target=\"_blank\">文档</a>"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "<a href=\"http://support.presswork.me\" target=\"_blank\">Support Forum</a>"
+msgstr "<a href=\"http://support.presswork.me\" target=\"_blank\">支持论坛</a>"
+
+#. Text in echo
+#: pressworkdev/admin/actions.php:518
+msgid "About"
+msgstr "关于"
+
+#. Text in function
+#: pressworkdev/admin/inc/widget-slideshows.php:1
+msgid "Add a featured slideshow"
+msgstr "Add a featured slideshow"
+
+#. Text in function
+#: pressworkdev/functions.php:863
+msgid "Add widgets to the Header Area %shere%s"
+msgstr "Add widgets to the Header Area %shere%s"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:609
+msgid "Add widgets to the Second Sidebar %shere%s"
+msgstr "Add widgets to the Second Sidebar %shere%s"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:609
+msgid "Add your own widgets to the First Sidebar %shere%s"
+msgstr "Add your own widgets to the First Sidebar %shere%s"
+
+#. Text in echo
+#: pressworkdev/admin/actions.php:191
+#: pressworkdev/admin/actions.php:194
+#: pressworkdev/admin/actions.php:197
+msgid "Archive for"
+msgstr "归档："
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:145
+#: pressworkdev/admin/inc/toolbox.php:149
+#: pressworkdev/admin/inc/toolbox.php:153
+#: pressworkdev/admin/inc/toolbox.php:159
+msgid "BG Color"
+msgstr "BG Color"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:146
+#: pressworkdev/admin/inc/toolbox.php:150
+#: pressworkdev/admin/inc/toolbox.php:154
+msgid "BG Hover Color"
+msgstr "BG Hover Color"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "Be a part of the PressWork Community"
+msgstr "加入 PressWork 社区"
+
+#. Text in echo
+#: pressworkdev/admin/actions.php:200
+msgid "Blog Archives"
+msgstr "博客归档"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:167
+#: pressworkdev/admin/inc/toolbox.php:187
+msgid "Blog Name"
+msgstr "博客大名"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:79
+msgid "Body"
+msgstr "Body"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:118
+msgid "Body Margins"
+msgstr "Body Margins"
+
+#. Text in function
+#: pressworkdev/functions.php:916
+msgid "Browse Our Themes"
+msgstr "Browse Our Themes"
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-featured.php:65
+#: pressworkdev/admin/inc/widget-slideshows.php:54
+msgid "Category"
+msgstr "分类"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:155
+#: pressworkdev/admin/inc/toolbox.php:174
+msgid "Category Header"
+msgstr "分类头"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "Check out the <a href=\"https://raw.github.com/digibomb/PressWork/master/changelog.txt\">changelog</a> to see what we\\'ve been up to."
+msgstr "Check out the <a href=\"https://raw.github.com/digibomb/PressWork/master/changelog.txt\">changelog</a> to see what we\\'ve been up to."
+
+#. Text in function
+#: pressworkdev/functions.php:308
+msgid "Click on the button below to activate/deactivate the %s front-end toolbox."
+msgstr "Click on the button below to activate/deactivate the %s front-end toolbox."
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:22
+msgid "Close"
+msgstr "关闭"
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:23
+msgid "Close the<br />Welcome Screen"
+msgstr "Close the<br />Welcome Screen"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:137
+#: pressworkdev/admin/inc/toolbox.php:139
+#: pressworkdev/admin/inc/toolbox.php:140
+#: pressworkdev/admin/inc/toolbox.php:142
+#: pressworkdev/admin/inc/toolbox.php:143
+#: pressworkdev/admin/inc/toolbox.php:147
+#: pressworkdev/admin/inc/toolbox.php:151
+#: pressworkdev/admin/inc/toolbox.php:156
+#: pressworkdev/admin/inc/toolbox.php:158
+msgid "Color"
+msgstr "Color"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:59
+#: pressworkdev/admin/inc/welcome.php:16
+msgid "Colors"
+msgstr "Colors"
+
+#. Text in echo
+#: pressworkdev/admin/actions.php:274
+msgid "Comment navigation"
+msgstr "评论导航"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:119
+msgid "Content Margins"
+msgstr "Content Margins"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "Contribute on GitHub"
+msgstr "Contribute on GitHub"
+
+#. Text in echo
+#: pressworkdev/functions.php:331
+msgid "Contributors"
+msgstr "Contributors"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:196
+msgid "Copyright"
+msgstr "Copyright"
+
+#. Text in function
+#: pressworkdev/functions.php:916
+msgid "Create your Footer nav menu %shere%s"
+msgstr "Create your Footer nav menu %shere%s"
+
+#. Text in function
+#: pressworkdev/functions.php:916
+msgid "Create your Secondary nav menu %shere%s"
+msgstr "Create your Secondary nav menu %shere%s"
+
+#. Text in echo
+#: pressworkdev/functions.php:330
+msgid "Created by"
+msgstr "Created by"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "Custom Actions"
+msgstr "Custom Actions"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "Custom CSS"
+msgstr "Custom CSS"
+
+#. Text in function
+#: pressworkdev/functions.php:916
+msgid "Customize your Primary nav menu %shere%s"
+msgstr "Customize your Primary nav menu %shere%s"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "Customizing PressWork"
+msgstr "Customizing PressWork"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:168
+#: pressworkdev/admin/inc/toolbox.php:188
+msgid "Description"
+msgstr "Description"
+
+#. Text in function
+#: pressworkdev/admin/inc/widget-featured.php:1
+msgid "Displays featured posts from one category"
+msgstr "Displays featured posts from one category"
+
+#. Text in function
+#: pressworkdev/admin/inc/widget-flickr.php:1
+msgid "Displays your flickr photos"
+msgstr "Displays your flickr photos"
+
+#. Text in function
+#: pressworkdev/admin/inc/widget-twitter.php:1
+msgid "Displays your tweets"
+msgstr "Displays your tweets"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:25
+msgid "Drag &amp; Drop Editor"
+msgstr "Drag &amp; Drop Editor"
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:18
+msgid "Enter your Twitter, Facebook &amp; Flickr usernames so people can find you."
+msgstr "Enter your Twitter, Facebook &amp; Flickr usernames so people can find you."
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-slideshows.php:53
+msgid "Excerpt length"
+msgstr "Excerpt length"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:195
+#: pressworkdev/functions.php:347
+msgid "Extended Footer"
+msgstr "Extended Footer"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:199
+msgid "Favicon URL"
+msgstr "Favicon URL"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:115
+#: pressworkdev/admin/inc/toolbox.php:192
+#: pressworkdev/functions.php:347
+msgid "First Sidebar"
+msgstr "First Sidebar"
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-flickr.php:44
+msgid "Flickr idGettr"
+msgstr "Flickr idGettr"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:80
+msgid "Font Size"
+msgstr "Font Size"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:75
+msgid "Fonts"
+msgstr "Fonts"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:82
+msgid "Fonts by"
+msgstr "Fonts by"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:129
+msgid "Footer"
+msgstr "Footer"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:173
+#: pressworkdev/admin/inc/toolbox.php:194
+msgid "Footer Menu"
+msgstr "Footer Menu"
+
+#. Text in function
+#: pressworkdev/functions.php:1
+msgid "Footer Nav Menu"
+msgstr "Footer Nav Menu"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "For more information:"
+msgstr "For more information:"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:34
+msgid "Functions"
+msgstr "Functions"
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:17
+msgid "Google Fonts"
+msgstr "Google Fonts"
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:19
+msgid "Got everything set up the way you want? Better make sure to click Save or you might lose your settings."
+msgstr "Got everything set up the way you want? Better make sure to click Save or you might lose your settings."
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:127
+msgid "Header"
+msgstr "Header"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "Header Area"
+msgstr "Header Area"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:186
+msgid "Header Image"
+msgstr "Header Image"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:78
+msgid "Headers"
+msgstr "Headers"
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-slideshows.php:52
+msgid "Height"
+msgstr "Height"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:33
+msgid "Hooks"
+msgstr "Hooks"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:138
+#: pressworkdev/admin/inc/toolbox.php:141
+#: pressworkdev/admin/inc/toolbox.php:144
+#: pressworkdev/admin/inc/toolbox.php:148
+#: pressworkdev/admin/inc/toolbox.php:152
+#: pressworkdev/admin/inc/toolbox.php:157
+msgid "Hover Color"
+msgstr "Hover Color"
+
+#. Text in function
+#: pressworkdev/functions.php:319
+msgid "If you have any questions or feedback, please check out our %s."
+msgstr "If you have any questions or feedback, please check out our %s."
+
+#. Text in echo
+#: pressworkdev/admin/inc/footer-scripts.php:432
+msgid "If you leave this page you will lose your changes."
+msgstr "If you leave this page you will lose your changes."
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "If you've got mad skills when it comes to WordPress and you want to join the PressWork community, find us on <a href='https://github.com/digibomb/PressWork' target='_blank'>GitHub</a> and contribute. Together we can make PressWork the ultimate WordPress framework."
+msgstr "If you've got mad skills when it comes to WordPress and you want to join the PressWork community, find us on <a href='https://github.com/digibomb/PressWork' target='_blank'>GitHub</a> and contribute. Together we can make PressWork the ultimate WordPress framework."
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:42
+msgid "Layout"
+msgstr "Layout"
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:15
+msgid "Layouts"
+msgstr "Layouts"
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-flickr.php:46
+msgid "Link Text"
+msgstr "Link Text"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:169
+msgid "Links"
+msgstr "Links"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:185
+msgid "Logo"
+msgstr "Logo"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:198
+msgid "Logo Image URL"
+msgstr "Logo Image URL"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:114
+#: pressworkdev/admin/inc/toolbox.php:128
+msgid "Main Content"
+msgstr "Main Content"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:170
+msgid "Main Text"
+msgstr "Main Text"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "New in v1.0.4"
+msgstr "New in v1.0.4"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:276
+msgid "Newer Comments &rarr;"
+msgstr "更近的评论 &rarr;"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:548
+msgid "No posts found."
+msgstr "没找到任何文章"
+
+#. Text in echo
+#: pressworkdev/admin/actions.php:170
+msgid "No results were found for your request."
+msgstr "火星了，没找到任何结果……"
+
+#. Text in echo
+#: pressworkdev/admin/actions.php:167
+msgid "Not found"
+msgstr "404，你懂得……"
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-flickr.php:45
+msgid "Number of Photos"
+msgstr "照片数量"
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-featured.php:66
+msgid "Number of Posts"
+msgstr "文章数量"
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-twitter.php:63
+msgid "Number of Tweets"
+msgstr "Number of Tweets"
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-slideshows.php:50
+msgid "Number of posts"
+msgstr "Number of posts"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:31
+#: pressworkdev/admin/inc/toolbox.php:33
+#: pressworkdev/admin/inc/toolbox.php:34
+msgid "OFF"
+msgstr "关"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:31
+#: pressworkdev/admin/inc/toolbox.php:33
+#: pressworkdev/admin/inc/toolbox.php:34
+msgid "ON"
+msgstr "开"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "One of the most amazing things about PressWork is the ability to customize your site without leaving the front end. This would not be possible if it weren\\'t for the PressWork Toolbox. That\\'s what we call the collection of tools that appear in the lower left of your screen when you are logged in as an admin."
+msgstr "One of the most amazing things about PressWork is the ability to customize your site without leaving the front end. This would not be possible if it weren\\'t for the PressWork Toolbox. That\\'s what we call the collection of tools that appear in the lower left of your screen when you are logged in as an admin."
+
+#. Text in function
+#: pressworkdev/admin/inc/widget-featured.php:1
+msgid "PW - Featured Posts"
+msgstr "PW - Featured Posts"
+
+#. Text in function
+#: pressworkdev/admin/inc/widget-flickr.php:1
+msgid "PW - Flickr Feed"
+msgstr "PW - Flickr Feed"
+
+#. Text in function
+#: pressworkdev/admin/inc/widget-slideshows.php:1
+msgid "PW - Slideshows"
+msgstr "PW - Slideshows"
+
+#. Text in function
+#: pressworkdev/admin/inc/widget-twitter.php:1
+msgid "PW - Twitter Feed"
+msgstr "PW - Twitter Feed"
+
+#. Text in function
+#: pressworkdev/functions.php:916
+msgid "PW Admin"
+msgstr "PW Admin"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:177
+msgid "Page Background"
+msgstr "Page Background"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:496
+msgid "Pages"
+msgstr "Pages"
+
+#. Text in function
+#: pressworkdev/admin/inc/widget-featured.php:44
+#: pressworkdev/admin/actions.php:397
+#: pressworkdev/admin/actions.php:590
+msgid "Permalink to %s"
+msgstr "到 %s 的永久链接"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:538
+msgid "Permanent Link to %s"
+msgstr "到 %s 的永久链接"
+
+#. Text in echo
+#: pressworkdev/functions.php:624
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:176
+msgid "Post Meta"
+msgstr "文章元信息"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:175
+msgid "Post Title"
+msgstr "文章标题"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:188
+msgid "Posts Tagged &#8216;%s&#8217;"
+msgstr "文章标签 &#8216;%s&#8217;"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:22
+#: pressworkdev/admin/inc/welcome.php:14
+msgid "PressWork Settings"
+msgstr "PressWork Settings"
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:17
+msgid "PressWork comes with the top 20 most popular Google Fonts. You can easily add more if you like."
+msgstr "PressWork comes with the top 20 most popular Google Fonts. You can easily add more if you like."
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "PressWork has been built so that all the customization happens through a file called actions.php. In order to customize or remove these actions, you need to create a <code>custom-actions.php</code> file and upload it to your site\\'s <code>/uploads</code> directory."
+msgstr "PressWork has been built so that all the customization happens through a file called actions.php. In order to customize or remove these actions, you need to create a <code>custom-actions.php</code> file and upload it to your site\\'s <code>/uploads</code> directory."
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "PressWork has many theme options that allow you to customize how your site is styled. But what if you wanted to really delve into the design by adding some custom CSS. All you need to do is create a file called <code>custom.css</code> and upload it to your site\\'s <code>/uploads</code> directory."
+msgstr "PressWork has many theme options that allow you to customize how your site is styled. But what if you wanted to really delve into the design by adding some custom CSS. All you need to do is create a file called <code>custom.css</code> and upload it to your site\\'s <code>/uploads</code> directory."
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "PressWork v1.0.4 has been optimized to work with WordPress 3.3. Many new featured have been added to WP and the latest version of PressWork takes advantage of many of them, including this cool new help section. "
+msgstr "PressWork v1.0.4 has been optimized to work with WordPress 3.3. Many new featured have been added to WP and the latest version of PressWork takes advantage of many of them, including this cool new help section. "
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:171
+#: pressworkdev/admin/inc/toolbox.php:189
+msgid "Primary Menu"
+msgstr "Primary Menu"
+
+#. Text in function
+#: pressworkdev/functions.php:1
+msgid "Primary Nav Menu"
+msgstr "Primary Nav Menu"
+
+#. Text in echo
+#: pressworkdev/admin/inc/slideshows.php:70
+#: pressworkdev/functions.php:347
+msgid "Read more"
+msgstr "爷要看完"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:432
+#: pressworkdev/admin/actions.php:595
+#: pressworkdev/admin/actions.php:556
+msgid "Read more &rarr;"
+msgstr "爷要看完 &rarr;"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:261
+msgid "Reply"
+msgstr "回复"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:35
+msgid "Reset"
+msgstr "重置"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:35
+msgid "Reset all options"
+msgstr "重置全部选项"
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:19
+msgid "Save"
+msgstr "保存"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:116
+#: pressworkdev/admin/inc/toolbox.php:193
+#: pressworkdev/functions.php:347
+msgid "Second Sidebar"
+msgstr "Second Sidebar"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:172
+#: pressworkdev/admin/inc/toolbox.php:190
+msgid "Secondary Menu"
+msgstr "Secondary Menu"
+
+#. Text in function
+#: pressworkdev/functions.php:1
+msgid "Secondary Nav Menu"
+msgstr "Secondary Nav Menu"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:87
+msgid "Social"
+msgstr "Social"
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:18
+msgid "Social Networking"
+msgstr "Social Networking"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:496
+msgid "Tags"
+msgstr "标签"
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-twitter.php:64
+msgid "Text Link"
+msgstr "文本链接"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "The PressWork Toolbox"
+msgstr "The PressWork Toolbox"
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:27
+msgid "The PressWork<br />Admin Page"
+msgstr "The PressWork<br />Admin Page"
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:26
+msgid "The PressWork<br />Toolbox"
+msgstr "The PressWork<br />Toolbox"
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "The area above the main content on the index page. Perfect spot for a slideshow."
+msgstr "The area above the main content on the index page. Perfect spot for a slideshow."
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "The extended footer appears at the bottom of your site if it has been placed in the footer."
+msgstr "The extended footer appears at the bottom of your site if it has been placed in the footer."
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "The first sidebar appears on every page of your site, unless you have selected full width for a post or page."
+msgstr "The first sidebar appears on every page of your site, unless you have selected full width for a post or page."
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "The header area appears on every page of your site if it has been placed in the header."
+msgstr "The header area appears on every page of your site if it has been placed in the header."
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "The second sidebar appears on every page of your site, unless you have selected full width for a post or page."
+msgstr "The second sidebar appears on every page of your site, unless you have selected full width for a post or page."
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:16
+msgid "This is where you can change the colors for links, main text, menus, post titles, backgrounds &amp; more."
+msgstr "This is where you can change the colors for links, main text, menus, post titles, backgrounds &amp; more."
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:15
+msgid "This panel allows you to modify widths and margins. You can also add your own logo, sidebars &amp; more."
+msgstr "This panel allows you to modify widths and margins. You can also add your own logo, sidebars &amp; more."
+
+#. Text in echo
+#: pressworkdev/comments.php:11
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "This post is password protected. Enter the password to view any comments."
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-featured.php:64
+#: pressworkdev/admin/inc/widget-slideshows.php:42
+#: pressworkdev/admin/inc/widget-twitter.php:61
+#: pressworkdev/admin/inc/widget-flickr.php:43
+msgid "Title"
+msgstr "标题"
+
+#. Text in function
+#: pressworkdev/functions.php:307
+msgid "Toolbox Deactivated."
+msgstr "Toolbox Deactivated."
+
+#. Text in function
+#: pressworkdev/functions.php:347
+msgid "Top Main Content on Index"
+msgstr "Top Main Content on Index"
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:14
+msgid "Turn on the Drag &amp; Drop Editor, Hooks &amp; Functions, or even Reset all options if you mess up."
+msgstr "Turn on the Drag &amp; Drop Editor, Hooks &amp; Functions, or even Reset all options if you mess up."
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-slideshows.php:43
+msgid "Type"
+msgstr "类型"
+
+#. Text in echo
+#: pressworkdev/admin/inc/toolbox.php:107
+msgid "Updated"
+msgstr "已更新"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:92
+#: pressworkdev/admin/inc/toolbox.php:93
+msgid "User ID"
+msgstr "User ID"
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-flickr.php:44
+msgid "UserID"
+msgstr "UserID"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:91
+#: pressworkdev/admin/inc/toolbox.php:94
+#: pressworkdev/admin/inc/toolbox.php:95
+#: pressworkdev/admin/inc/widget-twitter.php:62
+msgid "Username"
+msgstr "Username"
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:90
+msgid "Username (without @)"
+msgstr "Username (without @)"
+
+#. Text in function
+#: pressworkdev/functions.php:916
+msgid "Version %1$s of %2$s is now available. Go to %3$s page."
+msgstr "Version %1$s of %2$s is now available. Go to %3$s page."
+
+#. Text in function
+#: pressworkdev/admin/inc/toolbox.php:191
+msgid "Widgetized Area"
+msgstr "Widgetized Area"
+
+#. Text in echo
+#: pressworkdev/admin/inc/widget-slideshows.php:51
+msgid "Width"
+msgstr "宽度"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:278
+msgid "Your comment"
+msgstr "您的评论"
+
+#. Text in function
+#: pressworkdev/functions.php:607
+msgid "Your comment is awaiting moderation."
+msgstr "您的评论正等待审核。"
+
+#. Text in function
+#: pressworkdev/functions.php:916
+msgid "Your email"
+msgstr "爷的邮箱"
+
+#. Text in function
+#: pressworkdev/functions.php:916
+msgid "Your name"
+msgstr "爷的大名"
+
+#. Text in function
+#: pressworkdev/functions.php:916
+msgid "Your website"
+msgstr "爷的主页"
+
+#. Text in function
+#: pressworkdev/admin/actions.php:278
+msgid "search results for"
+msgstr "搜索结果——"
+
+#. Text in echo
+#: pressworkdev/admin/inc/welcome.php:21
+msgid "version"
+msgstr "版本"
+
