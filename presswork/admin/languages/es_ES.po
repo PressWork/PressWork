@@ -1,0 +1,836 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pw\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/presswork\n"
+"POT-Creation-Date: 2012-11-08 19:08:35+00:00\n"
+"PO-Revision-Date: 2012-11-08 13:31-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: /users/cbavota/presswork/pressworkdev/pressworkdev\n"
+
+#: admin/actions.php:103
+#, fuzzy
+msgid "Add your own widgets to the First Sidebar %shere%s"
+msgstr "Agrega widgets al primer sidebar %saqui%s"
+
+#: admin/actions.php:117
+msgid "Add widgets to the Second Sidebar %shere%s"
+msgstr "Agrega widgets al segundo sidebar %saqui%s"
+
+#: admin/actions.php:169
+msgid "Not found"
+msgstr "No se encontró"
+
+#: admin/actions.php:172
+msgid "No results were found for your request."
+msgstr "No se encontraron resultados para su búsqueda."
+
+#: admin/actions.php:190
+msgid "Posts Tagged &#8216;%s&#8217;"
+msgstr "Posts con el tag"
+
+#: admin/actions.php:193 admin/actions.php:196 admin/actions.php:199
+msgid "Archive for"
+msgstr "Archivo de"
+
+#: admin/actions.php:202
+msgid "Blog Archives"
+msgstr "Archivo del blog"
+
+#: admin/actions.php:210 admin/actions.php:227 admin/actions.php:240
+msgid "No posts found."
+msgstr "No se encontraron posts."
+
+#: admin/actions.php:251
+msgid "One Response to %2$s"
+msgid_plural "%1$s Responses to %2$s"
+msgstr[0] "Una respuesta a %2$s"
+msgstr[1] "%1$s respuestas a %2$s"
+
+#: admin/actions.php:263
+msgid "Reply"
+msgstr "Contesta"
+
+#: admin/actions.php:276
+msgid "Comment navigation"
+msgstr "Navegación de comentarios"
+
+#: admin/actions.php:277
+msgid "&larr; Older Comments"
+msgstr "&larr; Comentarios anteriores"
+
+#: admin/actions.php:278
+msgid "Newer Comments &rarr;"
+msgstr "Comentarios más recientes &rarr;"
+
+#: admin/actions.php:293
+msgid "Your comment"
+msgstr "Tu comentario"
+
+#: admin/actions.php:306
+msgid "search results for"
+msgstr "resultados de la búsqueda"
+
+#: admin/actions.php:399 admin/actions.php:461 admin/actions.php:591
+#: admin/inc/widget-featured.php:44
+#, fuzzy
+msgid "Permalink to %s"
+msgstr "Link permanente a %s"
+
+#: admin/actions.php:403 admin/actions.php:542
+msgid "by"
+msgstr "por"
+
+#: admin/actions.php:410 admin/actions.php:544
+msgid "0 Comments"
+msgstr "0 Comentarios"
+
+#: admin/actions.php:410 admin/actions.php:544
+msgid "1 Comment"
+msgstr "1 Comentario"
+
+#: admin/actions.php:410 admin/actions.php:544
+msgid "% Comments"
+msgstr "% Comentarios"
+
+#: admin/actions.php:450 admin/actions.php:477 admin/actions.php:573
+#: admin/actions.php:579 admin/actions.php:601
+msgid "Read more &rarr;"
+msgstr "Lee mas &rarr;"
+
+#: admin/actions.php:461 admin/actions.php:591
+msgid "This gallery contains <a %1$s>%2$s photo &rarr;</a>"
+msgid_plural "This gallery contains <a %1$s>%2$s photos &rarr;</a>"
+msgstr[0] "Esta galería contiene <a %1$s>%2$s imagen &rarr;</a>"
+msgstr[1] "Esta galería contiene <a %1$s>%2$s imágenes &rarr;</a>"
+
+#: admin/actions.php:498
+msgid "Tags"
+msgstr "Tags"
+
+#: admin/actions.php:499
+msgid "Pages"
+msgstr "Paginas"
+
+#: admin/actions.php:500 functions.php:634 functions.php:655
+msgid "(edit)"
+msgstr "(editar)"
+
+#: admin/actions.php:519
+msgid "About"
+msgstr "Acerca de"
+
+#: admin/actions.php:539
+msgid "Permanent Link to %s"
+msgstr "Link permanente a %s"
+
+#: admin/inc/footer-scripts.php:432
+msgid "If you leave this page you will lose your changes."
+msgstr "Si abandonas esta página perderás tus cambios."
+
+#: admin/inc/fullwidth.php:16
+msgid "Default"
+msgstr "Predeterminado"
+
+#: admin/inc/fullwidth.php:17
+msgid "Full width"
+msgstr "Ancho completo"
+
+#: admin/inc/fullwidth.php:30 admin/inc/fullwidth.php:31
+#: admin/inc/toolbox.php:42
+msgid "Layout"
+msgstr "Layout"
+
+#: admin/inc/slideshows.php:70 functions.php:405 functions.php:412
+#: functions.php:414
+msgid "Read more"
+msgstr "Lee mas"
+
+#: admin/inc/toolbox.php:22 admin/inc/welcome.php:14
+msgid "PressWork Settings"
+msgstr "Ajustes de PressWork"
+
+#: admin/inc/toolbox.php:25
+msgid "Drag &amp; Drop Editor"
+msgstr "Editor Drag &amp; Drop"
+
+#: admin/inc/toolbox.php:31 admin/inc/toolbox.php:33 admin/inc/toolbox.php:34
+msgid "OFF"
+msgstr "OFF"
+
+#: admin/inc/toolbox.php:31 admin/inc/toolbox.php:33 admin/inc/toolbox.php:34
+msgid "ON"
+msgstr "ON"
+
+#: admin/inc/toolbox.php:33
+msgid "Hooks"
+msgstr "Guías"
+
+#: admin/inc/toolbox.php:34
+msgid "Functions"
+msgstr "Funciones"
+
+#: admin/inc/toolbox.php:35
+msgid "Reset all options"
+msgstr "Restablecer opciones"
+
+#: admin/inc/toolbox.php:35
+msgid "Reset"
+msgstr "Restablecer"
+
+#: admin/inc/toolbox.php:59 admin/inc/welcome.php:16
+msgid "Colors"
+msgstr "Colores"
+
+#: admin/inc/toolbox.php:75
+msgid "Fonts"
+msgstr "Tipo de letra"
+
+#: admin/inc/toolbox.php:78
+msgid "Headers"
+msgstr "Headers"
+
+#: admin/inc/toolbox.php:79
+msgid "Body"
+msgstr "Cuerpo"
+
+#: admin/inc/toolbox.php:80
+msgid "Font Size"
+msgstr "Tamaño de letra"
+
+#: admin/inc/toolbox.php:82
+msgid "Fonts by"
+msgstr "Fonts de"
+
+#: admin/inc/toolbox.php:87
+msgid "Social"
+msgstr "Social"
+
+#: admin/inc/toolbox.php:90
+msgid "Username (without @)"
+msgstr "Usuario (sin @)"
+
+#: admin/inc/toolbox.php:91 admin/inc/toolbox.php:94 admin/inc/toolbox.php:95
+#: admin/inc/widget-twitter.php:62
+msgid "Username"
+msgstr "Usuario"
+
+#: admin/inc/toolbox.php:92 admin/inc/toolbox.php:93
+msgid "User ID"
+msgstr "ID de usuario"
+
+#: admin/inc/toolbox.php:107
+msgid "Updated"
+msgstr "Actualizado"
+
+#: admin/inc/toolbox.php:114 admin/inc/toolbox.php:128
+msgid "Main Content"
+msgstr "Contenido"
+
+#: admin/inc/toolbox.php:115 admin/inc/toolbox.php:192 functions.php:539
+msgid "First Sidebar"
+msgstr "1er sidebar"
+
+#: admin/inc/toolbox.php:116 admin/inc/toolbox.php:193 functions.php:549
+msgid "Second Sidebar"
+msgstr "2do Sidebar"
+
+#: admin/inc/toolbox.php:118
+msgid "Body Margins"
+msgstr "Márgenes del cuerpo"
+
+#: admin/inc/toolbox.php:119
+msgid "Content Margins"
+msgstr "Márgenes del contenido"
+
+#: admin/inc/toolbox.php:127
+msgid "Header"
+msgstr "Header"
+
+#: admin/inc/toolbox.php:129
+msgid "Footer"
+msgstr "Footer"
+
+#: admin/inc/toolbox.php:137 admin/inc/toolbox.php:139
+#: admin/inc/toolbox.php:140 admin/inc/toolbox.php:142
+#: admin/inc/toolbox.php:143 admin/inc/toolbox.php:147
+#: admin/inc/toolbox.php:151 admin/inc/toolbox.php:156
+#: admin/inc/toolbox.php:158
+msgid "Color"
+msgstr "Color"
+
+#: admin/inc/toolbox.php:138 admin/inc/toolbox.php:141
+#: admin/inc/toolbox.php:144 admin/inc/toolbox.php:148
+#: admin/inc/toolbox.php:152 admin/inc/toolbox.php:157
+msgid "Hover Color"
+msgstr "Color de over"
+
+#: admin/inc/toolbox.php:145 admin/inc/toolbox.php:149
+#: admin/inc/toolbox.php:153 admin/inc/toolbox.php:159
+msgid "BG Color"
+msgstr "Color de fondo"
+
+#: admin/inc/toolbox.php:146 admin/inc/toolbox.php:150
+#: admin/inc/toolbox.php:154
+msgid "BG Hover Color"
+msgstr "Color de fondo con over"
+
+#: admin/inc/toolbox.php:155 admin/inc/toolbox.php:174
+msgid "Category Header"
+msgstr "Encabezado de categoría"
+
+#: admin/inc/toolbox.php:167 admin/inc/toolbox.php:187
+msgid "Blog Name"
+msgstr "Nombre del blog"
+
+#: admin/inc/toolbox.php:168 admin/inc/toolbox.php:188
+msgid "Description"
+msgstr "Descripción"
+
+#: admin/inc/toolbox.php:169
+msgid "Links"
+msgstr "Links"
+
+#: admin/inc/toolbox.php:170
+msgid "Main Text"
+msgstr "Texto principal"
+
+#: admin/inc/toolbox.php:171 admin/inc/toolbox.php:189
+#, fuzzy
+msgid "Primary Menu"
+msgstr "Navegación Primaria"
+
+#: admin/inc/toolbox.php:172 admin/inc/toolbox.php:190
+#, fuzzy
+msgid "Secondary Menu"
+msgstr "Navegación secundaria"
+
+#: admin/inc/toolbox.php:173 admin/inc/toolbox.php:194
+#, fuzzy
+msgid "Footer Menu"
+msgstr "Navegacion pie de página"
+
+#: admin/inc/toolbox.php:175
+msgid "Post Title"
+msgstr "Título del post"
+
+#: admin/inc/toolbox.php:176
+msgid "Post Meta"
+msgstr "Meta del post"
+
+#: admin/inc/toolbox.php:177
+msgid "Page Background"
+msgstr "Fondo de la página"
+
+#: admin/inc/toolbox.php:185
+msgid "Logo"
+msgstr "Logo"
+
+#: admin/inc/toolbox.php:186
+#, fuzzy
+msgid "Header Image"
+msgstr "Header"
+
+#: admin/inc/toolbox.php:191
+msgid "Widgetized Area"
+msgstr "Área para widgets"
+
+#: admin/inc/toolbox.php:195 functions.php:559
+msgid "Extended Footer"
+msgstr "Footer extendido"
+
+#: admin/inc/toolbox.php:196
+msgid "Copyright"
+msgstr "Copyright"
+
+#: admin/inc/toolbox.php:198
+msgid "Logo Image URL"
+msgstr "URL del logo"
+
+#: admin/inc/toolbox.php:199
+msgid "Favicon URL"
+msgstr "URL del Favicon"
+
+#: admin/inc/welcome.php:14
+msgid ""
+"Turn on the Drag &amp; Drop Editor, Hooks &amp; Functions, or even Reset all "
+"options if you mess up."
+msgstr ""
+"Habilita el editor Drag &amp; Drop, Hooks &amp; Funciones, o restablece "
+"todas las opciones si te equivocaste."
+
+#: admin/inc/welcome.php:15
+msgid "Layouts"
+msgstr "Layouts"
+
+#: admin/inc/welcome.php:15
+msgid ""
+"This panel allows you to modify widths and margins. You can also add your "
+"own logo, sidebars &amp; more."
+msgstr ""
+"Este panel te permite modificar anchos y márgenes. También puedes agregar tu "
+"propio logo, barra lateral y más."
+
+#: admin/inc/welcome.php:16
+msgid ""
+"This is where you can change the colors for links, main text, menus, post "
+"titles, backgrounds &amp; more."
+msgstr ""
+"Aquí puedes cambiar los colores de los links, texto principal, menús, "
+"títulos, fondos y más."
+
+#: admin/inc/welcome.php:17
+msgid "Google Fonts"
+msgstr "Google Fonts"
+
+#: admin/inc/welcome.php:17
+msgid ""
+"PressWork comes with the top 20 most popular Google Fonts. You can easily "
+"add more if you like."
+msgstr ""
+"PressWork tiene los 20 Google Fonts más populares. Puedes agregar mas "
+"fácilmente si lo deseas."
+
+#: admin/inc/welcome.php:18
+msgid "Social Networking"
+msgstr "Redes Sociales"
+
+#: admin/inc/welcome.php:18
+msgid ""
+"Enter your Twitter, Facebook &amp; Flickr usernames so people can find you."
+msgstr ""
+"Escribe tus usuarios de Twitter, Facebook y Flickr para que la gente te "
+"pueda encontrar."
+
+#: admin/inc/welcome.php:19
+msgid "Save"
+msgstr "Guardar"
+
+#: admin/inc/welcome.php:19
+msgid ""
+"Got everything set up the way you want? Better make sure to click Save or "
+"you might lose your settings."
+msgstr ""
+"¿Tienes todo configurado como querías? Asegúrate de dar clic en Guardar o "
+"puedes perder tus cambios."
+
+#: admin/inc/welcome.php:21
+msgid "version"
+msgstr "versión"
+
+#: admin/inc/welcome.php:22
+msgid "Close"
+msgstr "cerrar"
+
+#: admin/inc/welcome.php:23
+msgid "Close the<br />Welcome Screen"
+msgstr "Cierra la<br/>pantalla de bienvenida"
+
+#: admin/inc/welcome.php:26
+#, fuzzy
+msgid "The PressWork<br />Toolbox"
+msgstr "Las herramientas<br/> de PressWork"
+
+#: admin/inc/welcome.php:27
+msgid "The PressWork<br />Admin Page"
+msgstr "La página de administración<br/> de PressWork"
+
+#: admin/inc/widget-featured.php:9
+msgid "Displays featured posts from one category"
+msgstr "Muestra posts destacados de una categoría"
+
+#: admin/inc/widget-featured.php:10
+msgid "PW - Featured Posts"
+msgstr "PW - Posts Destacados"
+
+#: admin/inc/widget-featured.php:64 admin/inc/widget-flickr.php:43
+#: admin/inc/widget-slideshows.php:42 admin/inc/widget-twitter.php:61
+msgid "Title"
+msgstr "Título"
+
+#: admin/inc/widget-featured.php:65 admin/inc/widget-slideshows.php:54
+msgid "Category"
+msgstr "Categoría"
+
+#: admin/inc/widget-featured.php:66
+msgid "Number of Posts"
+msgstr "Número de posts"
+
+#: admin/inc/widget-flickr.php:9
+msgid "Displays your flickr photos"
+msgstr "Deshabilita tus fotos de Flickr"
+
+#: admin/inc/widget-flickr.php:10
+msgid "PW - Flickr Feed"
+msgstr "PW - Feed de Flickr"
+
+#: admin/inc/widget-flickr.php:44
+msgid "UserID"
+msgstr "ID de usuario"
+
+#: admin/inc/widget-flickr.php:44
+msgid "Flickr idGettr"
+msgstr "idCettr de Flickr"
+
+#: admin/inc/widget-flickr.php:45
+msgid "Number of Photos"
+msgstr "Número de fotos"
+
+#: admin/inc/widget-flickr.php:46
+msgid "Link Text"
+msgstr "Texto del link"
+
+#: admin/inc/widget-slideshows.php:9
+msgid "Add a featured slideshow"
+msgstr "Agrega un slideshow destacado"
+
+#: admin/inc/widget-slideshows.php:10
+msgid "PW - Slideshows"
+msgstr "PW - Slidshows"
+
+#: admin/inc/widget-slideshows.php:43
+msgid "Type"
+msgstr "Tipo"
+
+#: admin/inc/widget-slideshows.php:50
+msgid "Number of posts"
+msgstr "Número de posts"
+
+#: admin/inc/widget-slideshows.php:51
+msgid "Width"
+msgstr "Ancho"
+
+#: admin/inc/widget-slideshows.php:52
+msgid "Height"
+msgstr "Alto"
+
+#: admin/inc/widget-slideshows.php:53
+msgid "Excerpt length"
+msgstr "Largo del extracto"
+
+#: admin/inc/widget-twitter.php:9
+msgid "Displays your tweets"
+msgstr "Muestra tus tweets"
+
+#: admin/inc/widget-twitter.php:10
+msgid "PW - Twitter Feed"
+msgstr "PW - Feed de Twitter"
+
+#: admin/inc/widget-twitter.php:63
+msgid "Number of Tweets"
+msgstr "Número de Tweets"
+
+#: admin/inc/widget-twitter.php:64
+msgid "Text Link"
+msgstr "Texto del link"
+
+#: comments.php:11
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"Este artículo está protegido con contraseña. Escribe la contraseña para ver "
+"los comentarios."
+
+#: functions.php:227
+msgid "Primary Nav Menu"
+msgstr "Navegación Primaria"
+
+#: functions.php:228
+msgid "Secondary Nav Menu"
+msgstr "Navegación secundaria"
+
+#: functions.php:229
+msgid "Footer Nav Menu"
+msgstr "Navegacion pie de página"
+
+#: functions.php:241
+#, fuzzy
+msgid "Customize your Primary nav menu %shere%s"
+msgstr "Crea tu menú de navegación primario %shere%s"
+
+#: functions.php:250
+msgid "Create your Secondary nav menu %shere%s"
+msgstr "Crea tu menú de navegación secundario %shere%s"
+
+#: functions.php:259
+msgid "Create your Footer nav menu %shere%s"
+msgstr "Crea tu menú de navegación de pie de página %shere%s"
+
+#: functions.php:338
+msgid "Toolbox Deactivated."
+msgstr "Herramientas desactivadas."
+
+#: functions.php:341
+msgid ""
+"Click on the button below to activate/deactivate the %s front-end toolbox."
+msgstr ""
+"Haz clic en el botón de abajo para activar/desactivar las herramientas del "
+"front-end de %s."
+
+#: functions.php:352
+msgid "If you have any questions or feedback, please check out our %s."
+msgstr "Si tienes cualquier pregunta o sugerencia, por favor checa nuestro %s."
+
+#: functions.php:361
+msgid "Created by"
+msgstr "Creado por"
+
+#: functions.php:362
+msgid "Contributors"
+msgstr "Contribuidores"
+
+#: functions.php:369
+msgid "Version %1$s of %2$s is now available. Go to %3$s page."
+msgstr "Versión %1$s de %2$s ahora disponible. Ir a la %3$s página."
+
+#: functions.php:397
+msgid "New in v1.0.4"
+msgstr "Nuevo en v1.0.4"
+
+#: functions.php:398
+msgid ""
+"PressWork v1.0.4 has been optimized to work with WordPress 3.3. Many new "
+"featured have been added to WP and the latest version of PressWork takes "
+"advantage of many of them, including this cool new help section. "
+msgstr ""
+
+#: functions.php:399
+msgid ""
+"Check out the <a href=\"https://raw.github.com/digibomb/PressWork/master/"
+"changelog.txt\">changelog</a> to see what we've been up to."
+msgstr ""
+
+#: functions.php:404
+#, fuzzy
+msgid "The PressWork Toolbox"
+msgstr "Las herramientas<br/> de PressWork"
+
+#: functions.php:405
+msgid ""
+"One of the most amazing things about PressWork is the ability to customize "
+"your site without leaving the front end. This would not be possible if it "
+"weren't for the PressWork Toolbox. That's what we call the collection of "
+"tools that appear in the lower left of your screen when you are logged in as "
+"an admin."
+msgstr ""
+
+#: functions.php:410
+msgid "Customizing PressWork"
+msgstr "Modifica PressWork"
+
+#: functions.php:411
+msgid "Custom CSS"
+msgstr "CSS a medida"
+
+#: functions.php:412
+msgid ""
+"PressWork has many theme options that allow you to customize how your site "
+"is styled. But what if you wanted to really delve into the design by adding "
+"some custom CSS. All you need to do is create a file called <code>custom."
+"css</code> and upload it to your site's <code>/uploads</code> directory."
+msgstr ""
+
+#: functions.php:413
+#, fuzzy
+msgid "Custom Actions"
+msgstr "Funciones"
+
+#: functions.php:414
+msgid ""
+"PressWork has been built so that all the customization happens through a "
+"file called actions.php. In order to customize or remove these actions, you "
+"need to create a <code>custom-actions.php</code> file and upload it to your "
+"site's <code>/uploads</code> directory."
+msgstr ""
+
+#: functions.php:419
+msgid "Contribute on GitHub"
+msgstr "Contribuye en GitHub"
+
+#: functions.php:420
+msgid "Be a part of the PressWork Community"
+msgstr "Se parte de la comunidad de PressWork"
+
+#: functions.php:421
+#, fuzzy
+msgid ""
+"If you've got mad skills when it comes to WordPress and you want to join the "
+"PressWork community, find us on <a href='https://github.com/digibomb/"
+"PressWork' target='_blank'>GitHub</a> and contribute. Together we can make "
+"PressWork the ultimate WordPress framework."
+msgstr ""
+"Si tienes excelentes habilidades cuando se trata de WordPress y quieres "
+"unirte a la comunidad de %s, encuéntranos en %s y contribuye.  Juntos "
+"podemos hacer de %s el mejor framework para WordPress."
+
+#: functions.php:425
+msgid "For more information:"
+msgstr "Para más información:"
+
+#: functions.php:426
+msgid ""
+"<a href=\"http://presswork.me/category/documentation/\" target=\"_blank"
+"\">Documentation</a>"
+msgstr ""
+
+#: functions.php:427
+msgid ""
+"<a href=\"http://support.presswork.me\" target=\"_blank\">Support Forum</a>"
+msgstr ""
+
+#: functions.php:428
+msgid "<a href=\"http://presswork.me\" target=\"_blank\">PressWork.me</a>"
+msgstr ""
+
+#: functions.php:519
+msgid "Top Main Content on Index"
+msgstr "Contenido superior principal del index"
+
+#: functions.php:521
+msgid ""
+"The area above the main content on the index page. Perfect spot for a "
+"slideshow."
+msgstr ""
+"El área encima del contenido principal del index.  Lugar perfecto para un "
+"slideshow."
+
+#: functions.php:529
+msgid "Header Area"
+msgstr "Header"
+
+#: functions.php:531
+msgid ""
+"The header area appears on every page of your site if it has been placed in "
+"the header."
+msgstr ""
+"El header aparece en todas las páginas de tu sitio si se pone en el header."
+
+#: functions.php:541
+msgid ""
+"The first sidebar appears on every page of your site, unless you have "
+"selected full width for a post or page."
+msgstr ""
+"El primer sidebar aparece en todas las páginas de tu sitio a menos que hayas "
+"seleccionado el ancho total en un post o página."
+
+#: functions.php:551
+msgid ""
+"The second sidebar appears on every page of your site, unless you have "
+"selected full width for a post or page."
+msgstr ""
+"El segundo sidebar aparece en todas las páginas de tu sitio a menos que "
+"hayas seleccionado el ancho total en un post o página."
+
+#: functions.php:561
+msgid ""
+"The extended footer appears at the bottom of your site if it has been placed "
+"in the footer."
+msgstr ""
+"El footer extendido aparece al final de su sitio si se ha colocado en el pie "
+"de página."
+
+#: functions.php:633
+msgid "%1$s at %2$s"
+msgstr "%1$s en %2$s"
+
+#: functions.php:638
+msgid "Your comment is awaiting moderation."
+msgstr "Tu comentario está esperando moderación."
+
+#: functions.php:655
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: functions.php:668
+msgid "Your name"
+msgstr "Nombre"
+
+#: functions.php:669
+msgid "Your email"
+msgstr "Correo"
+
+#: functions.php:670
+msgid "Your website"
+msgstr "Sitio web"
+
+#: functions.php:794
+msgid "PW Admin"
+msgstr ""
+
+#: functions.php:795
+msgid "Browse Our Themes"
+msgstr "Dale un vistazo a nuestros Temas"
+
+#: functions.php:904
+msgid "Add widgets to the Header Area %shere%s"
+msgstr "Agrega widgets al header %saqui%s"
+
+#: functions.php:987
+msgid "Add widgets to the Extended Footer %shere%s"
+msgstr "Agrega widgets al footer extendido %saqui%s"
+
+#: functions.php:997
+msgid "&copy; %1$d %2$s. All Rights Reserved."
+msgstr "&copy; %1$d %2$s. Todos los Derechos Reservados."
+
+#: functions.php:999
+msgid "Created using %s."
+msgstr "Creado usando %s."
+
+#: functions.php:1093
+msgid "Search for:"
+msgstr "Busca:"
+
+#: functions.php:1094
+msgid "Search..."
+msgstr "Busca..."
+
+#. Theme Name of the plugin/theme
+#, fuzzy
+msgid "PressWork"
+msgstr "Ajustes de PressWork"
+
+#. Theme URI of the plugin/theme
+msgid "http://presswork.me/about/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"PressWork is a free, open source WordPress theme framework built for modern "
+"browsers using HTML5 and CSS3. Features include a drag & drop front-end "
+"editor for easy customization, the top 20 most popular Google Fonts and a "
+"responsive design using media queries so your site will look good on the "
+"iPad, iPhone and other handheld devices. Created by <a href=\"http://"
+"bavotasan.com/\">c.bavota</a> and <a href=\"http://digibombinc.com\">Brendan "
+"Sera-Shriar</a>."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "c.bavota, Brendan Sera-Shriar"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://presswork.me/"
+msgstr ""
+
+#~ msgid "Resources"
+#~ msgstr "Recursos"
+
+#~ msgid "Support Forum"
+#~ msgstr "Foro de soporte"
+
+#~ msgid "PressWork on Github"
+#~ msgstr "PressWork en Github"
+
+#~ msgid "Find us on Twitter"
+#~ msgstr "Síguenos en Twitter"
+
+#~ msgid "By"
+#~ msgstr "Por"
