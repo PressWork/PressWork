@@ -40,17 +40,17 @@ msgstr ""
 
 #. Text in function
 #: pressworkdev/functions.php:347
-msgid "<a href=\"http://presswork.me\" target=\"_blank\">PressWork.me</a>"
+msgid "<a href=\"http://presswork.io\" target=\"_blank\">PressWork.me</a>"
 msgstr ""
 
 #. Text in function
 #: pressworkdev/functions.php:347
-msgid "<a href=\"http://presswork.me/category/documentation/\" target=\"_blank\">Documentation</a>"
+msgid "<a href=\"http://presswork.io/category/documentation/\" target=\"_blank\">Documentation</a>"
 msgstr ""
 
 #. Text in function
 #: pressworkdev/functions.php:347
-msgid "<a href=\"http://support.presswork.me\" target=\"_blank\">Support Forum</a>"
+msgid "<a href=\"http://support.presswork.io\" target=\"_blank\">Support Forum</a>"
 msgstr ""
 
 #. Text in echo
@@ -145,7 +145,7 @@ msgstr ""
 
 #. Text in function
 #: pressworkdev/functions.php:347
-msgid "Check out the <a href=\"https://raw.github.com/digibomb/PressWork/master/changelog.txt\">changelog</a> to see what we\\'ve been up to."
+msgid "Check out the <a href=\"https://raw.github.com/emiluzelac/PressWork/master/changelog.txt\">changelog</a> to see what we\\'ve been up to."
 msgstr ""
 
 #. Text in function
@@ -404,7 +404,7 @@ msgstr ""
 
 #. Text in function
 #: pressworkdev/functions.php:347
-msgid "If you've got mad skills when it comes to WordPress and you want to join the PressWork community, find us on <a href='https://github.com/digibomb/PressWork' target='_blank'>GitHub</a> and contribute. Together we can make PressWork the ultimate WordPress framework."
+msgid "If you've got mad skills when it comes to WordPress and you want to join the PressWork community, find us on <a href='https://github.com/emiluzelac/PressWork' target='_blank'>GitHub</a> and contribute. Together we can make PressWork the ultimate WordPress framework."
 msgstr ""
 
 #. Text in echo

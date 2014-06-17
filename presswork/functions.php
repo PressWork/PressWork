@@ -349,7 +349,7 @@ if(!function_exists( 'pw_admin_page' )) :
         </div>
         <?php 
  	    echo '<p>';
-      	printf(__("If you have any questions or feedback, please check out our %s.", "presswork"), '<a href="http://support.presswork.me/">Support Forum</a>' );
+      	printf(__("If you have any questions or feedback, please check out our %s.", "presswork"), '<a href="http://support.presswork.io/">Support Forum</a>' );
 		echo '</p>';
 		?>
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -373,7 +373,7 @@ if(!function_exists( 'pw_admin_page' )) :
 		?>
 		</div> <!-- end of #presswork -->	
 		<p class="pw-twitter"><a href="http://twitter.com/pressworkwp">@PressWorkWP</a></p>
-        <p class="pw-briefcase">Want more functionality? Get <a href="http://presswork.me/briefcase/"></a></p>
+        <p class="pw-briefcase">Want more functionality? Get <a href="http://presswork.io/briefcase/"></a></p>
 	</div> <!-- end of #wrap -->
 	<?php
 	}
@@ -396,36 +396,36 @@ if(!function_exists( 'pw_help' )) :
 			'id'      => 'pw-new',
 			'title'   => __( 'New in v1.0.4', "presswork"),
 			'content' => '<p>'.__( 'PressWork v1.0.4 has been optimized to work with WordPress 3.3. Many new featured have been added to WP and the latest version of PressWork takes advantage of many of them, including this cool new help section. ', "presswork") . 
-				'<p>' . __( 'Check out the <a href="https://raw.github.com/digibomb/PressWork/master/changelog.txt">changelog</a> to see what we\'ve been up to.', "presswork") . '</p>'
+				'<p>' . __( 'Check out the <a href="https://raw.github.com/emiluzelac/PressWork/master/changelog.txt">changelog</a> to see what we\'ve been up to.', "presswork") . '</p>'
 		));
 
 		$screen->add_help_tab( array(
 			'id'      => 'pw-toolbox',
 			'title'   => __( 'The PressWork Toolbox', "presswork"),
-			'content' => '<p>'.__( 'One of the most amazing things about PressWork is the ability to customize your site without leaving the front end. This would not be possible if it weren\'t for the PressWork Toolbox. That\'s what we call the collection of tools that appear in the lower left of your screen when you are logged in as an admin.', "presswork") . '<br /><a href="http://presswork.me/2011/the-presswork-toolbox/">' . __( 'Read more', "presswork") . '</a></p>'
+			'content' => '<p>'.__( 'One of the most amazing things about PressWork is the ability to customize your site without leaving the front end. This would not be possible if it weren\'t for the PressWork Toolbox. That\'s what we call the collection of tools that appear in the lower left of your screen when you are logged in as an admin.', "presswork") . '<br /><a href="http://presswork.io/2011/the-presswork-toolbox/">' . __( 'Read more', "presswork") . '</a></p>'
 		));
 
 		$screen->add_help_tab( array(
 			'id'      => 'pw-resources',
 			'title'   => __( 'Customizing PressWork', "presswork"),
 			'content' => '<p><strong>' . __( 'Custom CSS', "presswork") . '</strong><p>' .
-				'<p>'.__( 'PressWork has many theme options that allow you to customize how your site is styled. But what if you wanted to really delve into the design by adding some custom CSS. All you need to do is create a file called <code>custom.css</code> and upload it to your site\'s <code>/uploads</code> directory.', "presswork") . '<br /><a href="http://presswork.me/2011/custom-css-and-custom-actions/">' . __( 'Read more', "presswork") . '</a></p>' .
+				'<p>'.__( 'PressWork has many theme options that allow you to customize how your site is styled. But what if you wanted to really delve into the design by adding some custom CSS. All you need to do is create a file called <code>custom.css</code> and upload it to your site\'s <code>/uploads</code> directory.', "presswork") . '<br /><a href="http://presswork.io/2011/custom-css-and-custom-actions/">' . __( 'Read more', "presswork") . '</a></p>' .
 				'<p><strong>' . __( 'Custom Actions', "presswork") . '</strong><p>' .
-				'<p>' . __( 'PressWork has been built so that all the customization happens through a file called actions.php. In order to customize or remove these actions, you need to create a <code>custom-actions.php</code> file and upload it to your site\'s <code>/uploads</code> directory.', "presswork") . '<br /><a href="http://presswork.me/2011/custom-css-and-custom-actions/">' . __( 'Read more', "presswork") . '</a></p>'
+				'<p>' . __( 'PressWork has been built so that all the customization happens through a file called actions.php. In order to customize or remove these actions, you need to create a <code>custom-actions.php</code> file and upload it to your site\'s <code>/uploads</code> directory.', "presswork") . '<br /><a href="http://presswork.io/2011/custom-css-and-custom-actions/">' . __( 'Read more', "presswork") . '</a></p>'
 		));
 
 		$screen->add_help_tab( array(
 			'id'      => 'pw-github',
 			'title'   => __( 'Contribute on GitHub', "presswork"),
 			'content' => '<p><strong>' . __("Be a part of the PressWork Community", "presswork") . '</strong></p>' .
-				'<p>' . __("If you've got mad skills when it comes to WordPress and you want to join the PressWork community, find us on <a href='https://github.com/digibomb/PressWork' target='_blank'>GitHub</a> and contribute. Together we can make PressWork the ultimate WordPress framework.", "presswork") . '</p>'
+				'<p>' . __("If you've got mad skills when it comes to WordPress and you want to join the PressWork community, find us on <a href='https://github.com/emiluzelac/PressWork' target='_blank'>GitHub</a> and contribute. Together we can make PressWork the ultimate WordPress framework.", "presswork") . '</p>'
 		));
 
 		$screen->set_help_sidebar(
 			'<p><strong>' . __( 'For more information:', "presswork") . '</strong></p>' .
-			'<p>' . __( '<a href="http://presswork.me/category/documentation/" target="_blank">Documentation</a>', "presswork") . '</p>' .
-			'<p>' . __( '<a href="http://support.presswork.me" target="_blank">Support Forum</a>', "presswork") . '</p>' .
-			'<p>' . __( '<a href="http://presswork.me" target="_blank">PressWork.me</a>', "presswork") . '</p>'
+			'<p>' . __( '<a href="http://presswork.io/category/documentation/" target="_blank">Documentation</a>', "presswork") . '</p>' .
+			'<p>' . __( '<a href="http://support.presswork.io" target="_blank">Support Forum</a>', "presswork") . '</p>' .
+			'<p>' . __( '<a href="http://presswork.io" target="_blank">PressWork.me</a>', "presswork") . '</p>'
 		);
 	}
 endif;
@@ -792,7 +792,7 @@ function pw_add_menu_admin_bar() {
     /* Add the main siteadmin menu item */
     $wp_admin_bar->add_menu( array( 'id' => 'presswork-menu', 'title' => "PressWork", 'href' => admin_url( 'themes.php' )."?page=PressWork" ) );
     $wp_admin_bar->add_menu( array( 'parent' => 'presswork-menu', 'id' => 'presswork-admin', 'title' => __("PW Admin", "presswork"), 'href' => admin_url( 'themes.php' )."?page=PressWork" ) );
-    $wp_admin_bar->add_menu( array( 'parent' => 'presswork-menu', 'id' => 'presswork-themes', 'title' => __("Browse Our Themes", "presswork"), 'href' => 'http://presswork.me/category/themes/' ) );
+    $wp_admin_bar->add_menu( array( 'parent' => 'presswork-menu', 'id' => 'presswork-themes', 'title' => __("Browse Our Themes", "presswork"), 'href' => 'http://presswork.io/category/themes/' ) );
 
 }
 add_action( 'admin_bar_menu', 'pw_add_menu_admin_bar', 1000 );
@@ -996,7 +996,7 @@ function pw_get_element($pw_add_name, $pw_add_class = null) {
 		$link = '<a href="'.home_url().'">'.get_bloginfo( 'name' ).'</a>';
 		printf(__( '&copy; %1$d %2$s. All Rights Reserved.', "presswork"), date( 'Y' ), $link);
 		echo ' ';
-		printf(__( 'Created using %s.', "presswork"), '<a href="http://presswork.me">PressWork</a>' ); 
+		printf(__( 'Created using %s.', "presswork"), '<a href="http://presswork.io">PressWork</a>' ); 
 		echo '</li>';
 	}
 	do_action( 'add_pw_get_element', $pw_add_name, $pw_add_class);
