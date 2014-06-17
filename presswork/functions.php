@@ -392,41 +392,31 @@ if(!function_exists( 'pw_help' )) :
 			return;
 		
 		// added in PW 1.0.4 for WP 3.3
-		$screen->add_help_tab( array(
-			'id'      => 'pw-new',
+		$screen->add_help_tab( array( 'id'      => 'pw-new',
 			'title'   => __( 'New in v1.0.4', "presswork"),
 			'content' => '<p>'.__( 'PressWork v1.0.4 has been optimized to work with WordPress 3.3. Many new featured have been added to WP and the latest version of PressWork takes advantage of many of them, including this cool new help section. ', "presswork") . 
-				'<p>' . __( 'Check out the <a href="https://raw.github.com/emiluzelac/PressWork/master/changelog.txt">changelog</a> to see what we\'ve been up to.', "presswork") . '</p>'
-		));
+				'<p>' . __( 'Check out the <a href="https://raw.github.com/emiluzelac/PressWork/master/changelog.txt">changelog</a> to see what we\'ve been up to.', "presswork") . '</p>' ));
 
-		$screen->add_help_tab( array(
-			'id'      => 'pw-toolbox',
+		$screen->add_help_tab( array( 'id'      => 'pw-toolbox',
 			'title'   => __( 'The PressWork Toolbox', "presswork"),
-			'content' => '<p>'.__( 'One of the most amazing things about PressWork is the ability to customize your site without leaving the front end. This would not be possible if it weren\'t for the PressWork Toolbox. That\'s what we call the collection of tools that appear in the lower left of your screen when you are logged in as an admin.', "presswork") . '<br /><a href="http://presswork.io/2011/the-presswork-toolbox/">' . __( 'Read more', "presswork") . '</a></p>'
-		));
+			'content' => '<p>'.__( 'One of the most amazing things about PressWork is the ability to customize your site without leaving the front end. This would not be possible if it weren\'t for the PressWork Toolbox. That\'s what we call the collection of tools that appear in the lower left of your screen when you are logged in as an admin.', "presswork") . '<br /><a href="http://presswork.io/2011/the-presswork-toolbox/">' . __( 'Read more', "presswork") . '</a></p>' ));
 
-		$screen->add_help_tab( array(
-			'id'      => 'pw-resources',
+		$screen->add_help_tab( array( 'id'      => 'pw-resources',
 			'title'   => __( 'Customizing PressWork', "presswork"),
 			'content' => '<p><strong>' . __( 'Custom CSS', "presswork") . '</strong><p>' .
 				'<p>'.__( 'PressWork has many theme options that allow you to customize how your site is styled. But what if you wanted to really delve into the design by adding some custom CSS. All you need to do is create a file called <code>custom.css</code> and upload it to your site\'s <code>/uploads</code> directory.', "presswork") . '<br /><a href="http://presswork.io/2011/custom-css-and-custom-actions/">' . __( 'Read more', "presswork") . '</a></p>' .
 				'<p><strong>' . __( 'Custom Actions', "presswork") . '</strong><p>' .
-				'<p>' . __( 'PressWork has been built so that all the customization happens through a file called actions.php. In order to customize or remove these actions, you need to create a <code>custom-actions.php</code> file and upload it to your site\'s <code>/uploads</code> directory.', "presswork") . '<br /><a href="http://presswork.io/2011/custom-css-and-custom-actions/">' . __( 'Read more', "presswork") . '</a></p>'
-		));
+				'<p>' . __( 'PressWork has been built so that all the customization happens through a file called actions.php. In order to customize or remove these actions, you need to create a <code>custom-actions.php</code> file and upload it to your site\'s <code>/uploads</code> directory.', "presswork") . '<br /><a href="http://presswork.io/2011/custom-css-and-custom-actions/">' . __( 'Read more', "presswork") . '</a></p>' ));
 
-		$screen->add_help_tab( array(
-			'id'      => 'pw-github',
+		$screen->add_help_tab( array( 'id'      => 'pw-github',
 			'title'   => __( 'Contribute on GitHub', "presswork"),
 			'content' => '<p><strong>' . __("Be a part of the PressWork Community", "presswork") . '</strong></p>' .
-				'<p>' . __("If you've got mad skills when it comes to WordPress and you want to join the PressWork community, find us on <a href='https://github.com/emiluzelac/PressWork' target='_blank'>GitHub</a> and contribute. Together we can make PressWork the ultimate WordPress framework.", "presswork") . '</p>'
-		));
+				'<p>' . __("If you've got mad skills when it comes to WordPress and you want to join the PressWork community, find us on <a href='https://github.com/emiluzelac/PressWork' target='_blank'>GitHub</a> and contribute. Together we can make PressWork the ultimate WordPress framework.", "presswork") . '</p>' ));
 
-		$screen->set_help_sidebar(
-			'<p><strong>' . __( 'For more information:', "presswork") . '</strong></p>' .
+		$screen->set_help_sidebar( '<p><strong>' . __( 'For more information:', "presswork") . '</strong></p>' .
 			'<p>' . __( '<a href="http://presswork.io/category/documentation/" target="_blank">Documentation</a>', "presswork") . '</p>' .
 			'<p>' . __( '<a href="http://support.presswork.io" target="_blank">Support Forum</a>', "presswork") . '</p>' .
-			'<p>' . __( '<a href="http://presswork.io" target="_blank">PressWork</a>', "presswork") . '</p>'
-		);
+			'<p>' . __( '<a href="http://presswork.io" target="_blank">PressWork.me</a>', "presswork") . '</p>' );
 	}
 endif;
 //add_filter( 'contextual_help', 'pw_help', 10, 3);
@@ -515,55 +505,45 @@ if(!function_exists( 'pw_widgets_init' )) :
 		wp_register_script( 'pw_faderota_js', PW_THEME_URL.'/admin/js/faderota.js', array( 'jquery' ), PW_THEME_VERSION, true);
 
 		// Initiating the sidebars
-		register_sidebar(array(
-			'name' => __( 'Top Main Content on Index', "presswork"),
+		register_sidebar(array( 'name' => __( 'Top Main Content on Index', "presswork"),
 			'id' => 'top-index-area',
 			'description' => __( "The area above the main content on the index page. Perfect spot for a slideshow.", "presswork" ),
 			'before_widget' => '<aside id="%1$s" class="content-widget %2$s">',
 			'after_widget' => "</aside>",
 			'before_title' => '<header><h1 class="catheader">',
-			'after_title' => '</h1></header>'
-		));
+			'after_title' => '</h1></header>' ));
 
-		register_sidebar(array(
-			'name' => __( 'Header Area', "presswork"),
+		register_sidebar(array( 'name' => __( 'Header Area', "presswork"),
 			'id' => 'header-area',
 			'description' => __( "The header area appears on every page of your site if it has been placed in the header.", "presswork" ),
 			'before_widget' => '<aside id="%1$s" class="header-widget %2$s">',
 			'after_widget' => "</aside>",
 			'before_title' => '<header><h3>',
-			'after_title' => '</h3></header>'
-		));
+			'after_title' => '</h3></header>' ));
 		
-		register_sidebar(array(
-			'name' => __( 'First Sidebar', "presswork"),
+		register_sidebar(array( 'name' => __( 'First Sidebar', "presswork"),
 			'id' => 'first-sidebar',
 			'description' => __( "The first sidebar appears on every page of your site, unless you have selected full width for a post or page.", "presswork" ),
 			'before_widget' => '<aside id="%1$s" class="side-widget %2$s">',
 			'after_widget' => "</aside>",
 			'before_title' => '<header><h3>',
-			'after_title' => '</h3></header>'
-		));
+			'after_title' => '</h3></header>' ));
 		
-		register_sidebar(array(
-			'name' => __( 'Second Sidebar', "presswork"),
+		register_sidebar(array( 'name' => __( 'Second Sidebar', "presswork"),
 			'id' => 'second-sidebar',
 			'description' => __( "The second sidebar appears on every page of your site, unless you have selected full width for a post or page.", "presswork" ),
 			'before_widget' => '<aside id="%1$s" class="side-widget %2$s">',
 			'after_widget' => "</aside>",
 			'before_title' => '<header><h3>',
-			'after_title' => '</h3></header>'
-		));
+			'after_title' => '</h3></header>' ));
 
-		register_sidebar(array(
-			'name' => __( 'Extended Footer', "presswork"),
+		register_sidebar(array( 'name' => __( 'Extended Footer', "presswork"),
 			'id' => 'extended-footer',
 			'description' => __( "The extended footer appears at the bottom of your site if it has been placed in the footer.", "presswork" ),
 			'before_widget' => '<aside id="%1$s" class="bottom-widget %2$s">',
 			'after_widget' => "</aside>",
 			'before_title' => '<h3>',
-			'after_title' => '</h3>'
-		));
+			'after_title' => '</h3>' ));
 	}
 endif;
 add_action( 'init', 'pw_widgets_init' );
@@ -682,16 +662,14 @@ if(!function_exists( 'pw_paginate' )) :
 		global $wp_query, $wp_rewrite;
 		$wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
 		
-		$pagination = array(
-			'base' => @add_query_arg( 'paged','%#%' ),
+		$pagination = array( 'base' => @add_query_arg( 'paged','%#%' ),
 			'format' => '',
 			'total' => $wp_query->max_num_pages,
 			'current' => $current,
 			'show_all' => false,
 			'type' => 'plain',
 			'next_text' => '&raquo;',
-			'prev_text' => '&laquo;'
-			);
+			'prev_text' => '&laquo;' );
 		
 		if( $wp_rewrite->using_permalinks() )
 			$pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
@@ -1107,8 +1085,7 @@ add_filter( 'get_search_form', 'pw_html5_search_form' );
  */
 function pw_html5_audio($atts, $content = null) {
 	extract(shortcode_atts(array(
-		"src" => ''
-	), $atts));
+		"src" => '' ), $atts));
 	return '<audio src="'.$src.'" controls autobuffer>';
 }
 add_shortcode( 'audio5', 'pw_html5_audio' );
@@ -1122,8 +1099,7 @@ function pw_html5_video($atts, $content = null) {
 	extract(shortcode_atts(array(
 		"src" => '',
 		"width" => '',
-		"height" => ''
-	), $atts));
+		"height" => '' ), $atts));
 	return '<video src="'.$src.'" width="'.$width.'" height="'.$height.'" controls autobuffer>';
 }
 add_shortcode( 'video5', 'pw_html5_video' );

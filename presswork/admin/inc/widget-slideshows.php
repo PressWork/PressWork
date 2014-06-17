@@ -14,8 +14,7 @@ class PW_Slideshow_Widget extends WP_Widget {
 		extract($args, EXTR_SKIP);
 		$title = empty($instance['title']) ? '' : apply_filters( 'widget_title', $instance['title']);	
 		
-		$settings = array(
-			'type' => $instance['type'],
+		$settings = array( 'type' => $instance['type'],
 			'cat' => $instance['cat'],
 			'postnum' => $instance['postnum'],
 			'width' => $instance['width'],

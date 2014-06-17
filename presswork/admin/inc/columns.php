@@ -11,8 +11,7 @@ if(!function_exists( 'pw_columns' )) :
 	function pw_columns($args = '' ) {
 		global $pw_content_width, $paged;
 		
-		$defaults = array(
-			'width' => 'full',
+		$defaults = array( 'width' => 'full',
 			'columns' => 1,
 			'posts' => 1,
 			'text' => 'excerpt',
@@ -32,8 +31,7 @@ if(!function_exists( 'pw_columns' )) :
 			'id' => '',
 			'padding' => 0,
 			'colmargin' => 30,
-			'container_width' => ''
-		);
+			'container_width' => '' );
 	
 		$r = wp_parse_args( $args, $defaults );
 		extract( $r, EXTR_SKIP );

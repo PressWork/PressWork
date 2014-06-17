@@ -9,8 +9,7 @@ if(!function_exists( 'pw_slideshow' )) :
  */
 	function pw_slideshow($args = '' ) { 
 		global $wp_scripts;
-		$defaults = array(
-			'type' => 'scrollerota',
+		$defaults = array( 'type' => 'scrollerota',
 			'cat' => '',
 			'postnum' => 4,
 			'width' => pw_theme_option( 'content_width' ),

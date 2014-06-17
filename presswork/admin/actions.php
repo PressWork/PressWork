@@ -82,8 +82,7 @@ function pw_sidebar() {
 		get_search_form();
 		echo '</aside>';
 
-		$args = array(
-			'before_widget' => '<aside class="side-widget pw_featured_posts">',
+		$args = array( 'before_widget' => '<aside class="side-widget pw_featured_posts">',
 			'after_widget' => "</aside>",
 			'before_title' => '<header><h3>',
 			'after_title' => '</h3></header>',
@@ -288,10 +287,8 @@ add_action( 'pw_comments_nav_bottom', 'pw_comment_navigation' );
  */
 function pw_comment_section_reply() {
 	echo pw_function_handle(__FUNCTION__);
-	$args = array(
-		'comment_notes_after' => '',
-		'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" required cols="45" rows="8" placeholder="'.__("Your comment", "presswork").' *" aria-required="true"></textarea></p>'
-	);
+	$args = array( 'comment_notes_after' => '',
+		'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" required cols="45" rows="8" placeholder="'.__("Your comment", "presswork").' *" aria-required="true"></textarea></p>' );
 	comment_form($args); 
 }
 add_action( 'pw_comments_reply', 'pw_comment_section_reply' );
@@ -321,8 +318,7 @@ function pw_home_page_featured_query() {
 	if(!empty($sticky)) {
 		if(!empty($notin)) $notin = array_merge($notin, $sticky); else $notin = $sticky;
 		if($paged < 2) {
-			$args = array(
-				'post__in'  => $sticky,
+			$args = array( 'post__in'  => $sticky,
 				'ignore_sticky_posts' => 1
 			);
 			$the_query = new WP_Query( $args );
@@ -337,8 +333,7 @@ function pw_home_page_featured_query() {
 			wp_reset_query();
 		}
 	} else {
-		$args = array(
-			'post__not_in'  => $notin,
+		$args = array( 'post__not_in'  => $notin,
 			'posts_per_page' => 2
 		);
 		$the_query = new WP_Query( $args );
