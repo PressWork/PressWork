@@ -40,7 +40,7 @@ msgstr ""
 
 #. Text in function
 #: pressworkdev/functions.php:347
-msgid "<a href=\"http://presswork.io\" target=\"_blank\">PressWork.me</a>"
+msgid "<a href=\"http://presswork.io\" target=\"_blank\">PressWork</a>"
 msgstr ""
 
 #. Text in function

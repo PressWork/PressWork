@@ -425,7 +425,7 @@ if(!function_exists( 'pw_help' )) :
 			'<p><strong>' . __( 'For more information:', "presswork") . '</strong></p>' .
 			'<p>' . __( '<a href="http://presswork.io/category/documentation/" target="_blank">Documentation</a>', "presswork") . '</p>' .
 			'<p>' . __( '<a href="http://support.presswork.io" target="_blank">Support Forum</a>', "presswork") . '</p>' .
-			'<p>' . __( '<a href="http://presswork.io" target="_blank">PressWork.me</a>', "presswork") . '</p>'
+			'<p>' . __( '<a href="http://presswork.io" target="_blank">PressWork</a>', "presswork") . '</p>'
 		);
 	}
 endif;
