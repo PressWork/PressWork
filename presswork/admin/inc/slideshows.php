@@ -1,5 +1,5 @@
 <?php
-if(!function_exists('pw_slideshow')) :
+if(!function_exists( 'pw_slideshow' )) :
 /**
  * Add slideshow functionality
  *
@@ -7,13 +7,13 @@ if(!function_exists('pw_slideshow')) :
  *
  * @since PressWork 1.0
  */
-	function pw_slideshow($args = '') { 
+	function pw_slideshow($args = '' ) { 
 		global $wp_scripts;
 		$defaults = array(
 			'type' => 'scrollerota',
 			'cat' => '',
 			'postnum' => 4,
-			'width' => pw_theme_option('content_width'),
+			'width' => pw_theme_option( 'content_width' ),
 			'height' => 260,
 			'excerpt' => 35
 		);
@@ -48,9 +48,9 @@ if(!function_exists('pw_slideshow')) :
 			<?php while ($featured->have_posts()) : $featured->the_post(); ?> 
 				<li>
 				<?php
-				if(function_exists('has_post_thumbnail') && has_post_thumbnail()) { 
+				if(function_exists( 'has_post_thumbnail' ) && has_post_thumbnail()) { 
 					echo '<a href="'.get_permalink().'">';
-					the_post_thumbnail('full');
+					the_post_thumbnail( 'full' );
 					echo '</a>';
 				}	
 				?>
@@ -67,7 +67,7 @@ if(!function_exists('pw_slideshow')) :
 					echo '<header><h4><a href="'.get_permalink().'">'.esc_attr(get_the_title()).'</a></h4></header>';
 					echo pw_excerpt($r['excerpt']); 
 					?>
-					<footer><a href="<?php the_permalink(); ?>" class="readmore"><?php _e('Read more', "presswork"); ?></a></footer>
+					<footer><a href="<?php the_permalink(); ?>" class="readmore"><?php _e( 'Read more', "presswork"); ?></a></footer>
 				<?php } ?>
 				</li>
 			<?php endwhile; ?>

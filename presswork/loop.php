@@ -20,7 +20,7 @@
 ?>
 
 <?php 
-if(is_home()) do_action('pw_home_page'); 
+if(is_home()) do_action( 'pw_home_page' ); 
 
 global $current_class;
 $current_class = 'odd';
@@ -32,19 +32,19 @@ if(is_home()) echo '<div id="indexposts" class="clear fl">';
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php  
 		if(is_category()) :
-			pw_actionBlock('pw_category_post');
+			pw_actionBlock( 'pw_category_post' );
 		elseif(is_author()) :
-			pw_actionBlock('pw_author_post');
+			pw_actionBlock( 'pw_author_post' );
 		elseif(is_archive()) :
-			pw_actionBlock('pw_archive_post');
+			pw_actionBlock( 'pw_archive_post' );
 		elseif(is_search()) :
-			pw_actionBlock('pw_search_post');
+			pw_actionBlock( 'pw_search_post' );
 		elseif(is_page()) :
-			pw_actionBlock('pw_page_post');
+			pw_actionBlock( 'pw_page_post' );
 		elseif(is_single()) :
-			pw_actionBlock('pw_single_post');
+			pw_actionBlock( 'pw_single_post' );
 		else :	 
-			pw_actionBlock('pw_index_post');
+			pw_actionBlock( 'pw_index_post' );
 		endif; 
 		?>
     </article>

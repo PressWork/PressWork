@@ -4,7 +4,7 @@
   font-family: 'Indie Flower';
   font-style: normal;
   font-weight: normal;
-  src: local('Indie Flower'), local('IndieFlower'), url('http://themes.googleusercontent.com/font?kit=10JVD_humAd5zP2yrFqw6qRDOzjiPcYnFooOUGCOsRk') format('woff');
+  src: local( 'Indie Flower' ), local( 'IndieFlower' ), url( 'http://themes.googleusercontent.com/font?kit=10JVD_humAd5zP2yrFqw6qRDOzjiPcYnFooOUGCOsRk' ) format( 'woff' );
 }	
 
 #pw_toolbox {

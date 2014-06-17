@@ -14,14 +14,14 @@
 		return;
 	endif; 
 	if ( have_comments() ) : 
-		pw_actionCall('pw_comments_top');
-		pw_actionCall('pw_comments_nav_top');
-		pw_actionCall('pw_comments_middle');
-		pw_actionCall('pw_comments_nav_bottom');
+		pw_actionCall( 'pw_comments_top' );
+		pw_actionCall( 'pw_comments_nav_top' );
+		pw_actionCall( 'pw_comments_middle' );
+		pw_actionCall( 'pw_comments_nav_bottom' );
 	else : // this is displayed if there are no comments so far
-   		pw_actionCall('pw_comments_bottom');
+   		pw_actionCall( 'pw_comments_bottom' );
 	endif; 
-	pw_actionCall('pw_comments_reply');
+	pw_actionCall( 'pw_comments_reply' );
 	?>
 </div> <!-- end comments -->
 <?php } ?>

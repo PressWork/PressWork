@@ -6,13 +6,13 @@
  */
 class PW_Flickr_Widget extends WP_Widget {
 	function PW_Flickr_Widget() {
-		$widget_ops = array('classname' => 'pw_flickr_feed', 'description' => __('Displays your flickr photos', "presswork") );
-		$this->WP_Widget('pw_flickr_feed', __('PW - Flickr Feed', "presswork"), $widget_ops);	
+		$widget_ops = array( 'classname' => 'pw_flickr_feed', 'description' => __( 'Displays your flickr photos', "presswork") );
+		$this->WP_Widget( 'pw_flickr_feed', __( 'PW - Flickr Feed', "presswork"), $widget_ops);	
 	}
 
 	function widget($args, $instance) {
 		extract($args, EXTR_SKIP);
-		$title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']);	
+		$title = empty($instance['title']) ? '' : apply_filters( 'widget_title', $instance['title']);	
 		$UserID = $instance['UserID'];
 		$NumPics = $instance['NumPics'];
 		$link = $instance['link'];
@@ -40,10 +40,10 @@ class PW_Flickr_Widget extends WP_Widget {
 		$NumPics = strip_tags($instance['NumPics']);
 		$link = strip_tags($instance['link']);
 		?>
-		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', "presswork"); ?>: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></label></p>
-		<p><label for="<?php echo $this->get_field_id('UserID'); ?>"><?php _e('UserID', "presswork"); ?>: <input class="widefat" id="<?php echo $this->get_field_id('UserID'); ?>" name="<?php echo $this->get_field_name('UserID'); ?>" type="text" value="<?php echo esc_attr($UserID); ?>" /></label><br /><a href="http://idgettr.com/" target="_blank"><?php _e('Flickr idGettr', "presswork"); ?></a></p>
-		<p><label for="<?php echo $this->get_field_id('NumPics'); ?>"><?php _e('Number of Photos', "presswork"); ?>: <input class="widefat" id="<?php echo $this->get_field_id('NumPics'); ?>" name="<?php echo $this->get_field_name('NumPics'); ?>" type="text" value="<?php echo esc_attr($NumPics); ?>" /></label></p>
-		<p><label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link Text', "presswork"); ?>: <input class="widefat" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo esc_attr($link); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', "presswork"); ?>: <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'UserID' ); ?>"><?php _e( 'UserID', "presswork"); ?>: <input class="widefat" id="<?php echo $this->get_field_id( 'UserID' ); ?>" name="<?php echo $this->get_field_name( 'UserID' ); ?>" type="text" value="<?php echo esc_attr($UserID); ?>" /></label><br /><a href="http://idgettr.com/" target="_blank"><?php _e( 'Flickr idGettr', "presswork"); ?></a></p>
+		<p><label for="<?php echo $this->get_field_id( 'NumPics' ); ?>"><?php _e( 'Number of Photos', "presswork"); ?>: <input class="widefat" id="<?php echo $this->get_field_id( 'NumPics' ); ?>" name="<?php echo $this->get_field_name( 'NumPics' ); ?>" type="text" value="<?php echo esc_attr($NumPics); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'link' ); ?>"><?php _e( 'Link Text', "presswork"); ?>: <input class="widefat" id="<?php echo $this->get_field_id( 'link' ); ?>" name="<?php echo $this->get_field_name( 'link' ); ?>" type="text" value="<?php echo esc_attr($link); ?>" /></label></p>
 		<?php
 
 	}
@@ -57,4 +57,4 @@ class PW_Flickr_Widget extends WP_Widget {
 		return $instance;
 	}
 }
-register_widget('PW_Flickr_Widget');
+register_widget( 'PW_Flickr_Widget' );

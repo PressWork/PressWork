@@ -5,7 +5,7 @@
  *
  * @since PressWork 1.0
  */
-if(!function_exists('pw_footer_scripts')) :
+if(!function_exists( 'pw_footer_scripts' )) :
 	function pw_footer_scripts() {
 		echo "\n<!-- PressWork Toolbox Scripts -->";
 		?>	
@@ -19,7 +19,7 @@ if(!function_exists('pw_footer_scripts')) :
 				nonce: nonce,
 				action: 'remove_welcome_screen'
 			};
-		$.post('<?php echo admin_url('admin-ajax.php'); ?>', data,
+		$.post( '<?php echo admin_url( 'admin-ajax.php' ); ?>', data,
 		function(response){
 			$("#pw_welcome_screen, #pw_fadeback").fadeOut("slow", 
 				function() { 
@@ -50,7 +50,7 @@ if(!function_exists('pw_footer_scripts')) :
 			};
 		message.hide();
 		loader.show();
-		$.post('<?php echo admin_url('admin-ajax.php'); ?>', data,
+		$.post( '<?php echo admin_url( 'admin-ajax.php' ); ?>', data,
 		function(response){
 			loader.hide();
 			message.fadeIn();
@@ -65,44 +65,44 @@ if(!function_exists('pw_footer_scripts')) :
 		layoutselect();
 	});
 
-    $('.font-select a').click(function() {
+    $( '.font-select a' ).click(function() {
 		var section_to_show = $(this).next(),
-			already_visible = $('.font-preview:visible');
-		section_to_show.slideToggle('slow');
-		already_visible.slideUp('slow');
+			already_visible = $( '.font-preview:visible' );
+		section_to_show.slideToggle( 'slow' );
+		already_visible.slideUp( 'slow' );
 	});
     
     $(".font-preview a").bind({
 		click: function(){
 			var el = $(this),
-				fontSelect = el.parents('.font-select'),
-				fontPreview = el.parents('.font-preview'),
+				fontSelect = el.parents( '.font-select' ),
+				fontPreview = el.parents( '.font-preview' ),
 				thisText = el.text();
 			fontSelect
-				.children('a.current').text(thisText).css('font-family', thisText)
+				.children( 'a.current' ).text(thisText).css( 'font-family', thisText)
 				.end()
-				.children('input').val(thisText);
+				.children( 'input' ).val(thisText);
 			fontPreview	
-				.children('a.selected').removeClass('selected')
+				.children( 'a.selected' ).removeClass( 'selected' )
 				.end()
-				.parents('.font-preview').slideUp('slow');
-			el.addClass('selected');		
+				.parents( '.font-preview' ).slideUp( 'slow' );
+			el.addClass( 'selected' );		
 		},
 		mouseenter: function(){
 			var el = $(this),
-				to_style = el.parents('.font-select').children('a.current').data("pw-selectors"),
+				to_style = el.parents( '.font-select' ).children( 'a.current' ).data("pw-selectors"),
 				this_font = el.text();
-			//console.log('to_style: ' + to_style + ', this_font: ' + this_font);
-			if(!el.parent('.font-preview').is(':animated'))
+			//console.log( 'to_style: ' + to_style + ', this_font: ' + this_font);
+			if(!el.parent( '.font-preview' ).is( ':animated' ))
 				$(to_style).css({ fontFamily : this_font });
 		},
 		mouseleave: function(){
 			var el = $(this),
-				current = el.parents('.font-select').children('a.current'),
+				current = el.parents( '.font-select' ).children( 'a.current' ),
 				to_style = current.data("pw-selectors"),
 				original_option = current.text();
-			// console.log('to_style: ' + to_style + ', original_option: ' + original_option);
-			if(!el.parent('.font-preview').is(':animated'))
+			// console.log( 'to_style: ' + to_style + ', original_option: ' + original_option);
+			if(!el.parent( '.font-preview' ).is( ':animated' ))
 				$(to_style).css({ fontFamily : original_option});
 		}
 	});
@@ -126,8 +126,8 @@ if(!function_exists('pw_footer_scripts')) :
 	
 	if($(".colorpicker").val()=="") $(".colorpicker").val("#")
 	
-	var f = $.farbtastic('#picker');
-    $('.colorpicker')
+	var f = $.farbtastic( '#picker' );
+    $( '.colorpicker' )
     	.each(function() { f.linkTo(this); })
       	.focus(function() { f.linkTo(this);	})
 		.change(function() { if($(this).val()=="") $(this).val("#"); change_styles(); });
@@ -141,7 +141,7 @@ if(!function_exists('pw_footer_scripts')) :
 		$(".colorpicker:visible").each(function() {
 			var el = $(this),
 				col = el.val(),
-				style = el.data("pw-selectors").split('|'),
+				style = el.data("pw-selectors").split( '|' ),
 				addstyle = style[0] + " { " + style[1] + ": " + col + "; }\n";
 			$("#pw_style_preview").append(addstyle);
 		});	
@@ -149,7 +149,7 @@ if(!function_exists('pw_footer_scripts')) :
 
 	$("#body_font_size").change(function() {
 		var size = $(this).val();
-		$('body').css("font-size", size+"px");
+		$( 'body' ).css("font-size", size+"px");
 	});
 	$(".add-item").click(function(){
 		var el = $(this);
@@ -169,15 +169,15 @@ if(!function_exists('pw_footer_scripts')) :
 					nonce: nonce,
 				};
 			loader.show();
-			$.post('<?php echo admin_url('admin-ajax.php'); ?>', data,
+			$.post( '<?php echo admin_url( 'admin-ajax.php' ); ?>', data,
 			function(response){
 				loader.hide();
 				if(response) {
 					main.append(response);
 					if(wrap[1]=="layout") {
 						var last = main.find("li#"+item),
-							newfull = parseInt($('.layout_widths[data-pw-ids="'+item+'"]').val()),
-							contentMargins = parseInt($('#content_margins').val()),
+							newfull = parseInt($( '.layout_widths[data-pw-ids="'+item+'"]' ).val()),
+							contentMargins = parseInt($( '#content_margins' ).val()),
 							bodyWrapper = $("#body-wrapper"),
 							full = bodyWrapper.width(),
 							total_new = full + newfull + contentMargins;
@@ -210,7 +210,7 @@ if(!function_exists('pw_footer_scripts')) :
 				id: theID
 			};
 		loader.show();
-		$.post('<?php echo admin_url('admin-ajax.php'); ?>', data,
+		$.post( '<?php echo admin_url( 'admin-ajax.php' ); ?>', data,
 		function(response){
 			setTimeout(function() { location.reload(); }, 1000);
 		});
@@ -223,7 +223,7 @@ if(!function_exists('pw_footer_scripts')) :
 					action: 'reset_theme_options'
 				};
 			loader.show();
-			$.post('<?php echo admin_url('admin-ajax.php'); ?>', data,
+			$.post( '<?php echo admin_url( 'admin-ajax.php' ); ?>', data,
 			function(response){
 				setTimeout(function() { location.reload(); }, 1000);
 			});
@@ -305,8 +305,8 @@ if(!function_exists('pw_footer_scripts')) :
 	
 	$("#social .themeoptions input").change(function() { 
 		var value = $(this).val(),
-			el = $(this).attr('name');
-		if(value=='') {
+			el = $(this).attr( 'name' );
+		if(value=='' ) {
 			$("#social-icons a."+el+"-icon").remove();
 		} else if($("#social-icons a."+el+"-icon").length==0) {
 			var theURL;
@@ -324,14 +324,14 @@ if(!function_exists('pw_footer_scripts')) :
 			it = $(this).data("pw-toolbox-name"),
 			par = $("#"+it);
 		if(button.hasClass("open")) {
-			par.stop(true,true).fadeOut('fast');
+			par.stop(true,true).fadeOut( 'fast' );
 			button.removeClass("open");
 			return;
 		}
 		$(".open_toolbox").removeClass("open");
 		button.addClass("open");
 		if($(".pw_toolbox_content").not(par).is(".open")) {
-			$(".pw_toolbox_content.open").fadeOut('fast', function() {
+			$(".pw_toolbox_content.open").fadeOut( 'fast', function() {
 				if(!par.hasClass("open")) par.stop(true,true).fadeIn().addClass("open");
 			}).removeClass("open");
 		} else {
@@ -340,7 +340,7 @@ if(!function_exists('pw_footer_scripts')) :
 	});
 	
 	$(".closewindow").click(function() {
-		$(".pw_toolbox_content").fadeOut('fast');	
+		$(".pw_toolbox_content").fadeOut( 'fast' );	
 		$(".open_toolbox").removeClass("open");
 	});
 <?php if(pw_theme_option("dragdrop")=="on") { ?>
@@ -358,8 +358,8 @@ if(!function_exists('pw_footer_scripts')) :
 				nonce: nonce,
 			};
 		loader.show();
-		$('.add-item[data-pw-ids="'+element+'"]').removeClass("disabled");
-		$.post('<?php echo admin_url('admin-ajax.php'); ?>', data,
+		$( '.add-item[data-pw-ids="'+element+'"]' ).removeClass("disabled");
+		$.post( '<?php echo admin_url( 'admin-ajax.php' ); ?>', data,
 		function(response){
 			loader.hide();
 			if(option=="layout_option") {
@@ -367,7 +367,7 @@ if(!function_exists('pw_footer_scripts')) :
 					newfull = theitem.width(),
 					bodyWrapper = $("#body-wrapper"),
 					full = bodyWrapper.width(),
-					new_width = full - newfull - parseInt($('#content_margins').val());
+					new_width = full - newfull - parseInt($( '#content_margins' ).val());
 				theitem.remove();
 				$("#header_image").animate({ backgroundSize: new_width });
 				bodyWrapper.stop(true,true).animate({
@@ -428,7 +428,7 @@ if(!function_exists('pw_footer_scripts')) :
 	
 	// ask the user to confirm the window closing
 	window.onbeforeunload = function() {
-		if($('#savetheme').hasClass("remember")) {
+		if($( '#savetheme' ).hasClass("remember")) {
 			return "<?php _e("If you leave this page you will lose your changes.", "presswork"); ?>";
 		}
 	}

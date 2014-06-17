@@ -1,5 +1,5 @@
 <?php
-if(!function_exists('pw_columns')) :
+if(!function_exists( 'pw_columns' )) :
 /**
  * Add pw_columns functionality
  *
@@ -8,7 +8,7 @@ if(!function_exists('pw_columns')) :
  *
  * @since PressWork 1.0
  */
-	function pw_columns($args = '') {
+	function pw_columns($args = '' ) {
 		global $pw_content_width, $paged;
 		
 		$defaults = array(
@@ -40,7 +40,7 @@ if(!function_exists('pw_columns')) :
 
 		$content_width = empty($r['container_width']) ? $pw_content_width : $r['container_width'];
 	
-		$featuredcat = pw_theme_option('fp_featured');
+		$featuredcat = pw_theme_option( 'fp_featured' );
 		$post_query = array(
 			"posts_per_page"=>$r['posts'],
 			"ignore_sticky_posts" => 1,
@@ -85,7 +85,7 @@ if(!function_exists('pw_columns')) :
 			<?php if($x!=1 && $r['columns']>1)  $final_width = $col_width.' margin-left: '.$colmargin.'px;"'; else $final_width = $col_width.'"'; ?>
 			<?php if($x==$r['columns']) $x=0; ?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class($clear); echo $final_width; ?>>
-				<?php pw_actionBlock('pw_columns', $r); ?>
+				<?php pw_actionBlock( 'pw_columns', $r); ?>
 			</article>
 		<?php $x++; endwhile; ?>
 		</div>

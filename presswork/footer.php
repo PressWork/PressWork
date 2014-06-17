@@ -10,10 +10,10 @@
  ?>
    	</ul> <!-- end #main-wrapper ul -->
 	<footer id="footer-main" class="clearfix fl" role="contentinfo"> <!-- begin footer -->
-		<?php pw_actionBlock('pw_footer'); ?>
+		<?php pw_actionBlock( 'pw_footer' ); ?>
 	</footer> <!-- end footer -->
 </div> <!-- end #body-wrapper -->
-<?php pw_actionCall('pw_body_bottom'); ?>
+<?php pw_actionCall( 'pw_body_bottom' ); ?>
 <?php wp_footer(); ?>
 <!-- PressWork framework created by c.bavota & Brendan Sera-Shriar - http://presswork.me -->
 </body>

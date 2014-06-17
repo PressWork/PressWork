@@ -16,12 +16,12 @@
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<title><?php wp_title('|',true,'right'); ?><?php bloginfo('name'); if(is_front_page()) { echo ' | '; bloginfo('description'); } if ( $paged > 1 ) { echo (' | Page '); echo $paged; } ?></title>
+<title><?php wp_title( '|',true,'right' ); ?><?php bloginfo( 'name' ); if(is_front_page()) { echo ' | '; bloginfo( 'description' ); } if ( $paged > 1 ) { echo ( ' | Page ' ); echo $paged; } ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="screen" />
 <?php pw_header_css(); ?>
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-<?php $favicon = pw_theme_option('favicon'); if(!empty($favicon)) echo '<link rel="shortcut icon" type="image/x-icon" href="'.$favicon.'" />'."\n"; ?>
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<?php $favicon = pw_theme_option( 'favicon' ); if(!empty($favicon)) echo '<link rel="shortcut icon" type="image/x-icon" href="'.$favicon.'" />'."\n"; ?>
 <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width" />
@@ -34,10 +34,10 @@
 <!--[if IE 9 ]>    <body <?php body_class("ie9"); ?>> <![endif<]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <body <?php body_class(); ?>> <!--<![endif]-->
 
-<?php pw_actionCall('pw_body_top'); ?>
+<?php pw_actionCall( 'pw_body_top' ); ?>
 <div id="body-wrapper" class="clearfix">
     <header id="header-main" role="banner"> <!-- begin header -->
-		<?php pw_actionBlock('pw_header'); ?>
+		<?php pw_actionBlock( 'pw_header' ); ?>
     </header> <!-- end header -->
     <ul id="main-wrapper">
 	
