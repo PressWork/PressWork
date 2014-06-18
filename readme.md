@@ -7,14 +7,12 @@
 
 ## Documentation
 
+* [PressWork](http://presswork.io/)
 
-## Contributing
-
-
-### Support Questions
+## Get Involved
 
 
-### Issues / Bugs
+### Support
 
 
-### Pull Requests
+### Issues
