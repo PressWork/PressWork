@@ -395,7 +395,7 @@ if(!function_exists( 'pw_help' )) :
 		$screen->add_help_tab( array( 'id'      => 'pw-new',
 			'title'   => __( 'New in v1.0.4', "presswork"),
 			'content' => '<p>'.__( 'PressWork v1.0.4 has been optimized to work with WordPress 3.3. Many new featured have been added to WP and the latest version of PressWork takes advantage of many of them, including this cool new help section. ', "presswork") . 
-				'<p>' . __( 'Check out the <a href="https://raw.github.com/emiluzelac/PressWork/master/changelog.txt">changelog</a> to see what we\'ve been up to.', "presswork") . '</p>' ));
+				'<p>' . __( 'Check out the <a href="https://raw.github.com/PressWork/PressWork/master/changelog.txt">changelog</a> to see what we\'ve been up to.', "presswork") . '</p>' ));
 
 		$screen->add_help_tab( array( 'id'      => 'pw-toolbox',
 			'title'   => __( 'The PressWork Toolbox', "presswork"),
@@ -411,7 +411,7 @@ if(!function_exists( 'pw_help' )) :
 		$screen->add_help_tab( array( 'id'      => 'pw-github',
 			'title'   => __( 'Contribute on GitHub', "presswork"),
 			'content' => '<p><strong>' . __("Be a part of the PressWork Community", "presswork") . '</strong></p>' .
-				'<p>' . __("If you've got mad skills when it comes to WordPress and you want to join the PressWork community, find us on <a href='https://github.com/emiluzelac/PressWork' target='_blank'>GitHub</a> and contribute. Together we can make PressWork the ultimate WordPress framework.", "presswork") . '</p>' ));
+				'<p>' . __("If you've got mad skills when it comes to WordPress and you want to join the PressWork community, find us on <a href='https://github.com/PressWork/PressWork' target='_blank'>GitHub</a> and contribute. Together we can make PressWork the ultimate WordPress framework.", "presswork") . '</p>' ));
 
 		$screen->set_help_sidebar( '<p><strong>' . __( 'For more information:', "presswork") . '</strong></p>' .
 			'<p>' . __( '<a href="http://presswork.me/category/documentation/" target="_blank">Documentation</a>', "presswork") . '</p>' .
