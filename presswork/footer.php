@@ -15,6 +15,6 @@
 </div> <!-- end #body-wrapper -->
 <?php pw_actionCall( 'pw_body_bottom' ); ?>
 <?php wp_footer(); ?>
-<!-- PressWork framework created by c.bavota & Brendan Sera-Shriar - http://presswork.io -->
+<!-- PressWork framework created by c.bavota & Brendan Sera-Shriar - http://presswork.me -->
 </body>
 </html>
