@@ -1,0 +1,9 @@
+Theme Name: PressWork 	
+Theme URI: http://presswork.me/about/ 	
+Description: PressWork is a free, open source WordPress theme framework built for modern browsers using HTML5 and CSS3. Features include a drag & drop front-end editor for easy customization, the top 20 most popular Google Fonts and aresponsive design using media queries so your site will look good on the iPad, iPhone and other handheld devices. Created by <a href="http://bavotasan.com/">c.bavota</a> and <a href="http://digibombinc.com">Brendan Sera-Shriar</a>.
+Version: 1.0.4
+Author: c.bavota, Brendan Sera-Shriar
+Author URI: http://presswork.me/
+Tags: right-sidebar, left-sidebar, flexible-width, three-columns, two-columns, one-column, white, green, custom-header, custom-background, custom-colors, custom-menu, featured-images, full-width-template, post-formats, sticky-post, threaded-comments, translation-ready, theme-options
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
