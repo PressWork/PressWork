@@ -4,6 +4,7 @@
 
 * **Stable version:** 1.0.4
 * **Contributors:** @PressWork
+* **Author URI:** http://presswork.me/
 
 ## Documentation
 
