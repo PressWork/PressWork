@@ -8,7 +8,7 @@
 
 ## Documentation
 
-* [PressWork](http://presswork.me/)
+* [PressWork](http://www.presswork.me/category/documentation/)
 
 ## Get Involved
 
